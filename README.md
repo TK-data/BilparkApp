@@ -45,7 +45,13 @@ sails lift
 ```
 
 ### React native app
-Same structure as the backend part TEAM TODO YO.
+You need the [Expo app](https://expo.io) to run the app on mobile devices.
+```
+cd BilparkApp
+npm install
+npm start
+```
+Use the Expo app to scan the QR code shown in the terminal.
 
 ### Dashboard react app
 Same structure as the backend part TEAM TODO YO.
