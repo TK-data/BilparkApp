@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - "iojs"
+  - "7"
+before_install:
+  cd BilparkApp
+
+before_script:
+  npm install
+
+notifications:
+  email: false
+
+script:
+  npm test
