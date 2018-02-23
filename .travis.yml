@@ -13,4 +13,6 @@ script:
 
 notifications:
   email: false
-  slack: bachelor-it2901:GvHs8vnnvxJB8Rfb78EuRnJ8
+  slack:
+    rooms:
+      - bachelor-it2901:GvHs8vnnvxJB8Rfb78EuRnJ8#travis
