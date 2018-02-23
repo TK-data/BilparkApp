@@ -14,5 +14,5 @@ script:
   - npm test
 
  notifications:
-  email: false
-  slack: bachelor-it2901:GvHs8vnnvxJB8Rfb78EuRnJ8
+  - email: false
+  - slack: bachelor-it2901:GvHs8vnnvxJB8Rfb78EuRnJ8
