@@ -7,8 +7,12 @@ before_install:
 before_script:
   - npm install
 
-notifications:
-  email: false
+install:
+  - npm install -g codecov
 
 script:
- - npm test
+  - npm test
+
+ notifications:
+  email: false
+  slack: bachelor-it2901:GvHs8vnnvxJB8Rfb78EuRnJ8
