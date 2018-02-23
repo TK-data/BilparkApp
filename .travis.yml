@@ -1,6 +1,7 @@
 language: node_js
 node_js:
   - "7"
+  
 before_install:
   - cd BilparkApp
 
@@ -10,6 +11,6 @@ before_script:
 script:
   - npm test
 
- notifications:
+notifications:
   - email: false
   - slack: bachelor-it2901:GvHs8vnnvxJB8Rfb78EuRnJ8
