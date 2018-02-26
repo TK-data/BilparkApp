@@ -6,9 +6,9 @@ NTNU Course IT2901 (Bachelorproject) repository for group 15 with the task TK_DA
 * [Overview](#overview)
 * [Run Application](#run-application)
 * [Development Setup](#development-setup)
-* [React Native Application](#react-native-application)
-* [React Dashboard Application](#react-dashboard-application)
-* [Sails.js Backend](#sails.js-backend)
+* [React Native App Description](#react-native-app-description)
+* [React Dashboard Description](#react-dashboard-description)
+* [Sails.js Backend](#sails.js-backend-description)
 * [API Reference](#api-reference)
 * [Travis CI](#travis-ci)
 * [Deployment](#deployment)
@@ -49,7 +49,7 @@ Describe steps to setup and run the dashboard application.
 
 
 
-## React Native Application
+## React Native App Description
 Components, containers, modules and other parts of the React Native "Mobile" Application.
 
 ### Containers/modules
@@ -61,10 +61,10 @@ Comp 1 description
 comp 2 description
 ### Service classes
 
-## React Dashboard Application
+## React Dashboard Description
 Components, containers, modules and other parts of the React "Dashboard" Application.
 
-## Sails.js Backend
+## Sails.js Backend Description
 Our back-end is based on [Sails](https://sailsjs.com/), an MVC and API framework that builds upon Express.js for Node.js
 
 ## API Reference
@@ -87,6 +87,7 @@ Get the list of all users. Admin privileges.
 #### Database
 
 ## Travis CI
+
 
 ## Deployement
 Additional notes about how to deploy this on a system.
