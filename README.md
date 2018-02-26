@@ -87,7 +87,11 @@ Get the list of all users. Admin privileges.
 #### Database
 
 ## Travis CI
+<img src="https://travis-ci.com/images/logos/TravisCI-Full-Color.png" width="250" height="100">
 
+We use [Travis CI](https://travis-ci.org/), a tool for Continuous Integration, to run our tests and upload code coverage reports to [codecov.io](https://codecov.io/).
+
+Travis is activated on the repository and project/language specific settings are specified in the [.travis.yml](.travis.yml). 
 
 ## Deployement
 Additional notes about how to deploy this on a system.
