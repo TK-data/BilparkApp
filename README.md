@@ -1,11 +1,56 @@
-# Project title
+# TK_DATA
 
-Intro for project. One liner.
+NTNU Course IT2901 (Bachelorproject) repository for group 15 with the task TK_DATA.
 
-### Known issues
-* Spaghetti code in the react native app for handling updates bla bla is prone to errors.
+## List of contents
+* [Overview](#overview)
+* [Run Application](#run-application)
+* [Development Setup](#development-setup)
+* [React Native App Description](#react-native-app-description)
+* [React Dashboard Description](#react-dashboard-description)
+* [Sails.js Backend](#sails.js-backend-description)
+* [API Reference](#api-reference)
+* [Travis CI](#travis-ci)
+* [Deployment](#deployment)
 
-## React native app structure
+## Overview
+Overall description of our task/project, what components are part of the solution and how they work together.
+
+## Run Application
+Steps to run our product package as a end-user.
+
+## Development Setup
+Do the following steps to set up and run the application for development. To make the application work properly, the backend has to be up and running.
+### Backend
+Install sails globally for the sails command to work:
+```
+npm i -g sails
+```
+To install the application, navigate to the backend folder and run:
+```
+npm install
+```
+To locally run the backend on your machine, navigate to the backend folder, and serve it with:
+```
+sails lift
+```
+
+### React Native Application
+You need the [Expo app](https://expo.io) to run the app on mobile devices.
+```
+cd BilparkApp
+npm install
+npm start
+```
+Use the Expo app to scan the QR code shown in the terminal.
+
+### Dashboard React Application
+Describe steps to setup and run the dashboard application.
+
+
+
+## React Native App Description
+Components, containers, modules and other parts of the React Native "Mobile" Application.
 
 ### Containers/modules
 
@@ -16,48 +61,14 @@ Comp 1 description
 comp 2 description
 ### Service classes
 
-## React dashboard structure
+## React Dashboard Description
+Components, containers, modules and other parts of the React "Dashboard" Application.
 
-## Sails.js backend
+## Sails.js Backend Description
 Our back-end is based on [Sails](https://sailsjs.com/), an MVC and API framework that builds upon Express.js for Node.js
 
-### Blueprint APIs
-#### Models
-#### Controllers
-#### Policies
-#### Session
-#### Database
-
-## Development setup
-Do the following steps to set up and run the application for development. To make the application work properly, it is needed to have the backend up and running.
-### Backend
-Install sails globally for the sails command to work:
-```
-npm i -g sails
-```
-To install the application, CD to the backend folder and run:
-```
-npm install
-```
-To locally run the backend on your machine, CD to the backend folder, and serve it with:
-```
-sails lift
-```
-
-### React native app
-You need the [Expo app](https://expo.io) to run the app on mobile devices.
-```
-cd BilparkApp
-npm install
-npm start
-```
-Use the Expo app to scan the QR code shown in the terminal.
-
-### Dashboard react app
-Same structure as the backend part TEAM TODO YO.
-
-## API reference
-### example Users
+## API Reference
+### Example Users
 ```
 POST /api/user
 ```
@@ -66,10 +77,29 @@ Passworld limits etcetc
 ```
 GET /api/user
 ```
-Get the list of all users. Admin privileges. 
+Get the list of all users. Admin privileges.
+
+### Blueprint APIs
+#### Models
+#### Controllers
+#### Policies
+#### Session
+#### Database
+
+## Travis CI
+<img src="https://travis-ci.com/images/logos/TravisCI-Full-Color.png" width="250" height="100">
+
+We use [Travis CI](https://travis-ci.org/), a tool for Continuous Integration, to run our tests and upload code coverage reports to [codecov.io](https://codecov.io/).
+
+Travis is activated on the repository and project/language specific settings are specified in the [.travis.yml](.travis.yml). 
 
 ## Deployement
 Additional notes about how to deploy this on a system.
 
 ## Authors
-* **Tom** - *nothing* - [Git repo](https://google.com)
+* **Christian Nyvoll** - *Team Leader* - [Git](https://github.com/Chr1stian) - [LinkedIn](https://www.linkedin.com/in/christian-nyvoll-94065b65/)
+* **Emil Schrøder** - *Social Leader* - [Git](https://github.com/emilps) - [LinkedIn](https://www.linkedin.com/in/emil-schr%C3%B8der-52b948105/)
+* **Erling Ihlen** - *Test Leader* - [Git](https://github.com/)
+* **Henrik Liodden** - *Nothing* - [Git](https://github.com/)
+* **Kristiane Westgård** - *Agile Leader* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/kristianeaw/)
+* **Øystein Hammersland** - *Lead Designer* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/%C3%B8ystein-hammersland-a9698772/)
