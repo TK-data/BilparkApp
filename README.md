@@ -94,8 +94,8 @@ Additional notes about how to deploy this on a system.
 
 ## Authors
 * **Christian Nyvoll** - *Team Leader* - [Git](https://github.com/Chr1stian) - [LinkedIn](https://www.linkedin.com/in/christian-nyvoll-94065b65/)
-* **Emil Schrøder** - *Nothing* - [Git](https://github.com/)
+* **Emil Schrøder** - *Social Leader* - [Git](https://github.com/emilps) - [LinkedIn](https://www.linkedin.com/in/emil-schr%C3%B8der-52b948105/)
 * **Erling Ihlen** - *Test Leader* - [Git](https://github.com/)
 * **Henrik Liodden** - *Nothing* - [Git](https://github.com/)
-* **Kristiane Westgård** - *Agile Leader* - [Git](https://github.com/)
-* **Øystein Hammersland** - *Lead Designer* - [Git](https://github.com/)
+* **Kristiane Westgård** - *Agile Leader* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/kristianeaw/)
+* **Øystein Hammersland** - *Lead Designer* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/%C3%B8ystein-hammersland-a9698772/)
