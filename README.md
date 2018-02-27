@@ -91,14 +91,14 @@ Get the list of all users. Admin privileges.
 
 We use [Travis CI](https://travis-ci.org/), a tool for Continuous Integration, to run our tests and upload code coverage reports to [codecov.io](https://codecov.io/).
 
-Travis is activated on the repository and project/language specific settings are specified in the [.travis.yml](.travis.yml). 
+Travis is activated on the repository and project/language specific settings are specified in the [.travis.yml](.travis.yml).
 
 ## Deployement
 Additional notes about how to deploy this on a system.
 
 ## Authors
-* **Christian Nyvoll** - *Team Leader* - [Git](https://github.com/Chr1stian) - [LinkedIn](https://www.linkedin.com/in/christian-nyvoll-94065b65/)
-* **Emil Schrøder** - *Social Leader* - [Git](https://github.com/emilps) - [LinkedIn](https://www.linkedin.com/in/emil-schr%C3%B8der-52b948105/)
+* **Christian Nyvoll** - *Team Leader* - [Git](https://github.com/Chr1stian) - [LinkedIn](https://www.linkedin.com/in/christiannyvoll/)
+* **Emil Schrøder** - *Social Leader* - [Git](https://github.com/emilps) - [LinkedIn](https://www.linkedin.com/in/emil-schroder/)
 * **Erling Ihlen** - *Test Leader* - [Git](https://github.com/)
 * **Henrik Liodden** - *Nothing* - [Git](https://github.com/)
 * **Kristiane Westgård** - *Agile Leader* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/kristianeaw/)
