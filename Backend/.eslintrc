@@ -5,6 +5,8 @@
   },
   "rules": {
 
+    "no-console": 0,
+
     //Stylistic Issues
     "array-bracket-spacing": [2, "never"], // enforce spacing inside array brackets
     "block-spacing": 0,                    // disallow or enforce spaces inside of single line blocks
@@ -32,14 +34,8 @@
     "keyword-spacing": [2, {
       "before": true,
       "after": true,
-      "overrides": {
-        "if": {"after": false},
-        "for": {"after": false},
-        "while": {"after": false},
-        "catch": {"after": false}
-      }
     }],                                    // enforce spacing before and after keywords
-    "linebreak-style": 2,                  // disallow mixed 'LF' and 'CRLF' as linebreaks
+    "linebreak-style": 0,                  // disallow mixed 'LF' and 'CRLF' as linebreaks
     "lines-around-comment": 0,             // enforce empty lines around comments
     "max-depth": 1,                        // specify the maximum depth that blocks can be nested
     "max-len": [1, 200],                   // specify the maximum length of a line in your program
@@ -93,7 +89,6 @@
     "space-before-blocks": 2,              // require or disallow a space before blocks
     "space-before-function-paren": [
       2,
-      "never"
     ],                                     // require or disallow a space before function opening parenthesis
     "space-in-parens": 2,                  // require or disallow spaces inside parentheses
     "space-infix-ops": 2,                  // require spaces around operators
