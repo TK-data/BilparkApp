@@ -6,6 +6,8 @@
     "parser": "babel-eslint", // needed to make babel stuff work properly
     "extends": "airbnb",
     "rules": {
+      "no-undef":2,
+      "react/jsx-filename-extension":0
 
     }
 }
