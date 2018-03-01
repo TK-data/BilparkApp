@@ -8,7 +8,8 @@
     "parser": "babel-eslint", // needed to make babel stuff work properly
     "extends": "airbnb",
     "rules": {
-      "react/jsx-filename-extension": 0
+      "react/jsx-filename-extension": 0,
+      "indent": ["error", 2]
 
     }
 }
