@@ -16,7 +16,6 @@
  */
 
 module.exports = function badRequest(data, options) {
-
   // Get access to `req`, `res`, & `sails`
   var req = this.req;
   var res = this.res;
@@ -27,10 +26,10 @@ module.exports = function badRequest(data, options) {
 
   // Log error to console
   if (data !== undefined) {
-    sails.log.verbose('Sending 400 ("Bad Request") response: \n',data);
+    sails.log.verbose('Sending 400 ("Bad Request") response: \n', data);
+  } else {
+    sails.log.verbose('Sending 400 ("Bad Request") response');
   }
-  else sails.log.verbose('Sending 400 ("Bad Request") response');
-
   // Only include errors in response if application environment
   // is not set to 'production'.  In production, we shouldn't
   // send back any identifying information about errors.
@@ -53,8 +52,7 @@ module.exports = function badRequest(data, options) {
   if (!(viewData instanceof Error) && 'object' == typeof viewData) {
     try {
       viewData = require('util').inspect(data, {depth: null});
-    }
-    catch(e) {
+    } catch (e) {
       viewData = undefined;
     }
   }
@@ -64,13 +62,11 @@ module.exports = function badRequest(data, options) {
   // work, just send JSON.
   if (options.view) {
     return res.view(options.view, { data: viewData, title: 'Bad Request' });
+  } else {
+    // If no second argument provided, try to serve the implied view,
+    // but fall back to sending JSON(P) if no view can be inferred.
+    return res.guessView({ data: viewData, title: 'Bad Request' }, function couldNotGuessView () {
+      return res.jsonx(data);
+    });
   }
-
-  // If no second argument provided, try to serve the implied view,
-  // but fall back to sending JSON(P) if no view can be inferred.
-  else return res.guessView({ data: viewData, title: 'Bad Request' }, function couldNotGuessView () {
-    return res.jsonx(data);
-  });
-
 };
-
