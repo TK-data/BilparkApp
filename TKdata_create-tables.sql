@@ -4,7 +4,7 @@ CREATE TABLE Admin_user (
 	Email varchar(255),
 	Password varchar(255),
 	PRIMARY KEY(UserID)
-); 
+);
 
 CREATE TABLE Users (
 	UserID int NOT NULL AUTO_INCREMENT,
@@ -20,8 +20,8 @@ CREATE TABLE Users (
 );
 
 CREATE TABLE Registered_fuel_refill(
-	RefillID int NOT NULL AUTO_INCREMENT, 
-	UserID int, 
+	RefillID int NOT NULL AUTO_INCREMENT,
+	UserID int,
 	Timestamp TIMESTAMP DEFAULT NOW(),
 	FuelTime Time,
 	Refueled BIT DEFAULT 0,
@@ -55,14 +55,14 @@ CREATE TABLE Company (
 
 CREATE TABLE Driving_log (
 	LogID int NOT NULL AUTO_INCREMENT,
-	UserID int, 
-	CarID int, 
-	Km int, 
+	UserID int,
+	CarID int,
+	Km int,
 	Date DATE,
 	LocationFrom varchar(255),
 	LocationTo varchar(255),
 	ParkingTicketImg varchar(255),
-	Cargo BIT, 
+	Cargo BIT,
 	NoOfPassengers int,
 	PassengerNames varchar(255),
 	Objective varchar(255),
@@ -73,11 +73,7 @@ CREATE TABLE Driving_rates (
 	RateID int NOT NULL AUTO_INCREMENT,
 	Year int NOT NULL,
 	KmRate FLOAT NOT NULL,
-	CargoRate FLOAT NOT NULL,Admin_user
+	CargoRate FLOAT NOT NULL,
 	PassengerRate FLOAT NOT NULL,
 	PRIMARY KEY (RateID)
 );
-
-
-
-
