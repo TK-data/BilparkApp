@@ -10,7 +10,8 @@ NTNU Course IT2901 (Bachelorproject) repository for group 15 with the task TK_DA
 * [React Dashboard Description](#react-dashboard-description)
 * [Sails.js Backend](#sails.js-backend-description)
 * [API Reference](#api-reference)
-* [Travis CI](#travis-ci)
+* [Linting](#linting)
+* [Continous Integration](#continous-integration)
 * [Deployment](#deployment)
 
 ## Overview
@@ -86,8 +87,18 @@ Get the list of all users. Admin privileges.
 #### Session
 #### Database
 
-## Travis CI
-<img src="https://travis-ci.com/images/logos/TravisCI-Full-Color.png" width="250" height="100">
+## Linting
+<img
+src="https://es6.io/images/eslint.png"
+width="50%" height="auto">
+
+We use [ESLint]() to ensure code standards. The rules are defined in [Backend/.eslintrc](Backend/.eslintrc) and [BilparkApp/.eslintrc](BilparkApp/.eslintrc).
+
+For setup: Install "linter" and "linter-eslint" in Atom. For other text editors, search for similar solutions.
+
+
+## Continous Integration
+<img src="https://travis-ci.com/images/logos/TravisCI-Full-Color.png" width="50%" height="auto">
 
 We use [Travis CI](https://travis-ci.org/), a tool for Continuous Integration, to run our tests and upload code coverage reports to [codecov.io](https://codecov.io/).
 
