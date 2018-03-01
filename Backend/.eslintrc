@@ -6,6 +6,7 @@
   "rules": {
 
     "no-console": 0,
+    "no-multi-spaces": 2,
 
     //Stylistic Issues
     "array-bracket-spacing": [2, "never"], // enforce spacing inside array brackets
