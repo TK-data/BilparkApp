@@ -11,7 +11,8 @@ NTNU Course IT2901 (Bachelorproject) repository for group 15 with the task TK_DA
 * [Database](#database)
 * [Sails.js Backend](#sailsjs-backend-description)
 * [API Reference](#api-reference)
-* [Travis CI](#travis-ci)
+* [Linting](#linting)
+* [Continous Integration](#continous-integration)
 * [Deployment](#deployment)
 
 ## Overview
@@ -66,7 +67,7 @@ comp 2 description
 Components, containers, modules and other parts of the React "Dashboard" Application.
 
 ## Database
-We use [MySQL](https://www.mysql.com/) for the database. Set up your own MySQL database and use [TKdata_create-tables.sql](TKdata_create-tables.sql) to create all the tables you need for the project. 
+We use [MySQL](https://www.mysql.com/) for the database. Set up your own MySQL database and use [TKdata_create-tables.sql](TKdata_create-tables.sql) to create all the tables you need for the project.
 
 ## Sailsjs Backend Description
 Our back-end is based on [Sails](https://sailsjs.com/), an MVC and API framework that builds upon Express.js for Node.js
@@ -90,8 +91,18 @@ Get the list of all users. Admin privileges.
 #### Session
 #### Database
 
-## Travis CI
-<img src="https://travis-ci.com/images/logos/TravisCI-Full-Color.png" width="250" height="100">
+## Linting
+<img
+src="https://es6.io/images/eslint.png"
+width="50%" height="auto">
+
+We use [ESLint]() to ensure code standards. The rules are defined in [Backend/.eslintrc](Backend/.eslintrc) and [BilparkApp/.eslintrc](BilparkApp/.eslintrc).
+
+For setup: Install "linter" and "linter-eslint" in Atom. For other text editors, search for similar solutions.
+
+
+## Continous Integration
+<img src="https://travis-ci.com/images/logos/TravisCI-Full-Color.png" width="50%" height="auto">
 
 We use [Travis CI](https://travis-ci.org/), a tool for Continuous Integration, to run our tests and upload code coverage reports to [codecov.io](https://codecov.io/).
 
@@ -104,6 +115,6 @@ Additional notes about how to deploy this on a system.
 * **Christian Nyvoll** - *Team Leader* - [Git](https://github.com/Chr1stian) - [LinkedIn](https://www.linkedin.com/in/christiannyvoll/)
 * **Emil Schrøder** - *Social Leader* - [Git](https://github.com/emilps) - [LinkedIn](https://www.linkedin.com/in/emil-schroder/)
 * **Erling Ihlen** - *Test Leader* - [Git](https://github.com/)
-* **Henrik Liodden** - *Nothing* - [Git](https://github.com/)
+* **Henrik Liodden** - *Team Member* - [Git](https://github.com/)
 * **Kristiane Westgård** - *Agile Leader* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/kristianeaw/)
 * **Øystein Hammersland** - *Lead Designer* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/%C3%B8ystein-hammersland-a9698772/)
