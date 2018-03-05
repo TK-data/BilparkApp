@@ -13,8 +13,6 @@
  */
 
 module.exports = function(grunt) {
-
-
   // Load the include-all library in order to require all of our grunt
   // configurations and task registrations dynamically.
   var includeAll;
@@ -29,13 +27,10 @@ module.exports = function(grunt) {
       console.error('To fix this, please run:');
       console.error('npm install include-all --save`');
       console.error();
-
       grunt.registerTask('default', []);
       return;
     }
   }
-
-
   /**
    * Loads Grunt configuration modules from the specified
    * relative path. These modules should export a function
@@ -49,7 +44,6 @@ module.exports = function(grunt) {
       excludeDirs: /^\.(git|svn)$/
     }) || {};
   }
-
   /**
    * Invokes the function from a Grunt configuration module with
    * a single argument - the `grunt` object.
@@ -61,13 +55,9 @@ module.exports = function(grunt) {
       }
     }
   }
-
-
-
   // Load task functions
-  var taskConfigurations = loadTasks('./tasks/config'),
-    registerDefinitions = loadTasks('./tasks/register');
-
+  var taskConfigurations = loadTasks('./tasks/config');
+  var registerDefinitions = loadTasks('./tasks/register');
   // (ensure that a default task exists)
   if (!registerDefinitions.default) {
     registerDefinitions.default = function(grunt) {
@@ -78,5 +68,4 @@ module.exports = function(grunt) {
   // Run task functions to configure Grunt.
   invokeConfigFn(taskConfigurations);
   invokeConfigFn(registerDefinitions);
-
 };
