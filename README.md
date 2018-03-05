@@ -8,7 +8,8 @@ NTNU Course IT2901 (Bachelorproject) repository for group 15 with the task TK_DA
 * [Development Setup](#development-setup)
 * [React Native App Description](#react-native-app-description)
 * [React Dashboard Description](#react-dashboard-description)
-* [Sails.js Backend](#sails.js-backend-description)
+* [Database](#database)
+* [Sails.js Backend](#sailsjs-backend-description)
 * [API Reference](#api-reference)
 * [Linting](#linting)
 * [Continous Integration](#continous-integration)
@@ -65,7 +66,10 @@ comp 2 description
 ## React Dashboard Description
 Components, containers, modules and other parts of the React "Dashboard" Application.
 
-## Sails.js Backend Description
+## Database
+We use [MySQL](https://www.mysql.com/) for the database. Set up your own MySQL database and use [TKdata_create-tables.sql](TKdata_create-tables.sql) to create all the tables you need for the project. 
+
+## Sailsjs Backend Description
 Our back-end is based on [Sails](https://sailsjs.com/), an MVC and API framework that builds upon Express.js for Node.js
 
 ## API Reference
@@ -111,6 +115,6 @@ Additional notes about how to deploy this on a system.
 * **Christian Nyvoll** - *Team Leader* - [Git](https://github.com/Chr1stian) - [LinkedIn](https://www.linkedin.com/in/christiannyvoll/)
 * **Emil Schrøder** - *Social Leader* - [Git](https://github.com/emilps) - [LinkedIn](https://www.linkedin.com/in/emil-schroder/)
 * **Erling Ihlen** - *Test Leader* - [Git](https://github.com/)
-* **Henrik Liodden** - *Nothing* - [Git](https://github.com/)
+* **Henrik Liodden** - *Lead Leader* - [Git](https://github.com/)
 * **Kristiane Westgård** - *Agile Leader* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/kristianeaw/)
 * **Øystein Hammersland** - *Lead Designer* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/%C3%B8ystein-hammersland-a9698772/)
