@@ -67,7 +67,7 @@ comp 2 description
 Components, containers, modules and other parts of the React "Dashboard" Application.
 
 ## Database
-We use [MySQL](https://www.mysql.com/) for the database. Set up your own MySQL database and use [TKdata_create-tables.sql](TKdata_create-tables.sql) to create all the tables you need for the project. 
+We use [MySQL](https://www.mysql.com/) for the database. Set up your own MySQL database and use [TKdata_create-tables.sql](TKdata_create-tables.sql) to create all the tables you need for the project.
 
 ## Sailsjs Backend Description
 Our back-end is based on [Sails](https://sailsjs.com/), an MVC and API framework that builds upon Express.js for Node.js
@@ -115,6 +115,6 @@ Additional notes about how to deploy this on a system.
 * **Christian Nyvoll** - *Team Leader* - [Git](https://github.com/Chr1stian) - [LinkedIn](https://www.linkedin.com/in/christiannyvoll/)
 * **Emil Schrøder** - *Social Leader* - [Git](https://github.com/emilps) - [LinkedIn](https://www.linkedin.com/in/emil-schroder/)
 * **Erling Ihlen** - *Test Leader* - [Git](https://github.com/)
-* **Henrik Liodden** - *Lead Leader* - [Git](https://github.com/)
+* **Henrik Liodden** - *Package Manager* - [Git](https://github.com/)
 * **Kristiane Westgård** - *Agile Leader* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/kristianeaw/)
 * **Øystein Hammersland** - *Lead Designer* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/%C3%B8ystein-hammersland-a9698772/)
