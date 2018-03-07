@@ -73,16 +73,19 @@ We use [MySQL](https://www.mysql.com/) for the database. Set up your own MySQL d
 Our back-end is based on [Sails](https://sailsjs.com/), an MVC and API framework that builds upon Express.js for Node.js
 
 ## API Reference
-### Example Users
-```
-POST /api/user
-```
-Create a new user. Required fields: `email`and `password`.
-Passworld limits etcetc
+### User
+
 ```
 GET /api/user
 ```
-Get the list of all users. Admin privileges.
+Get an array of user objects, in JSON format. Further this api will be limited to admins only.
+
+```
+POST /api/user
+```
+Create a new user. Required fields in http `body`: `Fname`, `Lname`, `Address`.
+Further development will add username and password to required fields, as well with requirements for how they are specified.
+
 
 ### Blueprint APIs
 #### Models
