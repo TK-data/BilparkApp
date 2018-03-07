@@ -15,7 +15,7 @@ install:
 
 script:
   - npm test
-  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then npm appr; fi'
+  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then npm run appr; fi'
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
