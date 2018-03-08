@@ -111,6 +111,10 @@ We use [Travis CI](https://travis-ci.org/), a tool for Continuous Integration, t
 
 Travis is activated on the repository and project/language specific settings are specified in the [.travis.yml](.travis.yml).
 
+To make our workflow support continous delivery, we've added the option to automatically deploy pull requests when they are made to dev and master branch, using [Appr](https://github.com/FormidableLabs/appr/branches).
+When we use this, it automatically posts a link and QR code to the pull request, so we can run the app on our device on emulator.
+
+
 ## Deployement
 Additional notes about how to deploy this on a system.
 
