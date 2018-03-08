@@ -7,7 +7,11 @@
     "plugins": ["jest"],
     "parser": "babel-eslint", // needed to make babel stuff work properly
     "extends": "airbnb",
+    "globals": {
+      "fetch": false,
+      },
     "rules": {
+      "arrow-body-style": 0,
       "react/jsx-filename-extension": 0,
       "indent": ["error", 2],
       "linebreak-style": 0,

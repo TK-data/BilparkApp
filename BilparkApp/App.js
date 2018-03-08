@@ -1,13 +1,59 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Button } from 'react-native';
+
+import UserService from './src/common/UserService';
+
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  state = {
+    resultFetch: null,
+    resultPost: null,
+  };
+
+  componentDidMount() {
+    UserService.getUsers().then((resultFetch) => {
+      this.setState({ resultFetch });
+    });
+  }
+
+  handleClick() {
+    UserService.postUserExample().then((resultPost) => {
+      this.setState({ resultPost });
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <ScrollView>
+          {
+            // waiting for response from fetch
+            this.state.resultFetch ? (
+              <Text>{JSON.stringify(this.state.resultFetch)}</Text>
+            ) : (
+              <Text>Fetching users</Text>
+            )
+          }
+          {
+            <Button
+              onPress={this.handleClick}
+              title="Post set user"
+              color="#841584"
+            />
+          }
+          {
+            this.state.resultPost ? (
+              <Text>{JSON.stringify(this.state.resultPost)}</Text>
+            ) : (
+              <Text>waiting for you to post a user</Text>
+            )
+          }
+        </ScrollView>
       </View>
     );
   }
