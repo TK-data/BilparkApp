@@ -42,8 +42,7 @@ module.exports = {
       max: 6
     },
     FuelTime: {
-      // time is deprecated, use datetime
-      type: 'datetime'
+      type: 'time'
     },
     FuelNotification: {
       type: 'boolean',
