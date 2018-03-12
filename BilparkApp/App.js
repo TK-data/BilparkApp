@@ -16,9 +16,9 @@ export default class App extends React.Component {
   };
 
   componentDidMount() {
-    UserService.getUsers().then((resultFetch) => {
-      this.setState({ resultFetch });
-    });
+    // UserService.getUsers().then((resultFetch) => {
+    //   this.setState({ resultFetch });
+    // });
   }
 
   handleClick() {
