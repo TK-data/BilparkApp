@@ -73,16 +73,17 @@ We use [MySQL](https://www.mysql.com/) for the database. Set up your own MySQL d
 Our back-end is based on [Sails](https://sailsjs.com/), an MVC and API framework that builds upon Express.js for Node.js
 
 ## API Reference
-### Example Users
-```
-POST /api/user
-```
-Create a new user. Required fields: `email`and `password`.
-Passworld limits etcetc
+### User
+
 ```
 GET /api/user
 ```
-Get the list of all users. Admin privileges.
+Get an array of user objects, in JSON format. Further this api will be limited to admins only.
+
+```
+POST /api/user
+```
+Create a new user. Required fields in http `body`: `Email`, `Password`(min length 8 chars) `Fname`, `Lname`, `Address`.
 
 ### Blueprint APIs
 #### Models
@@ -107,6 +108,10 @@ For setup: Install "linter" and "linter-eslint" in Atom. For other text editors,
 We use [Travis CI](https://travis-ci.org/), a tool for Continuous Integration, to run our tests and upload code coverage reports to [codecov.io](https://codecov.io/).
 
 Travis is activated on the repository and project/language specific settings are specified in the [.travis.yml](.travis.yml).
+
+To make our workflow support continous delivery, we've added the option to automatically deploy pull requests when they are made to dev and master branch, using [Appr](https://github.com/FormidableLabs/appr).
+When we use this, it automatically posts a link and QR code to the pull request, so we can run the app on our device on emulator.
+
 
 ## Deployement
 Additional notes about how to deploy this on a system.

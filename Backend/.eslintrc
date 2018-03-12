@@ -1,5 +1,8 @@
 {
   "extends": "eslint:recommended",
+  "parserOptions": {
+   "ecmaVersion": 6
+ },
   "env": {
     "node": true
   },
@@ -7,6 +10,7 @@
 
     "no-console": 0,
     "no-multi-spaces": 2,
+    "no-unused-vars": 1,
 
     //Stylistic Issues
     "array-bracket-spacing": [2, "never"], // enforce spacing inside array brackets
