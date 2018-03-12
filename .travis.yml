@@ -3,7 +3,7 @@ node_js:
   - "node"
 
 cache: yarn
-  
+
 before_install:
   - cd BilparkApp
 
