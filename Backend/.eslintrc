@@ -10,7 +10,8 @@
 
     "no-console": 0,
     "no-multi-spaces": 2,
-    "no-unused-vars": 1,
+    "no-unused-vars": 0,
+    "no-undef":0,
 
     //Stylistic Issues
     "array-bracket-spacing": [2, "never"], // enforce spacing inside array brackets
