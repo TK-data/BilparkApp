@@ -83,9 +83,22 @@ Get an array of user objects, in JSON format. Further this api will be limited t
 ```
 POST /api/user
 ```
-Create a new user. Required fields in http `body`: `Fname`, `Lname`, `Address`.
-Further development will add username and password to required fields, as well with requirements for how they are specified.
+Register a new user. Required fields in http `body`: `Email`, `Password`(min length 8 chars) `Fname`, `Lname`, `Address`.
 
+```
+POST /api/user/login
+```
+Log in as a user. Required fields in http `body`: `Email`, `Password` 
+
+```
+GET /api/user/logout
+```
+Log out current user. It just nulls your authentication and UserID in session.
+
+```
+GET /api/user/current
+```
+Get current logged in user. Will get forbidden if not logged in.
 
 ### Blueprint APIs
 #### Models
@@ -115,8 +128,25 @@ To make our workflow support continous delivery, we've added the option to autom
 When we use this, it automatically posts a link and QR code to the pull request, so we can run the app on our device on emulator.
 
 
-## Deployement
-Additional notes about how to deploy this on a system.
+## Deployment
+We use [Expo](https://expo.io) to deploy our application. Login with your Expo account using `exp login`
+
+### Android Deployment
+- Run `exp build:android`
+- Wait for build to finnish
+- Copy/paste link in browser to download APK.
+- Drag and drop .apk file into emulator, or download/transfer it to an Android Device.
+- (Upload .apk to Google Play Store)
+
+#### To run on your connected Android Device:
+- `brew cask install android-platform-tools`
+- [Enable USB debugging on your device](https://developer.android.com/studio/run/device.html#device-developer-options)
+- Connect device
+- `adb install app-filename.apk`
+
+### iOS Deployment
+- Need to have an Apple Developer Account
+- Run `exp build:ios`
 
 ## Authors
 * **Christian Nyvoll** - *Team Leader* - [Git](https://github.com/Chr1stian) - [LinkedIn](https://www.linkedin.com/in/christiannyvoll/)
