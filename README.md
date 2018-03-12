@@ -83,9 +83,7 @@ Get an array of user objects, in JSON format. Further this api will be limited t
 ```
 POST /api/user
 ```
-Create a new user. Required fields in http `body`: `Fname`, `Lname`, `Address`.
-Further development will add username and password to required fields, as well with requirements for how they are specified.
-
+Create a new user. Required fields in http `body`: `Email`, `Password`(min length 8 chars) `Fname`, `Lname`, `Address`.
 
 ### Blueprint APIs
 #### Models
