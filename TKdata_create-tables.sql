@@ -41,7 +41,6 @@ CREATE TABLE Cars (
 	NoxEmission FLOAT,
 	FuelConsumption FLOAT,
 	ParticleEmmision FLOAT,
-	ParticleFilter FLOAT,
 	NextVI DATE,
 	NextVINotification BIT DEFAULT 0,
 	InsuranceCompany varchar(128)
@@ -76,4 +75,17 @@ CREATE TABLE Driving_rates (
 	CargoRate FLOAT NOT NULL,
 	PassengerRate FLOAT NOT NULL,
 	PRIMARY KEY (RateID)
+);
+
+CREATE TABLE Damage_report (
+	DamageReportID int NOT NULL AUTO_INCREMENT,
+	CarID int NOT NULL,
+	Wheel BIT,
+	Window BIT,
+	CarLight BIT,
+	FrontBumper BIT,
+	BackBumper BIT,
+	RightBodyWork BIT,
+	LeftBodyWork BIT,
+	PRIMARY KEY (DamageReportID)
 );
