@@ -83,7 +83,22 @@ Get an array of user objects, in JSON format. Further this api will be limited t
 ```
 POST /api/user
 ```
-Create a new user. Required fields in http `body`: `Email`, `Password`(min length 8 chars) `Fname`, `Lname`, `Address`.
+Register a new user. Required fields in http `body`: `Email`, `Password`(min length 8 chars) `Fname`, `Lname`, `Address`.
+
+```
+POST /api/user/login
+```
+Log in as a user. Required fields in http `body`: `Email`, `Password` 
+
+```
+GET /api/user/logout
+```
+Log out current user. It just nulls your authentication and UserID in session.
+
+```
+GET /api/user/current
+```
+Get current logged in user. Will get forbidden if not logged in.
 
 ### Blueprint APIs
 #### Models
