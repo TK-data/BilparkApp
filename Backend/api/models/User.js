@@ -1,7 +1,7 @@
 /**
  * User.js
  *
- * @description :: TODO: You might write a short summary of how this model works and what it represents here.
+ * @description :: User controller.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
@@ -17,6 +17,18 @@ module.exports = {
       autoIncrement: true,
       unique: true,
       primaryKey: true
+    },
+    Email: {
+      type: 'string',
+      required: true,
+      unique: true,
+      email: true,
+    },
+    Password: {
+      type: 'string',
+      required: true,
+      minLength: 8,
+      maxLength: 72,
     },
     CompanyID: {
       type: 'integer'
@@ -47,6 +59,30 @@ module.exports = {
     FuelNotification: {
       type: 'boolean',
       defaultsTo: false
-    }
+    },
+
+    toJSON: function() {
+      let obj = this.toObject();
+      // Do not expose password hash to the world
+      delete obj.Password;
+      return obj;
+    },
+
+    checkPassword: function (password, cb) {
+      bcrypt.compare(password, this.Password, cb);
+    },
+
+  },
+
+  /**
+   * Hash password before storing new user
+   */
+  beforeCreate: function (user, cb) {
+    bcrypt.hash(user.Password, 10, function (err, hash) {
+      if (err) return cb(err);
+      user.Password = hash;
+      cb(); // Continue creation
+    });
   }
+
 };
