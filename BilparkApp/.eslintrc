@@ -11,6 +11,7 @@
       "fetch": false,
       },
     "rules": {
+      "react/prop-types": 0,
       "arrow-body-style": 0,
       "react/jsx-filename-extension": 0,
       "indent": ["error", 2],
