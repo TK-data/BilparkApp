@@ -42,7 +42,7 @@ module.exports = {
   logout: function(req, res) {
     req.session.UserID = null;
     req.session.authenticated = false;
-    return res.ok('logged out');
+    return res.ok('Logged out');
   },
 
   /**
@@ -63,7 +63,7 @@ module.exports = {
         return res.json(user);
       });
     } else {
-      return res.forbidden('you are not logged in');
+      return res.forbidden('You are not logged in');
     }
   }
 };
