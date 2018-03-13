@@ -9,6 +9,7 @@ const width = Dimensions.get('window').width;
 
 t.form.Form.stylesheet.textbox.normal.color = '#000';
 t.form.Form.stylesheet.formGroup.normal.width = (width - 20);
+t.form.Form.stylesheet.formGroup.error.width = (width - 20);
 t.form.Form.stylesheet.textbox.normal.height = 40;
 t.form.Form.stylesheet.textbox.error.height = 40;
 t.form.Form.stylesheet.textbox.normal.fontSize = 20;
@@ -20,8 +21,13 @@ t.form.Form.stylesheet.errorBlock.color = '#db2b1e';
 t.form.Form.stylesheet.controlLabel.normal.color = '#fff';
 t.form.Form.stylesheet.controlLabel.error.color = '#fff';
 
+const mailCheck = t.refinement(t.String, (email) => {
+  const reg = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/; // or any other regexp
+  return reg.test(email);
+});
+
 const User = t.struct({
-  Email: t.String,
+  Email: mailCheck,
   Fname: t.String,
   Lname: t.String,
   Address: t.String,
@@ -32,23 +38,23 @@ const options = {
   fields: {
     Email: {
       label: 'Epost',
-      error: 'Uten eposten din så vil det ikke være mulig å gjennopprette passord',
+      error: 'Vennligst fyll inn en korrekt epost',
     },
     Fname: {
       label: 'Fornavn',
-      error: 'Tjenesten er avhengig av fornavnet for å autorisere deg.',
+      error: 'Vennligst fyll inn fornavnet ditt',
     },
     Lname: {
       label: 'Etternavn',
-      error: 'Tjenesten er avhengig av etternavnet for å autorisere deg.',
+      error: 'Vennligst fyll inn etternavnet ditt',
     },
     Address: {
       label: 'Adresse',
-      error: 'Tjenesten er avhengig av adressen din for å autorisere deg.',
+      error: 'Vennligst fyll inn adressen ditt',
     },
     Password: {
       label: 'Passord',
-      error: 'Uten passord vil det ikke være mulig å logge inn.',
+      error: 'Passord må ha minst 8 tegn',
       password: true,
       secureTextEntry: true,
     },
@@ -98,7 +104,6 @@ class userScreen extends React.Component {
 
   async handleSubmit() {
     const value = this.form.getValue(); // use that ref to get the form value
-    console.log('value: ', JSON.stringify(value));
     if (value) {
       await UserService.postUserExample(value).then(res => console.log(res));
     }
