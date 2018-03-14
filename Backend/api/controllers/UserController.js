@@ -86,7 +86,7 @@ module.exports = {
         return res.badRequest('FuelDay must be between 0-6');
       }
 
-      if (req.param('updatedNotification') === 'true' || req.param('updatedNotification') === 'false') {
+      if (req.param('FuelNotification') !== 'true' && req.param('FuelNotification') !== 'false') {
         return res.badRequest('FuelNotification must be either true or false');
       }
 
