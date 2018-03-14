@@ -26,12 +26,16 @@ const mailCheck = t.refinement(t.String, (email) => {
   return reg.test(email);
 });
 
+const passwordCheck = t.refinement(t.String, (pass) => {
+  return (pass.length >= 8);
+});
+
 const User = t.struct({
   Email: mailCheck,
   Fname: t.String,
   Lname: t.String,
   Address: t.String,
-  Password: t.String,
+  Password: passwordCheck,
 });
 
 const options = {
