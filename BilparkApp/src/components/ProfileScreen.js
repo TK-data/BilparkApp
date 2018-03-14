@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
 const ProfileScreen = () => (
   <View style={styles.container}>
     <Text style={styles.welcome}>
-      Profile Screen
+      Profilskjerm
     </Text>
   </View>
 );

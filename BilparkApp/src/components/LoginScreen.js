@@ -19,14 +19,14 @@ const styles = StyleSheet.create({
 const LoginScreen = ({ navigation }) => (
   <View style={styles.container}>
     <Text style={styles.welcome}>
-      Screen A
+      Første skjerm
     </Text>
     <Text style={styles.instructions}>
-      This is great
+      Woho!
     </Text>
     <Button
       onPress={() => navigation.dispatch({ type: 'Login' })}
-      title="Log in"
+      title="Logg inn"
     />
   </View>
 );
