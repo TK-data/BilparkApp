@@ -3,7 +3,7 @@ import t from 'tcomb-form-native';
 
 import { StyleSheet, View, Button, ScrollView, Dimensions } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import UserService from '../actions/userAction';
+import UserService from '../actions/userRegisterAction';
 
 const width = Dimensions.get('window').width;
 
