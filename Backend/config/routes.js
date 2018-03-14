@@ -46,7 +46,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'post /api/dsm': 'DSMController.getCar',
+  'POST /api/dsm': 'DSMController.getCar',
   'POST /api/user/login': 'UserController.login',
   'GET /api/user/logout': 'UserController.logout',
   'GET /api/user/current': 'UserController.current',
