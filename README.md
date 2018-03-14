@@ -100,6 +100,13 @@ GET /api/user/current
 ```
 Get current logged in user. Will get forbidden if not logged in.
 
+### Car
+
+```
+POST /dsm?regnr=XX00000
+```
+Get json car object for the input registration number, or a 404 error if no such car exists
+
 ### Blueprint APIs
 #### Models
 #### Controllers
