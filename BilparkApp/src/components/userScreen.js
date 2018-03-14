@@ -85,21 +85,22 @@ class userScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: [],
+      value: {},
     };
 
-    this.getUsers = this.getUsers.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillMount() {
-  }
-
-  async getUsers() {
-    await UserService.getUsers().then(res => this.setState({
-      users: res,
-    }));
-    console.log(this.state.users);
+    this.setState({
+      value: {
+        Email: 'emips@live.no',
+        Fname: 'Giulio',
+        Lname: 'Canti',
+        Address: 'singsasdas',
+        Password: 'hgavdbaslkasd',
+      },
+    });
   }
 
   async handleSubmit() {
@@ -122,6 +123,7 @@ class userScreen extends React.Component {
               ref={c => this.form = c}
               type={User}
               options={options}
+              value={this.state.value}
             />
             <Button
               title="Registrer"
