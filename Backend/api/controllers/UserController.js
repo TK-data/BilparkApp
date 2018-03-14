@@ -83,6 +83,15 @@ module.exports = {
         FuelNotification: req.param('FuelNotification'),
       };
 
+      if ((typeof (updatedNotification.FuelDay) !== 'number')
+        || updatedNotification.FuelDay > 6
+        || updatedNotification.FuelDay < 0
+        || !updatedNotification.FuelNotification == 'true'
+        || !updatedNotification.FuelNotification == 'false') {
+        return res.badRequest('FuelDay must be a number between 0-6. FuelNotification must be either true or false');
+      }
+
+
       // updates all user objects with the value UserID. Since it's unique it will return an array of 1 item.
       User.update(parseInt(req.session.UserID), updatedNotification).exec(function (err, user) {
         if (err) {
