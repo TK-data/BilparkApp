@@ -78,6 +78,11 @@ module.exports = {
       // FuelNotification is a bool if the frontend will create a local push notification when the recieve the user object.
       // true = create a notification, false = don't create a notification
 
+      if (req.param('FuelDay') == undefined || req.param('FuelNotification') == undefined) {
+        console.log('here');
+        return res.badRequest('Params FuelDay and FuelNotification must be included');
+      }
+
       if (!(req.param('FuelDay') % 1 === 0)) {
         return res.badRequest('FuelDay must be an integer');
       }
