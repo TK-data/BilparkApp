@@ -77,19 +77,24 @@ module.exports = {
       // FuelDay (0-6) 0= monday, 6 = sunday
       // FuelNotification is a bool if the frontend will create a local push notification when the recieve the user object.
       // true = create a notification, false = don't create a notification
+
+      if (!(req.param('FuelDay') % 1 === 0)) {
+        return res.badRequest('FuelDay must be an integer');
+      }
+
+      if (req.param('FuelDay') < 0 || req.param('FuelDay') > 6) {
+        return res.badRequest('FuelDay must be between 0-6');
+      }
+
+      if (req.param('updatedNotification') === 'true' || req.param('updatedNotification') === 'false') {
+        return res.badRequest('FuelNotification must be either true or false');
+      }
+
       let updatedNotification = {
         FuelDay: parseInt(req.param('FuelDay')),
         // FuelTime: req.param('FuelTime'), // when during the day you want the notification to go off. this iteration ignores it.
         FuelNotification: req.param('FuelNotification'),
       };
-
-      if ((typeof (updatedNotification.FuelDay) !== 'number')
-        || updatedNotification.FuelDay > 6
-        || updatedNotification.FuelDay < 0
-        || !updatedNotification.FuelNotification == 'true'
-        || !updatedNotification.FuelNotification == 'false') {
-        return res.badRequest('FuelDay must be a number between 0-6. FuelNotification must be either true or false');
-      }
 
 
       // updates all user objects with the value UserID. Since it's unique it will return an array of 1 item.
