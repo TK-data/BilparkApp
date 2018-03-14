@@ -28,7 +28,7 @@
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
     "transformIgnorePatterns": [
-      "node_modules/(?!react-native|tcomb-form-native)"
+      "node_modules/(?!react-native|tcomb-form-native|react-navigation)"
     ]
   },
   "dependencies": {
