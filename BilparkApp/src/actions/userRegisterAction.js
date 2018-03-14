@@ -1,4 +1,4 @@
-const endpoint = 'http://10.22.18.227:1337/api/User';
+const endpoint = 'http://10.0.0.27:1337/api/User';
 
 class UserService {
   static getUsers() {
@@ -21,6 +21,14 @@ class UserService {
       body: JSON.stringify(value),
     })
       .then((response) => {
+        if (response.status === 201) {
+          return response.status;
+        } else if (response.status !== 201) {
+          if (JSON.parse(response._bodyText).invalidAttributes.Email) {
+            return { Error: 'Email' };
+          }
+          return response.status;
+        }
         return response.json();
       })
       .catch((error) => {
