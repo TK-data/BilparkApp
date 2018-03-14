@@ -79,7 +79,6 @@ module.exports = {
       // true = create a notification, false = don't create a notification
 
       if (req.param('FuelDay') == undefined || req.param('FuelNotification') == undefined) {
-        console.log('here');
         return res.badRequest('Params FuelDay and FuelNotification must be included');
       }
 
