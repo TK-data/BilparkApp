@@ -21,9 +21,13 @@
     "grunt-sync": "0.5.2",
     "include-all": "^1.0.0",
     "rc": "1.0.1",
+    "request": "^2.85.0",
     "sails": "~0.12.14",
     "sails-disk": "~0.10.9",
-    "sails-eslint": "^1.1.1"
+    "sails-eslint": "^1.1.1",
+    "soap": "^0.23.0",
+    "xml2json": "^0.11.0",
+    "xmlhttprequest": "^1.8.0"
   },
   "scripts": {
     "debug": "node debug app.js",
