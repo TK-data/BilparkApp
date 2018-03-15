@@ -1,4 +1,4 @@
-const endpoint = 'http://10.0.0.27:1337/api/User';
+const endpoint = 'http://10.22.18.227:1337/api/User';
 
 class UserService {
   static getUsers() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import t from 'tcomb-form-native';
 
-import { StyleSheet, View, Button, ScrollView, Dimensions } from 'react-native';
+import { Text, Modal, StyleSheet, View, Button, ScrollView, Dimensions } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import UserService from '../actions/userRegisterAction';
 
@@ -55,7 +55,7 @@ const options = {
     },
     Address: {
       label: 'Adresse',
-      error: 'Vennligst fyll inn adressen ditt',
+      error: 'Vennligst fyll inn adressen din',
     },
     Password: {
       label: 'Passord',
@@ -84,6 +84,22 @@ const styles = StyleSheet.create({
   keyboard: {
     backgroundColor: '#002776',
   },
+  modal: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+  },
+  modalView: {
+    backgroundColor: '#002776',
+    width: (width / 2),
+    height: (width / 2),
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modalText: {
+    color: '#fff',
+  },
 });
 
 class registerScreen extends React.Component {
@@ -92,6 +108,8 @@ class registerScreen extends React.Component {
     this.state = {
       value: {},
       options: {},
+      modalVisible: false,
+      modalTransparent: true,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -118,26 +136,50 @@ class registerScreen extends React.Component {
     });
   }
 
-  async handleSubmit() {
+  setModalVisible(visible) {
+    this.setState({
+      modalVisible: visible,
+    });
+  }
+
+  async handleSubmit(visible) {
     const value = this.form.getValue(); // use that ref to get the form value
     if (value) {
       await UserService.postUserExample(value).then((res) => {
-        console.log(res, ' options ');
+        console.log(res);
         console.log(this.state.options.fields.Email.hasError);
-        this.setState({
-          options: {
-            fields: {
-              Email: {
-                hasError: true,
-                error: 'Eposten er allerede i bruk',
+        if (res.Error === 'Email') {
+          this.setState({
+            options: {
+              fields: {
+                Email: {
+                  hasError: true,
+                  error: 'Eposten er allerede i bruk',
+                },
               },
             },
-          },
-        });
+          });
+        } else {
+          this.setState({
+            options: {
+              fields: {
+                Email: {
+                  hasError: false,
+                  error: 'Vennligst fyll inn en korrekt epost',
+                },
+              },
+            },
+          });
+          this.setModalVisible(visible);
+          this.setState({
+            value: null,
+          });
+        }
         console.log(this.state.options.fields.Email.hasError);
       });
     }
   }
+
 
   render() {
     return (
@@ -157,10 +199,32 @@ class registerScreen extends React.Component {
             />
             <Button
               title="Registrer"
-              onPress={this.handleSubmit}
+              onPress={() => {
+                this.handleSubmit(!this.state.modalVisible);
+              }}
             />
           </View>
         </ScrollView>
+        <Modal
+          visible={this.state.modalVisible}
+          animationType="slide"
+          transparent={this.state.modalTransparent}
+          onRequestClose={() => {
+            alert('Modal has been closed.');
+          }}
+        >
+          <View style={styles.modal}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>Registrering godkjent</Text>
+              <Button
+                title="Logg inn"
+                onPress={() => {
+                  this.setModalVisible(false);
+                }}
+              />
+            </View>
+          </View>
+        </Modal>
       </KeyboardAwareScrollView>
     );
   }
