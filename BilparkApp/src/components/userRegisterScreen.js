@@ -1,5 +1,6 @@
 import React from 'react';
 import t from 'tcomb-form-native';
+// Ikke skriv om emil sin kode
 
 import { Text, Modal, StyleSheet, View, Button, ScrollView, Dimensions } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -147,28 +148,19 @@ class registerScreen extends React.Component {
     if (value) {
       await UserService.postUserExample(value).then((res) => {
         console.log(res);
-        console.log(this.state.options.fields.Email.hasError);
+        console.log(options.fields.Email.hasError);
+
         if (res.Error === 'Email') {
+          options.fields.Email.hasError = true;
+          options.fields.Email.error = 'Eposten er allerede i bruk';
           this.setState({
-            options: {
-              fields: {
-                Email: {
-                  hasError: true,
-                  error: 'Eposten er allerede i bruk',
-                },
-              },
-            },
+            options: options,
           });
         } else {
+          options.fields.Email.hasError = false;
+          options.fields.Email.error = 'Vennligst fyll inn en korrekt epost';
           this.setState({
-            options: {
-              fields: {
-                Email: {
-                  hasError: false,
-                  error: 'Vennligst fyll inn en korrekt epost',
-                },
-              },
-            },
+            options: options,
           });
           this.setModalVisible(visible);
           this.setState({
