@@ -23,7 +23,7 @@ t.form.Form.stylesheet.controlLabel.normal.color = '#fff';
 t.form.Form.stylesheet.controlLabel.error.color = '#fff';
 
 const mailCheck = t.refinement(t.String, (email) => {
-  const reg = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/; // or any other regexp
+  const reg = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
   return reg.test(email);
 });
 
@@ -31,15 +31,20 @@ const passwordCheck = t.refinement(t.String, (pass) => {
   return (pass.length >= 8);
 });
 
+const stringCheck = t.refinement(t.String, (string) => {
+  const reg = /[a-zA-Z0-9-]/;
+  return reg.test(string);
+});
+
 const User = t.struct({
   Email: mailCheck,
-  Fname: t.String,
-  Lname: t.String,
-  Address: t.String,
+  Fname: stringCheck,
+  Lname: stringCheck,
+  Address: stringCheck,
   Password: passwordCheck,
 });
 
-const options = {
+const formOptions = {
   fields: {
     Email: {
       hasError: false,
@@ -90,13 +95,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 10,
-  },
-  modalView: {
     backgroundColor: '#002776',
-    width: (width / 2),
-    height: (width / 2),
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   modalText: {
     color: '#fff',
@@ -127,7 +126,7 @@ class registerScreen extends React.Component {
         Address: 'singsasdas',
         Password: 'hgavdbaslkasd',
       },
-      options: options,
+      options: formOptions,
     });
   }
 
@@ -145,29 +144,102 @@ class registerScreen extends React.Component {
 
   async handleSubmit(visible) {
     const value = this.form.getValue(); // use that ref to get the form value
+    console.log('Value: ', value);
     if (value) {
       await UserService.postUserExample(value).then((res) => {
-        console.log(res);
-        console.log(options.fields.Email.hasError);
-
         if (res.Error === 'Email') {
-          options.fields.Email.hasError = true;
-          options.fields.Email.error = 'Eposten er allerede i bruk';
           this.setState({
-            options: options,
+            options: {
+              fields: {
+                Email: {
+                  hasError: true,
+                  label: 'Epost',
+                  error: 'Eposten er allerede i bruk',
+                },
+                Fname: {
+                  label: 'Fornavn',
+                  error: 'Vennligst fyll inn fornavnet ditt',
+                },
+                Lname: {
+                  label: 'Etternavn',
+                  error: 'Vennligst fyll inn etternavnet ditt',
+                },
+                Address: {
+                  label: 'Adresse',
+                  error: 'Vennligst fyll inn adressen din',
+                },
+                Password: {
+                  label: 'Passord',
+                  error: 'Passord må ha minst 8 tegn',
+                  password: true,
+                  secureTextEntry: true,
+                },
+              },
+            },
           });
         } else {
-          options.fields.Email.hasError = false;
-          options.fields.Email.error = 'Vennligst fyll inn en korrekt epost';
           this.setState({
-            options: options,
+            options: {
+              fields: {
+                Email: {
+                  label: 'Epost',
+                  error: 'Vennligst fyll inn en korrekt epost',
+                },
+                Fname: {
+                  label: 'Fornavn',
+                  error: 'Vennligst fyll inn fornavnet ditt',
+                },
+                Lname: {
+                  label: 'Etternavn',
+                  error: 'Vennligst fyll inn etternavnet ditt',
+                },
+                Address: {
+                  label: 'Adresse',
+                  error: 'Vennligst fyll inn adressen din',
+                },
+                Password: {
+                  label: 'Passord',
+                  error: 'Passord må ha minst 8 tegn',
+                  password: true,
+                  secureTextEntry: true,
+                },
+              },
+            },
           });
           this.setModalVisible(visible);
           this.setState({
             value: null,
           });
         }
-        console.log(this.state.options.fields.Email.hasError);
+      });
+    } else {
+      this.setState({
+        options: {
+          fields: {
+            Email: {
+              label: 'Epost',
+              error: 'Vennligst fyll inn en korrekt epost',
+            },
+            Fname: {
+              label: 'Fornavn',
+              error: 'Vennligst fyll inn fornavnet ditt',
+            },
+            Lname: {
+              label: 'Etternavn',
+              error: 'Vennligst fyll inn etternavnet ditt',
+            },
+            Address: {
+              label: 'Adresse',
+              error: 'Vennligst fyll inn adressen din',
+            },
+            Password: {
+              label: 'Passord',
+              error: 'Passord må ha minst 8 tegn',
+              password: true,
+              secureTextEntry: true,
+            },
+          },
+        },
       });
     }
   }
@@ -206,15 +278,13 @@ class registerScreen extends React.Component {
           }}
         >
           <View style={styles.modal}>
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}>Registrering godkjent</Text>
-              <Button
-                title="Logg inn"
-                onPress={() => {
-                  this.setModalVisible(false);
-                }}
-              />
-            </View>
+            <Text style={styles.modalText}>Registrering godkjent</Text>
+            <Button
+              title="Gå til innlogging"
+              onPress={() => {
+                this.setModalVisible(false);
+              }}
+            />
           </View>
         </Modal>
       </KeyboardAwareScrollView>
