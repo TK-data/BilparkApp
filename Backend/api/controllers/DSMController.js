@@ -46,6 +46,9 @@ module.exports = {
           res.notFound(soek.statustekst);
         }
       }
+      else {
+        res.serverError('Something went wrong.');
+      }
     });
   }
 };

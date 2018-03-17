@@ -14,17 +14,22 @@ const styles = StyleSheet.create({
 
 const LoginStatusMessage = ({ isLoggedIn, dispatch }) => {
   if (!isLoggedIn) {
-    return <Text>Please log in</Text>;
+    return <Text>Vennligst logg inn</Text>;
   }
   return (
     <View>
       <Text style={styles.welcome}>
-        {'You are "logged in" right now'}
+        {'Du er logget inn!'}
       </Text>
       <Button
         onPress={() =>
           dispatch(NavigationActions.navigate({ routeName: 'Profile' }))}
-        title="Profile"
+        title="Profil"
+      />
+      <Button
+        onPress={() =>
+          dispatch(NavigationActions.navigate({ routeName: 'RegisterCar' }))}
+        title="Register bil"
       />
     </View>
   );

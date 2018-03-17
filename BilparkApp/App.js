@@ -3,13 +3,14 @@ import { AppRegistry } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 
-import AppReducer from './src/reducers';
+import AppReducer from './src/reducers/index';
 import AppWithNavigationState from './src/navigators/AppNavigator';
-import { middleware } from './src/utils/redux';
+import { middleware, thunk } from './src/utils/redux';
 
 const store = createStore(
   AppReducer,
   applyMiddleware(middleware),
+  applyMiddleware(thunk),
 );
 
 class ReduxExampleApp extends React.Component {
