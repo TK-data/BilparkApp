@@ -36,7 +36,7 @@ LoginScreen.propTypes = {
 };
 
 LoginScreen.navigationOptions = {
-  title: 'Log In',
+  title: 'Logg inn',
 };
 
 export default LoginScreen;

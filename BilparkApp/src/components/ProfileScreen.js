@@ -24,7 +24,7 @@ const ProfileScreen = () => (
 );
 
 ProfileScreen.navigationOptions = {
-  title: 'Profile',
+  title: 'Profil',
 };
 
 export default ProfileScreen;
