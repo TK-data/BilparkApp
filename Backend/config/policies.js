@@ -58,5 +58,6 @@ module.exports.policies = {
 		login: true,
 		logout: true,
 		current: true,
+    notification: true,
 	}
 };
