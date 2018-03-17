@@ -23,7 +23,7 @@
       "no-use-before-define": 0,
       "react/prefer-stateless-function": 0,
       "no-multi-spaces": 2,
-
+      "object-curly-newline": 0
 
     }
 }
