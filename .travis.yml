@@ -6,6 +6,11 @@ cache: yarn
 
 before_install:
   - cd BilparkApp
+  - cd src
+  - cd config
+  - cp connections.js.example connections.js
+  - cd ..
+  - cd ..
 
 before_script:
   - npm install
