@@ -1,13 +1,13 @@
 import { POST_USER_FAILURE, POST_USER_REQUEST, POST_USER_SUCCESS } from '../actions/auth';
 
-const initialAuthState = { isLoggedIn: false };
+const initialAuthState = { isLoggedIn: true };
 
 function auth(state = initialAuthState, action) {
   switch (action.type) {
   case POST_USER_FAILURE:
-    return { hasErrored: true };
+    return { isLoggedIn: false, hasErrored: true };
   case POST_USER_REQUEST:
-    return { isLoading: true };
+    return { isLoggedIn: false, isLoading: true };
   case POST_USER_SUCCESS:
     return { isLoggedIn: true };
   default:

@@ -28,21 +28,16 @@ export function postUserSuccess(bool) {
 export function postUser(username, password) {
   return (dispatch) => {
     dispatch(postUserLoading(true));
+    console.log(username, password);
     axios.post(API_ADDRESS + '/api/user/login', {
       Email: username,
       Password: password,
     })
       .then((response) => {
-        if (!response.ok) {
-          throw Error(response.statusText);
-        }
         dispatch(postUserLoading(false));
         return response;
       })
-      .then(response => response.json())
       .then(() => dispatch(postUserSuccess(true)))
-      .catch(() => {
-        dispatch(postUserFailure(true));
-      });
+      .catch(() => dispatch(postUserFailure(true)));
   };
 }

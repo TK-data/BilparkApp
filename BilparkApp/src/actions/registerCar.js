@@ -1,4 +1,4 @@
-import {API_ADDRESS} from '../config/connections'
+import { API_ADDRESS } from '../config/connections';
 
 const axios = require('axios');
 
