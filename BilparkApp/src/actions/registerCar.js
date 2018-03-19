@@ -1,3 +1,5 @@
+import {API_ADDRESS} from '../config/connections'
+
 const axios = require('axios');
 
 export const GET_CAR_REQUEST = 'GET_CAR_REQUEST';
@@ -28,7 +30,7 @@ export function getCar(nr) {
   return (dispatch) => {
     dispatch(carFetchLoading(true));
 
-    axios.post('https://localhost:1337/api/dsm', {
+    axios.post(API_ADDRESS + '/api/dsm', {
       regnr: nr,
     })
       .then((response) => {

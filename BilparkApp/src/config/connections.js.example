@@ -1,0 +1,3 @@
+// to use this; copy this file, remove .example, and edit in the ip address of the machine running backend.
+
+export const API_ADDRESS = "192.168.1.101:1337";
