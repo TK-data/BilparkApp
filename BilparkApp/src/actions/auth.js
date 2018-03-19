@@ -1,3 +1,5 @@
+import { API_ADDRESS } from '../config/connections';
+
 const axios = require('axios');
 
 export const POST_USER_REQUEST = 'POST_USER_REQUEST';
@@ -26,7 +28,7 @@ export function postUserSuccess(bool) {
 export function postUser(username, password) {
   return (dispatch) => {
     dispatch(postUserLoading(true));
-    axios.post('https://localhost:1337/api/user/login', {
+    axios.post(API_ADDRESS + '/api/user/login', {
       Email: username,
       Password: password,
     })
