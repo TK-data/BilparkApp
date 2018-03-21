@@ -20,7 +20,7 @@ function nav(state = initialNavState, action) {
       state,
     );
     break;
-  case 'Logout':
+  case 'LOGOUT_SUCCESS':
     nextState = AppNavigator.router.getStateForAction(
       NavigationActions.navigate({ routeName: 'Login' }),
       state,
