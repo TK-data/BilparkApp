@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { reduxForm, Field } from 'redux-form';
-import { postUser } from '../actions/auth';
+import { postUser, postCurrent } from '../actions/auth';
 
 const renderInput = ({ placeholder, input: { onChange, ...restInput } }) => {
   return (
@@ -19,6 +19,7 @@ class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
+    this.props.postCurrent();
   }
 
   submit(values) {
@@ -51,6 +52,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     postUser: (username, password) => dispatch(postUser(username, password)),
+    postCurrent: () => dispatch(postCurrent()),
   };
 };
 
