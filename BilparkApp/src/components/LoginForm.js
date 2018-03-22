@@ -4,13 +4,14 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-nativ
 import { reduxForm, Field } from 'redux-form';
 import { postUser, postCurrent } from '../actions/auth';
 
-const renderInput = ({ placeholder, input: { onChange, ...restInput } }) => {
+const renderInput = ({ secureTextEntry, placeholder, input: { onChange, ...restInput } }) => {
   return (
     <TextInput
       style={styles.input}
       onChangeText={onChange}
       {...restInput}
       placeholder={placeholder}
+      secureTextEntry={secureTextEntry === 'true'}
     />
   );
 };
@@ -33,7 +34,7 @@ class LoginForm extends Component {
       <View style={styles.container}>
         <Text>Skriv inn epost og passord:</Text>
         <Field name="username" component={renderInput} placeholder="email" />
-        <Field name="password" component={renderInput} placeholder="password" />
+        <Field name="password" component={renderInput} placeholder="password" secureTextEntry="true" />
         <TouchableOpacity onPress={handleSubmit(this.submit)}>
           <Text style={styles.button}>Logg inn</Text>
         </TouchableOpacity>
