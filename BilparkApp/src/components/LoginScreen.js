@@ -20,10 +20,6 @@ const styles = StyleSheet.create({
   },
 });
 
-// function login() {
-//   this.props.postUser('test@test.test', 'testtest');
-// }
-
 const LoginScreen = () => (
   <View style={styles.container}>
     <Text style={styles.welcome}>
@@ -49,12 +45,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   login: (username, password) => dispatch(postUser(username, password)),
 });
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     login: (username, password) => dispatch(postUser(username, password)),
-//   };
-// };
 
 LoginScreen.navigationOptions = {
   title: 'Logg inn',
