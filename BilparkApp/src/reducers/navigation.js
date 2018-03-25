@@ -14,7 +14,7 @@ const initialNavState = AppNavigator.router.getStateForAction(
 function nav(state = initialNavState, action) {
   let nextState;
   switch (action.type) {
-  case 'POST_USER_SUCCESS':
+  case 'LOGIN_SUCCESS':
     nextState = AppNavigator.router.getStateForAction(
       NavigationActions.back(),
       state,

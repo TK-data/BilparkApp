@@ -47,6 +47,7 @@ const mapStateToProps = (state) => {
   return {
     isLoading: state.postUserLoading,
     hasErrored: state.postUserFailure,
+    user: state.auth.user,
   };
 };
 
