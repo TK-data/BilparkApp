@@ -14,13 +14,13 @@ const initialNavState = AppNavigator.router.getStateForAction(
 function nav(state = initialNavState, action) {
   let nextState;
   switch (action.type) {
-  case 'Login':
+  case 'POST_USER_SUCCESS':
     nextState = AppNavigator.router.getStateForAction(
       NavigationActions.back(),
       state,
     );
     break;
-  case 'Logout':
+  case 'LOGOUT_SUCCESS':
     nextState = AppNavigator.router.getStateForAction(
       NavigationActions.navigate({ routeName: 'Login' }),
       state,

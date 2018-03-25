@@ -2,27 +2,29 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { reduxForm, Field } from 'redux-form';
-import { getCar } from '../../actions/registerCar';
+import { postUser, postCurrent } from '../actions/auth';
 
-const renderInput = ({ input: { onChange, ...restInput } }) => {
+const renderInput = ({ secureTextEntry, placeholder, input: { onChange, ...restInput } }) => {
   return (
     <TextInput
       style={styles.input}
       onChangeText={onChange}
       {...restInput}
-      placeholder="VH00000"
+      placeholder={placeholder}
+      secureTextEntry={secureTextEntry === 'true'}
     />
   );
 };
 
-class Form extends Component {
+class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
+    this.props.postCurrent();
   }
 
   submit(values) {
-    this.props.getCar(values.regnr);
+    this.props.postUser(values.username, values.password);
   }
 
   render() {
@@ -30,10 +32,11 @@ class Form extends Component {
 
     return (
       <View style={styles.container}>
-        <Text>Registreringsnummer:</Text>
-        <Field name="regnr" component={renderInput} />
+        <Text>Skriv inn epost og passord:</Text>
+        <Field name="username" component={renderInput} placeholder="email" />
+        <Field name="password" component={renderInput} placeholder="password" secureTextEntry="true" />
         <TouchableOpacity onPress={handleSubmit(this.submit)}>
-          <Text style={styles.button}>Finn bil</Text>
+          <Text style={styles.button}>Logg inn</Text>
         </TouchableOpacity>
       </View>
     );
@@ -42,25 +45,25 @@ class Form extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    car: state.car,
-    isLoading: state.carFetchLoading,
-    hasErrored: state.carFetchFailure,
+    isLoading: state.postUserLoading,
+    hasErrored: state.postUserFailure,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCar: regnr => dispatch(getCar(regnr)),
+    postUser: (username, password) => dispatch(postUser(username, password)),
+    postCurrent: () => dispatch(postCurrent()),
   };
 };
 
 const FormClass = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Form);
+)(LoginForm);
 
 export default reduxForm({
-  form: 'getCar', // a unique name for this form
+  form: 'login', // a unique name for this form
 })(FormClass);
 
 
@@ -78,8 +81,6 @@ const styles = StyleSheet.create({
 
   },
   input: {
-    borderColor: 'black',
-    borderWidth: 1,
     height: 37,
     width: 250,
   },

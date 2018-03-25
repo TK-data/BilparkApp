@@ -12,14 +12,17 @@ const styles = StyleSheet.create({
   },
 });
 
-const LoginStatusMessage = ({ isLoggedIn, dispatch }) => {
+const LoginStatusMessage = ({ user, isLoggedIn, dispatch }) => {
   if (!isLoggedIn) {
     return <Text>Vennligst logg inn</Text>;
   }
   return (
     <View>
       <Text style={styles.welcome}>
-        {'Du er logget inn!'}
+        {'Du er logget inn som!'}
+      </Text>
+      <Text style={styles.weclome}>
+        { user.Email}
       </Text>
       <Button
         onPress={() =>
@@ -42,6 +45,7 @@ LoginStatusMessage.propTypes = {
 
 const mapStateToProps = state => ({
   isLoggedIn: state.auth.isLoggedIn,
+  user: state.auth.user,
 });
 
 export default connect(mapStateToProps)(LoginStatusMessage);

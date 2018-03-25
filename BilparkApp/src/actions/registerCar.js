@@ -1,4 +1,4 @@
-import {API_ADDRESS} from '../config/connections'
+import { API_ADDRESS } from '../config/connections';
 
 const axios = require('axios');
 
@@ -7,7 +7,6 @@ export const GET_CAR_SUCCESS = 'GET_CAR_SUCCESS';
 export const GET_CAR_FAILURE = 'GET_CAR_FAILURE';
 
 export function carFetchFailure(bool) {
-  console.log('fail');
   return {
     type: 'GET_CAR_FAILURE',
     hasErrored: bool,

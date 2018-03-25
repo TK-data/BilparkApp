@@ -11,6 +11,7 @@
       "fetch": false,
       },
     "rules": {
+      "prefer-template": 0,
       "padded-blocks": 0,
       "react/forbid-prop-types": 0,
       "no-undef": 1,
