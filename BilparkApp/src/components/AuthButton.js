@@ -3,17 +3,18 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button } from 'react-native';
 import { NavigationActions } from 'react-navigation';
+import { logout } from '../actions/auth';
 
-const AuthButton = ({ logout, loginScreen, isLoggedIn }) => (
+const AuthButton = ({ logoutUser, loginScreen, isLoggedIn }) => (
   <Button
-    title={isLoggedIn ? 'Log Out' : 'Open Login Screen'}
-    onPress={isLoggedIn ? logout : loginScreen}
+    title={isLoggedIn ? 'Logg Ut' : 'Åpne logg-inn skjerm'}
+    onPress={isLoggedIn ? logoutUser : loginScreen}
   />
 );
 
 AuthButton.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
-  logout: PropTypes.func.isRequired,
+  logoutUser: PropTypes.func.isRequired,
   loginScreen: PropTypes.func.isRequired,
 };
 
@@ -22,7 +23,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch({ type: 'Logout' }),
+  logoutUser: () => dispatch(logout()),
   loginScreen: () =>
     dispatch(NavigationActions.navigate({ routeName: 'Login' })),
 });

@@ -38,6 +38,14 @@ sails lift
 ```
 
 ### React Native Application
+First point to the address of the machine that is running the backend:
+```
+goto BilparkApp\src\config
+duplicated connections.js.example and rename it connections.js
+edit the API_ADDRESS
+save
+```
+
 You need the [Expo app](https://expo.io) to run the app on mobile devices.
 ```
 cd BilparkApp
@@ -88,7 +96,7 @@ Register a new user. Required fields in http `body`: `Email`, `Password`(min len
 ```
 POST /api/user/login
 ```
-Log in as a user. Required fields in http `body`: `Email`, `Password` 
+Log in as a user. Required fields in http `body`: `Email`, `Password`
 
 ```
 GET /api/user/logout
@@ -99,6 +107,13 @@ Log out current user. It just nulls your authentication and UserID in session.
 GET /api/user/current
 ```
 Get current logged in user. Will get forbidden if not logged in.
+
+### Car
+
+```
+POST /dsm?regnr=XX00000
+```
+Get json car object for the input registration number, or a 404 error if no such car exists
 
 ### Blueprint APIs
 #### Models

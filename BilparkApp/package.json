@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "auth0-js": "^8.12.3",
+    "axios": "^0.18.0",
     "eslint-plugin-jest": "^21.14.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "expo": "^25.0.0",
@@ -44,6 +45,8 @@
     "react-navigation-redux-helpers": "^1.0.3",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
+    "redux-form": "^7.3.0",
+    "redux-thunk": "^2.2.0",
     "tcomb-form-native": "^0.6.11",
     "yarn": "^1.5.1"
   }

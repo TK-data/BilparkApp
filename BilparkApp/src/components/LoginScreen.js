@@ -1,6 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { postUser } from '../actions/auth';
+
+import LoginForm from './LoginForm';
 
 const styles = StyleSheet.create({
   container: {
@@ -16,27 +20,34 @@ const styles = StyleSheet.create({
   },
 });
 
-const LoginScreen = ({ navigation }) => (
+const LoginScreen = () => (
   <View style={styles.container}>
     <Text style={styles.welcome}>
-      Screen A
+      Første skjerm
     </Text>
     <Text style={styles.instructions}>
-      This is great
+      Her kommer LoginForm!
     </Text>
-    <Button
-      onPress={() => navigation.dispatch({ type: 'Login' })}
-      title="Log in"
-    />
+    <LoginForm />
   </View>
 );
 
 LoginScreen.propTypes = {
-  navigation: PropTypes.object.isRequired,
+  isLoggedIn: PropTypes.bool.isRequired,
 };
+
+const mapStateToProps = state => ({
+  isLoggedIn: state.auth.isLoggedIn,
+  hasErrored: state.auth.hasErrored,
+  isLoading: state.auth.isLoading,
+});
+
+const mapDispatchToProps = dispatch => ({
+  login: (username, password) => dispatch(postUser(username, password)),
+});
 
 LoginScreen.navigationOptions = {
-  title: 'Log In',
+  title: 'Logg inn',
 };
 
-export default LoginScreen;
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
