@@ -1,72 +1,76 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, Picker, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { Picker, CheckBox } from 'native-base';
 import { reduxForm, Field } from 'redux-form';
 import { postFuelDay } from '../actions/fuelDay';
 
-const renderPicker = ({
-  selectedValue, input: { onChange, value, ...inputProps }, children, ...pickerProps
-}) => (
+const renderPicker = ({ func, input, label, children, ...custom }) => (
   <Picker
-    selectedValue={selectedValue}
-    onValueChange={(itemValue) => {
-      return onChange(itemValue);
+    {...input}
+    selectedValue={input.value}
+    onValueChange={(value) => {
+      func(value);
     }
     }
-    {...inputProps}
-    {...pickerProps}
+    {...custom}
   >
     {children}
   </Picker>
 );
 
+const renderCheckbox = ({ func, input, ...custom }) => (
+  <CheckBox
+    {...input}
+    checked={input.value ? true : false}
+    onPress={() => {
+      input.onChange(!input.value);
+      func(!input.value);
+    }
+    }
+    {...custom}
+  />
+
+);
+
 
 class LoginForm extends Component {
-  constructor(props) {
-    super(props);
-    this.submit = this.submit.bind(this);
-  }
-
-  submit(values) {
-    this.props.postFuelDay(values.weekday, values.toggle);
-  }
 
 
   render() {
-    const { handleSubmit, user } = this.props;
+    const { user } = this.props;
+
+    const Item = Picker.Item;
+
+    const postToggle = (value) => {
+      this.props.postFuelDay(user.FuelDay, value);
+    };
+
+    const postWeekday = (value) => {
+      this.props.postFuelDay(value, user.FuelNotification);
+    };
 
     return (
       <View style={styles.container}>
         <Text>Current day: {user.FuelDay} Current value: {user.FuelNotification.toString()} </Text>
         <Text>Velg dag og om du ønsker notification</Text>
         <Field
+          func={postWeekday}
           selectedValue={user.FuelDay}
           name="weekday"
           component={renderPicker}
           iosHeader="Velg dag"
           mode="dropdown"
         >
-          <Picker.Item label="mandag" value={0} />
-          <Picker.Item label="tirsdag" value={1} />
-          <Picker.Item label="onsdag" value={2} />
-          <Picker.Item label="torsdag" value={3} />
-          <Picker.Item label="fredag" value={4} />
-          <Picker.Item label="lørdag" value={5} />
-          <Picker.Item label="søndag" value={6} />
+          <Item label="mandag" value={0} />
+          <Item label="tirsdag" value={1} />
+          <Item label="onsdag" value={2} />
+          <Item label="torsdag" value={3} />
+          <Item label="fredag" value={4} />
+          <Item label="lørdag" value={5} />
+          <Item label="søndag" value={6} />
         </Field>
-        <Field
-          name="toggle"
-          component={renderPicker}
-          iosHeader="Ønsker du notification?"
-          mode="dropdown"
-          selectedValue={user.FuelNotification}
-        >
-          <Picker.Item label="Ja" value />
-          <Picker.Item label="Nei" value={false} />
-        </Field>
-        <TouchableOpacity onPress={handleSubmit(this.submit)}>
-          <Text style={styles.button}>Send info</Text>
-        </TouchableOpacity>
+        <Field name="toggle" checked={user.FuelNotification} func={postToggle} component={renderCheckbox} />
       </View>
     );
   }
