@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, Text, View } from 'react-native';
-import { Picker, CheckBox } from 'native-base';
+import { Picker, CheckBox, ListItem, Body } from 'native-base';
 import { reduxForm, Field } from 'redux-form';
 import { postFuelDay } from '../actions/fuelDay';
 
@@ -20,16 +20,21 @@ const renderPicker = ({ func, input, label, children, ...custom }) => (
 );
 
 const renderCheckbox = ({ func, input, ...custom }) => (
-  <CheckBox
-    {...input}
-    checked={input.value ? true : false}
-    onPress={() => {
-      input.onChange(!input.value);
-      func(!input.value);
-    }
-    }
-    {...custom}
-  />
+  <ListItem>
+    <CheckBox
+      {...input}
+      checked={input.value ? true : false}
+      onPress={() => {
+        input.onChange(!input.value);
+        func(!input.value);
+      }
+      }
+      {...custom}
+    />
+    <Body>
+      <Text> Gi push-varsel? </Text>
+    </Body>
+  </ListItem>
 
 );
 
