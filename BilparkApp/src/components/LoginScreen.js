@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { StyleSheet, Text, View } from 'react-native';
 import { postUser } from '../actions/auth';
 
@@ -33,7 +32,6 @@ const LoginScreen = () => (
 );
 
 LoginScreen.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({

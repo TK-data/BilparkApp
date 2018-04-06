@@ -62,9 +62,9 @@ export function postCurrent() {
     axios.get(API_ADDRESS + '/api/user/current')
       .then((response) => {
         dispatch(postUserLoading(false));
-        return response;
+        return response.data;
       })
-      .then(() => dispatch(postUserSuccess(true)))
+      .then(user => dispatch(postUserSuccess(user)))
       .catch(() => dispatch(postUserFailure(true)));
   };
 }
