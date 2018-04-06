@@ -6,7 +6,6 @@ import { registerFetchData, registerModalVisible, registerResetOptionUpdateValue
 
 import { Text, Modal, StyleSheet, View, Button, ScrollView, Dimensions } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import UserService from '../actions/userRegisterAction';
 
 
 const width = Dimensions.get('window').width;
@@ -121,6 +120,24 @@ class registerScreen extends React.Component {
             />
           </View>
         </ScrollView>
+        <Modal
+          visible={this.props.modalVisible}
+          animationType="slide"
+          transparent={this.props.modalTransparent}
+          onRequestClose={() => {
+            alert('Modal has been closed.');
+          }}
+        >
+          <View style={styles.modal}>
+            <Text style={styles.modalText}>Registrering godkjent</Text>
+            <Button
+              title="Gå til innlogging"
+              onPress={() => {
+                this.props.visibleModal(false);
+              }}
+            />
+          </View>
+        </Modal>
       </KeyboardAwareScrollView>
     );
   }
@@ -129,7 +146,7 @@ class registerScreen extends React.Component {
 const mapStateToProps = (state) => {
   return {
     options: state.options,
-    modalVisible: state.visible,
+    modalVisible: state.registerModalVisible,
     modalTransparent: state.modalTransparent,
     values: state.values,
   };
@@ -138,7 +155,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchData: values => dispatch(registerFetchData(values)),
-    visibleModal: visible => dispatch(registerModalVisible(visible)),
+    visibleModal: bool => dispatch(registerModalVisible(bool)),
     resetOptions: () => dispatch(registerResetOptionUpdateValue()),
     addValues: value => dispatch(registerUpdateValue(value)),
   };
