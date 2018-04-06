@@ -1,6 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { connect } from 'react-redux';
+import { StyleSheet, Text, View } from 'react-native';
+import { postUser } from '../actions/auth';
+
+import LoginForm from './LoginForm';
 
 const styles = StyleSheet.create({
   container: {
@@ -16,83 +19,33 @@ const styles = StyleSheet.create({
   },
 });
 
-// const xLoginScreen = ({ navigation }) => (
-//   <View style={styles.container}>
-//     <Text style={styles.welcome}>
-//       This page posts data to server for login
-//     </Text>
-//     <TextInput
-//     />
-//     <Button
-//       onPress={() => navigation.dispatch({ type: 'Login' })}
-//       title="Log in"
-//     />
-//   </View>
-// );
+const LoginScreen = () => (
+  <View style={styles.container}>
+    <Text style={styles.welcome}>
+      Første skjerm
+    </Text>
+    <Text style={styles.instructions}>
+      Her kommer LoginForm!
+    </Text>
+    <LoginForm />
+  </View>
+);
 
-class LoginScreen extends React.Component {
-  static propTypes = {
-    navigation: PropTypes.object.isRequired,
-  };
+LoginScreen.propTypes = {
+};
 
-  static navigationOptions = {
-    title: 'Log in',
-  };
+const mapStateToProps = state => ({
+  isLoggedIn: state.auth.isLoggedIn,
+  hasErrored: state.auth.hasErrored,
+  isLoading: state.auth.isLoading,
+});
 
-  constructor(props) {
-    super(props);
+const mapDispatchToProps = dispatch => ({
+  login: (username, password) => dispatch(postUser(username, password)),
+});
 
-    this.state = {
-      email: '',
-      password: '',
-    };
+LoginScreen.navigationOptions = {
+  title: 'Logg inn',
+};
 
-  }
-
-  login = () => {
-    const { email, password } = this.state;
-
-    // this.props.actions.loginRequest(email, password);
-
-
-    // the loginRequest (or userService?) will handle the request and
-    // notify the navigation about change if login is success?
-  }
-
-  render() {
-    // const navigation = this.props.navigation;
-
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          This page posts data to server for login
-        </Text>
-        <Text value={this.state.email} />
-        <TextInput
-          value={this.state.email}
-          onChangeText={email => this.setState({ email })}
-        />
-        <TextInput
-          value={this.state.password}
-          onChangeText={password => this.setState({ password })}
-          secureTextEntry
-        />
-        <Button
-          /* onPress={() => navigation.dispatch({ type: 'Login' })} */
-          onPress={this.login}
-          title="Log in"
-        />
-      </View>
-    );
-  }
-}
-
-// xLoginScreen.propTypes = {
-//   navigation: PropTypes.object.isRequired,
-// };
-//
-// xLoginScreen.navigationOptions = {
-//   title: 'Log In',
-// };
-
-export default LoginScreen;
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);

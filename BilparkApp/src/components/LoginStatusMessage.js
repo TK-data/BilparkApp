@@ -12,19 +12,27 @@ const styles = StyleSheet.create({
   },
 });
 
-const LoginStatusMessage = ({ isLoggedIn, dispatch }) => {
+const LoginStatusMessage = ({ user, isLoggedIn, dispatch }) => {
   if (!isLoggedIn) {
-    return <Text>Please log in</Text>;
+    return <Text>Vennligst logg inn</Text>;
   }
   return (
     <View>
       <Text style={styles.welcome}>
-        {'You are "logged in" right now'}
+        {'Du er logget inn som!'}
+      </Text>
+      <Text style={styles.weclome}>
+        { user.Email}
       </Text>
       <Button
         onPress={() =>
           dispatch(NavigationActions.navigate({ routeName: 'Profile' }))}
-        title="Profile"
+        title="Profil"
+      />
+      <Button
+        onPress={() =>
+          dispatch(NavigationActions.navigate({ routeName: 'RegisterCar' }))}
+        title="Register bil"
       />
     </View>
   );
@@ -37,6 +45,7 @@ LoginStatusMessage.propTypes = {
 
 const mapStateToProps = state => ({
   isLoggedIn: state.auth.isLoggedIn,
+  user: state.auth.user,
 });
 
 export default connect(mapStateToProps)(LoginStatusMessage);
