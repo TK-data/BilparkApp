@@ -28,13 +28,7 @@ const initialFormOptions = {
 
 const initialModalVisible = false;
 
-const initialValue = {
-  Email: 'mail@mail.no',
-  Fname: 'stringCheck',
-  Lname: 'stringCheck',
-  Address: 'stringCheck',
-  Password: 'passwordCheck',
-};
+const initialValue = {};
 
 export function registerHasErrored(state = false, action) {
   switch (action.type) {
