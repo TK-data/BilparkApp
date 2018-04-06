@@ -1,4 +1,4 @@
-const endpoint = 'http://10.22.49.105:1337/api/User';
+import { API_ADDRESS } from '../config/connections';
 
 export function registerHasErrored(bool) {
   return {
@@ -81,7 +81,7 @@ export function registerUpdateValue(values) {
 export function registerFetchData(value) {
   return (dispatch) => {
     dispatch(registerIsLoading(true));
-    fetch(endpoint, {
+    fetch(API_ADDRESS + '/api/User', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
