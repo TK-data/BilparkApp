@@ -1,10 +1,13 @@
 import React from 'react';
 import t from 'tcomb-form-native';
+import { connect } from 'react-redux';
+import { registerFetchData, registerModalVisible, registerResetOptionUpdateValue, registerUpdateValue } from '../actions/register';
 // Ikke skriv om emil sin kode
 
 import { Text, Modal, StyleSheet, View, Button, ScrollView, Dimensions } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import UserService from '../actions/userRegisterAction';
+
 
 const width = Dimensions.get('window').width;
 
@@ -44,34 +47,6 @@ const User = t.struct({
   Password: passwordCheck,
 });
 
-const formOptions = {
-  fields: {
-    Email: {
-      hasError: false,
-      label: 'Epost',
-      error: 'Vennligst fyll inn en korrekt epost',
-    },
-    Fname: {
-      label: 'Fornavn',
-      error: 'Vennligst fyll inn fornavnet ditt',
-    },
-    Lname: {
-      label: 'Etternavn',
-      error: 'Vennligst fyll inn etternavnet ditt',
-    },
-    Address: {
-      label: 'Adresse',
-      error: 'Vennligst fyll inn adressen din',
-    },
-    Password: {
-      label: 'Passord',
-      error: 'Passord må ha minst 8 tegn',
-      password: true,
-      secureTextEntry: true,
-    },
-  },
-};
-
 const Form = t.form.Form;
 
 const styles = StyleSheet.create({
@@ -103,144 +78,21 @@ const styles = StyleSheet.create({
 });
 
 class registerScreen extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: {},
-      options: {},
-      modalVisible: false,
-      modalTransparent: true,
-    };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.onChange = this.onChange.bind(this);
-  }
-
-  componentWillMount() {
-    // Sets state for dev
-    this.setState({
-      value: {
-        Email: 'emips@live.no',
-        Fname: 'Giulio',
-        Lname: 'Canti',
-        Address: 'singsasdas',
-        Password: 'hgavdbaslkasd',
-      },
-      options: formOptions,
-    });
+  componentDidMount() {
+    this.props.visibleModal(false);
   }
 
   onChange(values) {
-    this.setState({
-      value: values,
-    });
+    this.props.addValues(values);
   }
 
-  setModalVisible(visible) {
-    this.setState({
-      modalVisible: visible,
-    });
-  }
-
-  async handleSubmit(visible) {
-    const value = this.form.getValue(); // use that ref to get the form value
-    console.log('Value: ', value);
+  async handleSubmit() {
+    const value = this.form.getValue();
+    // use that ref to get the form value
+    this.props.resetOptions();
     if (value) {
-      await UserService.postUserExample(value).then((res) => {
-        if (res.Error === 'Email') {
-          this.setState({
-            options: {
-              fields: {
-                Email: {
-                  hasError: true,
-                  label: 'Epost',
-                  error: 'Eposten er allerede i bruk',
-                },
-                Fname: {
-                  label: 'Fornavn',
-                  error: 'Vennligst fyll inn fornavnet ditt',
-                },
-                Lname: {
-                  label: 'Etternavn',
-                  error: 'Vennligst fyll inn etternavnet ditt',
-                },
-                Address: {
-                  label: 'Adresse',
-                  error: 'Vennligst fyll inn adressen din',
-                },
-                Password: {
-                  label: 'Passord',
-                  error: 'Passord må ha minst 8 tegn',
-                  password: true,
-                  secureTextEntry: true,
-                },
-              },
-            },
-          });
-        } else {
-          this.setState({
-            options: {
-              fields: {
-                Email: {
-                  label: 'Epost',
-                  error: 'Vennligst fyll inn en korrekt epost',
-                },
-                Fname: {
-                  label: 'Fornavn',
-                  error: 'Vennligst fyll inn fornavnet ditt',
-                },
-                Lname: {
-                  label: 'Etternavn',
-                  error: 'Vennligst fyll inn etternavnet ditt',
-                },
-                Address: {
-                  label: 'Adresse',
-                  error: 'Vennligst fyll inn adressen din',
-                },
-                Password: {
-                  label: 'Passord',
-                  error: 'Passord må ha minst 8 tegn',
-                  password: true,
-                  secureTextEntry: true,
-                },
-              },
-            },
-          });
-          this.setModalVisible(visible);
-          this.setState({
-            value: null,
-          });
-        }
-      });
-    } else {
-      this.setState({
-        options: {
-          fields: {
-            Email: {
-              label: 'Epost',
-              error: 'Vennligst fyll inn en korrekt epost',
-            },
-            Fname: {
-              label: 'Fornavn',
-              error: 'Vennligst fyll inn fornavnet ditt',
-            },
-            Lname: {
-              label: 'Etternavn',
-              error: 'Vennligst fyll inn etternavnet ditt',
-            },
-            Address: {
-              label: 'Adresse',
-              error: 'Vennligst fyll inn adressen din',
-            },
-            Password: {
-              label: 'Passord',
-              error: 'Passord må ha minst 8 tegn',
-              password: true,
-              secureTextEntry: true,
-            },
-          },
-        },
-      });
+      this.props.fetchData(value);
     }
   }
 
@@ -257,39 +109,39 @@ class registerScreen extends React.Component {
             <Form
               ref={c => this.form = c}
               type={User}
-              options={this.state.options}
-              value={this.state.value}
-              onChange={this.onChange}
+              options={this.props.options}
+              value={this.props.values}
+              onChange={value => this.onChange(value)}
             />
             <Button
               title="Registrer"
               onPress={() => {
-                this.handleSubmit(!this.state.modalVisible);
+                this.handleSubmit();
               }}
             />
           </View>
         </ScrollView>
-        <Modal
-          visible={this.state.modalVisible}
-          animationType="slide"
-          transparent={this.state.modalTransparent}
-          onRequestClose={() => {
-            alert('Modal has been closed.');
-          }}
-        >
-          <View style={styles.modal}>
-            <Text style={styles.modalText}>Registrering godkjent</Text>
-            <Button
-              title="Gå til innlogging"
-              onPress={() => {
-                this.setModalVisible(false);
-              }}
-            />
-          </View>
-        </Modal>
       </KeyboardAwareScrollView>
     );
   }
 }
 
-export default registerScreen;
+const mapStateToProps = (state) => {
+  return {
+    options: state.options,
+    modalVisible: state.visible,
+    modalTransparent: state.modalTransparent,
+    values: state.values,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchData: values => dispatch(registerFetchData(values)),
+    visibleModal: visible => dispatch(registerModalVisible(visible)),
+    resetOptions: () => dispatch(registerResetOptionUpdateValue()),
+    addValues: value => dispatch(registerUpdateValue(value)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(registerScreen);
