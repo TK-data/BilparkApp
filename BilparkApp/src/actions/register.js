@@ -1,4 +1,4 @@
-const endpoint = 'http://10.22.32.204:1337/api/User';
+const endpoint = 'http://10.22.49.105:1337/api/User';
 
 export function registerHasErrored(bool) {
   return {
@@ -31,10 +31,10 @@ export function errorAfterFiveSeconds() {
   };
 }
 
-export function registerModalVisible(visible) {
+export function registerModalVisible(bool) {
   return {
     type: 'REGISTER_MODAL_VISIBLE',
-    visible,
+    visible: bool,
   };
 }
 
@@ -91,6 +91,7 @@ export function registerFetchData(value) {
     })
       .then((response) => {
         if (response.status === 201) {
+          dispatch(registerModalVisible(true));
           dispatch(registerOptions({
             fields: {
               Email: {
