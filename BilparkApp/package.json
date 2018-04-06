@@ -5,10 +5,10 @@
   "devDependencies": {
     "appr": "^1.1.1",
     "babel-eslint": "^8.2.2",
-    "eslint": "^4.18.2",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-react": "^7.7.0",
     "jest-expo": "25.0.0",
     "react-native-scripts": "1.11.1",
@@ -26,7 +26,10 @@
   "jest": {
     "preset": "jest-expo",
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true
+    "collectCoverage": true,
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|tcomb-form-native|react-navigation)"
+    ]
   },
   "dependencies": {
     "auth0-js": "^8.12.3",
@@ -37,12 +40,14 @@
     "prop-types": "^15.6.1",
     "react": "16.2.0",
     "react-native": "0.52.0",
-    "react-navigation": "^1.5.1",
+    "react-native-keyboard-aware-scroll-view": "^0.4.4",
+    "react-navigation": "^1.5.11",
     "react-navigation-redux-helpers": "^1.0.3",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-form": "^7.3.0",
     "redux-thunk": "^2.2.0",
+    "tcomb-form-native": "^0.6.11",
     "yarn": "^1.5.1"
   }
 }
