@@ -11,7 +11,7 @@ import GetCarScreen from '../components/registerVehicle/GetCarScreen';
 import { addListener } from '../utils/redux';
 
 export const AppNavigator = StackNavigator({
-  User: { screen: registerScreen },
+  Register: { screen: registerScreen },
   Login: { screen: LoginScreen },
   Main: { screen: MainScreen },
   Profile: { screen: ProfileScreen },
