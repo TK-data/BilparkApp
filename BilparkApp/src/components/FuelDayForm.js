@@ -62,6 +62,7 @@ class LoginForm extends Component {
         <Field
           func={postWeekday}
           selectedValue={user.FuelDay}
+          placeholder="velg dag"
           name="weekday"
           component={renderPicker}
           iosHeader="Velg dag"
