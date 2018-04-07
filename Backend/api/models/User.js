@@ -51,7 +51,8 @@ module.exports = {
     FueldDay: {
       type: 'integer',
       min: 0,
-      max: 6
+      max: 6,
+      defaultsTo: 0
     },
     FuelTime: {
       type: 'time'
