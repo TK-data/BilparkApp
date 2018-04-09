@@ -7,7 +7,7 @@ import LoginScreen from '../components/LoginScreen';
 import MainScreen from '../components/MainScreen';
 import ProfileScreen from '../components/ProfileScreen';
 import GetCarScreen from '../components/registerVehicle/GetCarScreen';
-import MenuContainer from '../components/menu/MenuContainer';
+import MenuScreen from '../components/menu/MenuScreen';
 import { addListener } from '../utils/redux';
 
 export const AppNavigator = StackNavigator({
@@ -15,7 +15,7 @@ export const AppNavigator = StackNavigator({
   Main: { screen: MainScreen },
   Profile: { screen: ProfileScreen },
   RegisterCar: { screen: GetCarScreen },
-  Menu: { screen: MenuContainer },
+  Menu: { screen: MenuScreen },
 });
 
 class AppWithNavigationState extends React.Component {

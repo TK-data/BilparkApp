@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import { StyleSheet, View, Image, Dimensions } from 'react-native';
-
+import React from 'react';
+import { StyleSheet, View, Image, Dimensions, TouchableOpacity } from 'react-native';
+import { NavigationActions } from 'react-navigation';
+import { connect } from 'react-redux';
 
 const window = Dimensions.get('window');
 const styles = StyleSheet.create({
@@ -21,13 +22,27 @@ const styles = StyleSheet.create({
   },
 });
 
-class MenuBox extends Component {
-  render() {
-    return (
+const MenuBox = ({ navigate, image, routeName }) => {
+
+  return (
+    <TouchableOpacity onPress={() =>
+      navigate(routeName)}
+    >
       <View style={styles.box}>
-        <Image resizeMode="contain" style={styles.image} source={this.props.value} />
+        <Image resizeMode="contain" style={styles.image} source={image} />
       </View>
-    );
-  }
-}
-export default MenuBox;
+    </TouchableOpacity>
+  );
+};
+
+
+const mapDispatchToProps = dispatch => ({
+  navigate: (routeName) => {
+    dispatch(NavigationActions.navigate({ routeName }));
+  },
+});
+
+const mapStateToProps = state => ({
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MenuBox);
