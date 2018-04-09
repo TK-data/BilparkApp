@@ -40,7 +40,8 @@ module.exports = {
         const soek = parsedJson['soap:Envelope']['soap:Body']['dsm:Regnrsoek'];
 
         if (soek.statuskode === '000') {
-          res.ok(soek['detalj']);
+          const car = formatCarObject(soek['detalj']);
+          res.ok(car);
         }
         else {
           res.notFound(soek.statustekst);
@@ -52,3 +53,23 @@ module.exports = {
     });
   }
 };
+
+function formatCarObject(car) {
+  const object = {
+    Regnr: car['kjennemerke'],
+    Cas: car['understellsnr'],
+    Brand: car['merkeNavn'],
+    Model: car['modellType'],
+    FuelType: null,
+    RegYear: car['regAar'],
+    VehicleGroup: car['kjoeretoeygrp'],
+    Co2Emission: null,
+    NoxEmission: null,
+    FuelConsumption: null,
+    ParticleEmmision: null,
+    NextVI: null,
+    InsuranceCompany: car['forrSelskapnavn'],
+  };
+
+  return object;
+}
