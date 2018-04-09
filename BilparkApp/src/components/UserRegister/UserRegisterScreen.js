@@ -3,7 +3,7 @@ import t from 'tcomb-form-native';
 import { connect } from 'react-redux';
 import { Text, Modal, StyleSheet, View, Button, ScrollView, Dimensions } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { registerFetchData, registerModalVisible, registerResetOptionUpdateValue, registerUpdateValue } from '../actions/register';
+import { registerFetchData, registerModalVisible, registerResetOptionUpdateValue, registerUpdateValue } from '../../actions/registerUser';
 
 
 const width = Dimensions.get('window').width;

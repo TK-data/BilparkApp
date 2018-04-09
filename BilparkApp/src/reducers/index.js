@@ -3,7 +3,7 @@ import nav from './navigation';
 import auth from './auth';
 import form from './form';
 import { carFetchFailure, carFetchLoading, car } from './registerCar';
-import { registerModalVisible, registerModalTransparent, options, values } from './register';
+import { registerModalVisible, registerModalTransparent, options, values } from './registerUser';
 
 const AppReducer = combineReducers({
   nav,
