@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, ScrollView } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { registerModalVisible } from '../../actions/registerUser';
+import { registerUserModalVisible } from '../../actions/registerUser';
 import UserRegisterModal from './UserRegisterModal';
 import UserRegisterForm from './UserRegisterForm';
 
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
   },
 });
 
-class registerScreen extends React.Component {
+class UserRegisterScreen extends React.Component {
 
   componentDidMount() {
     this.props.visibleModal(false);
@@ -41,8 +41,8 @@ const mapStateToProps = () => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    visibleModal: bool => dispatch(registerModalVisible(bool)),
+    visibleModal: bool => dispatch(registerUserModalVisible(bool)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(registerScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(UserRegisterScreen);

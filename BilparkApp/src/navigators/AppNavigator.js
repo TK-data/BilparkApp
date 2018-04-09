@@ -6,13 +6,13 @@ import { addNavigationHelpers, StackNavigator } from 'react-navigation';
 import LoginScreen from '../components/LoginScreen';
 import MainScreen from '../components/MainScreen';
 import ProfileScreen from '../components/ProfileScreen';
-import registerScreen from '../components/UserRegister/UserRegisterScreen';
+import UserRegisterScreen from '../components/UserRegister/UserRegisterScreen';
 import GetCarScreen from '../components/registerVehicle/GetCarScreen';
 import FuelDayScreen from '../components/FuelDayScreen';
 import { addListener } from '../utils/redux';
 
 export const AppNavigator = StackNavigator({
-  Register: { screen: registerScreen },
+  Register: { screen: UserRegisterScreen },
   Login: { screen: LoginScreen },
   Main: { screen: MainScreen },
   Profile: { screen: ProfileScreen },

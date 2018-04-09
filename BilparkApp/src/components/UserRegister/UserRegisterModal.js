@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
 import { Text, Modal, StyleSheet, View, Button } from 'react-native';
-import { registerModalVisible } from '../../actions/registerUser';
+import { registerUserModalVisible } from '../../actions/registerUser';
 
 
 const styles = StyleSheet.create({
@@ -50,14 +50,14 @@ UserRegisterModal.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    modalVisible: state.registerModalVisible,
-    modalTransparent: state.registerModalTransparent,
+    modalVisible: state.registerUserModalVisible,
+    modalTransparent: state.registerUserModalTransparent,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    visibleModal: bool => dispatch(registerModalVisible(bool)),
+    visibleModal: bool => dispatch(registerUserModalVisible(bool)),
     navigateToLogin: () => dispatch(NavigationActions.navigate({ routeName: 'Login' })),
   };
 };

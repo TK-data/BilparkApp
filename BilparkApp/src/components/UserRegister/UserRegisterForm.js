@@ -2,7 +2,7 @@ import React from 'react';
 import t from 'tcomb-form-native';
 import { connect } from 'react-redux';
 import { StyleSheet, View, Button, Dimensions } from 'react-native';
-import { registerFetchData, registerModalVisible, registerResetOptionUpdateValue, registerUpdateValue } from '../../actions/registerUser';
+import { registerUserFetchData, registerUserModalVisible, registerUserResetOptionUpdateValue, registerUserUpdateValue } from '../../actions/registerUser';
 
 const width = Dimensions.get('window').width;
 
@@ -108,10 +108,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchData: values => dispatch(registerFetchData(values)),
-    visibleModal: bool => dispatch(registerModalVisible(bool)),
-    resetOptions: () => dispatch(registerResetOptionUpdateValue()),
-    addValues: value => dispatch(registerUpdateValue(value)),
+    fetchData: values => dispatch(registerUserFetchData(values)),
+    visibleModal: bool => dispatch(registerUserModalVisible(bool)),
+    resetOptions: () => dispatch(registerUserResetOptionUpdateValue()),
+    addValues: value => dispatch(registerUserUpdateValue(value)),
   };
 };
 

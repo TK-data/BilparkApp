@@ -30,17 +30,17 @@ const initialModalVisible = false;
 
 const initialValue = {};
 
-export function registerHasErrored(state = false, action) {
+export function registerUserHasErrored(state = false, action) {
   switch (action.type) {
-  case 'REGISTER_HAS_ERRORED':
+  case 'REGISTER_USER_HAS_ERRORED':
     return action.hasErrored;
   default:
     return state;
   }
 }
-export function registerIsLoading(state = false, action) {
+export function registerUserIsLoading(state = false, action) {
   switch (action.type) {
-  case 'REGISTER_IS_LOADING':
+  case 'REGISTER_USER_IS_LOADING':
     return action.isLoading;
   default:
     return state;
@@ -48,25 +48,25 @@ export function registerIsLoading(state = false, action) {
 }
 export function users(state = [], action) {
   switch (action.type) {
-  case 'REGISTER_FETCH_DATA_SUCCESS':
+  case 'REGISTER_USER_FETCH_DATA_SUCCESS':
     return action.users;
   default:
     return state;
   }
 }
 
-export function registerModalVisible(state = initialModalVisible, action) {
+export function registerUserModalVisible(state = initialModalVisible, action) {
   switch (action.type) {
-  case 'REGISTER_MODAL_VISIBLE':
+  case 'REGISTER_USER_MODAL_VISIBLE':
     return action.visible;
   default:
     return state;
   }
 }
 
-export function registerModalTransparent(state = true, action) {
+export function registerUserModalTransparent(state = true, action) {
   switch (action.type) {
-  case 'REGISTER_MODAL_TRANSPARENT':
+  case 'REGISTER_USER_MODAL_TRANSPARENT':
     return action.modalTransparent;
   default:
     return state;
@@ -75,9 +75,9 @@ export function registerModalTransparent(state = true, action) {
 
 export function options(state = initialFormOptions, action) {
   switch (action.type) {
-  case 'REGISTER_OPTIONS':
+  case 'REGISTER_USER_OPTIONS':
     return action.options;
-  case 'REGISTER_RESET_OPTIONS':
+  case 'REGISTER_USER_RESET_OPTIONS':
     return initialFormOptions;
   default:
     return state;
@@ -86,7 +86,7 @@ export function options(state = initialFormOptions, action) {
 
 export function values(state = initialValue, action) {
   switch (action.type) {
-  case 'REGISTER_VALUES':
+  case 'REGISTER_USER_VALUES':
     return action.values;
   default:
     return state;

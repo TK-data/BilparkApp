@@ -1,22 +1,22 @@
 import { API_ADDRESS } from '../config/connections';
 
-export function registerHasErrored(bool) {
+export function registerUserHasErrored(bool) {
   return {
-    type: 'REGISTER_HAS_ERRORED',
+    type: 'REGISTER_USER_HAS_ERRORED',
     hasErrored: bool,
   };
 }
 
-export function registerIsLoading(bool) {
+export function registerUserIsLoading(bool) {
   return {
-    type: 'REGISTER_IS_LOADING',
+    type: 'REGISTER_USER_IS_LOADING',
     isLoading: bool,
   };
 }
 
-export function registerFetchDataSuccess(users) {
+export function registerUserFetchDataSuccess(users) {
   return {
-    type: 'REGISTER_FETCH_DATA_SUCCESS',
+    type: 'REGISTER_USER_FETCH_DATA_SUCCESS',
     users,
   };
 }
@@ -26,61 +26,61 @@ export function errorAfterFiveSeconds() {
   return (dispatch) => {
     setTimeout(() => {
       // This function is able to dispatch other action creators
-      dispatch(registerHasErrored(true));
+      dispatch(registerUserHasErrored(true));
     }, 5000);
   };
 }
 
-export function registerModalVisible(bool) {
+export function registerUserModalVisible(bool) {
   return {
-    type: 'REGISTER_MODAL_VISIBLE',
+    type: 'REGISTER_USER_MODAL_VISIBLE',
     visible: bool,
   };
 }
 
-export function registerModalTransparent(bool) {
+export function registerUserModalTransparent(bool) {
   return {
-    type: 'REGISTER_MODAL_TRANSPARENT',
+    type: 'REGISTER_USER_MODAL_TRANSPARENT',
     modalTransparent: bool,
   };
 }
 
-export function registerOptions(options) {
+export function registerUserOptions(options) {
   return {
-    type: 'REGISTER_OPTIONS',
+    type: 'REGISTER_USER_OPTIONS',
     options,
   };
 }
 
-export function registerResetOptions() {
+export function registerUserResetOptions() {
   return {
-    type: 'REGISTER_RESET_OPTIONS',
+    type: 'REGISTER_USER_RESET_OPTIONS',
   };
 }
 
-export function registerValues(values) {
+export function registerUserValues(values) {
   return {
-    type: 'REGISTER_VALUES',
+    type: 'REGISTER_USER_VALUES',
     values,
   };
 }
 
-export function registerResetOptionUpdateValue() {
+export function registerUserResetOptionUpdateValue() {
   return (dispatch) => {
-    dispatch(registerResetOptions());
+    dispatch(registerUserResetOptions());
   };
 }
 
-export function registerUpdateValue(values) {
+export function registerUserUpdateValue(values) {
   return (dispatch) => {
-    dispatch(registerValues(values));
+    dispatch(registerUserValues(values));
   };
 }
 
 
-export function registerFetchData(value) {
+export function registerUserFetchData(value) {
   return (dispatch) => {
-    dispatch(registerIsLoading(true));
+    dispatch(registerUserIsLoading(true));
     fetch(API_ADDRESS + '/api/User', {
       method: 'POST',
       headers: {
@@ -91,8 +91,8 @@ export function registerFetchData(value) {
     })
       .then((response) => {
         if (response.status === 201) {
-          dispatch(registerModalVisible(true));
-          dispatch(registerOptions({
+          dispatch(registerUserModalVisible(true));
+          dispatch(registerUserOptions({
             fields: {
               Email: {
                 label: 'Epost',
@@ -121,7 +121,7 @@ export function registerFetchData(value) {
           return response.status;
         } else if (response.status !== 201) {
           if (JSON.parse(response._bodyText).invalidAttributes.Email) {
-            dispatch(registerOptions({
+            dispatch(registerUserOptions({
               fields: {
                 Email: {
                   hasError: true,
@@ -148,10 +148,10 @@ export function registerFetchData(value) {
                 },
               },
             }));
-            dispatch(registerValues(value));
+            dispatch(registerUserValues(value));
             return { Error: 'Email' };
           }
-          dispatch(registerOptions({
+          dispatch(registerUserOptions({
             fields: {
               Email: {
                 label: 'Epost',
@@ -182,6 +182,6 @@ export function registerFetchData(value) {
         return response.json();
       })
       .then(response => response.json())
-      .catch(() => dispatch(registerHasErrored(true)));
+      .catch(() => dispatch(registerUserHasErrored(true)));
   };
 }
