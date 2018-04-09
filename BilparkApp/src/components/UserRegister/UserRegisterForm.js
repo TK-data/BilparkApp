@@ -1,10 +1,8 @@
 import React from 'react';
 import t from 'tcomb-form-native';
 import { connect } from 'react-redux';
-import { Text, Modal, StyleSheet, View, Button, ScrollView, Dimensions } from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { registerFetchData, registerModalVisible, registerResetOptionUpdateValue, registerUpdateValue } from '../actions/register';
-
+import { StyleSheet, View, Button, Dimensions } from 'react-native';
+import { registerUserFetchData, registerUserModalVisible, registerUserResetOptionUpdateValue, registerUserUpdateValue } from '../../actions/registerUser';
 
 const width = Dimensions.get('window').width;
 
@@ -62,23 +60,9 @@ const styles = StyleSheet.create({
   keyboard: {
     backgroundColor: '#002776',
   },
-  modal: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10,
-    backgroundColor: '#002776',
-  },
-  modalText: {
-    color: '#fff',
-  },
 });
 
-class registerScreen extends React.Component {
-
-  componentDidMount() {
-    this.props.visibleModal(false);
-  }
+class UserRegisterForm extends React.Component {
 
   onChange(values) {
     this.props.addValues(values);
@@ -96,47 +80,21 @@ class registerScreen extends React.Component {
 
   render() {
     return (
-      <KeyboardAwareScrollView
-        style={{ backgroundColor: '#002776' }}
-        resetScrollToCoords={{ x: 0, y: 0 }}
-        contentContainerStyle={styles.keyboard}
-      >
-        <ScrollView>
-          <View style={styles.container}>
-            <Form
-              ref={c => this.form = c}
-              type={User}
-              options={this.props.options}
-              value={this.props.values}
-              onChange={value => this.onChange(value)}
-            />
-            <Button
-              title="Registrer"
-              onPress={() => {
-                this.handleSubmit();
-              }}
-            />
-          </View>
-        </ScrollView>
-        <Modal
-          visible={this.props.modalVisible}
-          animationType="slide"
-          transparent={this.props.modalTransparent}
-          onRequestClose={() => {
-            alert('Modal has been closed.');
+      <View style={styles.container}>
+        <Form
+          ref={c => this.form = c}
+          type={User}
+          options={this.props.options}
+          value={this.props.values}
+          onChange={value => this.onChange(value)}
+        />
+        <Button
+          title="Registrer"
+          onPress={() => {
+            this.handleSubmit();
           }}
-        >
-          <View style={styles.modal}>
-            <Text style={styles.modalText}>Registrering godkjent</Text>
-            <Button
-              title="Gå til innlogging"
-              onPress={() => {
-                this.props.visibleModal(false);
-              }}
-            />
-          </View>
-        </Modal>
-      </KeyboardAwareScrollView>
+        />
+      </View>
     );
   }
 }
@@ -144,19 +102,17 @@ class registerScreen extends React.Component {
 const mapStateToProps = (state) => {
   return {
     options: state.options,
-    modalVisible: state.registerModalVisible,
-    modalTransparent: state.registerModalTransparent,
     values: state.values,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchData: values => dispatch(registerFetchData(values)),
-    visibleModal: bool => dispatch(registerModalVisible(bool)),
-    resetOptions: () => dispatch(registerResetOptionUpdateValue()),
-    addValues: value => dispatch(registerUpdateValue(value)),
+    fetchData: values => dispatch(registerUserFetchData(values)),
+    visibleModal: bool => dispatch(registerUserModalVisible(bool)),
+    resetOptions: () => dispatch(registerUserResetOptionUpdateValue()),
+    addValues: value => dispatch(registerUserUpdateValue(value)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(registerScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(UserRegisterForm);
