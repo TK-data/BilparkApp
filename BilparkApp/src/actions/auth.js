@@ -5,6 +5,7 @@ const axios = require('axios');
 export const POST_USER_REQUEST = 'POST_USER_REQUEST';
 export const POST_USER_SUCCESS = 'POST_USER_SUCCESS';
 export const POST_USER_FAILURE = 'POST_USER_FAILURE';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 
 export function postUserFailure(bool) {
@@ -29,6 +30,12 @@ export function postUserSuccess(user) {
   };
 }
 
+export function loginSuccess() {
+  return {
+    type: 'LOGIN_SUCCESS',
+  };
+}
+
 export function logoutSuccess(bool) {
   return {
     type: 'LOGOUT_SUCCESS',
@@ -49,6 +56,7 @@ export function postUser(username, password) {
       })
       .then((user) => {
         dispatch(postUserSuccess(user));
+        dispatch(loginSuccess());
       })
       .catch(() => {
         dispatch(postUserFailure(true));
@@ -62,9 +70,12 @@ export function postCurrent() {
     axios.get(API_ADDRESS + '/api/user/current')
       .then((response) => {
         dispatch(postUserLoading(false));
-        return response;
+        return response.data;
       })
-      .then(() => dispatch(postUserSuccess(true)))
+      .then((user) => {
+        dispatch(postUserSuccess(user));
+        dispatch(loginSuccess());
+      })
       .catch(() => dispatch(postUserFailure(true)));
   };
 }

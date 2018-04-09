@@ -45,8 +45,9 @@ class LoginForm extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    isLoading: state.postUserLoading,
-    hasErrored: state.postUserFailure,
+    isLoading: state.auth.isLoading,
+    hasErrored: state.auth.hasErrored,
+    user: state.auth.user,
   };
 };
 
