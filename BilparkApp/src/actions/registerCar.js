@@ -29,18 +29,26 @@ export function getCar(nr) {
   return (dispatch) => {
     dispatch(carFetchLoading(true));
 
-    axios.post(API_ADDRESS + '/api/dsm', {
-      regnr: nr,
-    })
+    axios.post(API_ADDRESS + '/api/dsm?regnr=' + nr)
       .then((response) => {
-        if (!response.ok) {
-          throw Error(response.statusText);
-        }
         dispatch(carFetchLoading(false));
-        return response;
+
+        if (!response.ok) {
+          dispatch(carFetchFailure(true));
+        }
+        dispatch(carFetchFailure(false));
+        dispatch(carFetchSuccess(JSON.stringify(response.data)));
       })
-      .then(response => response.json())
-      .then(car => dispatch(carFetchSuccess(car)))
-      .catch(() => dispatch(carFetchFailure(true)));
+      .catch((error) => {
+        dispatch(carFetchLoading(false));
+        dispatch(carFetchSuccess(''));
+
+        if (error.response.status === 404) {
+          dispatch(carFetchFailure(true));
+        } else {
+          console.error(error);
+          throw error;
+        }
+      });
   };
 }
