@@ -48,7 +48,7 @@ module.exports = {
       type: 'string',
       required: true
     },
-    FueldDay: {
+    FuelDay: {
       type: 'integer',
       min: 0,
       max: 6,
