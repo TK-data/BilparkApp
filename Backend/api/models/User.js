@@ -81,6 +81,7 @@ module.exports = {
     bcrypt.hash(user.Password, 10, function (err, hash) {
       if (err) return cb(err);
       user.Password = hash;
+      user.Email = user.Email.toLowerCase();
       cb(); // Continue creation
     });
   }
