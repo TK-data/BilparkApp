@@ -28,7 +28,7 @@ export function postFuelDaySuccess(user) {
 export function postFuelDay(weekday, toggle) {
   return (dispatch) => {
     dispatch(postFuelDayLoading(true));
-    axios.post(API_ADDRESS + '/api/user/notification', {
+    return axios.post(API_ADDRESS + '/api/user/notification', {
       FuelDay: weekday.toString(),
       FuelNotification: toggle.toString(),
     })
@@ -39,7 +39,8 @@ export function postFuelDay(weekday, toggle) {
       .then((user) => {
         dispatch(postFuelDaySuccess(user));
       })
-      .catch(() => {
+      .catch((e) => {
+        console.log(e);
         dispatch(postFuelDayFailure(true));
       });
   };
