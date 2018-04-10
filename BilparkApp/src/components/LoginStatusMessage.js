@@ -26,7 +26,7 @@ const LoginStatusMessage = ({ user, isLoggedIn, dispatch }) => {
       </Text>
       <Button
         onPress={() =>
-          dispatch(NavigationActions.navigate({ routeName: 'Profile' }))}
+          dispatch(NavigationActions.navigate({ routeName: 'Menu' }))}
         title="Profil"
       />
       <Button
