@@ -34,6 +34,11 @@ const LoginStatusMessage = ({ user, isLoggedIn, dispatch }) => {
           dispatch(NavigationActions.navigate({ routeName: 'RegisterCar' }))}
         title="Register bil"
       />
+      <Button
+        onPress={() =>
+          dispatch(NavigationActions.navigate({ routeName: 'FuelDay' }))}
+        title="Planlegging av tanking"
+      />
     </View>
   );
 };

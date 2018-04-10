@@ -28,13 +28,45 @@ class Form extends Component {
   render() {
     const { handleSubmit } = this.props;
 
-    return (
-      <View style={styles.container}>
+    let main = (
+      <View>
         <Text>Registreringsnummer:</Text>
         <Field name="regnr" component={renderInput} />
         <TouchableOpacity onPress={handleSubmit(this.submit)}>
           <Text style={styles.button}>Finn bil</Text>
         </TouchableOpacity>
+      </View>
+    );
+
+
+    if (this.props.isLoading) {
+      main = (
+        <View style={styles.container}>
+          <Text>Laster..</Text>
+        </View>
+      );
+    } else if (this.props.hasErrored) {
+      main = (
+        <View>
+          <Text>Registreringsnummeret finnes ikke! Prøv på nytt:</Text>
+          <Field name="regnr" component={renderInput} />
+          <TouchableOpacity onPress={handleSubmit(this.submit)}>
+            <Text style={styles.button}>Finn bil</Text>
+          </TouchableOpacity>
+        </View>
+      );
+    } else if (this.props.car) {
+      main = (
+        <View>
+          <Text>Er dette din bil?</Text>
+          <Text>{this.props.car}</Text>
+        </View>
+      );
+    }
+
+    return (
+      <View style={styles.container}>
+        {main}
       </View>
     );
   }

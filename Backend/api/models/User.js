@@ -48,10 +48,11 @@ module.exports = {
       type: 'string',
       required: true
     },
-    FueldDay: {
+    FuelDay: {
       type: 'integer',
       min: 0,
-      max: 6
+      max: 6,
+      defaultsTo: 0
     },
     FuelTime: {
       type: 'time'
@@ -81,6 +82,7 @@ module.exports = {
     bcrypt.hash(user.Password, 10, function (err, hash) {
       if (err) return cb(err);
       user.Password = hash;
+      user.Email = user.Email.toLowerCase();
       cb(); // Continue creation
     });
   }
