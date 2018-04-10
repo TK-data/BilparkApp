@@ -8,7 +8,7 @@ import MenuBox from './MenuBox';
 const images = [
   {
     image: require('../../images/menuIcons/fuel_station_pump.png'),
-    routeName: 'RegisterCar',
+    routeName: 'FuelDay',
   },
   {
     image: require('../../images/menuIcons/frontal_crash.png'),
@@ -99,9 +99,9 @@ class MenuScreen extends Component {
             <MenuBox key={i} image={data.image} routeName={data.routeName} />)}
         </View>
       </View>
-
     );
   }
 }
+
 
 export default MenuScreen;

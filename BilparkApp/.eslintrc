@@ -11,12 +11,9 @@
       "fetch": false,
       },
     "rules": {
-<<<<<<< HEAD
       "react/no-array-index-key": 0,
       "global-require": 0,
-=======
       "no-unneeded-ternary": 0,
->>>>>>> b3293f92c2d700a92f2363babdb107624a66e796
       "prefer-template": 0,
       "padded-blocks": 0,
       "react/forbid-prop-types": 0,

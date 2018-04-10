@@ -50,13 +50,9 @@
     "prop-types": "^15.6.1",
     "react": "16.2.0",
     "react-native": "0.52.0",
-<<<<<<< HEAD
-    "react-native-swiper": "^1.5.13",
-    "react-navigation": "^1.5.1",
-=======
     "react-native-keyboard-aware-scroll-view": "^0.4.4",
-    "react-navigation": "^1.5.11",
->>>>>>> b3293f92c2d700a92f2363babdb107624a66e796
+    "react-navigation": "^1.5.1",
+    "react-native-swiper": "^1.5.13",
     "react-navigation-redux-helpers": "^1.0.3",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
