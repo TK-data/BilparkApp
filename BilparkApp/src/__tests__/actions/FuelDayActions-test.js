@@ -1,6 +1,6 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { postFuelDayFailure, postFuelDayLoading, postFuelDaySuccess, postFuelDay } from '../actions/fuelDay';
+import { postFuelDayFailure, postFuelDayLoading, postFuelDaySuccess, postFuelDay } from '../../actions/fuelDay';
 
 const axios = require('axios');
 
