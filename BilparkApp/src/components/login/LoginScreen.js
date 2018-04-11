@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, Text, View } from 'react-native';
-import { postUser } from '../actions/auth';
 
 import LoginForm from './LoginForm';
 
@@ -40,12 +39,8 @@ const mapStateToProps = state => ({
   isLoading: state.auth.isLoading,
 });
 
-const mapDispatchToProps = dispatch => ({
-  login: (username, password) => dispatch(postUser(username, password)),
-});
-
 LoginScreen.navigationOptions = {
   title: 'Logg inn',
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
+export default connect(mapStateToProps)(LoginScreen);
