@@ -39,8 +39,7 @@ export function postFuelDay(weekday, toggle) {
       .then((user) => {
         dispatch(postFuelDaySuccess(user));
       })
-      .catch((e) => {
-        console.log(e);
+      .catch(() => {
         dispatch(postFuelDayFailure(true));
       });
   };
