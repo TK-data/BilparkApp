@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button } from 'react-native';
+import { Button, View } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { logout } from '../actions/auth';
 
 const AuthButton = ({ logoutUser, loginScreen, isLoggedIn }) => (
-  <Button
-    title={isLoggedIn ? 'Logg Ut' : 'Åpne logg-inn skjerm'}
-    onPress={isLoggedIn ? logoutUser : loginScreen}
-  />
+  <View>
+    <Button
+      title={isLoggedIn ? 'Logg Ut' : 'Åpne logg-inn skjerm'}
+      onPress={isLoggedIn ? logoutUser : loginScreen}
+    />
+  </View>
 );
 
 AuthButton.propTypes = {
