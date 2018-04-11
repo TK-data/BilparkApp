@@ -18,12 +18,4 @@ describe('Testing GetCarScreen', () => {
     );
     expect(wrapper.dive()).toMatchSnapshot();
   });
-
-  it('calls actions as expected when toggling switches', () => {
-    const wrapper = shallow(
-      <GetCarScreen />,
-      { context: { store: mockStore(initialState) } },
-    );
-    expect(wrapper.dive()).toMatchSnapshot();
-  });
 });
