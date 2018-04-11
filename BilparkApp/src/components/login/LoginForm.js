@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { reduxForm, Field } from 'redux-form';
-import { postUser, postCurrent } from '../actions/auth';
+import { postUser, postCurrent } from '../../actions/auth';
 
 const renderInput = ({ secureTextEntry, placeholder, input: { onChange, ...restInput } }) => {
   return (
