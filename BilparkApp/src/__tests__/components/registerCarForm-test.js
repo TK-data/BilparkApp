@@ -40,16 +40,6 @@ describe('Testing register car form', () => {
   it('Can click button and submit value', () => {
     const render = wrapper.dive().dive().dive().dive();
     const submitButton = render.find('TouchableOpacity');
-    // submitButton.simulate('press');
-  });
-
-  /* it('State is changed when button is clicked', () => {
-    const render = wrapper.dive().dive().dive().dive();
-    const submitButton = render.find('TouchableOpacity');
-
-    const saveToPhoneSpy = sinon.spy(NativeModules.carActions, 'getCar');
     submitButton.simulate('press');
-
-    expect(saveToPhoneSpy.calledOnce).toBe(true);
-  }); */
+  });
 });
