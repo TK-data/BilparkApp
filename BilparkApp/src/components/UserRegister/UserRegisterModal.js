@@ -43,10 +43,10 @@ const UserRegisterModal = ({ modalVisible, modalTransparent, visibleModal, navig
   );
 };
 
-UserRegisterModal.propTypes = {
+/* UserRegisterModal.propTypes = {
   modalVisible: PropTypes.bool.isRequired,
   modalTransparent: PropTypes.bool.isRequired,
-};
+}; */
 
 const mapStateToProps = (state) => {
   return {
