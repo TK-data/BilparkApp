@@ -34,34 +34,32 @@ const styles = StyleSheet.create({
   },
 });
 
-const header = (
-  <Header style={styles.header}>
-    <StatusBar barStyle="light-content" hidden={false} />
-    <Left style={styles.container}>
-      <Button transparent >
-        <Icon name="menu" />
-      </Button>
-    </Left>
-    <Body style={styles.body}>
-      <Image style={styles.logo} source={require('./../components/images/sparebank1logo.png')} />
-    </Body>
-    <Right style={styles.container} />
-  </Header>
-);
+const navigationConfig = {
+  navigationOptions: {
+    headerTitle: <Body><Image style={styles.logo} source={require('../components/images/sparebank1logo.png')} /></Body>,
+    headerStyle: {
+      backgroundColor: '#002776',
+      borderBottomWidth: 0,
+      elevation: 0,
+    },
+    headerTitleStyle: {
+      alignSelf: 'center',
+    },
+    headerBackTitle: null,
+    headerTintColor: '#ffffff',
+    headerRight: <Body />,
+  },
+};
 
 export const AppNavigator = StackNavigator({
-  Register: { screen: UserRegisterScreen,
-    navigationOptions: {
-      header,
-    },
-  },
+  Register: { screen: UserRegisterScreen },
   Login: { screen: LoginScreen },
   Main: { screen: MainScreen },
   Profile: { screen: ProfileScreen },
   RegisterCar: { screen: GetCarScreen },
   FuelDay: { screen: FuelDayScreen },
   Menu: { screen: MenuScreen },
-});
+}, navigationConfig);
 
 class AppWithNavigationState extends React.Component {
   static propTypes = {
@@ -70,9 +68,6 @@ class AppWithNavigationState extends React.Component {
   };
 
   render() {
-    AppNavigator.navigationOptions = {
-      header: <Header />,
-    };
 
     const { dispatch, nav } = this.props;
     return (

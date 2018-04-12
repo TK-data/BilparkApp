@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView, Image } from 'react-native';
+import { Body, Button } from 'native-base';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { registerUserModalVisible } from '../../actions/registerUser';
 import UserRegisterModal from './UserRegisterModal';
@@ -9,6 +10,10 @@ import UserRegisterForm from './UserRegisterForm';
 const styles = StyleSheet.create({
   keyboard: {
     backgroundColor: '#002776',
+  },
+  logo: {
+    height: 25,
+    width: 112,
   },
 });
 
@@ -43,6 +48,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     visibleModal: bool => dispatch(registerUserModalVisible(bool)),
   };
+};
+
+UserRegisterScreen.navigationOptions = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserRegisterScreen);
