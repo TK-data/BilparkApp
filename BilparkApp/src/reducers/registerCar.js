@@ -16,7 +16,7 @@ export function carFetchLoading(state = false, action) {
     return state;
   }
 }
-export function car(state = '', action) {
+export function carFetchSuccess(state = '', action) {
   switch (action.type) {
   case GET_CAR_SUCCESS:
     return action.car;
