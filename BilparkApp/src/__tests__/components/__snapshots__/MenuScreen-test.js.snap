@@ -175,7 +175,7 @@ ShallowWrapper {
             "process": [Function],
           }
         }
-        routeName="Profile"
+        routeName="Logout"
       />
     </View>
   </View>,
@@ -355,7 +355,7 @@ ShallowWrapper {
                 "process": [Function],
               }
             }
-            routeName="Profile"
+            routeName="Logout"
           />
         </View>,
       ],
@@ -770,7 +770,7 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              routeName="Profile"
+              routeName="Logout"
             />,
           ],
           "style": Object {
@@ -863,7 +863,7 @@ ShallowWrapper {
               "image": Object {
                 "process": [Function],
               },
-              "routeName": "Profile",
+              "routeName": "Logout",
             },
             "ref": null,
             "rendered": null,
@@ -1045,7 +1045,7 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              routeName="Profile"
+              routeName="Logout"
             />
           </View>,
         ],
@@ -1460,7 +1460,7 @@ ShallowWrapper {
                     "process": [Function],
                   }
                 }
-                routeName="Profile"
+                routeName="Logout"
               />,
             ],
             "style": Object {
@@ -1553,7 +1553,7 @@ ShallowWrapper {
                 "image": Object {
                   "process": [Function],
                 },
-                "routeName": "Profile",
+                "routeName": "Logout",
               },
               "ref": null,
               "rendered": null,

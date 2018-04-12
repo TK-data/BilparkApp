@@ -30,7 +30,7 @@ const UserRegisterModal = ({ modalVisible, modalTransparent, visibleModal, navig
       }}
     >
       <View style={styles.modal}>
-        <Text style={styles.modalText}>Registrering godkjent</Text>
+        <Text style={styles.modalText} testID="RegisterModalTextField">Registrering godkjent</Text>
         <Button
           title="Gå til innlogging"
           onPress={() => {
