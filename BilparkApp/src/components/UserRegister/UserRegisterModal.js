@@ -58,7 +58,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     visibleModal: bool => dispatch(registerUserModalVisible(bool)),
-    navigateToLogin: () => dispatch(NavigationActions.navigate({ routeName: 'Login' })),
+    navigateToLogin: () => dispatch(NavigationActions.back()),
   };
 };
 
