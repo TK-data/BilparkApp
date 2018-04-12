@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addNavigationHelpers, StackNavigator } from 'react-navigation';
 import { Header, Body, Left, Right, Button, Icon } from 'native-base';
-import { StyleSheet, StatusBar, Image } from 'react-native';
+import { StyleSheet, View, StatusBar, Image } from 'react-native';
 
 import LoginScreen from '../components/LoginScreen';
 import MainScreen from '../components/MainScreen';
@@ -66,6 +66,11 @@ class AppWithNavigationState extends React.Component {
     dispatch: PropTypes.func.isRequired,
     nav: PropTypes.object.isRequired,
   };
+
+  componentDidMount() {
+    StatusBar.setBarStyle('light-content');
+    StatusBar.setBackgroundColor('#002776', true);
+  }
 
   render() {
 

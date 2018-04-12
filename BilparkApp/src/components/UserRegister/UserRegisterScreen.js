@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, ScrollView, Image } from 'react-native';
-import { Body, Button } from 'native-base';
+import { StyleSheet, ScrollView, StatusBar } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { registerUserModalVisible } from '../../actions/registerUser';
 import UserRegisterModal from './UserRegisterModal';
@@ -30,6 +29,7 @@ class UserRegisterScreen extends React.Component {
         resetScrollToCoords={{ x: 0, y: 0 }}
         contentContainerStyle={styles.keyboard}
       >
+        <StatusBar />
         <ScrollView>
           <UserRegisterForm />
         </ScrollView>
