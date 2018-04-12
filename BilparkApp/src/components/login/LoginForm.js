@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Button, Text, TextInput, View } from 'react-native';
 import { reduxForm, Field } from 'redux-form';
 import { postUser, postCurrent } from '../../actions/auth';
 
@@ -35,9 +35,7 @@ class LoginForm extends Component {
         <Text>Skriv inn epost og passord:</Text>
         <Field name="username" component={renderInput} placeholder="email" />
         <Field name="password" component={renderInput} placeholder="password" secureTextEntry="true" />
-        <TouchableOpacity onPress={handleSubmit(this.submit)}>
-          <Text style={styles.button}>Logg inn</Text>
-        </TouchableOpacity>
+        <Button title="Logg inn" onPress={handleSubmit(this.submit)} />
       </View>
     );
   }
@@ -69,15 +67,6 @@ export default reduxForm({
 
 
 const styles = StyleSheet.create({
-  button: {
-    backgroundColor: 'blue',
-    color: 'white',
-    height: 30,
-    lineHeight: 30,
-    marginTop: 10,
-    textAlign: 'center',
-    width: 250,
-  },
   container: {
 
   },
