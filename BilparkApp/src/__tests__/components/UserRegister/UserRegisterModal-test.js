@@ -24,9 +24,23 @@ describe('Testing UserRegisterModal', () => {
     <UserRegisterModal />,
     { context: { store: mockStore(initialState) } },
   );
-  it('Containts the register suceeded message', () => {
+  it('Containts the register succeed text field', () => {
     const render = wrapper.dive().dive();
     expect(render.find('RegisterModalTextField').exists());
-    // expect(render.find('RegisterModalTextField').text()).toBe('Registrering godkjent');
+  });
+  it('Contains the register succeed message', () => {
+    const render = wrapper.dive().dive();
+    expect(render.children().childAt(0).dive().text())
+      .toEqual('Registrering godkjent');
+    /* render.children().forEach((child) => {
+      // console.log(child.dive().text());
+      console.log(child.dive().find('Text').dive().text());
+    }); */
+    /*
+    expect(render.children().childAt(1).dive().find('Text')
+      .dive()
+      .text()
+      .toBe('Registrering godkjent'));
+      */
   });
 });
