@@ -1,7 +1,8 @@
 import React from 'react';
 import t from 'tcomb-form-native';
 import { connect } from 'react-redux';
-import { StyleSheet, View, Button, Dimensions } from 'react-native';
+import { StyleSheet, View, Dimensions } from 'react-native';
+import { Button, Content, Text } from 'native-base';
 import { registerUserFetchData, registerUserModalVisible, registerUserResetOptionUpdateValue, registerUserUpdateValue } from '../../actions/registerUser';
 
 const width = Dimensions.get('window').width;
@@ -88,12 +89,16 @@ class UserRegisterForm extends React.Component {
           value={this.props.values}
           onChange={value => this.onChange(value)}
         />
-        <Button
-          title="Registrer"
-          onPress={() => {
-            this.handleSubmit();
-          }}
-        />
+        <Content>
+          <Button
+            light
+            onPress={() => {
+              this.handleSubmit();
+            }}
+          >
+            <Text> Registrer </Text>
+          </Button>
+        </Content>
       </View>
     );
   }
