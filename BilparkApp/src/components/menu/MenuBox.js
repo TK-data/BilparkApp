@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Image, Dimensions, TouchableOpacity } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
+import { logout } from '../../actions/auth';
 
 const window = Dimensions.get('window');
 const styles = StyleSheet.create({
@@ -38,7 +39,12 @@ const MenuBox = ({ navigate, image, routeName }) => {
 
 const mapDispatchToProps = dispatch => ({
   navigate: (routeName) => {
-    dispatch(NavigationActions.navigate({ routeName }));
+    // Keep only code inside else {} when a logout button is created somewhere else inn app
+    if (routeName === 'Logout') {
+      dispatch(logout());
+    } else {
+      dispatch(NavigationActions.navigate({ routeName }));
+    }
   },
 });
 

@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { StyleSheet, Button, View } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View } from 'react-native';
 
 import LoginForm from './LoginForm';
 
@@ -18,29 +20,32 @@ const styles = StyleSheet.create({
   },
 });
 
-const LoginScreen = () => (
-  <View style={styles.container}>
-    <Text style={styles.welcome}>
-      Første skjerm
-    </Text>
-    <Text style={styles.instructions}>
-      Her kommer LoginForm!
-    </Text>
-    <LoginForm />
-  </View>
-);
-
-LoginScreen.propTypes = {
+const LoginScreen = ({ registerScreen }) => {
+  return (
+    <View style={styles.container}>
+      <LoginForm />
+      <Button title="Ny bruker" onPress={() => registerScreen()} />
+    </View>
+  );
 };
 
+LoginScreen.propTypes = {
+  registerScreen: PropTypes.func.isRequired,
+};
+
+
+const mapDispatchToProps = dispatch => ({
+  registerScreen: () => {
+    dispatch(NavigationActions.navigate({ routeName: 'Register' }));
+  },
+});
+
 const mapStateToProps = state => ({
-  isLoggedIn: state.auth.isLoggedIn,
-  hasErrored: state.auth.hasErrored,
-  isLoading: state.auth.isLoading,
+
 });
 
 LoginScreen.navigationOptions = {
   title: 'Logg inn',
 };
 
-export default connect(mapStateToProps)(LoginScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
