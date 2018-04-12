@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addNavigationHelpers, StackNavigator } from 'react-navigation';
-import { Header, Body, Left, Right, Button, Icon } from 'native-base';
-import { StyleSheet, View, StatusBar, Image } from 'react-native';
+import { Body } from 'native-base';
+import { StyleSheet, StatusBar, Image } from 'react-native';
 
-import LoginScreen from '../components/LoginScreen';
+import LoginScreen from '../components/login/LoginScreen';
 import MainScreen from '../components/MainScreen';
 import ProfileScreen from '../components/ProfileScreen';
 import UserRegisterScreen from '../components/UserRegister/UserRegisterScreen';
 import GetCarScreen from '../components/registerVehicle/GetCarScreen';
-import FuelDayScreen from '../components/FuelDayScreen';
+import FuelDayScreen from '../components/fuelDay/FuelDayScreen';
 import MenuScreen from '../components/menu/MenuScreen';
 import { addListener } from '../utils/redux';
 

@@ -12,7 +12,7 @@
     "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-react": "^7.7.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest-expo": "^25.0.0",
+    "jest-expo": "^25.1.0",
     "jest-transform-stub": "^1.0.0",
     "react-native-scripts": "1.11.1",
     "react-test-renderer": "16.2.0",
@@ -54,12 +54,12 @@
     "react-native-keyboard-aware-scroll-view": "^0.4.4",
     "react-native-swiper": "^1.5.13",
     "react-navigation": "^1.5.1",
-    "react-navigation-redux-helpers": "^1.0.3",
+    "react-navigation-redux-helpers": "^1.0.5",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-form": "^7.3.0",
     "redux-thunk": "^2.2.0",
     "tcomb-form-native": "^0.6.11",
-    "yarn": "^1.5.1"
+    "yarn": "^1.6.0"
   }
 }

@@ -8,7 +8,7 @@ import { logout } from '../actions/auth';
 const AuthButton = ({ logoutUser, loginScreen, isLoggedIn }) => (
   <View>
     <Button
-      title={isLoggedIn ? 'Logg Ut' : 'Åpne logg-inn skjerm'}
+      title={isLoggedIn ? 'Logg ut' : 'Logg inn'}
       onPress={isLoggedIn ? logoutUser : loginScreen}
     />
   </View>
