@@ -155,7 +155,6 @@ describe('async actions', () => {
     ];
 
     return store.dispatch(registerUserFetchData(values)).then(() => {
-      console.log(store.getActions());
       expect(store.getActions()).toEqual(expectedActions);
     });
 
