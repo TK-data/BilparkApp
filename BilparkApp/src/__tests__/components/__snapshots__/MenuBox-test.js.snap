@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing menu boxes Renders as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MenuBox
+    navigate={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "activeOpacity": 0.2,
+      "children": <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#F5FCFF",
+            "borderRadius": 5,
+            "display": "flex",
+            "height": 222.33333333333334,
+            "justifyContent": "center",
+            "margin": 15,
+            "width": 214.28571428571428,
+          }
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={undefined}
+          style={
+            Object {
+              "height": 200.1,
+              "width": 112.5,
+            }
+          }
+        />
+      </View>,
+      "onPress": [Function],
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": <Image
+          resizeMode="contain"
+          source={undefined}
+          style={
+            Object {
+              "height": 200.1,
+              "width": 112.5,
+            }
+          }
+        />,
+        "style": Object {
+          "alignItems": "center",
+          "backgroundColor": "#F5FCFF",
+          "borderRadius": 5,
+          "display": "flex",
+          "height": 222.33333333333334,
+          "justifyContent": "center",
+          "margin": 15,
+          "width": 214.28571428571428,
+        },
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "resizeMode": "contain",
+          "source": undefined,
+          "style": Object {
+            "height": 200.1,
+            "width": 112.5,
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "activeOpacity": 0.2,
+        "children": <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#F5FCFF",
+              "borderRadius": 5,
+              "display": "flex",
+              "height": 222.33333333333334,
+              "justifyContent": "center",
+              "margin": 15,
+              "width": 214.28571428571428,
+            }
+          }
+        >
+          <Image
+            resizeMode="contain"
+            source={undefined}
+            style={
+              Object {
+                "height": 200.1,
+                "width": 112.5,
+              }
+            }
+          />
+        </View>,
+        "onPress": [Function],
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <Image
+            resizeMode="contain"
+            source={undefined}
+            style={
+              Object {
+                "height": 200.1,
+                "width": 112.5,
+              }
+            }
+          />,
+          "style": Object {
+            "alignItems": "center",
+            "backgroundColor": "#F5FCFF",
+            "borderRadius": 5,
+            "display": "flex",
+            "height": 222.33333333333334,
+            "justifyContent": "center",
+            "margin": 15,
+            "width": 214.28571428571428,
+          },
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "resizeMode": "contain",
+            "source": undefined,
+            "style": Object {
+              "height": 200.1,
+              "width": 112.5,
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+    "context": Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+    },
+  },
+}
+`;
