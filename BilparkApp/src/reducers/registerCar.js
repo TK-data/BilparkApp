@@ -1,4 +1,4 @@
-import { GET_CAR_FAILURE, GET_CAR_REQUEST, GET_CAR_SUCCESS } from '../actions/registerCar';
+import { GET_CAR_FAILURE, GET_CAR_REQUEST, GET_CAR_SUCCESS, GET_CAR_DECLINE } from '../actions/registerCar';
 
 export const initialState = {
   hasErrored: false,
@@ -26,6 +26,8 @@ export function carFetch(state = initialState, action) {
       isLoading: false,
       car: action.car,
     };
+  case GET_CAR_DECLINE:
+    return initialState;
   default:
     return state;
   }

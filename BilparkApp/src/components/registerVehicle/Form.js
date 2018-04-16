@@ -19,10 +19,22 @@ class Form extends Component {
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
+    this.accept = this.accept.bind(this);
+    this.decline = this.decline.bind(this);
   }
 
   submit(values) {
     this.props.getCar(values.regnr);
+  }
+
+  accept() {
+    this.props.getCar(values.regnr);
+
+    console.log('accept');
+  }
+
+  decline() {
+    this.props.declineCar();
   }
 
   render() {
@@ -64,10 +76,10 @@ class Form extends Component {
           <Text>Merke: {car.Brand}</Text>
           <Text>Modell: {car.Model}</Text>
           <Text>Registreringsår: {car.RegYear}</Text>
-          <Button onPress={handleSubmit(this.acceptCar)}>
+          <Button onPress={handleSubmit(this.accept)}>
             <Text>Ja</Text>
           </Button>
-          <Button onPress={handleSubmit(this.declineCar)}>
+          <Button onPress={handleSubmit(this.decline)}>
             <Text>Nei</Text>
           </Button>
         </View>
@@ -93,6 +105,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getCar: regnr => dispatch(getCar(regnr)),
+    declineCar: () => dispatch(declineCar()),
   };
 };
 
