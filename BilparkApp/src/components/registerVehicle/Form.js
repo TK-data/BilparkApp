@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, Text, View } from 'native-base';
+import { Button, Text, View, H2 } from 'native-base';
 import { TextInput } from 'react-native';
 import { reduxForm, Field } from 'redux-form';
-import { getCar, declineCar } from '../../actions/registerCar';
+import { getCar, declineCar, acceptCar } from '../../actions/registerCar';
 
 const renderInput = ({ input: { onChange, ...restInput } }) => {
   return (
@@ -28,9 +28,7 @@ class Form extends Component {
   }
 
   accept() {
-    this.props.getCar(values.regnr);
-
-    console.log('accept');
+    this.props.acceptCar();
   }
 
   decline() {
@@ -50,7 +48,18 @@ class Form extends Component {
       </View>
     );
 
-    if (this.props.isLoading) {
+    if (this.props.isAccepted) {
+      const car = JSON.parse(this.props.car);
+      main = (
+        <View>
+          <H2>Din bil:</H2>
+          <Text>Regnr: {car.Regnr}</Text>
+          <Text>Merke: {car.Brand}</Text>
+          <Text>Modell: {car.Model}</Text>
+          <Text>Registreringsår: {car.RegYear}</Text>
+        </View>
+      );
+    } else if (this.props.isLoading) {
       main = (
         <View>
           <Text>Laster..</Text>
@@ -99,6 +108,7 @@ const mapStateToProps = (state) => {
     car: state.carFetch.car,
     isLoading: state.carFetch.isLoading,
     hasErrored: state.carFetch.hasErrored,
+    isAccepted: state.carFetch.isAccepted,
   };
 };
 
@@ -106,6 +116,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getCar: regnr => dispatch(getCar(regnr)),
     declineCar: () => dispatch(declineCar()),
+    acceptCar: () => dispatch(acceptCar()),
   };
 };
 

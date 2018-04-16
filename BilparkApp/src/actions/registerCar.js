@@ -6,6 +6,7 @@ export const GET_CAR_REQUEST = 'GET_CAR_REQUEST';
 export const GET_CAR_SUCCESS = 'GET_CAR_SUCCESS';
 export const GET_CAR_FAILURE = 'GET_CAR_FAILURE';
 export const GET_CAR_DECLINE = 'GET_CAR_DECLINE';
+export const GET_CAR_ACCEPT = 'GET_CAR_ACCEPT';
 
 
 export function carFetchFailure(bool) {
@@ -32,6 +33,13 @@ export function carDeclined() {
   };
 }
 
+export function carAccepted(bool) {
+  return {
+    type: GET_CAR_ACCEPT,
+    isAccepted: bool,
+  };
+}
+
 export function getCar(nr) {
   return (dispatch) => {
     dispatch(carFetchLoading(true));
@@ -50,6 +58,12 @@ export function getCar(nr) {
           throw error;
         }
       });
+  };
+}
+
+export function acceptCar() {
+  return (dispatch) => {
+    dispatch(carAccepted(true));
   };
 }
 
