@@ -32,7 +32,8 @@
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
     "coveragePathIgnorePatterns": [
-      "<rootDir>/build/", "<rootDir>/native-base-theme/"
+      "<rootDir>/build/",
+      "<rootDir>/native-base-theme/"
     ],
     "setupFiles": [
       "<rootDir>/src/utils/setupTests.js"
