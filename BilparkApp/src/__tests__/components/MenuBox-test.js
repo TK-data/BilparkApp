@@ -27,7 +27,6 @@ describe('Testing menu boxes', () => {
 
   it('Pressing the menubox button', () => {
     const render = wrapper.dive();
-    console.log(render.debug());
     const submitButton = render.find('TouchableOpacity');
     submitButton.simulate('press');
   });
