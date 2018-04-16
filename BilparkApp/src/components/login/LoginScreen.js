@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Body } from 'native-base';
 import { StyleSheet, Button, View } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
@@ -46,6 +47,7 @@ const mapStateToProps = state => ({
 
 LoginScreen.navigationOptions = {
   title: 'Logg inn',
+  headerLeft: <Body />,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);

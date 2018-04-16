@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import { Text } from 'react-native';
 import { View, StyleSheet, Dimensions, Text } from 'react-native';
 import Swiper from 'react-native-swiper';
+import { Body } from 'native-base';
 
 import MenuBox from './MenuBox';
 
@@ -102,6 +103,11 @@ class MenuScreen extends Component {
     );
   }
 }
+
+MenuScreen.navigationOptions = {
+  title: 'Meny',
+  headerLeft: <Body />,
+};
 
 
 export default MenuScreen;
