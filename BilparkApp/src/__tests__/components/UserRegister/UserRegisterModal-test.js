@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import { Modal } from 'react-native';
 
 import UserRegisterModal from '../../../components/UserRegister/UserRegisterModal';
 
@@ -32,15 +33,9 @@ describe('Testing UserRegisterModal', () => {
     const render = wrapper.dive().dive();
     expect(render.children().childAt(0).dive().text())
       .toEqual('Registrering godkjent');
-    /* render.children().forEach((child) => {
-      // console.log(child.dive().text());
-      console.log(child.dive().find('Text').dive().text());
-    }); */
-    /*
-    expect(render.children().childAt(1).dive().find('Text')
-      .dive()
-      .text()
-      .toBe('Registrering godkjent'));
-      */
+  });
+  it('Contains the modal', () => {
+    const modal = wrapper.find(Modal).first();
+    expect(modal.exists());
   });
 });

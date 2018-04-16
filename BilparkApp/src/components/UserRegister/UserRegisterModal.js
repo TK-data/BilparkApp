@@ -26,7 +26,6 @@ const UserRegisterModal = ({ modalVisible, modalTransparent, visibleModal, navig
       animationType="slide"
       transparent={modalTransparent}
       onRequestClose={() => {
-        alert('Modal has been closed.');
       }}
     >
       <View style={styles.modal}>
@@ -42,11 +41,6 @@ const UserRegisterModal = ({ modalVisible, modalTransparent, visibleModal, navig
     </Modal>
   );
 };
-
-/* UserRegisterModal.propTypes = {
-  modalVisible: PropTypes.bool.isRequired,
-  modalTransparent: PropTypes.bool.isRequired,
-}; */
 
 const mapStateToProps = (state) => {
   return {
