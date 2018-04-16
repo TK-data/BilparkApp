@@ -19,12 +19,10 @@ const styles = StyleSheet.create({
 
 const GetCarScreen = () => (
   <View style={styles.container}>
-    <View style={styles.container}>
-      <Text style={styles.welcome}>
+    <Text style={styles.welcome}>
         Finn din bil!
-      </Text>
-      <Form />
-    </View>
+    </Text>
+    <Form />
   </View>
 );
 
