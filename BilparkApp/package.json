@@ -15,7 +15,7 @@
     "jest-expo": "^25.1.0",
     "jest-transform-stub": "^1.0.0",
     "react-native-scripts": "1.11.1",
-    "react-test-renderer": "16.2.0",
+    "react-test-renderer": "^16.3.1",
     "redux-mock-store": "^1.5.1"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
@@ -31,6 +31,13 @@
     "preset": "jest-expo",
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/build/",
+      "<rootDir>/native-base-theme/"
+    ],
+    "setupFiles": [
+      "<rootDir>/src/utils/setupTests.js"
+    ],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/assetsTransformer.js",
       "\\.(css|less)$": "<rootDir>/assetsTransformer.js"
@@ -43,6 +50,8 @@
     "@expo/vector-icons": "^6.3.1",
     "auth0-js": "^8.12.3",
     "axios": "^0.18.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint-plugin-jest": "^21.15.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "expo": "^25.0.0",
@@ -50,6 +59,7 @@
     "native-base": "^2.4.1",
     "prop-types": "^15.6.1",
     "react": "16.2.0",
+    "react-dom": "^16.3.1",
     "react-native": "0.52.0",
     "react-native-keyboard-aware-scroll-view": "^0.4.4",
     "react-native-swiper": "^1.5.13",
@@ -59,7 +69,9 @@
     "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-form": "^7.3.0",
+    "redux-mock-store": "^1.5.1",
     "redux-thunk": "^2.2.0",
+    "sinon": "^4.5.0",
     "tcomb-form-native": "^0.6.11",
     "yarn": "^1.6.0"
   }
