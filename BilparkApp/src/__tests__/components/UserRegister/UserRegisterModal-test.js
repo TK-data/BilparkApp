@@ -38,4 +38,9 @@ describe('Testing UserRegisterModal', () => {
     const modal = wrapper.find(Modal).first();
     expect(modal.exists());
   });
+  it('Contains the go to login button', () => {
+    const render = wrapper.dive().dive();
+    expect(render.children().childAt(1).text())
+      .toEqual('<Button />');
+  });
 });
