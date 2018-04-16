@@ -234,10 +234,21 @@ ShallowWrapper {
           type={[Function]}
           value={undefined}
         />,
-        <Button
-          onPress={[Function]}
-          title="Registrer"
-        />,
+        <Styled(Content)
+          virtual={undefined}
+        >
+          <Styled(Button)
+            light={true}
+            onPress={[Function]}
+            virtual={undefined}
+          >
+            <Styled(Text)
+              virtual={undefined}
+            >
+               Registrer 
+            </Styled(Text)>
+          </Styled(Button)>
+        </Styled(Content)>,
       ],
       "style": Object {
         "alignItems": "center",
@@ -465,11 +476,49 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "onPress": [Function],
-          "title": "Registrer",
+          "children": <Styled(Button)
+            light={true}
+            onPress={[Function]}
+            virtual={undefined}
+          >
+            <Styled(Text)
+              virtual={undefined}
+            >
+               Registrer 
+            </Styled(Text)>
+          </Styled(Button)>,
+          "virtual": undefined,
         },
         "ref": null,
-        "rendered": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <Styled(Text)
+              virtual={undefined}
+            >
+               Registrer 
+            </Styled(Text)>,
+            "light": true,
+            "onPress": [Function],
+            "virtual": undefined,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": " Registrer ",
+              "virtual": undefined,
+            },
+            "ref": null,
+            "rendered": " Registrer ",
+            "type": [Function],
+          },
+          "type": [Function],
+        },
         "type": [Function],
       },
     ],
@@ -691,10 +740,21 @@ ShallowWrapper {
             type={[Function]}
             value={undefined}
           />,
-          <Button
-            onPress={[Function]}
-            title="Registrer"
-          />,
+          <Styled(Content)
+            virtual={undefined}
+          >
+            <Styled(Button)
+              light={true}
+              onPress={[Function]}
+              virtual={undefined}
+            >
+              <Styled(Text)
+                virtual={undefined}
+              >
+                 Registrer 
+              </Styled(Text)>
+            </Styled(Button)>
+          </Styled(Content)>,
         ],
         "style": Object {
           "alignItems": "center",
@@ -922,11 +982,49 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "onPress": [Function],
-            "title": "Registrer",
+            "children": <Styled(Button)
+              light={true}
+              onPress={[Function]}
+              virtual={undefined}
+            >
+              <Styled(Text)
+                virtual={undefined}
+              >
+                 Registrer 
+              </Styled(Text)>
+            </Styled(Button)>,
+            "virtual": undefined,
           },
           "ref": null,
-          "rendered": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <Styled(Text)
+                virtual={undefined}
+              >
+                 Registrer 
+              </Styled(Text)>,
+              "light": true,
+              "onPress": [Function],
+              "virtual": undefined,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": " Registrer ",
+                "virtual": undefined,
+              },
+              "ref": null,
+              "rendered": " Registrer ",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
           "type": [Function],
         },
       ],

@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import t from 'tcomb-form-native';
 
 import UserRegisterForm from '../../../components/UserRegister/UserRegisterForm';
 
@@ -18,5 +19,17 @@ describe('Testing UserRegisterForm', () => {
       { context: { store: mockStore(initialState) } },
     );
     expect(comp.dive()).toMatchSnapshot();
+  });
+  const wrapper = shallow(
+    <UserRegisterForm />,
+    { context: { store: mockStore(initialState) } },
+  );
+  const Form = t.form.Form;
+  it('Containts the form', () => {
+    const render = wrapper.dive().dive();
+    console.log(render.text());
+    expect(render.find(Form).exists());
+    // expect(render.children().childAt(1).text())
+    //  .toEqual('<Button />');
   });
 });
