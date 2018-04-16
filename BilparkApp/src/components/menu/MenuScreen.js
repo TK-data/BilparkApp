@@ -30,7 +30,7 @@ const images = [
   },
   {
     image: require('../../images/menuIcons/piggy_bank.png'),
-    routeName: 'Logout',
+    routeName: 'Profile',
   },
 ];
 
