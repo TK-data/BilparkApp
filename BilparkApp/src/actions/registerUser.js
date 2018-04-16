@@ -22,23 +22,6 @@ export function registerUserIsLoading(bool) {
   };
 }
 
-export function registerUserFetchDataSuccess(users) {
-  return {
-    type: 'REGISTER_USER_FETCH_DATA_SUCCESS',
-    users,
-  };
-}
-
-export function errorAfterFiveSeconds() {
-  // We return a function instead of an action object
-  return (dispatch) => {
-    setTimeout(() => {
-      // This function is able to dispatch other action creators
-      dispatch(registerUserHasErrored(true));
-    }, 5000);
-  };
-}
-
 export function registerUserModalVisible(bool) {
   return {
     type: 'REGISTER_USER_MODAL_VISIBLE',
@@ -72,19 +55,6 @@ export function registerUserValues(values) {
     values,
   };
 }
-
-export function registerUserResetOptionUpdateValue() {
-  return (dispatch) => {
-    dispatch(registerUserResetOptions());
-  };
-}
-
-export function registerUserUpdateValue(values) {
-  return (dispatch) => {
-    dispatch(registerUserValues(values));
-  };
-}
-
 
 export function registerUserFetchData(value) {
   return (dispatch) => {
