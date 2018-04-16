@@ -3,7 +3,7 @@ import t from 'tcomb-form-native';
 import { connect } from 'react-redux';
 import { StyleSheet, View, Dimensions } from 'react-native';
 import { Button, Content, Text } from 'native-base';
-import { registerUserFetchData, registerUserModalVisible, registerUserResetOptionUpdateValue, registerUserUpdateValue } from '../../actions/registerUser';
+import { registerUserFetchData, registerUserModalVisible, registerUserResetOptions, registerUserValues } from '../../actions/registerUser';
 
 const width = Dimensions.get('window').width;
 
