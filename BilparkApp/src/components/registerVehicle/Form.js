@@ -4,6 +4,26 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-nativ
 import { reduxForm, Field } from 'redux-form';
 import { getCar } from '../../actions/registerCar';
 
+const styles = StyleSheet.create({
+  button: {
+    backgroundColor: 'blue',
+    color: 'white',
+    height: 30,
+    lineHeight: 30,
+    marginTop: 10,
+    textAlign: 'center',
+    width: 250,
+  },
+  container: {
+  },
+  input: {
+    borderColor: 'black',
+    borderWidth: 1,
+    height: 37,
+    width: 250,
+  },
+});
+
 const renderInput = ({ input: { onChange, ...restInput } }) => {
   return (
     <TextInput
@@ -74,9 +94,9 @@ class Form extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    car: state.car,
-    isLoading: state.carFetchLoading,
-    hasErrored: state.carFetchFailure,
+    car: state.carFetch.car,
+    isLoading: state.carFetch.isLoading,
+    hasErrored: state.carFetch.hasErrored,
   };
 };
 
@@ -95,24 +115,3 @@ export default reduxForm({
   form: 'getCar', // a unique name for this form
 })(FormClass);
 
-
-const styles = StyleSheet.create({
-  button: {
-    backgroundColor: 'blue',
-    color: 'white',
-    height: 30,
-    lineHeight: 30,
-    marginTop: 10,
-    textAlign: 'center',
-    width: 250,
-  },
-  container: {
-
-  },
-  input: {
-    borderColor: 'black',
-    borderWidth: 1,
-    height: 37,
-    width: 250,
-  },
-});
