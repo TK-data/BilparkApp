@@ -49,17 +49,27 @@ const navigationConfig = {
     headerTintColor: '#ffffff',
     headerRight: <Body />,
   },
+  transitionConfig: () => ({
+    transitionSpec: {
+      duration: 0,
+    },
+  }),
 };
 
-export const AppNavigator = StackNavigator({
-  Register: { screen: UserRegisterScreen },
-  Login: { screen: LoginScreen },
-  Main: { screen: MainScreen },
-  Profile: { screen: ProfileScreen },
-  RegisterCar: { screen: GetCarScreen },
-  FuelDay: { screen: FuelDayScreen },
-  Menu: { screen: MenuScreen },
-}, navigationConfig);
+export const AppNavigator = StackNavigator(
+  {
+    Register: { screen: UserRegisterScreen },
+    Login: { screen: LoginScreen },
+    Main: { screen: MainScreen },
+    Profile: { screen: ProfileScreen },
+    RegisterCar: { screen: GetCarScreen },
+    FuelDay: { screen: FuelDayScreen },
+    Menu: { screen: MenuScreen },
+  },
+  navigationConfig,
+  {
+  },
+);
 
 class AppWithNavigationState extends React.Component {
   static propTypes = {
