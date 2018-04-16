@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import LogoutButton from './LogoutButton';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,9 +18,7 @@ const styles = StyleSheet.create({
 
 const ProfileScreen = () => (
   <View style={styles.container}>
-    <Text style={styles.welcome}>
-      Profilskjerm
-    </Text>
+    <LogoutButton />
   </View>
 );
 

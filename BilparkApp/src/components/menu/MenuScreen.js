@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Dimensions, Text } from 'react-native';
 import Swiper from 'react-native-swiper';
 import { Body } from 'native-base';
+import ProfileButton from './ProfileButton';
 
 import MenuBox from './MenuBox';
 
@@ -29,7 +30,7 @@ const images = [
   },
   {
     image: require('../../images/menuIcons/piggy_bank.png'),
-    routeName: 'Logout',
+    routeName: 'Profile',
   },
 ];
 
@@ -79,6 +80,12 @@ const styles = StyleSheet.create({
 });
 
 class MenuScreen extends Component {
+
+  static navigationOptions = {
+    title: 'Meny',
+    headerLeft: <Body />,
+    headerRight: <ProfileButton />,
+  }
   render() {
     return (
       <View style={styles.menuContainer}>
@@ -103,11 +110,6 @@ class MenuScreen extends Component {
     );
   }
 }
-
-MenuScreen.navigationOptions = {
-  title: 'Meny',
-  headerLeft: <Body />,
-};
 
 
 export default MenuScreen;
