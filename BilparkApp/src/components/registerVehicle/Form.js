@@ -94,9 +94,9 @@ class Form extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    car: state.car,
-    isLoading: state.carFetchLoading,
-    hasErrored: state.carFetchFailure,
+    car: state.carFetch.car,
+    isLoading: state.carFetch.isLoading,
+    hasErrored: state.carFetch.hasErrored,
   };
 };
 

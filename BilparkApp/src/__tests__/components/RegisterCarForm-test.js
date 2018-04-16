@@ -1,16 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import sinon from 'sinon';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import Form from '../../components/registerVehicle/Form';
+// import initialState from '../../reducers/registerCar';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
 const initialState = {
-  carObject: {
+  carFetch: {
     hasErrored: false,
     isLoading: false,
     car: '',

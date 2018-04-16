@@ -8,20 +8,20 @@ export const GET_CAR_FAILURE = 'GET_CAR_FAILURE';
 
 export function carFetchFailure(bool) {
   return {
-    type: 'GET_CAR_FAILURE',
+    type: GET_CAR_FAILURE,
     hasErrored: bool,
   };
 }
 export function carFetchLoading(bool) {
   return {
-    type: 'GET_CAR_REQUEST',
+    type: GET_CAR_REQUEST,
     isLoading: bool,
   };
 }
-export function carFetchSuccess(car) {
+export function carFetchSuccess(carObject) {
   return {
-    type: 'GET_CAR_SUCCESS',
-    car,
+    type: GET_CAR_SUCCESS,
+    car: carObject,
   };
 }
 
@@ -31,16 +31,12 @@ export function getCar(nr) {
 
     return axios.post(API_ADDRESS + '/api/dsm?regnr=' + nr)
       .then((response) => {
-        dispatch(carFetchLoading(false));
-
         if (!response.ok && !response.data) {
           dispatch(carFetchFailure(true));
         }
         dispatch(carFetchSuccess(JSON.stringify(response.data)));
       })
       .catch((error) => {
-        dispatch(carFetchLoading(false));
-
         if (error.response.status === 404) {
           dispatch(carFetchFailure(true));
         } else {

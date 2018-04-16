@@ -1,27 +1,39 @@
 import { GET_CAR_FAILURE, GET_CAR_REQUEST, GET_CAR_SUCCESS } from '../../actions/registerCar';
-import { carFetchFailure, carFetchLoading, carFetchSuccess } from '../../reducers/registerCar';
+import { carFetch } from '../../reducers/registerCar';
 
 describe('Get car reducer tests', () => {
 
   it('Should handle GET_CAR_FAILURE', () => {
-    expect(carFetchFailure(false, {
+    expect(carFetch(false, {
       type: GET_CAR_FAILURE,
       hasErrored: true,
-    })).toEqual(true);
+    })).toEqual({
+      hasErrored: true,
+      isLoading: false,
+      car: '',
+    });
   });
 
   it('Should handle GET_CAR_REQUEST start', () => {
-    expect(carFetchLoading(false, {
+    expect(carFetch(false, {
       type: GET_CAR_REQUEST,
       isLoading: true,
-    })).toEqual(true);
+    })).toEqual({
+      hasErrored: false,
+      isLoading: true,
+      car: '',
+    });
   });
 
   it('Should handle GET_CAR_REQUEST done', () => {
-    expect(carFetchLoading(true, {
+    expect(carFetch(true, {
       type: GET_CAR_REQUEST,
       isLoading: false,
-    })).toEqual(false);
+    })).toEqual({
+      hasErrored: false,
+      isLoading: false,
+      car: '',
+    });
   });
 
   it('Should handle GET_CAR_SUCCESS', () => {
@@ -40,9 +52,13 @@ describe('Get car reducer tests', () => {
       NextVI: 2019,
       InsuranceCompany: 'IF',
     });
-    expect(carFetchSuccess('', {
+    expect(carFetch('', {
       type: GET_CAR_SUCCESS,
       car,
-    })).toEqual(car);
+    })).toEqual({
+      hasErrored: false,
+      isLoading: false,
+      car,
+    });
   });
 });

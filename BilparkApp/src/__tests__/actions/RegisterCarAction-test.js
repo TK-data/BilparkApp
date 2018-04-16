@@ -84,10 +84,6 @@ describe('Get car async actions', () => {
         isLoading: true,
       },
       {
-        type: 'GET_CAR_REQUEST',
-        isLoading: false,
-      },
-      {
         type: 'GET_CAR_SUCCESS',
         car,
       },
@@ -108,10 +104,6 @@ describe('Get car async actions', () => {
       {
         type: 'GET_CAR_REQUEST',
         isLoading: true,
-      },
-      {
-        type: 'GET_CAR_REQUEST',
-        isLoading: false,
       },
       {
         type: 'GET_CAR_FAILURE',
