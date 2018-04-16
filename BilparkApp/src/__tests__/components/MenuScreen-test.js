@@ -11,7 +11,7 @@ const initialState = {
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
-describe('Testing register car form', () => {
+describe('Testing menuScreen', () => {
   it('Renders as expected', () => {
     const comp = shallow(
       <MenuScreen />,
