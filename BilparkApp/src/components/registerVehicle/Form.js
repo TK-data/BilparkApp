@@ -1,33 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Button, Text, View } from 'native-base';
+import { TextInput } from 'react-native';
 import { reduxForm, Field } from 'redux-form';
-import { getCar } from '../../actions/registerCar';
-
-const styles = StyleSheet.create({
-  button: {
-    backgroundColor: 'blue',
-    color: 'white',
-    height: 30,
-    lineHeight: 30,
-    marginTop: 10,
-    textAlign: 'center',
-    width: 250,
-  },
-  container: {
-  },
-  input: {
-    borderColor: 'black',
-    borderWidth: 1,
-    height: 37,
-    width: 250,
-  },
-});
+import { getCar, declineCar } from '../../actions/registerCar';
 
 const renderInput = ({ input: { onChange, ...restInput } }) => {
   return (
     <TextInput
-      style={styles.input}
       onChangeText={onChange}
       {...restInput}
       placeholder="VH00000"
@@ -52,16 +32,15 @@ class Form extends Component {
       <View>
         <Text>Registreringsnummer:</Text>
         <Field name="regnr" component={renderInput} />
-        <TouchableOpacity onPress={handleSubmit(this.submit)}>
-          <Text style={styles.button}>Finn bil</Text>
-        </TouchableOpacity>
+        <Button onPress={handleSubmit(this.submit)}>
+          <Text>Finn bil</Text>
+        </Button>
       </View>
     );
 
-
     if (this.props.isLoading) {
       main = (
-        <View style={styles.container}>
+        <View>
           <Text>Laster..</Text>
         </View>
       );
@@ -70,22 +49,33 @@ class Form extends Component {
         <View>
           <Text>Registreringsnummeret finnes ikke! Prøv på nytt:</Text>
           <Field name="regnr" component={renderInput} />
-          <TouchableOpacity onPress={handleSubmit(this.submit)}>
-            <Text style={styles.button}>Finn bil</Text>
-          </TouchableOpacity>
+          <Button onPress={handleSubmit(this.submit)}>
+            <Text>Finn bil</Text>
+          </Button>
         </View>
       );
     } else if (this.props.car) {
+      const car = JSON.parse(this.props.car);
+
       main = (
         <View>
           <Text>Er dette din bil?</Text>
-          <Text>{this.props.car}</Text>
+          <Text>Regnr: {car.Regnr}</Text>
+          <Text>Merke: {car.Brand}</Text>
+          <Text>Modell: {car.Model}</Text>
+          <Text>Registreringsår: {car.RegYear}</Text>
+          <Button onPress={handleSubmit(this.acceptCar)}>
+            <Text>Ja</Text>
+          </Button>
+          <Button onPress={handleSubmit(this.declineCar)}>
+            <Text>Nei</Text>
+          </Button>
         </View>
       );
     }
 
     return (
-      <View style={styles.container}>
+      <View>
         {main}
       </View>
     );
