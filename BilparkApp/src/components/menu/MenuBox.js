@@ -39,12 +39,7 @@ const MenuBox = ({ navigate, image, routeName }) => {
 
 const mapDispatchToProps = dispatch => ({
   navigate: (routeName) => {
-    // Keep only code inside else {} when a logout button is created somewhere else inn app
-    if (routeName === 'Logout') {
-      dispatch(logout());
-    } else {
-      dispatch(NavigationActions.navigate({ routeName }));
-    }
+    dispatch(NavigationActions.navigate({ routeName }));
   },
 });
 

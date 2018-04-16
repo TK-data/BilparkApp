@@ -22,23 +22,6 @@ export function registerUserIsLoading(bool) {
   };
 }
 
-export function registerUserFetchDataSuccess(users) {
-  return {
-    type: 'REGISTER_USER_FETCH_DATA_SUCCESS',
-    users,
-  };
-}
-
-export function errorAfterFiveSeconds() {
-  // We return a function instead of an action object
-  return (dispatch) => {
-    setTimeout(() => {
-      // This function is able to dispatch other action creators
-      dispatch(registerUserHasErrored(true));
-    }, 5000);
-  };
-}
-
 export function registerUserModalVisible(bool) {
   return {
     type: 'REGISTER_USER_MODAL_VISIBLE',
@@ -73,23 +56,65 @@ export function registerUserValues(values) {
   };
 }
 
-export function registerUserResetOptionUpdateValue() {
-  return (dispatch) => {
-    dispatch(registerUserResetOptions());
-  };
-}
+export const pleasefillcorrect = {
+  fields: {
+    Email: {
+      label: 'Epost',
+      error: 'Vennligst fyll inn en korrekt epost',
+    },
+    Fname: {
+      label: 'Fornavn',
+      error: 'Vennligst fyll inn fornavnet ditt',
+    },
+    Lname: {
+      label: 'Etternavn',
+      error: 'Vennligst fyll inn etternavnet ditt',
+    },
+    Address: {
+      label: 'Adresse',
+      error: 'Vennligst fyll inn adressen din',
+    },
+    Password: {
+      label: 'Passord',
+      error: 'Passord må ha minst 8 tegn',
+      password: true,
+      secureTextEntry: true,
+    },
+  },
+};
 
-export function registerUserUpdateValue(values) {
-  return (dispatch) => {
-    dispatch(registerUserValues(values));
-  };
-}
-
+export const emailErrorFill = {
+  fields: {
+    Email: {
+      hasError: true,
+      label: 'Epost',
+      error: 'Eposten er allerede i bruk',
+    },
+    Fname: {
+      label: 'Fornavn',
+      error: 'Vennligst fyll inn fornavnet ditt',
+    },
+    Lname: {
+      label: 'Etternavn',
+      error: 'Vennligst fyll inn etternavnet ditt',
+    },
+    Address: {
+      label: 'Adresse',
+      error: 'Vennligst fyll inn adressen din',
+    },
+    Password: {
+      label: 'Passord',
+      error: 'Passord må ha minst 8 tegn',
+      password: true,
+      secureTextEntry: true,
+    },
+  },
+};
 
 export function registerUserFetchData(value) {
   return (dispatch) => {
     dispatch(registerUserIsLoading(true));
-    fetch(API_ADDRESS + '/api/User', {
+    return fetch(API_ADDRESS + '/api/User', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -100,96 +125,23 @@ export function registerUserFetchData(value) {
       .then((response) => {
         if (response.status === 201) {
           dispatch(registerUserModalVisible(true));
-          dispatch(registerUserOptions({
-            fields: {
-              Email: {
-                label: 'Epost',
-                error: 'Vennligst fyll inn en korrekt epost',
-              },
-              Fname: {
-                label: 'Fornavn',
-                error: 'Vennligst fyll inn fornavnet ditt',
-              },
-              Lname: {
-                label: 'Etternavn',
-                error: 'Vennligst fyll inn etternavnet ditt',
-              },
-              Address: {
-                label: 'Adresse',
-                error: 'Vennligst fyll inn adressen din',
-              },
-              Password: {
-                label: 'Passord',
-                error: 'Passord må ha minst 8 tegn',
-                password: true,
-                secureTextEntry: true,
-              },
-            },
-          }));
+          dispatch(registerUserOptions(pleasefillcorrect));
           return response.status;
+
         } else if (response.status !== 201) {
           if (JSON.parse(response._bodyText).invalidAttributes.Email) {
-            dispatch(registerUserOptions({
-              fields: {
-                Email: {
-                  hasError: true,
-                  label: 'Epost',
-                  error: 'Eposten er allerede i bruk',
-                },
-                Fname: {
-                  label: 'Fornavn',
-                  error: 'Vennligst fyll inn fornavnet ditt',
-                },
-                Lname: {
-                  label: 'Etternavn',
-                  error: 'Vennligst fyll inn etternavnet ditt',
-                },
-                Address: {
-                  label: 'Adresse',
-                  error: 'Vennligst fyll inn adressen din',
-                },
-                Password: {
-                  label: 'Passord',
-                  error: 'Passord må ha minst 8 tegn',
-                  password: true,
-                  secureTextEntry: true,
-                },
-              },
-            }));
+            dispatch(registerUserOptions(emailErrorFill));
             dispatch(registerUserValues(value));
             return { Error: 'Email' };
           }
-          dispatch(registerUserOptions({
-            fields: {
-              Email: {
-                label: 'Epost',
-                error: 'Vennligst fyll inn en korrekt epost',
-              },
-              Fname: {
-                label: 'Fornavn',
-                error: 'Vennligst fyll inn fornavnet ditt',
-              },
-              Lname: {
-                label: 'Etternavn',
-                error: 'Vennligst fyll inn etternavnet ditt',
-              },
-              Address: {
-                label: 'Adresse',
-                error: 'Vennligst fyll inn adressen din',
-              },
-              Password: {
-                label: 'Passord',
-                error: 'Passord må ha minst 8 tegn',
-                password: true,
-                secureTextEntry: true,
-              },
-            },
-          }));
+          dispatch(registerUserOptions(pleasefillcorrect));
           return response.status;
         }
         return response.json();
       })
       .then(response => response.json())
-      .catch(() => dispatch(registerUserHasErrored(true)));
+      .catch(() => {
+        dispatch(registerUserHasErrored(true));
+      });
   };
 }

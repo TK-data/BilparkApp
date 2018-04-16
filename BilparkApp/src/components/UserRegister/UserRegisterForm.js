@@ -1,8 +1,9 @@
 import React from 'react';
 import t from 'tcomb-form-native';
 import { connect } from 'react-redux';
-import { StyleSheet, View, Button, Dimensions } from 'react-native';
-import { registerUserFetchData, registerUserModalVisible, registerUserResetOptionUpdateValue, registerUserUpdateValue } from '../../actions/registerUser';
+import { StyleSheet, View, Dimensions } from 'react-native';
+import { Button, Content, Text } from 'native-base';
+import { registerUserFetchData, registerUserModalVisible, registerUserResetOptions, registerUserValues } from '../../actions/registerUser';
 
 const width = Dimensions.get('window').width;
 
@@ -88,12 +89,16 @@ class UserRegisterForm extends React.Component {
           value={this.props.values}
           onChange={value => this.onChange(value)}
         />
-        <Button
-          title="Registrer"
-          onPress={() => {
-            this.handleSubmit();
-          }}
-        />
+        <Content>
+          <Button
+            light
+            onPress={() => {
+              this.handleSubmit();
+            }}
+          >
+            <Text> Registrer </Text>
+          </Button>
+        </Content>
       </View>
     );
   }
@@ -110,8 +115,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchData: values => dispatch(registerUserFetchData(values)),
     visibleModal: bool => dispatch(registerUserModalVisible(bool)),
-    resetOptions: () => dispatch(registerUserResetOptionUpdateValue()),
-    addValues: value => dispatch(registerUserUpdateValue(value)),
+    resetOptions: () => dispatch(registerUserResetOptions()),
+    addValues: value => dispatch(registerUserValues(value)),
   };
 };
 

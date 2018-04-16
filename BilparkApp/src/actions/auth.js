@@ -2,6 +2,7 @@ import { API_ADDRESS } from '../config/connections';
 
 const axios = require('axios');
 
+
 export const POST_USER_REQUEST = 'POST_USER_REQUEST';
 export const POST_USER_SUCCESS = 'POST_USER_SUCCESS';
 export const POST_USER_FAILURE = 'POST_USER_FAILURE';
@@ -46,7 +47,7 @@ export function logoutSuccess(bool) {
 export function postUser(username, password) {
   return (dispatch) => {
     dispatch(postUserLoading(true));
-    axios.post(API_ADDRESS + '/api/user/login', {
+    return axios.post(API_ADDRESS + '/api/user/login', {
       Email: username,
       Password: password,
     })
@@ -67,7 +68,7 @@ export function postUser(username, password) {
 export function postCurrent() {
   return (dispatch) => {
     dispatch(postUserLoading(true));
-    axios.get(API_ADDRESS + '/api/user/current')
+    return axios.get(API_ADDRESS + '/api/user/current')
       .then((response) => {
         dispatch(postUserLoading(false));
         return response.data;
@@ -76,14 +77,16 @@ export function postCurrent() {
         dispatch(postUserSuccess(user));
         dispatch(loginSuccess());
       })
-      .catch(() => dispatch(postUserFailure(true)));
+      .catch(() => {
+        dispatch(postUserFailure(true));
+      });
   };
 }
 
 export function logout() {
   return (dispatch) => {
     dispatch(postUserLoading(true));
-    axios.get(API_ADDRESS + '/api/user/logout')
+    return axios.get(API_ADDRESS + '/api/user/logout')
       .then(() => {
         dispatch(postUserLoading(false));
         dispatch(logoutSuccess(true));

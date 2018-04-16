@@ -31,6 +31,10 @@
     "preset": "jest-expo",
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/build/",
+      "<rootDir>/native-base-theme/"
+    ],
     "setupFiles": [
       "<rootDir>/src/utils/setupTests.js"
     ],
@@ -43,6 +47,7 @@
     ]
   },
   "dependencies": {
+    "@expo/vector-icons": "^6.3.1",
     "auth0-js": "^8.12.3",
     "axios": "^0.18.0",
     "enzyme": "^3.3.0",
@@ -58,6 +63,7 @@
     "react-native": "0.52.0",
     "react-native-keyboard-aware-scroll-view": "^0.4.4",
     "react-native-swiper": "^1.5.13",
+    "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^1.5.1",
     "react-navigation-redux-helpers": "^1.0.5",
     "react-redux": "^5.0.7",
