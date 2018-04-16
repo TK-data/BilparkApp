@@ -115,8 +115,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchData: values => dispatch(registerUserFetchData(values)),
     visibleModal: bool => dispatch(registerUserModalVisible(bool)),
-    resetOptions: () => dispatch(registerUserResetOptionUpdateValue()),
-    addValues: value => dispatch(registerUserUpdateValue(value)),
+    resetOptions: () => dispatch(registerUserResetOptions()),
+    addValues: value => dispatch(registerUserValues(value)),
   };
 };
 
