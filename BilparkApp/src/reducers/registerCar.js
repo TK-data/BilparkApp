@@ -38,7 +38,12 @@ export function carFetch(state = initialState, action) {
       isAccepted: action.isAccepted,
     };
   case GET_CAR_DECLINE:
-    return initialState;
+    return {
+      hasErrored: false,
+      isLoading: false,
+      car: '',
+      isAccepted: false,
+    };
   default:
     return state;
   }
