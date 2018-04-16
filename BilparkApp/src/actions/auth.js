@@ -77,7 +77,7 @@ export function postCurrent() {
         dispatch(postUserSuccess(user));
         dispatch(loginSuccess());
       })
-      .catch((e) => {
+      .catch(() => {
         dispatch(postUserFailure(true));
       });
   };
@@ -86,7 +86,7 @@ export function postCurrent() {
 export function logout() {
   return (dispatch) => {
     dispatch(postUserLoading(true));
-    axios.get(API_ADDRESS + '/api/user/logout')
+    return axios.get(API_ADDRESS + '/api/user/logout')
       .then(() => {
         dispatch(postUserLoading(false));
         dispatch(logoutSuccess(true));

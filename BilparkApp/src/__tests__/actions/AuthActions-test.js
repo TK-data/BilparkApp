@@ -8,10 +8,68 @@ const axios = require('axios');
 const MockAdapter = require('axios-mock-adapter');
 
 const middlewares = [thunk];
-let mockStore = configureMockStore(middlewares);
+const mockStore = configureMockStore(middlewares);
 
 describe('actions', () => {
+  it('should create the correct action when calling postUserFailer', () => {
+    const data = false;
+    const expectedAction = {
+      type: 'POST_USER_FAILURE',
+      hasErrored: data,
+      isLoggedIn: false,
+    };
 
+    expect(postUserFailure(data)).toEqual(expectedAction);
+  });
+
+  it('should create the correct action when calling postUserLoading', () => {
+    const data = false;
+    const expectedAction = {
+      type: 'POST_USER_REQUEST',
+      isLoading: data,
+      isLoggedIn: false,
+    };
+
+    expect(postUserLoading(data)).toEqual(expectedAction);
+  });
+
+  it('should create the correct action when calling postUserSuccess', () => {
+    const data = {
+      Email: 'aaaa@a.com',
+      Fname: 'er',
+      Lname: 'ling',
+      Address: 'krok 80',
+      FuelNotification: true,
+      UserID: 4,
+      FuelDay: 5,
+    };
+
+    const expectedAction = {
+      type: 'POST_USER_SUCCESS',
+      isLoggedIn: true,
+      user: data,
+    };
+
+    expect(postUserSuccess(data)).toEqual(expectedAction);
+  });
+
+  it('should create the correct action when calling loginSuccess', () => {
+    const expectedAction = {
+      type: 'LOGIN_SUCCESS',
+    };
+
+    expect(loginSuccess()).toEqual(expectedAction);
+  });
+
+  it('should create the correct action when calling logoutSuccess', () => {
+    const data = true;
+    const expectedAction = {
+      type: 'LOGOUT_SUCCESS',
+      isLoggedIn: !data,
+    };
+
+    expect(logoutSuccess(data)).toEqual(expectedAction);
+  });
 });
 
 describe('async actions', () => {
@@ -63,10 +121,8 @@ describe('async actions', () => {
       },
     ];
 
-
     // create a mock of the store
     const store = mockStore({});
-
 
     // run the dispatch of postUser/login.
     // then compare the actions expected with the ones in the mock store
@@ -115,4 +171,36 @@ describe('async actions', () => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
+
+  it('should set the correct actions when calling logout', () => {
+    // mocks that every post call to /api/user/logout will have a 200 OK response
+    axiosMock.onGet(API_ADDRESS + '/api/user/logout').reply(200, 'Logged out');
+
+
+    const expectedActions = [
+      {
+        type: 'POST_USER_REQUEST',
+        isLoading: true,
+        isLoggedIn: false,
+      },
+      {
+        type: 'POST_USER_REQUEST',
+        isLoading: false,
+        isLoggedIn: false,
+      },
+      {
+        type: 'LOGOUT_SUCCESS',
+        isLoggedIn: !true,
+      },
+    ];
+
+
+    const store = mockStore({});
+
+    return store.dispatch(logout()).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+
 });
