@@ -43,4 +43,9 @@ describe('Testing UserRegisterModal', () => {
     expect(render.children().childAt(1).text())
       .toEqual('<Button />');
   });
+  it('Can press the go to login button', () => {
+    const render = wrapper.dive().dive();
+    const loginButton = render.children().childAt(1);
+    loginButton.simulate('press');
+  });
 });
