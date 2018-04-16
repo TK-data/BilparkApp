@@ -31,6 +31,9 @@
     "preset": "jest-expo",
     "coverageDirectory": "./coverage/",
     "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/build/", "<rootDir>/native-base-theme/"
+    ],
     "setupFiles": [
       "<rootDir>/src/utils/setupTests.js"
     ],

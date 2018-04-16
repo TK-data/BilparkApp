@@ -1,26 +1,33 @@
 import { GET_CAR_FAILURE, GET_CAR_REQUEST, GET_CAR_SUCCESS } from '../actions/registerCar';
 
-export function carFetchFailure(state = false, action) {
+export const initialState = {
+  hasErrored: false,
+  isLoading: false,
+  car: '',
+};
+
+export function carFetch(state = initialState, action) {
   switch (action.type) {
   case GET_CAR_FAILURE:
-    return action.hasErrored;
-  default:
-    return state;
-  }
-}
-export function carFetchLoading(state = false, action) {
-  switch (action.type) {
+    return {
+      hasErrored: action.hasErrored,
+      isLoading: false,
+      car: '',
+    };
   case GET_CAR_REQUEST:
-    return action.isLoading;
-  default:
-    return state;
-  }
-}
-export function car(state = '', action) {
-  switch (action.type) {
+    return {
+      hasErrored: false,
+      isLoading: action.isLoading,
+      car: '',
+    };
   case GET_CAR_SUCCESS:
-    return action.car;
+    return {
+      hasErrored: false,
+      isLoading: false,
+      car: action.car,
+    };
   default:
     return state;
   }
 }
+
