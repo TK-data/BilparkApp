@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { API_ADDRESS } from '../../config/connections';
-import { postUserFailure, postUserLoading, postUserSuccess, loginSuccess, logoutSuccess, postUser, postCurrent, logout } from '../../actions/auth';
+import { postUserFailure, postUserLoading, postUserSuccess, loginSuccess, logoutSuccess, postUser, postCurrent, logout, loginErrorFormOptions, loginResetFormOptions, loginMail } from '../../actions/auth';
 
 const axios = require('axios');
 
@@ -70,6 +70,35 @@ describe('actions', () => {
 
     expect(logoutSuccess(data)).toEqual(expectedAction);
   });
+
+  it('should create the correct action when calling loginMail', () => {
+    const data = {
+      Epost: 'test@test.no',
+    };
+    const expectedAction = {
+      type: 'LOGIN_MAIL',
+      mail: data,
+    };
+
+    expect(loginMail(data)).toEqual(expectedAction);
+  });
+
+  it('should create the correct action when calling loginErrorFormOptions', () => {
+    const expectedAction = {
+      type: 'LOGIN_ERROR_FORM_OPTIONS',
+    };
+
+    expect(loginErrorFormOptions()).toEqual(expectedAction);
+  });
+
+  it('should create the correct action when calling loginResetFormOptions', () => {
+    const expectedAction = {
+      type: 'LOGIN_RESET_FORM_OPTIONS',
+    };
+
+    expect(loginResetFormOptions()).toEqual(expectedAction);
+  });
+
 });
 
 describe('async actions', () => {
@@ -115,6 +144,11 @@ describe('async actions', () => {
         type: 'POST_USER_SUCCESS',
         isLoggedIn: true,
         user: mockResponseUser,
+      },
+      { mail: {},
+        type: 'LOGIN_MAIL' },
+      {
+        type: 'LOGIN_RESET_FORM_OPTIONS',
       },
       {
         type: 'LOGIN_SUCCESS',
