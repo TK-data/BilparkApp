@@ -8,6 +8,40 @@ import { Button } from 'native-base';
 import UserRegisterForm from '../../../components/UserRegister/UserRegisterForm';
 
 const initialState = {
+  options: {
+    fields: {
+      Email: {
+        hasError: false,
+        label: 'Epost',
+        error: 'Vennligst fyll inn en korrekt epost',
+      },
+      Fname: {
+        label: 'Fornavn',
+        error: 'Vennligst fyll inn fornavnet ditt',
+      },
+      Lname: {
+        label: 'Etternavn',
+        error: 'Vennligst fyll inn etternavnet ditt',
+      },
+      Address: {
+        label: 'Adresse',
+        error: 'Vennligst fyll inn adressen din',
+      },
+      Password: {
+        label: 'Passord',
+        error: 'Passord må ha minst 8 tegn',
+        password: true,
+        secureTextEntry: true,
+      },
+    },
+  },
+  values: {
+    Email: 'test@mail.no',
+    Fname: 'FnameTest',
+    Lname: 'LnameTest',
+    Address: 'AdrTest',
+    Password: 'passwordTest',
+  },
 };
 
 const middlewares = [thunk];
@@ -36,6 +70,25 @@ describe('Testing UserRegisterForm', () => {
   });
   it('Can press the register button', () => {
     const render = wrapper.dive().dive();
+    const registerButton = render.find(Button);
+    registerButton.simulate('press');
+  });
+  const User = {
+    Email: 'test@mail.no',
+    Fname: 'FnameTest',
+    Lname: 'LnameTest',
+    Address: 'AdrTest',
+    Password: 'passwordTest',
+  };
+  it('Can fill with values and register', () => {
+    const render = wrapper.dive().dive();
+    const form = render.find(Form);
+    // form.value = User;
+    console.log(wrapper.props());
+    // console.log(wrapper.props.values);
+    // console.log(form.getValue());
+    // console.log(Form.getValue());
+    // console.log(form.getValue());
     const registerButton = render.find(Button);
     registerButton.simulate('press');
   });

@@ -7,9 +7,45 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <UserRegisterForm
     addValues={[Function]}
     fetchData={[Function]}
-    options={undefined}
+    options={
+      Object {
+        "fields": Object {
+          "Address": Object {
+            "error": "Vennligst fyll inn adressen din",
+            "label": "Adresse",
+          },
+          "Email": Object {
+            "error": "Vennligst fyll inn en korrekt epost",
+            "hasError": false,
+            "label": "Epost",
+          },
+          "Fname": Object {
+            "error": "Vennligst fyll inn fornavnet ditt",
+            "label": "Fornavn",
+          },
+          "Lname": Object {
+            "error": "Vennligst fyll inn etternavnet ditt",
+            "label": "Etternavn",
+          },
+          "Password": Object {
+            "error": "Passord må ha minst 8 tegn",
+            "label": "Passord",
+            "password": true,
+            "secureTextEntry": true,
+          },
+        },
+      }
+    }
     resetOptions={[Function]}
-    values={undefined}
+    values={
+      Object {
+        "Address": "AdrTest",
+        "Email": "test@mail.no",
+        "Fname": "FnameTest",
+        "Lname": "LnameTest",
+        "Password": "passwordTest",
+      }
+    }
     visibleModal={[Function]}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -37,7 +73,35 @@ ShallowWrapper {
             }
           }
           onChange={[Function]}
-          options={undefined}
+          options={
+            Object {
+              "fields": Object {
+                "Address": Object {
+                  "error": "Vennligst fyll inn adressen din",
+                  "label": "Adresse",
+                },
+                "Email": Object {
+                  "error": "Vennligst fyll inn en korrekt epost",
+                  "hasError": false,
+                  "label": "Epost",
+                },
+                "Fname": Object {
+                  "error": "Vennligst fyll inn fornavnet ditt",
+                  "label": "Fornavn",
+                },
+                "Lname": Object {
+                  "error": "Vennligst fyll inn etternavnet ditt",
+                  "label": "Etternavn",
+                },
+                "Password": Object {
+                  "error": "Passord må ha minst 8 tegn",
+                  "label": "Passord",
+                  "password": true,
+                  "secureTextEntry": true,
+                },
+              },
+            }
+          }
           stylesheet={
             Object {
               "button": Object {
@@ -232,7 +296,15 @@ ShallowWrapper {
             }
           }
           type={[Function]}
-          value={undefined}
+          value={
+            Object {
+              "Address": "AdrTest",
+              "Email": "test@mail.no",
+              "Fname": "FnameTest",
+              "Lname": "LnameTest",
+              "Password": "passwordTest",
+            }
+          }
         />,
         <Styled(Content)
           virtual={undefined}
@@ -274,7 +346,33 @@ ShallowWrapper {
             "up": "↑",
           },
           "onChange": [Function],
-          "options": undefined,
+          "options": Object {
+            "fields": Object {
+              "Address": Object {
+                "error": "Vennligst fyll inn adressen din",
+                "label": "Adresse",
+              },
+              "Email": Object {
+                "error": "Vennligst fyll inn en korrekt epost",
+                "hasError": false,
+                "label": "Epost",
+              },
+              "Fname": Object {
+                "error": "Vennligst fyll inn fornavnet ditt",
+                "label": "Fornavn",
+              },
+              "Lname": Object {
+                "error": "Vennligst fyll inn etternavnet ditt",
+                "label": "Etternavn",
+              },
+              "Password": Object {
+                "error": "Passord må ha minst 8 tegn",
+                "label": "Passord",
+                "password": true,
+                "secureTextEntry": true,
+              },
+            },
+          },
           "stylesheet": Object {
             "button": Object {
               "alignSelf": "stretch",
@@ -465,7 +563,13 @@ ShallowWrapper {
             "textbox": [Function],
           },
           "type": [Function],
-          "value": undefined,
+          "value": Object {
+            "Address": "AdrTest",
+            "Email": "test@mail.no",
+            "Fname": "FnameTest",
+            "Lname": "LnameTest",
+            "Password": "passwordTest",
+          },
         },
         "ref": [Function],
         "rendered": null,
@@ -543,7 +647,35 @@ ShallowWrapper {
               }
             }
             onChange={[Function]}
-            options={undefined}
+            options={
+              Object {
+                "fields": Object {
+                  "Address": Object {
+                    "error": "Vennligst fyll inn adressen din",
+                    "label": "Adresse",
+                  },
+                  "Email": Object {
+                    "error": "Vennligst fyll inn en korrekt epost",
+                    "hasError": false,
+                    "label": "Epost",
+                  },
+                  "Fname": Object {
+                    "error": "Vennligst fyll inn fornavnet ditt",
+                    "label": "Fornavn",
+                  },
+                  "Lname": Object {
+                    "error": "Vennligst fyll inn etternavnet ditt",
+                    "label": "Etternavn",
+                  },
+                  "Password": Object {
+                    "error": "Passord må ha minst 8 tegn",
+                    "label": "Passord",
+                    "password": true,
+                    "secureTextEntry": true,
+                  },
+                },
+              }
+            }
             stylesheet={
               Object {
                 "button": Object {
@@ -738,7 +870,15 @@ ShallowWrapper {
               }
             }
             type={[Function]}
-            value={undefined}
+            value={
+              Object {
+                "Address": "AdrTest",
+                "Email": "test@mail.no",
+                "Fname": "FnameTest",
+                "Lname": "LnameTest",
+                "Password": "passwordTest",
+              }
+            }
           />,
           <Styled(Content)
             virtual={undefined}
@@ -780,7 +920,33 @@ ShallowWrapper {
               "up": "↑",
             },
             "onChange": [Function],
-            "options": undefined,
+            "options": Object {
+              "fields": Object {
+                "Address": Object {
+                  "error": "Vennligst fyll inn adressen din",
+                  "label": "Adresse",
+                },
+                "Email": Object {
+                  "error": "Vennligst fyll inn en korrekt epost",
+                  "hasError": false,
+                  "label": "Epost",
+                },
+                "Fname": Object {
+                  "error": "Vennligst fyll inn fornavnet ditt",
+                  "label": "Fornavn",
+                },
+                "Lname": Object {
+                  "error": "Vennligst fyll inn etternavnet ditt",
+                  "label": "Etternavn",
+                },
+                "Password": Object {
+                  "error": "Passord må ha minst 8 tegn",
+                  "label": "Passord",
+                  "password": true,
+                  "secureTextEntry": true,
+                },
+              },
+            },
             "stylesheet": Object {
               "button": Object {
                 "alignSelf": "stretch",
@@ -971,7 +1137,13 @@ ShallowWrapper {
               "textbox": [Function],
             },
             "type": [Function],
-            "value": undefined,
+            "value": Object {
+              "Address": "AdrTest",
+              "Email": "test@mail.no",
+              "Fname": "FnameTest",
+              "Lname": "LnameTest",
+              "Password": "passwordTest",
+            },
           },
           "ref": [Function],
           "rendered": null,
