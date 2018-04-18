@@ -39,7 +39,7 @@ const renderCheckbox = ({ func, input, ...custom }) => (
 );
 
 
-class LoginForm extends Component {
+class FuelDayForm extends Component {
 
 
   render() {
@@ -100,7 +100,7 @@ const mapDispatchToProps = (dispatch) => {
 const FormClass = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(LoginForm);
+)(FuelDayForm);
 
 export default reduxForm({
   form: 'fuelday', // a unique name for this form
