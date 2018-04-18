@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Notifications, Permissions, Constants } from 'expo';
-// import moment from 'moment';
+import moment from 'moment';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { Picker, CheckBox, ListItem, Body } from 'native-base';
 import { reduxForm, Field } from 'redux-form';
@@ -68,6 +68,23 @@ class FuelDayForm extends Component {
 
    Notifications.presentLocalNotificationAsync(localNotification)
      .then(id => console.info(`Immediate notification scheduled (${id})`))
+     .catch(err => console.error(err));
+ };
+
+ sendDelayedNotification = () => {
+   const localNotification = {
+     title: 'Delayed testing Title',
+     body: 'Testing body',
+     data: { type: 'delayed' },
+   };
+   const schedulingOptions = {
+     time: (new Date()).getTime() + 5000,
+   };
+
+   console.log('Scheduling delayed notification:', { localNotification, schedulingOptions });
+
+   Notifications.scheduleLocalNotificationAsync(localNotification, schedulingOptions)
+     .then(id => console.info(`Delayed notification scheduled (${id}) at ${moment(schedulingOptions.time).format()}`))
      .catch(err => console.error(err));
  };
 
