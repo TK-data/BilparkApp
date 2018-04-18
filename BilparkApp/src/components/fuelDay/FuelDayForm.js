@@ -46,9 +46,9 @@ class FuelDayForm extends Component {
   async componentDidMount() {
     const result = await Permissions.askAsync(Permissions.NOTIFICATIONS);
     if (Constants.isDevice && result.status === 'granted') {
-      console.log('Notification permissions granted.');
+      // console.log('Notification permissions granted.');
     }
-    eventSub = Notifications.addListener(this.handleNotification);
+    Notifications.addListener(this.handleNotification);
   }
 
   // Private methods
@@ -64,11 +64,11 @@ class FuelDayForm extends Component {
      data: { type: 'immediate' },
    };
 
-   console.log('Scheduling immediate notification:', { localNotification });
+   // console.log('Scheduling immediate notification:', { localNotification });
 
-   Notifications.presentLocalNotificationAsync(localNotification)
-     .then(id => console.info(`Immediate notification scheduled (${id})`))
-     .catch(err => console.error(err));
+   Notifications.presentLocalNotificationAsync(localNotification);
+   // .then(id => console.info(`Immediate notification scheduled (${id})`))
+   // .catch(err => console.error(err));
  };
 
  sendDelayedNotification = () => {
@@ -77,18 +77,25 @@ class FuelDayForm extends Component {
      body: 'Testing body',
      data: { type: 'delayed' },
    };
-   const d = new Date();
-   d.setHours(16, 25, 0, 0);
+   const dayToSet = this.props.user.FuelDay;
+   const date = new Date();
+   console.log(date);
+   const currentDay = date.getDay();
+   console.log(currentDay);
+   const distance = ((dayToSet + 7) - currentDay) % 7;
+   date.setDate(date.getDate() + distance);
+   date.setHours(7, 0, 0, 0);
+   console.log(date);
    const schedulingOptions = {
-     time: d,
+     time: date,
      repeat: 'minute',
    };
 
-   console.log('Scheduling delayed notification:', { localNotification, schedulingOptions });
+   // console.log('Scheduling delayed notification:', { localNotification, schedulingOptions });
 
-   Notifications.scheduleLocalNotificationAsync(localNotification, schedulingOptions)
-     .then(id => console.info(`Delayed notification scheduled (${id}) at ${moment(schedulingOptions.time).format()}`))
-     .catch(err => console.error(err));
+   Notifications.scheduleLocalNotificationAsync(localNotification, schedulingOptions);
+   // .then(id => console.info(`Delayed notification scheduled (${id}) at ${moment(schedulingOptions.time).format()}`))
+   // .catch(err => console.error(err));
  };
 
   stopDelayedNotification = () => {
