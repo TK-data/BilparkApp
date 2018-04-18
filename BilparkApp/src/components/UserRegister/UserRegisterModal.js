@@ -26,11 +26,10 @@ const UserRegisterModal = ({ modalVisible, modalTransparent, visibleModal, navig
       animationType="slide"
       transparent={modalTransparent}
       onRequestClose={() => {
-        alert('Modal has been closed.');
       }}
     >
       <View style={styles.modal}>
-        <Text style={styles.modalText}>Registrering godkjent</Text>
+        <Text style={styles.modalText} testID="RegisterModalTextField">Registrering godkjent</Text>
         <Button
           title="Gå til innlogging"
           onPress={() => {
@@ -43,11 +42,6 @@ const UserRegisterModal = ({ modalVisible, modalTransparent, visibleModal, navig
   );
 };
 
-UserRegisterModal.propTypes = {
-  modalVisible: PropTypes.bool.isRequired,
-  modalTransparent: PropTypes.bool.isRequired,
-};
-
 const mapStateToProps = (state) => {
   return {
     modalVisible: state.registerUserModalVisible,
@@ -58,7 +52,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     visibleModal: bool => dispatch(registerUserModalVisible(bool)),
-    navigateToLogin: () => dispatch(NavigationActions.back()),
+    navigateToLogin: () => dispatch(NavigationActions.navigate({ routeName: 'Login' })),
   };
 };
 

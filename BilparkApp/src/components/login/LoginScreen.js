@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Body } from 'native-base';
-import { StyleSheet, Button, View } from 'react-native';
+import { Body, Button, Content, Text } from 'native-base';
+import { StyleSheet, View, Image } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 
@@ -10,30 +10,66 @@ import LoginForm from './LoginForm';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#002776',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  content: {
+    flex: 3,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    backgroundColor: '#002776',
+  },
+  button: {
+    alignSelf: 'center',
+  },
+  contentImage: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  contentContainer: {
+    flex: 2,
+    justifyContent: 'center',
+  },
+  carlogo: {
+    height: 150,
+    width: 150,
   },
 });
 
-const LoginScreen = ({ registerScreen }) => {
-  return (
-    <View style={styles.container}>
-      <LoginForm />
-      <Button title="Ny bruker" onPress={() => registerScreen()} />
-    </View>
-  );
-};
+class LoginScreen extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.contentImage}>
+          <Image resizeMode="contain" style={styles.carlogo} source={require('../../images/car.png')} />
+        </View>
+        <View style={styles.contentContainer}>
+          <Content contentContainerStyle={styles.content}>
+            <LoginForm />
+            <Button
+              transparent
+              light
+              onPress={() => this.props.registerScreen()}
+              style={styles.button}
+            >
+              <Text>Registrer deg her</Text>
+            </Button>
+          </Content>
+        </View>
+      </View>
+    );
+  }
+}
+
 
 LoginScreen.propTypes = {
   registerScreen: PropTypes.func.isRequired,
 };
 
+const mapStateToProps = (state) => {
+  return {
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
   registerScreen: () => {
@@ -41,9 +77,6 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-const mapStateToProps = state => ({
-
-});
 
 LoginScreen.navigationOptions = {
   title: 'Logg inn',

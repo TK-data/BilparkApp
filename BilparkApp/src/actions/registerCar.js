@@ -5,6 +5,9 @@ const axios = require('axios');
 export const GET_CAR_REQUEST = 'GET_CAR_REQUEST';
 export const GET_CAR_SUCCESS = 'GET_CAR_SUCCESS';
 export const GET_CAR_FAILURE = 'GET_CAR_FAILURE';
+export const GET_CAR_DECLINE = 'GET_CAR_DECLINE';
+export const GET_CAR_ACCEPT = 'GET_CAR_ACCEPT';
+
 
 export function carFetchFailure(bool) {
   return {
@@ -22,6 +25,18 @@ export function carFetchSuccess(carObject) {
   return {
     type: GET_CAR_SUCCESS,
     car: carObject,
+  };
+}
+export function carDeclined() {
+  return {
+    type: GET_CAR_DECLINE,
+  };
+}
+
+export function carAccepted(bool) {
+  return {
+    type: GET_CAR_ACCEPT,
+    isAccepted: bool,
   };
 }
 
@@ -43,5 +58,17 @@ export function getCar(nr) {
           throw error;
         }
       });
+  };
+}
+
+export function acceptCar() {
+  return (dispatch) => {
+    dispatch(carAccepted(true));
+  };
+}
+
+export function declineCar() {
+  return (dispatch) => {
+    dispatch(carDeclined());
   };
 }
