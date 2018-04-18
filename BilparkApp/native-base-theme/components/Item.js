@@ -141,7 +141,7 @@ export default (variables = variable) => {
         borderColor: variables.inputErrorBorderColor
       },
       borderWidth: variables.borderWidth * 2,
-      borderRadius: 30,
+      borderRadius: 5,
       borderColor: variables.inputBorderColor
     },
 

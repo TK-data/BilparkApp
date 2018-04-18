@@ -8,6 +8,9 @@ export const POST_USER_SUCCESS = 'POST_USER_SUCCESS';
 export const POST_USER_FAILURE = 'POST_USER_FAILURE';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const LOGIN_MAIL = 'LOGIN_MAIL';
+export const LOGIN_ERROR_FORM_OPTIONS = 'LOGIN_ERROR_FORM_OPTIONS';
+export const LOGIN_RESET_FORM_OPTIONS = 'LOGIN_RESET_FORM_OPTIONS';
 
 export function postUserFailure(bool) {
   return {
@@ -44,6 +47,25 @@ export function logoutSuccess(bool) {
   };
 }
 
+export function loginMail(mail) {
+  return {
+    type: 'LOGIN_MAIL',
+    mail,
+  };
+}
+
+export function loginErrorFormOptions() {
+  return {
+    type: 'LOGIN_ERROR_FORM_OPTIONS',
+  };
+}
+
+export function loginResetFormOptions() {
+  return {
+    type: 'LOGIN_RESET_FORM_OPTIONS',
+  };
+}
+
 export function postUser(username, password) {
   return (dispatch) => {
     dispatch(postUserLoading(true));
@@ -57,10 +79,13 @@ export function postUser(username, password) {
       })
       .then((user) => {
         dispatch(postUserSuccess(user));
+        dispatch(loginMail({}));
+        dispatch(loginResetFormOptions());
         dispatch(loginSuccess());
       })
       .catch(() => {
         dispatch(postUserFailure(true));
+        dispatch(loginErrorFormOptions());
       });
   };
 }

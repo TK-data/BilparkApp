@@ -79,7 +79,6 @@ class AppWithNavigationState extends React.Component {
 
   componentDidMount() {
     StatusBar.setBarStyle('light-content');
-    StatusBar.setBackgroundColor('#002776', true);
   }
 
   render() {
