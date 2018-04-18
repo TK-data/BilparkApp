@@ -48,6 +48,8 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+
+	// Controllers
 	UserController: {
 		'*': false,
 		create: true,
@@ -58,6 +60,10 @@ module.exports.policies = {
 		login: true,
 		logout: true,
 		current: true,
-    notification: true,
+    notification: 'sessionAuth',
+	},
+	DSMController: {
+		'*': false,
+		getCar: 'sessionAuth',
 	}
 };
