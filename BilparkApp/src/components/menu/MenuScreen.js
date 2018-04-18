@@ -41,11 +41,6 @@ const images = [
 
   },
 ];
-const statImage = {
-  route1: require('../../images/menuIcons/graph.png'),
-  route2: require('../../images/menuIcons/graph2.png'),
-};
-
 const window = Dimensions.get('window');
 const styles = StyleSheet.create({
   menuContainer: {
@@ -91,8 +86,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgb(000, 039, 118)',
   },
-  image: {
-  },
 });
 
 class MenuScreen extends Component {
@@ -108,10 +101,10 @@ class MenuScreen extends Component {
         <View style={styles.infoGraphics}>
           <Swiper style={styles.wrapper} dotColor="lightgrey" activeDotColor="white">
             <View style={styles.slide1}>
-              <Text style={styles.buzzWord}><Image resizeMode="contain" style={styles.image} source={statImage.route1} /></Text>
+              <Text style={styles.buzzWord}>Test 1</Text>
             </View>
             <View style={styles.slide2}>
-              <Text style={styles.buzzWord}><Image resizeMode="contain" style={styles.image} source={statImage.route2} /></Text>
+              <Text style={styles.buzzWord}>Test 2</Text>
             </View>
             <View style={styles.slide3}>
               <Text style={styles.buzzWord}>Test 3</Text>
