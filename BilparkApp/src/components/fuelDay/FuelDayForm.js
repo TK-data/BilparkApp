@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Notifications, Permissions, Constants } from 'expo';
-import moment from 'moment';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { Picker, CheckBox, ListItem, Body } from 'native-base';
 import { reduxForm, Field } from 'redux-form';
@@ -79,16 +78,18 @@ class FuelDayForm extends Component {
    };
    const dayToSet = this.props.user.FuelDay;
    const date = new Date();
-   console.log(date);
-   const currentDay = date.getDay();
-   console.log(currentDay);
+   let currentDay = date.getDay();
+   if (currentDay === 0) {
+     currentDay = 6;
+   } else {
+     currentDay -= 1;
+   }
    const distance = ((dayToSet + 7) - currentDay) % 7;
    date.setDate(date.getDate() + distance);
    date.setHours(7, 0, 0, 0);
-   console.log(date);
    const schedulingOptions = {
      time: date,
-     repeat: 'minute',
+     repeat: 'week',
    };
 
    // console.log('Scheduling delayed notification:', { localNotification, schedulingOptions });
