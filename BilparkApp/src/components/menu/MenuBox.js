@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     // borderWidth: 2,
     // borderColor: 'white',
     width: window.width / 4.2,
-    height: window.height / 7.6,
+    height: window.width / 4.2,
     marginLeft: window.width / 60,
     marginRight: window.width / 60,
     marginBottom: window.width / 50,
