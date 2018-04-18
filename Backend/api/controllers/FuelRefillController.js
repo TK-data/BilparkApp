@@ -3,7 +3,7 @@ module.exports = {
   getAll: function(req, res) {
     if (req.session.authenticated && req.session.UserID) {
       // find all user's FuellRefill objects
-      FuelRefill.find(req.session.UserID).exec(function(err, object) {
+      FuelRefill.find({ UserID: req.session.UserID }).exec(function(err, object) {
         if (err) {
           return res.negotiate(err);
         }
