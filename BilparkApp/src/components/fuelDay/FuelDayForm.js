@@ -56,6 +56,7 @@ class FuelDayForm extends Component {
     console.info(`Notification (${origin}) with data: ${JSON.stringify(data)}`);
   };
 
+  /*
  sendImmediateNotification = () => {
    const localNotification = {
      title: 'Superdupertestingnotification',
@@ -69,7 +70,7 @@ class FuelDayForm extends Component {
    // .then(id => console.info(`Immediate notification scheduled (${id})`))
    // .catch(err => console.error(err));
  };
-
+*/
  sendDelayedNotification = () => {
    const localNotification = {
      title: 'Delayed testing Title',
@@ -119,7 +120,6 @@ class FuelDayForm extends Component {
 
     return (
       <View style={styles.container}>
-        <Button title="Send Immediate Notification" onPress={() => this.sendImmediateNotification()} />
         <Button title="Send Delayed Notification" onPress={() => this.sendDelayedNotification()} />
         <Button title="Stop Delayed Notification" onPress={() => this.stopDelayedNotification()} />
         <Text>Current day: {user.FuelDay} Current value: {user.FuelNotification.toString()} </Text>
