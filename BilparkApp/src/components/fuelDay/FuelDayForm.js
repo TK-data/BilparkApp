@@ -48,7 +48,7 @@ class FuelDayForm extends Component {
     if (Constants.isDevice && result.status === 'granted') {
       console.log('Notification permissions granted.');
     }
-    Notifications.addListener(this.handleNotification);
+    eventSub = Notifications.addListener(this.handleNotification);
   }
 
   // Private methods
@@ -77,8 +77,11 @@ class FuelDayForm extends Component {
      body: 'Testing body',
      data: { type: 'delayed' },
    };
+   const d = new Date();
+   d.setHours(16, 25, 0, 0);
    const schedulingOptions = {
-     time: (new Date()).getTime() + 5000,
+     time: d,
+     repeat: 'minute',
    };
 
    console.log('Scheduling delayed notification:', { localNotification, schedulingOptions });
@@ -88,47 +91,52 @@ class FuelDayForm extends Component {
      .catch(err => console.error(err));
  };
 
+  stopDelayedNotification = () => {
+    Notifications.cancelAllScheduledNotificationsAsync();
+  };
 
- render() {
-   const { user } = this.props;
 
-   const Item = Picker.Item;
+  render() {
+    const { user } = this.props;
 
-   const postToggle = (value) => {
-     this.props.postFuelDay(user.FuelDay, value);
-   };
+    const Item = Picker.Item;
 
-   const postWeekday = (value) => {
-     this.props.postFuelDay(value, user.FuelNotification);
-   };
+    const postToggle = (value) => {
+      this.props.postFuelDay(user.FuelDay, value);
+    };
 
-   return (
-     <View style={styles.container}>
-       <Button title="Send Immediate Notification" onPress={() => this.sendImmediateNotification()} />
-       <Button title="Send Delayed Notification" onPress={() => this.sendDelayedNotification()} />
-       <Text>Current day: {user.FuelDay} Current value: {user.FuelNotification.toString()} </Text>
-       <Text>Velg dag og om du ønsker notification</Text>
-       <Field
-         func={postWeekday}
-         selectedValue={user.FuelDay}
-         placeholder="Velg dag"
-         name="weekday"
-         component={renderPicker}
-         iosHeader="Velg dag"
-         mode="dropdown"
-       >
-         <Item label="Mandag" value={0} />
-         <Item label="Tirsdag" value={1} />
-         <Item label="Onsdag" value={2} />
-         <Item label="Torsdag" value={3} />
-         <Item label="Fredag" value={4} />
-         <Item label="Lørdag" value={5} />
-         <Item label="Søndag" value={6} />
-       </Field>
-       <Field name="toggle" checked={user.FuelNotification} func={postToggle} component={renderCheckbox} />
-     </View>
-   );
- }
+    const postWeekday = (value) => {
+      this.props.postFuelDay(value, user.FuelNotification);
+    };
+
+    return (
+      <View style={styles.container}>
+        <Button title="Send Immediate Notification" onPress={() => this.sendImmediateNotification()} />
+        <Button title="Send Delayed Notification" onPress={() => this.sendDelayedNotification()} />
+        <Button title="Stop Delayed Notification" onPress={() => this.stopDelayedNotification()} />
+        <Text>Current day: {user.FuelDay} Current value: {user.FuelNotification.toString()} </Text>
+        <Text>Velg dag og om du ønsker notification</Text>
+        <Field
+          func={postWeekday}
+          selectedValue={user.FuelDay}
+          placeholder="Velg dag"
+          name="weekday"
+          component={renderPicker}
+          iosHeader="Velg dag"
+          mode="dropdown"
+        >
+          <Item label="Mandag" value={0} />
+          <Item label="Tirsdag" value={1} />
+          <Item label="Onsdag" value={2} />
+          <Item label="Torsdag" value={3} />
+          <Item label="Fredag" value={4} />
+          <Item label="Lørdag" value={5} />
+          <Item label="Søndag" value={6} />
+        </Field>
+        <Field name="toggle" checked={user.FuelNotification} func={postToggle} component={renderCheckbox} />
+      </View>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {
