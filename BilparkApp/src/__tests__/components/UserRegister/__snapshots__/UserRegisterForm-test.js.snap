@@ -312,6 +312,7 @@ ShallowWrapper {
           <Styled(Button)
             light={true}
             onPress={[Function]}
+            transparent={true}
             virtual={undefined}
           >
             <Styled(Text)
@@ -583,6 +584,7 @@ ShallowWrapper {
           "children": <Styled(Button)
             light={true}
             onPress={[Function]}
+            transparent={true}
             virtual={undefined}
           >
             <Styled(Text)
@@ -606,6 +608,7 @@ ShallowWrapper {
             </Styled(Text)>,
             "light": true,
             "onPress": [Function],
+            "transparent": true,
             "virtual": undefined,
           },
           "ref": null,
@@ -886,6 +889,7 @@ ShallowWrapper {
             <Styled(Button)
               light={true}
               onPress={[Function]}
+              transparent={true}
               virtual={undefined}
             >
               <Styled(Text)
@@ -1157,6 +1161,7 @@ ShallowWrapper {
             "children": <Styled(Button)
               light={true}
               onPress={[Function]}
+              transparent={true}
               virtual={undefined}
             >
               <Styled(Text)
@@ -1180,6 +1185,7 @@ ShallowWrapper {
               </Styled(Text)>,
               "light": true,
               "onPress": [Function],
+              "transparent": true,
               "virtual": undefined,
             },
             "ref": null,

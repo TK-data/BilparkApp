@@ -73,6 +73,9 @@ describe('Testing UserRegisterForm', () => {
     const registerButton = render.find(Button);
     registerButton.simulate('press');
   });
+  /*
+  The following Object and test need to be worked on further
+  Check Jira task TKDATA-184
   const User = {
     Email: 'test@mail.no',
     Fname: 'FnameTest',
@@ -80,15 +83,11 @@ describe('Testing UserRegisterForm', () => {
     Address: 'AdrTest',
     Password: 'passwordTest',
   };
+  */
   it('Can fill with values and register', () => {
     const render = wrapper.dive().dive();
     const form = render.find(Form);
-    // form.value = User;
-    console.log(wrapper.props());
-    // console.log(wrapper.props.values);
-    // console.log(form.getValue());
-    // console.log(Form.getValue());
-    // console.log(form.getValue());
+    expect(form.exists());
     const registerButton = render.find(Button);
     registerButton.simulate('press');
   });
