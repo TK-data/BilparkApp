@@ -1,6 +1,6 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { carFetchFailure, carFetchSuccess, carFetchLoading, getCar } from '../../actions/registerCar';
+import { carFetchFailure, carFetchSuccess, carFetchLoading, carDeclined, carAccepted, getCar, declineCar, GET_CAR_FAILURE, GET_CAR_REQUEST, GET_CAR_SUCCESS, GET_CAR_ACCEPT, GET_CAR_DECLINE } from '../../actions/registerCar';
 
 const axios = require('axios');
 
@@ -13,7 +13,7 @@ const mockStore = configureMockStore(middlewares);
 describe('Register car actions', () => {
   it('Should create an action when car fetch fails', () => {
     const expectedAction = {
-      type: 'GET_CAR_FAILURE',
+      type: GET_CAR_FAILURE,
       hasErrored: true,
     };
     expect(carFetchFailure(true)).toEqual(expectedAction);
@@ -21,10 +21,25 @@ describe('Register car actions', () => {
 
   it('Should create an action to show that a car fetch is loading', () => {
     const expectedAction = {
-      type: 'GET_CAR_REQUEST',
+      type: GET_CAR_REQUEST,
       isLoading: true,
     };
     expect(carFetchLoading(true)).toEqual(expectedAction);
+  });
+
+  it('Should create an action to decline a fetched car', () => {
+    const expectedAction = {
+      type: GET_CAR_DECLINE,
+    };
+    expect(carDeclined()).toEqual(expectedAction);
+  });
+
+  it('Should create an action to accept a fetched car', () => {
+    const expectedAction = {
+      type: GET_CAR_ACCEPT,
+      isAccepted: true,
+    };
+    expect(carAccepted(true)).toEqual(expectedAction);
   });
 
   it('should create an action to update the car object in the store when a car is fetched', () => {
@@ -80,11 +95,11 @@ describe('Get car async actions', () => {
 
     const expectedActions = [
       {
-        type: 'GET_CAR_REQUEST',
+        type: GET_CAR_REQUEST,
         isLoading: true,
       },
       {
-        type: 'GET_CAR_SUCCESS',
+        type: GET_CAR_SUCCESS,
         car,
       },
     ];
@@ -102,11 +117,11 @@ describe('Get car async actions', () => {
 
     const expectedActions = [
       {
-        type: 'GET_CAR_REQUEST',
+        type: GET_CAR_REQUEST,
         isLoading: true,
       },
       {
-        type: 'GET_CAR_FAILURE',
+        type: GET_CAR_FAILURE,
         hasErrored: true,
       },
     ];
