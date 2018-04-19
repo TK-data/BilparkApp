@@ -1,7 +1,7 @@
-import { GET_CAR_FAILURE, GET_CAR_REQUEST, GET_CAR_SUCCESS, GET_CAR_DECLINE, GET_CAR_ACCEPT } from '../actions/registerCar';
+import { GET_CAR_FAILURE, GET_CAR_REQUEST, GET_CAR_SUCCESS, GET_CAR_DECLINE, GET_CAR_ACCEPT, GET_CAR_SAVE_FAILURE } from '../actions/registerCar';
 
 export const initialState = {
-  hasErrored: false,
+  hasErrored: '',
   isLoading: false,
   car: '',
   isAccepted: false,
@@ -18,28 +18,35 @@ export function carFetch(state = initialState, action) {
     };
   case GET_CAR_REQUEST:
     return {
-      hasErrored: false,
+      hasErrored: '',
       isLoading: action.isLoading,
       car: '',
       isAccepted: false,
     };
   case GET_CAR_SUCCESS:
     return {
-      hasErrored: false,
+      hasErrored: '',
       isLoading: false,
       car: action.car,
       isAccepted: false,
     };
   case GET_CAR_ACCEPT:
     return {
-      hasErrored: false,
+      hasErrored: '',
       isLoading: false,
       car: state.car,
       isAccepted: action.isAccepted,
     };
   case GET_CAR_DECLINE:
     return {
-      hasErrored: false,
+      hasErrored: '',
+      isLoading: false,
+      car: '',
+      isAccepted: false,
+    };
+  case GET_CAR_SAVE_FAILURE:
+    return {
+      hasErrored: action.hasErrored,
       isLoading: false,
       car: '',
       isAccepted: false,

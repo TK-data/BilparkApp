@@ -28,7 +28,7 @@ class Form extends Component {
   }
 
   accept() {
-    this.props.acceptCar();
+    this.props.acceptCar(this.props.car);
   }
 
   decline() {
@@ -65,10 +65,10 @@ class Form extends Component {
           <Text>Laster..</Text>
         </View>
       );
-    } else if (this.props.hasErrored) {
+    } else if (this.props.hasErrored !== undefined && this.props.hasErrored !== '') {
       main = (
         <View>
-          <Text>Registreringsnummeret finnes ikke! Prøv på nytt:</Text>
+          <Text>{this.props.hasErrored} Prøv på nytt:</Text>
           <Field name="regnr" component={renderInput} />
           <Button onPress={handleSubmit(this.submit)}>
             <Text>Finn bil</Text>
@@ -116,7 +116,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getCar: regnr => dispatch(getCar(regnr)),
     declineCar: () => dispatch(declineCar()),
-    acceptCar: () => dispatch(acceptCar()),
+    acceptCar: car => dispatch(acceptCar(car)),
   };
 };
 
