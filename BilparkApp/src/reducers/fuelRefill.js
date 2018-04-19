@@ -6,7 +6,7 @@ const initialState = {
   fuelRefills: [],
 };
 
-export default function fuelRefills(state = initialState, action) {
+export default function fuelRefill(state = initialState, action) {
   switch (action.type) {
   case POST_FUELREFILL_FAILURE:
     return {

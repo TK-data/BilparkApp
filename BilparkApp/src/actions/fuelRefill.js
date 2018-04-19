@@ -20,10 +20,10 @@ export function postFuelRefillLoading(bool) {
   };
 }
 
-export function postFuelRefillSuccess(fuelrefills) {
+export function postFuelRefillSuccess(fuelRefills) {
   return {
     type: 'POST_FUELREFILL_SUCCESS',
-    fuelrefills,
+    fuelRefills,
   };
 }
 
