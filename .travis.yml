@@ -21,6 +21,12 @@ install:
 script:
   - npm test
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then yarn appr; fi'
+  - cd ..
+  - cd Backend
+    provider: heroku
+    api_key: $HEROKU_AUTH_TOKEN
+    app: tkdata15-backend-dev
+
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
