@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
 
 // should be
 const FuelRefillList = ({ fuelRefills }) => {
+
   return (
     <ScrollView style={styles.container}>
       {(fuelRefills.length < 1) ? (
@@ -20,8 +21,7 @@ const FuelRefillList = ({ fuelRefills }) => {
       ) : (
         fuelRefills
           .sort((a, b) => {
-            console.log('kjører');
-            return new Date(a.FuelTime) > new Date(b.FuelTime);
+            return a.FuelTime < b.FuelTime ? 1 : -1;
           })
           .map(data =>
             (<FuelRefillItem
