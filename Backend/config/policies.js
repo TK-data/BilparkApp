@@ -48,16 +48,26 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+
 	UserController: {
 		'*': false,
 		create: true,
-		find: true,
-		findOne: 'sessionAuth',
-		destroy: 'sessionAuth',
+		find: false,
+		findOne: false,
+		destroy: false,
 		populate: false,
 		login: true,
 		logout: true,
 		current: true,
     notification: true,
+	},
+	DSMController: {
+		'*': false,
+		getCar: 'sessionAuth',
+	},
+	FuelRefillController: {
+		'*': false,
+		register: 'sessionAuth',
+		getAll: 'sessionAuth',
 	}
 };
