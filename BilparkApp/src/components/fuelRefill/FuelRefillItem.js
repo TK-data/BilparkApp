@@ -30,7 +30,7 @@ const mapDispatchToProps = dispatch => ({
   // function from action to delete item
 });
 
-const mapStateToProps = (state) => {
-};
+const mapStateToProps = state => ({
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(FuelRefillItem);
