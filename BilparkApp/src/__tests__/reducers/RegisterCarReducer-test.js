@@ -6,9 +6,9 @@ describe('Get car reducer tests', () => {
   it('Should handle GET_CAR_FAILURE', () => {
     expect(carFetch(initialState, {
       type: GET_CAR_FAILURE,
-      hasErrored: true,
+      hasErrored: '',
     })).toEqual({
-      hasErrored: true,
+      hasErrored: '',
       isLoading: false,
       car: '',
       isAccepted: false,
@@ -20,7 +20,7 @@ describe('Get car reducer tests', () => {
       type: GET_CAR_REQUEST,
       isLoading: true,
     })).toEqual({
-      hasErrored: false,
+      hasErrored: '',
       isLoading: true,
       car: '',
       isAccepted: false,
@@ -32,7 +32,7 @@ describe('Get car reducer tests', () => {
       type: GET_CAR_REQUEST,
       isLoading: false,
     })).toEqual({
-      hasErrored: false,
+      hasErrored: '',
       isLoading: false,
       car: '',
       isAccepted: false,
@@ -59,7 +59,7 @@ describe('Get car reducer tests', () => {
       type: GET_CAR_SUCCESS,
       car,
     })).toEqual({
-      hasErrored: false,
+      hasErrored: '',
       isLoading: false,
       car,
       isAccepted: false,
@@ -90,7 +90,7 @@ describe('Get car reducer tests', () => {
     expect(carFetch(newInitialState, {
       type: GET_CAR_DECLINE,
     })).toEqual({
-      hasErrored: false,
+      hasErrored: '',
       isLoading: false,
       car: '',
       isAccepted: false,
@@ -102,7 +102,7 @@ describe('Get car reducer tests', () => {
       type: GET_CAR_ACCEPT,
       isAccepted: true,
     })).toEqual({
-      hasErrored: false,
+      hasErrored: '',
       isLoading: false,
       car,
       isAccepted: true,

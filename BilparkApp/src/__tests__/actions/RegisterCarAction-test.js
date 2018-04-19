@@ -1,6 +1,9 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { carFetchFailure, carFetchSuccess, carFetchLoading, carDeclined, carAccepted, getCar, declineCar, GET_CAR_FAILURE, GET_CAR_REQUEST, GET_CAR_SUCCESS, GET_CAR_ACCEPT, GET_CAR_DECLINE } from '../../actions/registerCar';
+import { carFetchFailure, carFetchSuccess, carFetchLoading, carDeclined,
+  carAccepted, getCar, acceptCar, GET_CAR_FAILURE, GET_CAR_REQUEST,
+  GET_CAR_SUCCESS, GET_CAR_ACCEPT, GET_CAR_DECLINE, GET_CAR_SAVE_FAILURE }
+  from '../../actions/registerCar';
 
 const axios = require('axios');
 
@@ -122,13 +125,49 @@ describe('Get car async actions', () => {
       },
       {
         type: GET_CAR_FAILURE,
-        hasErrored: true,
+        hasErrored: 'Registreringsnummeret finnes ikke!',
       },
     ];
 
     const store = mockStore({});
 
     return store.dispatch(getCar('12345')).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it('Creates GET_CAR_ACCEPT action when saving a car is successful', () => {
+
+    axiosMock.onPost().reply(200);
+
+    const expectedActions = [
+      {
+        type: GET_CAR_ACCEPT,
+        isAccepted: true,
+      },
+    ];
+
+    const store = mockStore({});
+
+    return store.dispatch(acceptCar({})).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it('Creates GET_CAR_SAVE_FAILURE action when saving a car is unsuccessful', () => {
+
+    axiosMock.onPost().reply(500);
+
+    const expectedActions = [
+      {
+        type: GET_CAR_SAVE_FAILURE,
+        hasErrored: 'Noe gikk galt!',
+      },
+    ];
+
+    const store = mockStore({});
+
+    return store.dispatch(acceptCar({})).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
