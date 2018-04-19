@@ -17,6 +17,7 @@ t.form.Form.stylesheet.textbox.error.fontSize = 20;
 t.form.Form.stylesheet.textbox.normal.backgroundColor = '#fff';
 t.form.Form.stylesheet.textbox.error.backgroundColor = '#fff';
 t.form.Form.stylesheet.textbox.error.borderWidth = 3;
+t.form.Form.stylesheet.textbox.error.borderColor = '#db2b1e';
 t.form.Form.stylesheet.errorBlock.color = '#db2b1e';
 t.form.Form.stylesheet.controlLabel.normal.color = '#fff';
 t.form.Form.stylesheet.controlLabel.error.color = '#fff';
