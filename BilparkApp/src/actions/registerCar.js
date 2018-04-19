@@ -8,6 +8,8 @@ export const GET_CAR_FAILURE = 'GET_CAR_FAILURE';
 export const GET_CAR_DECLINE = 'GET_CAR_DECLINE';
 export const GET_CAR_ACCEPT = 'GET_CAR_ACCEPT';
 export const GET_CAR_SAVE_FAILURE = 'GET_CAR_SAVE_FAILURE';
+export const GET_CAR_FORM_RESET_OPTIONS = 'GET_CAR_FORM_RESET_OPTIONS';
+export const GET_CAR_FORM_ERROR_OPTIONS = 'GET_CAR_FORM_ERROR_OPTIONS';
 
 export function carFetchFailure(message) {
   return {
@@ -44,6 +46,12 @@ export function carSaveFailure(message) {
   return {
     type: GET_CAR_SAVE_FAILURE,
     hasErrored: message,
+  };
+}
+
+export function carFormResetOptions() {
+  return {
+    type: GET_CAR_FORM_RESET_OPTIONS,
   };
 }
 
