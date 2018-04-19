@@ -56,7 +56,7 @@ module.exports = {
 
 function formatCarObject(car) {
   const object = {
-    Regnr: car['kjennemerke'],
+    RegNr: car['kjennemerke'],
     Cas: car['understellsnr'],
     Brand: car['merkeNavn'],
     Model: car['modellType'],
