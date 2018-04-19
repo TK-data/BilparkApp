@@ -6,7 +6,6 @@ import { Picker, CheckBox, ListItem, Body } from 'native-base';
 import { reduxForm, Field } from 'redux-form';
 import { postFuelDay } from '../../actions/fuelDay';
 
-
 const renderPicker = ({ func, input, label, children, ...custom }) => (
   <Picker
     {...input}
@@ -100,6 +99,31 @@ class FuelDayForm extends Component {
    // .catch(err => console.error(err));
  };
 
+ testSendDelayedNotification = () => {
+   console.log("delayed?");
+   const dayToSet = this.props.user.FuelDay;
+   const date = new Date();
+   let currentDay = date.getDay();
+   if (currentDay === 0) {
+     currentDay = 6;
+   } else {
+     currentDay -= 1;
+   }
+   const distance = ((dayToSet + 7) - currentDay) % 7;
+   date.setDate(date.getDate() + distance);
+   date.setHours(7, 0, 0, 0);
+   const localNotification = {
+     title: 'CurrentDay:' + currentDay + '!',
+     body: 'NotifyDate:' + date + '!',
+     data: { type: 'delayed' },
+   };
+   const schedulingOptions = {
+     time: (new Date()).getTime() + 5000,
+     repeat: 'minute',
+   };
+   Notifications.scheduleLocalNotificationAsync(localNotification, schedulingOptions);
+ };
+
   stopDelayedNotification = () => {
     Notifications.cancelAllScheduledNotificationsAsync();
   };
@@ -120,6 +144,7 @@ class FuelDayForm extends Component {
 
     return (
       <View style={styles.container}>
+        <Button title="TEST Delayed Notification" onPress={() => this.testSendDelayedNotification()} />
         <Button title="Send Delayed Notification" onPress={() => this.sendDelayedNotification()} />
         <Button title="Stop Delayed Notification" onPress={() => this.stopDelayedNotification()} />
         <Text>Current day: {user.FuelDay} Current value: {user.FuelNotification.toString()} </Text>
