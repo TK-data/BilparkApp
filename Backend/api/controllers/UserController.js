@@ -78,27 +78,33 @@ module.exports = {
       // FuelNotification is a bool if the frontend will create a local push notification when the recieve the user object.
       // true = create a notification, false = don't create a notification
 
-      if (req.param('FuelDay') == undefined || req.param('FuelNotification') == undefined) {
-        return res.badRequest('Params FuelDay and FuelNotification must be included');
+      var FuelTime = req.param('FuelTime');
+      var FuelDay = req.param('FuelDay');
+      var FuelNotification = req.param('FuelNotification');
+
+      let updatedNotification = {};
+
+
+      if (FuelTime != undefined) {
+        if (FuelTime.match(/^([01]?[0-9]|2[0-3])-[0-5][0-9]$/)) {
+          return res.badRequest('Param FuelTime must match pattern HH-MM');
+        }
+        updatedNotification['FuelTime'] = FuelTime;
       }
 
-      if (!(req.param('FuelDay') % 1 === 0)) {
-        return res.badRequest('FuelDay must be an integer');
+      if (FuelDay != undefined) {
+        if (!(FuelDay % 1 === 0) || FuelDay < 0 || FuelDay > 6) {
+          return res.badRequest('Param FuelDay must be an integer between 0-6');
+        }
+        updatedNotification['FuelDay'] = parseInt(FuelDay);
       }
 
-      if (req.param('FuelDay') < 0 || req.param('FuelDay') > 6) {
-        return res.badRequest('FuelDay must be between 0-6');
+      if (FuelNotification != undefined) {
+        if (FuelNotification !== 'true' && FuelNotification !== 'false') {
+          return res.badRequest('FuelNotification must be either true or false');
+        }
+        updatedNotification['FuelNotification'] = FuelNotification;
       }
-
-      if (req.param('FuelNotification') !== 'true' && req.param('FuelNotification') !== 'false') {
-        return res.badRequest('FuelNotification must be either true or false');
-      }
-
-      let updatedNotification = {
-        FuelDay: parseInt(req.param('FuelDay')),
-        // FuelTime: req.param('FuelTime'), // when during the day you want the notification to go off. this iteration ignores it.
-        FuelNotification: req.param('FuelNotification'),
-      };
 
 
       // updates all user objects with the value UserID. Since it's unique it will return an array of 1 item.
