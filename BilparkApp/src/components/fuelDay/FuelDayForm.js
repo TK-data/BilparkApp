@@ -1,43 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import t from 'tcomb-form-native';
+import DateTimePicker from 'react-native-modal-datetime-picker';
 import { Notifications, Permissions, Constants } from 'expo';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import { Picker, CheckBox, ListItem, Body } from 'native-base';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { postFuelDay } from '../../actions/fuelDay';
-
-const renderPicker = ({ func, input, label, children, ...custom }) => (
-  <Picker
-    {...input}
-    selectedValue={input.value}
-    onValueChange={(value) => {
-      func(value);
-    }
-    }
-    {...custom}
-  >
-    {children}
-  </Picker>
-);
-
-const renderCheckbox = ({ func, input, ...custom }) => (
-  <ListItem>
-    <CheckBox
-      {...input}
-      checked={input.value ? true : false}
-      onPress={() => {
-        input.onChange(!input.value);
-        func(!input.value);
-      }
-      }
-      {...custom}
-    />
-    <Body>
-      <Text> Gi push-varsel? </Text>
-    </Body>
-  </ListItem>
-
-);
 
 
 class FuelDayForm extends Component {
@@ -50,7 +18,6 @@ class FuelDayForm extends Component {
   }
 
   // Private methods
-
   handleNotification = ({ origin, data }) => {
     console.info(`Notification (${origin}) with data: ${JSON.stringify(data)}`);
   };
@@ -130,10 +97,62 @@ class FuelDayForm extends Component {
 
 
   render() {
+
+    const Days = t.enums({
+      0: 'Mandag',
+      1: 'Tirsdag',
+      2: 'Onsdag',
+      3: 'Torsdag',
+      4: 'Fredag',
+      5: 'Lørdag',
+      6: 'Søndag',
+    });
+
+    const Hours = t.enums({
+      1: '01',
+      2: '02',
+      3: '03',
+      4: '04',
+      5: '05',
+      6: '06',
+      7: '07',
+      8: '08',
+      9: '09',
+      10: '10',
+      11: '11',
+      12: '12',
+      13: '13',
+      14: '14',
+      15: '15',
+      16: '16',
+      17: '17',
+      18: '18',
+      19: '19',
+      20: '20',
+      21: '21',
+      22: '22',
+      23: '23',
+      24: '24',
+    });
+
+    const Minutes = t.enums({
+      0: '00',
+      15: '15',
+      30: '30',
+      45: '45',
+    });
+
+    const FuelDay = t.struct({
+      Day: Days,
+      Hour: Hours,
+      Minute: Minutes,
+      Notification: t.Boolean,
+    });
+
     const { user } = this.props;
 
-    const Item = Picker.Item;
-
+    // const Item = Picker.Item;
+    /*
     const postToggle = (value) => {
       this.props.postFuelDay(user.FuelDay, value);
     };
@@ -141,32 +160,30 @@ class FuelDayForm extends Component {
     const postWeekday = (value) => {
       this.props.postFuelDay(value, user.FuelNotification);
     };
+    */
+    const postFuelForm = (value) => {
+      this.props.postFuelDay(value.Day, value.Notification);
+    };
+
+    const Form = t.form.Form;
 
     return (
       <View style={styles.container}>
         <Button title="TEST Delayed Notification" onPress={() => this.testSendDelayedNotification()} />
         <Button title="Send Delayed Notification" onPress={() => this.sendDelayedNotification()} />
         <Button title="Stop Delayed Notification" onPress={() => this.stopDelayedNotification()} />
-        <Text>Current day: {user.FuelDay} Current value: {user.FuelNotification.toString()} </Text>
-        <Text>Velg dag og om du ønsker notification</Text>
-        <Field
-          func={postWeekday}
-          selectedValue={user.FuelDay}
-          placeholder="Velg dag"
-          name="weekday"
-          component={renderPicker}
-          iosHeader="Velg dag"
-          mode="dropdown"
+        <Text
+          style={styles.debugColor}
         >
-          <Item label="Mandag" value={0} />
-          <Item label="Tirsdag" value={1} />
-          <Item label="Onsdag" value={2} />
-          <Item label="Torsdag" value={3} />
-          <Item label="Fredag" value={4} />
-          <Item label="Lørdag" value={5} />
-          <Item label="Søndag" value={6} />
-        </Field>
-        <Field name="toggle" checked={user.FuelNotification} func={postToggle} component={renderCheckbox} />
+          Current day: {user.FuelDay} Current value: {user.FuelNotification.toString()}
+        </Text>
+        <Text style={styles.debugColor}>Velg dag og om du ønsker notification</Text>
+        <Form
+          ref={c => this.form = c}
+          type={FuelDay}
+          value={{ Day: user.FuelDay, Notification: user.FuelNotification }}
+          onChange={postFuelForm}
+        />
       </View>
     );
   }
@@ -187,15 +204,10 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const FormClass = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(FuelDayForm);
-
-export default reduxForm({
-  form: 'fuelday', // a unique name for this form
-})(FormClass);
-
 
 const styles = StyleSheet.create({
   button: {
@@ -206,5 +218,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     textAlign: 'center',
     width: 250,
+  },
+  debugColor: {
+    color: 'white',
   },
 });
