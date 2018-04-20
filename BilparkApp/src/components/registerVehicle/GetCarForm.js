@@ -1,52 +1,16 @@
 import React, { Component } from 'react';
-import t from 'tcomb-form-native';
 import { connect } from 'react-redux';
 import { StyleSheet, Dimensions } from 'react-native';
 import { Button, Text, View, H2, Spinner, Icon } from 'native-base';
-import { getCar, declineCar, acceptCar, carFormResetOptions } from '../../actions/registerCar';
+import CarForm from './CarForm';
+import { getCar, declineCar, acceptCar } from '../../actions/registerCar';
 
 class GetCarForm extends Component {
 
-  async handleSubmit() {
-    const value = this.form.getValue();
-    this.props.resetFormOptions();
-    if (value) {
-      this.props.getCar(value.Registreringsnummer);
-    }
-  }
-
   render() {
 
-    const regnrCheck = t.refinement(t.String, (regnr) => {
-      const reg = /([a-zA-Z]){2}([0-9]){4,5}/;
-      return reg.test(regnr);
-    });
-
-    const getCarForm = t.struct({
-      Registreringsnummer: regnrCheck,
-    });
-
-    const Form = t.form.Form;
-
     let main = (
-      <View style={styles.searchContainer}>
-        <Form
-          ref={c => this.form = c}
-          type={getCarForm}
-          options={this.props.options}
-          value={{ Registreringsnummer: 'VH11111' }}
-        />
-        <Button
-          bordered
-          light
-          onPress={() => {
-            this.handleSubmit();
-          }}
-          style={styles.searchButton}
-        >
-          <Text>Finn din bil</Text>
-        </Button>
-      </View>
+      <CarForm />
     );
 
     if (this.props.isAccepted) {
@@ -66,26 +30,6 @@ class GetCarForm extends Component {
           <Spinner color="white" />
         </View>
       );
-    } else if (this.props.hasErrored) {
-      main = (
-        <View style={styles.searchContainer}>
-          <Form
-            ref={c => this.form = c}
-            type={getCarForm}
-            options={this.props.options}
-          />
-          <Button
-            bordered
-            light
-            onPress={() => {
-              this.handleSubmit();
-            }}
-            style={styles.searchButton}
-          >
-            <Text>Finn din bil</Text>
-          </Button>
-        </View>
-      );
     } else if (this.props.car) {
       const car = JSON.parse(this.props.car);
       main = (
@@ -95,7 +39,7 @@ class GetCarForm extends Component {
             <View style={styles.carContent}>
               <View style={styles.textContainer}>
                 <Text style={styles.text}>REGNR:</Text>
-                <Text style={styles.text}>{car.Regnr}</Text>
+                <Text style={styles.text}>{car.RegNr}</Text>
               </View>
               <View style={styles.textContainer}>
                 <Text style={styles.text}>MERKE:</Text>
@@ -196,7 +140,6 @@ const mapStateToProps = (state) => {
     isLoading: state.carFetch.isLoading,
     hasErrored: state.carFetch.hasErrored,
     isAccepted: state.carFetch.isAccepted,
-    options: state.carFetch.options,
   };
 };
 
@@ -205,7 +148,6 @@ const mapDispatchToProps = (dispatch) => {
     getCar: regnr => dispatch(getCar(regnr)),
     declineCar: () => dispatch(declineCar()),
     acceptCar: car => dispatch(acceptCar(car)),
-    resetFormOptions: () => dispatch(carFormResetOptions()),
   };
 };
 
