@@ -35,8 +35,9 @@ class CarForm extends Component {
       auto: 'placeholders',
       fields: {
         Registreringsnummer: {
-          hasError: false,
           error: 'Vennligst fyll inn et gyldig Registreringsnummer',
+          autoCapitalize: 'characters',
+          autoCorrect: false,
         },
       },
     };
