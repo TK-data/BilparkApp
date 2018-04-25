@@ -1,5 +1,6 @@
 module.exports = {
 
+
   getAll: function(req, res) {
     if (req.session.authenticated && req.session.UserID) {
       // find all user's FuellRefill objects
@@ -45,6 +46,23 @@ module.exports = {
       });
     } else {
       return res.forbidden('You are not logged in');
+    }
+  }
+
+  remove: function(req, res) {
+    if (req.session.authenticated && req.session.UsedID) {
+
+      if (req.param('RefillID') == undefined) {
+        return res.badRequest('RefillID must be included');
+      } else if (!req.param('RefillID') % 1 === 0) {
+        return res.badRequest('RefillID must be an integer');
+      }
+
+      // Prepare updated object, then try to update it and give success or failure
+      let updatedFuelRefill = {
+        ''
+      }
+
     }
   }
 
