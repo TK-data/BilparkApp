@@ -26,6 +26,7 @@ const FuelRefillList = ({ fuelRefills }) => {
           .map(data =>
             (<FuelRefillItem
               key={data.RefillID}
+              RefillID={data.RefillID}
               FuelTime={data.FuelTime}
             />))
       )}
