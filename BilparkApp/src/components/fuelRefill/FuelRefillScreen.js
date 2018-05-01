@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { Content } from 'native-base';
+import { Content, Button } from 'native-base';
 import { connect } from 'react-redux';
 
-import { getFuelRefills } from '../../actions/fuelRefill';
+import { getFuelRefills, postFuelRefill } from '../../actions/fuelRefill';
 import FuelRefillForm from './FuelRefillForm';
 import FuelRefillList from './FuelRefillList';
 
@@ -25,6 +25,12 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     margin: 15,
   },
+  button: {
+    alignSelf: 'center',
+    paddingLeft: 15,
+    paddingRight: 15,
+    marginBottom: 15,
+  },
 });
 
 class FuelRefillScreen extends React.Component {
@@ -37,7 +43,9 @@ class FuelRefillScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.contentContainer}>
-          <Text style={styles.text}> Her kommer form </Text>
+          <Button light style={styles.button} onPress={() => this.props.register()}>
+            <Text>Registrer</Text>
+          </Button>
           <Content contentContainerStyle={styles.content}>
             <FuelRefillList />
           </Content>
@@ -50,6 +58,9 @@ class FuelRefillScreen extends React.Component {
 const mapDispatchToProps = dispatch => ({
   getItems: () => {
     dispatch(getFuelRefills());
+  },
+  register: () => {
+    dispatch(postFuelRefill());
   },
 });
 

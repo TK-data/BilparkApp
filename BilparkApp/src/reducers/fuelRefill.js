@@ -1,4 +1,4 @@
-import { POST_FUELREFILL_FAILURE, POST_FUELREFILL_REQUEST, POST_FUELREFILL_SUCCESS, REMOVE_FUELREFILL } from '../actions/fuelRefill';
+import { POST_FUELREFILL_FAILURE, POST_FUELREFILL_REQUEST, POST_FUELREFILL_SUCCESS, REMOVE_FUELREFILL, REGISTER_FUELREFILL } from '../actions/fuelRefill';
 
 const initialState = {
   hasErrored: false,
@@ -17,6 +17,7 @@ export default function fuelRefill(state = initialState, action) {
     return {
       ...state,
       isLoading: action.isLoading,
+      hasErrored: false,
     };
   case POST_FUELREFILL_SUCCESS:
     return {
@@ -30,6 +31,13 @@ export default function fuelRefill(state = initialState, action) {
       fuelRefills: state.fuelRefills.filter((item) => {
         return item.RefillID !== action.RefillID;
       }),
+      hasErrored: false,
+    };
+  case REGISTER_FUELREFILL:
+    return {
+      ...state,
+      hasErrored: false,
+      fuelRefills: state.fuelRefills.concat(action.RefillItem),
     };
   default:
     return state;

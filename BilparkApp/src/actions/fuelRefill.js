@@ -6,6 +6,7 @@ export const POST_FUELREFILL_REQUEST = 'POST_FUELDAY_REQUEST';
 export const POST_FUELREFILL_FAILURE = 'POST_FUELREFILL_FAILURE';
 export const POST_FUELREFILL_SUCCESS = 'POST_FUELREFILL_SUCCESS';
 export const REMOVE_FUELREFILL = 'REMOVE_FUELREFILL';
+export const REGISTER_FUELREFILL = 'REGISTER_FUELREFILL';
 
 export function postFuelRefillFailure(bool) {
   return {
@@ -35,6 +36,13 @@ export function removeFuelRefill(RefillID) {
   };
 }
 
+export function registerFuelRefill(RefillItem) {
+  return {
+    type: 'REGISTER_FUELREFILL',
+    RefillItem,
+  };
+}
+
 export function getFuelRefills() {
   return (dispatch) => {
     dispatch(postFuelRefillLoading(true));
@@ -56,14 +64,13 @@ export function postFuelRefill() {
   return (dispatch) => {
     dispatch(postFuelRefillLoading(true));
     return axios.post(API_ADDRESS + '/api/fuelrefill/register', {
-
     })
       .then((response) => {
         dispatch(postFuelRefillLoading(false));
         return response.data;
       })
-      .then((fuelrefills) => {
-        dispatch(postFuelRefillSuccess(fuelrefills));
+      .then((fuelrefill) => {
+        dispatch(registerFuelRefill(fuelrefill));
       })
       .catch(() => {
         dispatch(postFuelRefillFailure(true));
@@ -85,7 +92,7 @@ export function deleteFuelRefill(RefillID) {
       .then(() => {
         dispatch(removeFuelRefill(RefillID));
       })
-      .catch((err) => {
+      .catch(() => {
         dispatch(postFuelRefillFailure(true));
       });
   };
