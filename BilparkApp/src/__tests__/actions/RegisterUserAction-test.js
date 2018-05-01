@@ -5,7 +5,6 @@ import { API_ADDRESS } from '../../config/connections';
 import { registerUserHasErrored, registerUserIsLoading, registerUserModalVisible, registerUserModalTransparent, registerUserOptions, registerUserResetOptions, registerUserValues, registerUserFetchData, pleasefillcorrect, emailErrorFill } from '../../actions/registerUser';
 
 
-
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
@@ -49,26 +48,27 @@ describe('actions', () => {
 
   it('should create an action to update the form options', () => {
     const data = {
+      auto: 'none',
       fields: {
         Email: {
-          hasError: true,
-          label: 'Epost',
-          error: 'Eposten er allerede i bruk',
+          hasError: false,
+          placeholder: 'Epost',
+          error: 'Vennligst fyll inn en korrekt epost',
         },
         Fname: {
-          label: 'Fornavn',
+          placeholder: 'Fornavn',
           error: 'Vennligst fyll inn fornavnet ditt',
         },
         Lname: {
-          label: 'Etternavn',
+          placeholder: 'Etternavn',
           error: 'Vennligst fyll inn etternavnet ditt',
         },
         Address: {
-          label: 'Adresse',
+          placeholder: 'Adresse',
           error: 'Vennligst fyll inn adressen din',
         },
         Password: {
-          label: 'Passord',
+          placeholder: 'Passord',
           error: 'Passord må ha minst 8 tegn',
           password: true,
           secureTextEntry: true,
@@ -131,7 +131,7 @@ describe('async actions', () => {
       FuelNotification: false,
       UserID: 6,
     };
-    fetchMock.postOnce(API_ADDRESS + '/api/User', {status: 201, body: responseBody, headers: { 'content-type': 'application/json' } });
+    fetchMock.postOnce(API_ADDRESS + '/api/User', { status: 201, body: responseBody, headers: { 'content-type': 'application/json' } });
 
     const store = mockStore({});
     const expectedActions = [
@@ -146,6 +146,10 @@ describe('async actions', () => {
       {
         type: 'REGISTER_USER_OPTIONS',
         options: pleasefillcorrect,
+      },
+      {
+        type: 'REGISTER_USER_VALUES',
+        values: {},
       },
       {
         hasErrored: true,
