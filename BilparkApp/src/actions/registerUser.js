@@ -57,25 +57,26 @@ export function registerUserValues(values) {
 }
 
 export const pleasefillcorrect = {
+  auto: 'none',
   fields: {
     Email: {
-      label: 'Epost',
+      placeholder: 'Epost',
       error: 'Vennligst fyll inn en korrekt epost',
     },
     Fname: {
-      label: 'Fornavn',
+      placeholder: 'Fornavn',
       error: 'Vennligst fyll inn fornavnet ditt',
     },
     Lname: {
-      label: 'Etternavn',
+      placeholder: 'Etternavn',
       error: 'Vennligst fyll inn etternavnet ditt',
     },
     Address: {
-      label: 'Adresse',
+      placeholder: 'Adresse',
       error: 'Vennligst fyll inn adressen din',
     },
     Password: {
-      label: 'Passord',
+      placeholder: 'Passord',
       error: 'Passord må ha minst 8 tegn',
       password: true,
       secureTextEntry: true,
@@ -84,26 +85,27 @@ export const pleasefillcorrect = {
 };
 
 export const emailErrorFill = {
+  auto: 'none',
   fields: {
     Email: {
       hasError: true,
-      label: 'Epost',
+      placeholder: 'Epost',
       error: 'Eposten er allerede i bruk',
     },
     Fname: {
-      label: 'Fornavn',
+      placeholder: 'Fornavn',
       error: 'Vennligst fyll inn fornavnet ditt',
     },
     Lname: {
-      label: 'Etternavn',
+      placeholder: 'Etternavn',
       error: 'Vennligst fyll inn etternavnet ditt',
     },
     Address: {
-      label: 'Adresse',
+      placeholder: 'Adresse',
       error: 'Vennligst fyll inn adressen din',
     },
     Password: {
-      label: 'Passord',
+      placeholder: 'Passord',
       error: 'Passord må ha minst 8 tegn',
       password: true,
       secureTextEntry: true,
@@ -126,6 +128,7 @@ export function registerUserFetchData(value) {
         if (response.status === 201) {
           dispatch(registerUserModalVisible(true));
           dispatch(registerUserOptions(pleasefillcorrect));
+          dispatch(registerUserValues({}));
           return response.status;
 
         } else if (response.status !== 201) {
