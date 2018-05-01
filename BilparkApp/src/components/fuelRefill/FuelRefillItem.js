@@ -7,6 +7,17 @@ import { connect } from 'react-redux';
 const styles = StyleSheet.create({
   text: {
     color: 'white',
+    alignSelf: 'center',
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    margin: 15,
+  },
+  button: {
+    paddingLeft: 10,
+    paddingRight: 10,
   },
 });
 
@@ -47,11 +58,11 @@ const FuelRefillItem = ({ FuelTime, RefillID }) => {
   const minutes = fuelDate.getMinutes() > 9 ? fuelDate.getMinutes() : '0' + fuelDate.getMinutes();
 
   return (
-    <View>
+    <View style={styles.content}>
       <Text style={styles.text}>
         {day} {date}. {month} kl. {hours}:{minutes}
       </Text>
-      <Button onPress={() => console.log(RefillID)}>
+      <Button light style={styles.button} onPress={() => console.log(RefillID)}>
         <Text>
           slett
         </Text>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { Content } from 'native-base';
 import { connect } from 'react-redux';
 
@@ -10,18 +10,20 @@ import FuelRefillList from './FuelRefillList';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     backgroundColor: '#002776',
   },
   content: {
     flex: 3,
     justifyContent: 'flex-start',
-    alignItems: 'center',
     backgroundColor: '#002776',
   },
   contentContainer: {
     flex: 2,
-    justifyContent: 'center',
+  },
+  text: {
+    color: 'white',
+    alignSelf: 'center',
+    margin: 15,
   },
 });
 
@@ -35,6 +37,7 @@ class FuelRefillScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.contentContainer}>
+          <Text style={styles.text}> Her kommer form </Text>
           <Content contentContainerStyle={styles.content}>
             <FuelRefillList />
           </Content>

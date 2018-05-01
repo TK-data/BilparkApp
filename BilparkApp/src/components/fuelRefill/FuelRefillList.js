@@ -6,8 +6,13 @@ import FuelRefillItem from './FuelRefillItem';
 
 
 const styles = StyleSheet.create({
+  container: {
+    alignSelf: 'stretch',
+    flex: 1,
+  },
   text: {
     color: 'white',
+    alignSelf: 'center',
   },
 });
 
