@@ -310,9 +310,9 @@ ShallowWrapper {
           virtual={undefined}
         >
           <Styled(Button)
+            bordered={true}
             light={true}
             onPress={[Function]}
-            transparent={true}
             virtual={undefined}
           >
             <Styled(Text)
@@ -582,9 +582,9 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "children": <Styled(Button)
+            bordered={true}
             light={true}
             onPress={[Function]}
-            transparent={true}
             virtual={undefined}
           >
             <Styled(Text)
@@ -601,6 +601,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
+            "bordered": true,
             "children": <Styled(Text)
               virtual={undefined}
             >
@@ -608,7 +609,6 @@ ShallowWrapper {
             </Styled(Text)>,
             "light": true,
             "onPress": [Function],
-            "transparent": true,
             "virtual": undefined,
           },
           "ref": null,
@@ -887,9 +887,9 @@ ShallowWrapper {
             virtual={undefined}
           >
             <Styled(Button)
+              bordered={true}
               light={true}
               onPress={[Function]}
-              transparent={true}
               virtual={undefined}
             >
               <Styled(Text)
@@ -1159,9 +1159,9 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": <Styled(Button)
+              bordered={true}
               light={true}
               onPress={[Function]}
-              transparent={true}
               virtual={undefined}
             >
               <Styled(Text)
@@ -1178,6 +1178,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "bordered": true,
               "children": <Styled(Text)
                 virtual={undefined}
               >
@@ -1185,7 +1186,6 @@ ShallowWrapper {
               </Styled(Text)>,
               "light": true,
               "onPress": [Function],
-              "transparent": true,
               "virtual": undefined,
             },
             "ref": null,
