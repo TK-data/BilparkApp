@@ -17,11 +17,11 @@ class GetCarForm extends Component {
       const car = JSON.parse(this.props.car);
       main = (
         <View>
-          <H2>Din bil:</H2>
-          <Text>Regnr: {car.Regnr}</Text>
-          <Text>Merke: {car.Brand}</Text>
-          <Text>Modell: {car.Model}</Text>
-          <Text>Registreringsår: {car.RegYear}</Text>
+          <H2 style={styles.header}>DIN BIL:</H2>
+          <Text style={styles.text}>Regnr: {car.Regnr}</Text>
+          <Text style={styles.text}>Merke: {car.Brand}</Text>
+          <Text style={styles.text}>Modell: {car.Model}</Text>
+          <Text style={styles.text}>Registreringsår: {car.RegYear}</Text>
         </View>
       );
     } else if (this.props.isLoading) {
