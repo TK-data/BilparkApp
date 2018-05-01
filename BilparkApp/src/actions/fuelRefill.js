@@ -60,11 +60,16 @@ export function getFuelRefills() {
   };
 }
 
-export function postFuelRefill() {
+export function postFuelRefill(FuelTime) {
+  const params = {
+  };
+
+  if (FuelTime !== undefined) {
+    params.FuelTime = FuelTime;
+  }
   return (dispatch) => {
     dispatch(postFuelRefillLoading(true));
-    return axios.post(API_ADDRESS + '/api/fuelrefill/register', {
-    })
+    return axios.post(API_ADDRESS + '/api/fuelrefill/register', params)
       .then((response) => {
         dispatch(postFuelRefillLoading(false));
         return response.data;
