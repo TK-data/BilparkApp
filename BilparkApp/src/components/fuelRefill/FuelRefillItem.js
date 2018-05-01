@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Alert } from 'react-native';
 import { Button } from 'native-base';
 import { connect } from 'react-redux';
 import { deleteFuelRefill } from '../../actions/fuelRefill';
@@ -63,7 +63,20 @@ const FuelRefillItem = ({ FuelTime, RefillID, deleteItem }) => {
       <Text style={styles.text}>
         {day} {date}. {month} kl. {hours}:{minutes}
       </Text>
-      <Button light style={styles.button} onPress={() => deleteItem(RefillID)}>
+      <Button
+        light
+        style={styles.button}
+        onPress={() => {
+          Alert.alert(
+            'Bekreft sletting',
+            'Er du sikker på at du vil slette loggføringen?',
+            [
+              { text: 'Avbryt', style: 'cancel' },
+              { text: 'Slett', onPress: () => deleteItem(RefillID) },
+            ],
+          );
+        }}
+      >
         <Text>
           slett
         </Text>
