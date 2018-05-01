@@ -16,8 +16,8 @@ before_script:
   - npm install
 
 install:
-  npm install -g codecov
-  npm install -g exp
+  - npm install -g codecov
+  - npm install -g exp
 
 script:
   - npm test
