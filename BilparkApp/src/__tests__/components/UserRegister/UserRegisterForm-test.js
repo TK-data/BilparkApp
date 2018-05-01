@@ -8,31 +8,30 @@ import { Button } from 'native-base';
 import UserRegisterForm from '../../../components/UserRegister/UserRegisterForm';
 
 const initialState = {
-  options: {
-    fields: {
-      Email: {
-        hasError: false,
-        label: 'Epost',
-        error: 'Vennligst fyll inn en korrekt epost',
-      },
-      Fname: {
-        label: 'Fornavn',
-        error: 'Vennligst fyll inn fornavnet ditt',
-      },
-      Lname: {
-        label: 'Etternavn',
-        error: 'Vennligst fyll inn etternavnet ditt',
-      },
-      Address: {
-        label: 'Adresse',
-        error: 'Vennligst fyll inn adressen din',
-      },
-      Password: {
-        label: 'Passord',
-        error: 'Passord må ha minst 8 tegn',
-        password: true,
-        secureTextEntry: true,
-      },
+  auto: 'none',
+  fields: {
+    Email: {
+      hasError: false,
+      placeholder: 'Epost',
+      error: 'Vennligst fyll inn en korrekt epost',
+    },
+    Fname: {
+      placeholder: 'Fornavn',
+      error: 'Vennligst fyll inn fornavnet ditt',
+    },
+    Lname: {
+      placeholder: 'Etternavn',
+      error: 'Vennligst fyll inn etternavnet ditt',
+    },
+    Address: {
+      placeholder: 'Adresse',
+      error: 'Vennligst fyll inn adressen din',
+    },
+    Password: {
+      placeholder: 'Passord',
+      error: 'Passord må ha minst 8 tegn',
+      password: true,
+      secureTextEntry: true,
     },
   },
   values: {

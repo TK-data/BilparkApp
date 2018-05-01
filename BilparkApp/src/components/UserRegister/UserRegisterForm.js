@@ -91,7 +91,7 @@ class UserRegisterForm extends React.Component {
         />
         <Content>
           <Button
-            transparent
+            bordered
             light
             onPress={() => {
               this.handleSubmit();

@@ -14,10 +14,10 @@ before_install:
 
 before_script:
   - npm install
+  - npm install -g exp
 
 install:
   - npm install -g codecov
-  - npm install -g exp
 
 script:
   - npm test
