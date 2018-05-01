@@ -1,4 +1,4 @@
-import { POST_FUELREFILL_FAILURE, POST_FUELREFILL_REQUEST, POST_FUELREFILL_SUCCESS } from '../actions/fuelRefill';
+import { POST_FUELREFILL_FAILURE, POST_FUELREFILL_REQUEST, POST_FUELREFILL_SUCCESS, REMOVE_FUELREFILL } from '../actions/fuelRefill';
 
 const initialState = {
   hasErrored: false,
@@ -23,6 +23,14 @@ export default function fuelRefill(state = initialState, action) {
       ...state,
       hasErrored: false,
       fuelRefills: action.fuelRefills,
+    };
+  case REMOVE_FUELREFILL:
+    return {
+      ...state,
+      fuelRefills: state.fuelRefills.filter((item) => {
+        console.log(item.RefillID, action.RefillID);
+        return item.RefillID !== action.RefillID;
+      }),
     };
   default:
     return state;

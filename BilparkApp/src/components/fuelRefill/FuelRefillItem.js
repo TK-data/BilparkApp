@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { Button } from 'native-base';
 import { connect } from 'react-redux';
+import { deleteFuelRefill } from '../../actions/fuelRefill';
 
 
 const styles = StyleSheet.create({
@@ -46,8 +47,8 @@ const months = {
   11: 'desember',
 };
 
-// should be
-const FuelRefillItem = ({ FuelTime, RefillID }) => {
+
+const FuelRefillItem = ({ FuelTime, RefillID, deleteItem }) => {
 
   const fuelDate = new Date(FuelTime);
 
@@ -62,7 +63,7 @@ const FuelRefillItem = ({ FuelTime, RefillID }) => {
       <Text style={styles.text}>
         {day} {date}. {month} kl. {hours}:{minutes}
       </Text>
-      <Button light style={styles.button} onPress={() => console.log(RefillID)}>
+      <Button light style={styles.button} onPress={() => deleteItem(RefillID)}>
         <Text>
           slett
         </Text>
@@ -71,9 +72,13 @@ const FuelRefillItem = ({ FuelTime, RefillID }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => ({
-  // function from action to delete item
-});
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteItem: (RefillID) => {
+      dispatch(deleteFuelRefill(RefillID));
+    },
+  };
+};
 
 const mapStateToProps = state => ({
 });

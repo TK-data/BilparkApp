@@ -53,23 +53,23 @@ module.exports = {
     if (req.session.authenticated && req.session.UserID) {
       if (req.param('RefillID') == undefined) {
         return res.badRequest('RefillID must be included');
-      } else if (!req.param('RefillID') % 1 === 0) {
+      } else if (parseInt(req.param('RefillID')) % 1 !== 0) {
         return res.badRequest('RefillID must be an integer');
       }
 
-      // Prepare updated object, then try to update it and give success or failure
-
-      params = {
+      let params = {
         RefillID: parseInt(req.param('RefillID')),
         UserID: parseInt(req.session.UserID)
       };
-      FuelRefill.delete(params).exec(function(err) {
+
+      FuelRefill.destroy(params).exec(function(err, deletedRecords) {
         if (err) {
           return res.negotiate(err);
         }
-
-        return res.ok();
+        return res.json(deletedRecords);
       });
+    } else {
+      return res.forbidden('You are not logged in');
     }
   }
 
