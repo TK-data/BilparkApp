@@ -80,14 +80,12 @@ export function deleteFuelRefill(RefillID) {
     })
       .then((response) => {
         dispatch(postFuelRefillLoading(false));
-        console.log(response);
         return response.data;
       })
       .then(() => {
         dispatch(removeFuelRefill(RefillID));
       })
       .catch((err) => {
-        console.log(err);
         dispatch(postFuelRefillFailure(true));
       });
   };

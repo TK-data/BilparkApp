@@ -28,7 +28,6 @@ export default function fuelRefill(state = initialState, action) {
     return {
       ...state,
       fuelRefills: state.fuelRefills.filter((item) => {
-        console.log(item.RefillID, action.RefillID);
         return item.RefillID !== action.RefillID;
       }),
     };
