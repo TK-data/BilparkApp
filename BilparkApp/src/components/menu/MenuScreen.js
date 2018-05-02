@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 // import { Text } from 'react-native';
-import { View, StyleSheet, Dimensions, Text } from 'react-native';
+import { View, StyleSheet, Dimensions, Text, BackHandler } from 'react-native';
 import Swiper from 'react-native-swiper';
 import { Body } from 'native-base';
 import ProfileButton from './ProfileButton';
 
 import MenuBox from './MenuBox';
+
 
 const images = [
   {
@@ -88,6 +89,7 @@ const styles = StyleSheet.create({
   },
 });
 
+
 class MenuScreen extends Component {
 
   static navigationOptions = {
@@ -95,6 +97,21 @@ class MenuScreen extends Component {
     headerLeft: <Body />,
     headerRight: <ProfileButton />,
   }
+  constructor(props) {
+    super(props);
+    this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
+  }
+  componentWillMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
+  }
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
+  }
+  handleBackButtonClick() {
+    this.props.navigation.goBack(null);
+    return true;
+  }
+
   render() {
     return (
       <View style={styles.menuContainer}>
