@@ -39,6 +39,10 @@ export default function fuelRefill(state = initialState, action) {
       hasErrored: false,
       fuelRefills: state.fuelRefills.concat(action.RefillItem),
     };
+  case 'LOGOUT_SUCCESS':
+    return {
+      initialState,
+    };
   default:
     return state;
   }
