@@ -2,8 +2,8 @@ import { SET_FUELREFILL_FORM_DATE, SET_FUELREFILL_FORM_LITERS, SET_FUELREFILL_FO
 
 const initialState = {
   date: new Date(),
-  liters: '0',
-  price: '0',
+  liters: '',
+  price: '',
 };
 
 export default function fuelRefillForm(state = initialState, action) {
@@ -24,13 +24,9 @@ export default function fuelRefillForm(state = initialState, action) {
       price: action.price,
     };
   case RESET_FUELREFILL_FORM:
-    return {
-      initialState,
-    };
+    return initialState;
   case 'LOGOUT_SUCCESS':
-    return {
-      initialState,
-    };
+    return initialState;
   default:
     return state;
   }
