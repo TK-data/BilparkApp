@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addNavigationHelpers, StackNavigator } from 'react-navigation';
+import { addNavigationHelpers, StackNavigator, NavigationActions } from 'react-navigation';
 import { Body } from 'native-base';
-import { StyleSheet, StatusBar, Image } from 'react-native';
+import { StyleSheet, StatusBar, Image, BackHandler } from 'react-native';
 
 import LoginScreen from '../components/login/LoginScreen';
 import MainScreen from '../components/MainScreen';
@@ -81,18 +81,31 @@ class AppWithNavigationState extends React.Component {
 
   componentDidMount() {
     StatusBar.setBarStyle('light-content');
+    BackHandler.addEventListener('hardwareBackPress', this.onBackPress);
   }
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.onBackPress);
+  }
+  onBackPress = () => {
+    const { dispatch, nav } = this.props;
+    if (nav.index === 0) {
+      return false;
+    }
+    dispatch(NavigationActions.back());
+    return true;
+  };
 
   render() {
-
     const { dispatch, nav } = this.props;
+    const navigation = addNavigationHelpers({
+      dispatch,
+      state: nav,
+      addListener,
+    });
+
     return (
       <AppNavigator
-        navigation={addNavigationHelpers({
-          dispatch,
-          state: nav,
-          addListener,
-        })}
+        navigation={navigation}
       />
     );
   }
