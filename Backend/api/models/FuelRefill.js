@@ -12,9 +12,15 @@ module.exports = {
     },
     FuelTime: {
       type: 'datetime',
-      defaultsTo: function () {
-        return new Date();
-      }
+      required: true,
     },
+    Price: {
+      type: 'float',
+      required: true,
+    },
+    Liters: {
+      type: 'float',
+      required: true,
+    }
   }
 };
