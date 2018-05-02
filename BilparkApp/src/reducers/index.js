@@ -4,6 +4,7 @@ import auth from './auth';
 import { loginMail, loginOptions } from './form';
 import form from './redux-form';
 import { carFetch } from './registerCar';
+import modals from './modals';
 import { registerUserModalVisible, registerUserModalTransparent, options, values } from './registerUser';
 
 const AppReducer = combineReducers({
@@ -17,6 +18,7 @@ const AppReducer = combineReducers({
   registerUserModalTransparent,
   options,
   values,
+  modals,
 });
 
 export default AppReducer;

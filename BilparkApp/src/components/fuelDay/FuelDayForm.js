@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import t from 'tcomb-form-native';
-import DateTimePicker from 'react-native-modal-datetime-picker';
+import Timepicker from 'react-native-modal-datetime-picker';
 import { Notifications, Permissions, Constants } from 'expo';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import { reduxForm } from 'redux-form';
-import { postFuelDay } from '../../actions/fuelDay';
+import { showModal, hideModal, postFuelDay } from '../../actions/fuelDay';
 
 
 class FuelDayForm extends Component {
@@ -22,49 +22,50 @@ class FuelDayForm extends Component {
     console.info(`Notification (${origin}) with data: ${JSON.stringify(data)}`);
   };
 
+  // showTimePicker = () =>
   /*
- sendImmediateNotification = () => {
-   const localNotification = {
-     title: 'Superdupertestingnotification',
-     body: 'Trykk på meg for å åpne den beste appen på den beste siden',
-     data: { type: 'immediate' },
-   };
+    sendImmediateNotification = () => {
+     const localNotification = {
+       title: 'Superdupertestingnotification',
+       body: 'Trykk på meg for å åpne den beste appen på den beste siden',
+       data: { type: 'immediate' },
+     };
 
-   // console.log('Scheduling immediate notification:', { localNotification });
+     // console.log('Scheduling immediate notification:', { localNotification });
 
-   Notifications.presentLocalNotificationAsync(localNotification);
-   // .then(id => console.info(`Immediate notification scheduled (${id})`))
-   // .catch(err => console.error(err));
- };
-*/
- sendDelayedNotification = () => {
-   const localNotification = {
-     title: 'Delayed testing Title',
-     body: 'Testing body',
-     data: { type: 'delayed' },
-   };
-   const dayToSet = this.props.user.FuelDay;
-   const date = new Date();
-   let currentDay = date.getDay();
-   if (currentDay === 0) {
-     currentDay = 6;
-   } else {
-     currentDay -= 1;
-   }
-   const distance = ((dayToSet + 7) - currentDay) % 7;
-   date.setDate(date.getDate() + distance);
-   date.setHours(7, 0, 0, 0);
-   const schedulingOptions = {
-     time: date,
-     repeat: 'week',
-   };
+     Notifications.presentLocalNotificationAsync(localNotification);
+     // .then(id => console.info(`Immediate notification scheduled (${id})`))
+     // .catch(err => console.error(err));
+    };
+    */
+  sendDelayedNotification = () => {
+    const localNotification = {
+      title: 'Delayed testing Title',
+      body: 'Testing body',
+      data: { type: 'delayed' },
+    };
+    const dayToSet = this.props.user.FuelDay;
+    const date = new Date();
+    let currentDay = date.getDay();
+    if (currentDay === 0) {
+      currentDay = 6;
+    } else {
+      currentDay -= 1;
+    }
+    const distance = ((dayToSet + 7) - currentDay) % 7;
+    date.setDate(date.getDate() + distance);
+    date.setHours(7, 0, 0, 0);
+    const schedulingOptions = {
+      time: date,
+      repeat: 'week',
+    };
 
-   // console.log('Scheduling delayed notification:', { localNotification, schedulingOptions });
+    // console.log('Scheduling delayed notification:', { localNotification, schedulingOptions });
 
-   Notifications.scheduleLocalNotificationAsync(localNotification, schedulingOptions);
-   // .then(id => console.info(`Delayed notification scheduled (${id}) at ${moment(schedulingOptions.time).format()}`))
-   // .catch(err => console.error(err));
- };
+    Notifications.scheduleLocalNotificationAsync(localNotification, schedulingOptions);
+    // .then(id => console.info(`Delayed notification scheduled (${id}) at ${moment(schedulingOptions.time).format()}`))
+    // .catch(err => console.error(err));
+  };
 
  testSendDelayedNotification = () => {
    console.log("delayed?");
@@ -78,6 +79,10 @@ class FuelDayForm extends Component {
    }
    const distance = ((dayToSet + 7) - currentDay) % 7;
    date.setDate(date.getDate() + distance);
+   const notificationHour = this.props.user.FuelTime.substring(0, this.props.user.FuelTime.indexOf('-'));
+   const notificationMinute = this.props.user.FuelTime.substring(this.props.user.FuelTime.indexOf('-') + 1, this.props.user.FuelTime.length);
+   console.log('Test: ' + notificationMinute);
+   console.log('Test: ' + notificationHour);
    date.setHours(7, 0, 0, 0);
    const localNotification = {
      title: 'CurrentDay:' + currentDay + '!',
@@ -95,9 +100,8 @@ class FuelDayForm extends Component {
     Notifications.cancelAllScheduledNotificationsAsync();
   };
 
-
   render() {
-
+    const { hideModal, showModal, isShowing, user } = this.props;
     const Days = t.enums({
       0: 'Mandag',
       1: 'Tirsdag',
@@ -108,49 +112,11 @@ class FuelDayForm extends Component {
       6: 'Søndag',
     });
 
-    const Hours = t.enums({
-      1: '01',
-      2: '02',
-      3: '03',
-      4: '04',
-      5: '05',
-      6: '06',
-      7: '07',
-      8: '08',
-      9: '09',
-      10: '10',
-      11: '11',
-      12: '12',
-      13: '13',
-      14: '14',
-      15: '15',
-      16: '16',
-      17: '17',
-      18: '18',
-      19: '19',
-      20: '20',
-      21: '21',
-      22: '22',
-      23: '23',
-      24: '24',
-    });
-
-    const Minutes = t.enums({
-      0: '00',
-      15: '15',
-      30: '30',
-      45: '45',
-    });
 
     const FuelDay = t.struct({
       Day: Days,
-      Hour: Hours,
-      Minute: Minutes,
       Notification: t.Boolean,
     });
-
-    const { user } = this.props;
-
     // const Item = Picker.Item;
     /*
     const postToggle = (value) => {
@@ -164,6 +130,20 @@ class FuelDayForm extends Component {
     const postFuelForm = (value) => {
       this.props.postFuelDay(value.Day, value.Notification);
     };
+    const postFuelTime = (value) => {
+      let hour = value.getHours();
+      let minute = value.getMinutes();
+      if (hour < 10) {
+        hour = '0' + hour;
+      }
+      if (minute < 10) {
+        minute = '0' + minute;
+      }
+      const fueltime = hour + '-' + minute;
+      console.log(fueltime);
+      this.props.postFuelTime(fueltime);
+      hideModal();
+    };
 
     const Form = t.form.Form;
 
@@ -175,8 +155,17 @@ class FuelDayForm extends Component {
         <Text
           style={styles.debugColor}
         >
-          Current day: {user.FuelDay} Current value: {user.FuelNotification.toString()}
+          Current day: {user.FuelDay} Current time: {user.FuelTime} Current value: {user.FuelNotification.toString()}
         </Text>
+        <TouchableOpacity onPress={() => showModal()}>
+          <Text>Sett klokkeslett</Text>
+        </TouchableOpacity>
+        <Timepicker
+          mode="time"
+          isVisible={isShowing}
+          onConfirm={postFuelTime}
+          onCancel={hideModal}
+        />
         <Text style={styles.debugColor}>Velg dag og om du ønsker notification</Text>
         <Form
           ref={c => this.form = c}
@@ -195,12 +184,17 @@ const mapStateToProps = (state) => {
     hasErrored: state.postFuelDayFailure,
     hasSucceeded: state.postFuelDaySuccess,
     user: state.auth.user,
+    isShowing: state.modals.isShowing,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     postFuelDay: (weekday, toggle) => dispatch(postFuelDay(weekday, toggle)),
+    postFuelTime: fueltime => dispatch(postFuelDay(undefined, undefined, fueltime)),
+    showModal: () => dispatch(showModal()),
+    hideModal: () => dispatch(hideModal()),
+
   };
 };
 
