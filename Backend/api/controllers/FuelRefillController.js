@@ -30,27 +30,24 @@ module.exports = {
       const Price = req.param('Price');
       const Liters = req.param('Liters');
 
-      var dateReg = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})$/;
+      // var dateReg = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})$/;
       var numberReg = /^[0-9]{0,5}[.]{0,1}[0-9]{0,5}?$/;
 
-      if (FuelTime.match(dateReg)) {
+      if (Date.parse(FuelTime)) {
         params['FuelTime'] = new Date(FuelTime);
       } else {
         return res.badRequest('FuelTime must be a proper Date object');
       }
-
-      if (Price.match(numberReg)) {
+      if (Price.match(numberReg) && Price !== '.' && Price !== '') {
         params['Price'] = Price.toString();
       } else {
         return res.badRequest('Price must be an integer or float');
       }
-
-      if (Liters.match(numberReg)) {
+      if (Liters.match(numberReg && Liters !== '.' && Liters !== '')) {
         params['Liters'] = Liters.toString();
       } else {
         return res.badRequest('Liters must be an integer or float');
       }
-
 
       FuelRefill.create(params).exec(function(err, fuelrefill) {
         if (err) {

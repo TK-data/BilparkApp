@@ -69,7 +69,7 @@ const FuelRefillForm = ({ register, date, liters, price, changePrice, changeLite
         light
         style={styles.button}
         onPress={() => {
-          // register(date, liters, price);
+          register(date, liters, price);
         }}
       >
         <Text> Registrer </Text>
@@ -80,8 +80,8 @@ const FuelRefillForm = ({ register, date, liters, price, changePrice, changeLite
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    register: () => {
-      dispatch(postFuelRefill());
+    register: (fueltime, price, liters) => {
+      dispatch(postFuelRefill(fueltime, price, liters));
     },
     changePrice: (price) => { dispatch(setPrice(price)); },
     changeLiters: (liters) => { dispatch(setLiters(liters)); },

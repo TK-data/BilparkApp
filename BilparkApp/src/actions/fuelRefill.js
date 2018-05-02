@@ -60,13 +60,13 @@ export function getFuelRefills() {
   };
 }
 
-export function postFuelRefill(FuelTime) {
+export function postFuelRefill(FuelTime, Price, Liters) {
   const params = {
+    FuelTime,
+    Price,
+    Liters,
   };
-
-  if (FuelTime !== undefined) {
-    params.FuelTime = FuelTime;
-  }
+  console.log(params);
   return (dispatch) => {
     dispatch(postFuelRefillLoading(true));
     return axios.post(API_ADDRESS + '/api/fuelrefill/register', params)
@@ -77,7 +77,8 @@ export function postFuelRefill(FuelTime) {
       .then((fuelrefill) => {
         dispatch(registerFuelRefill(fuelrefill));
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err);
         dispatch(postFuelRefillFailure(true));
       });
   };
