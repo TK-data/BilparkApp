@@ -66,7 +66,6 @@ export function postFuelRefill(FuelTime, Price, Liters) {
     Price,
     Liters,
   };
-  console.log(params);
   return (dispatch) => {
     dispatch(postFuelRefillLoading(true));
     return axios.post(API_ADDRESS + '/api/fuelrefill/register', params)
@@ -77,8 +76,7 @@ export function postFuelRefill(FuelTime, Price, Liters) {
       .then((fuelrefill) => {
         dispatch(registerFuelRefill(fuelrefill));
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
         dispatch(postFuelRefillFailure(true));
       });
   };

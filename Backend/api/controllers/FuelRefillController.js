@@ -38,16 +38,19 @@ module.exports = {
       } else {
         return res.badRequest('FuelTime must be a proper Date object');
       }
+
       if (Price.match(numberReg) && Price !== '.' && Price !== '') {
-        params['Price'] = Price.toString();
+        params['Price'] = parseFloat(Price);
       } else {
         return res.badRequest('Price must be an integer or float');
       }
-      if (Liters.match(numberReg && Liters !== '.' && Liters !== '')) {
-        params['Liters'] = Liters.toString();
+
+      if (Liters.match(numberReg) && Liters != '.' && Liters != '') {
+        params['Liters'] = parseFloat(Liters);
       } else {
         return res.badRequest('Liters must be an integer or float');
       }
+
 
       FuelRefill.create(params).exec(function(err, fuelrefill) {
         if (err) {
