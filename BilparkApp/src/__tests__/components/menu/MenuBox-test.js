@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import MenuBox from '../../components/menu/MenuBox';
+import MenuBox from '../../../components/menu/MenuBox';
 
 const initialState = {
 };
