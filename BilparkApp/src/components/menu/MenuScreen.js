@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { Text } from 'react-native';
-import { View, StyleSheet, Dimensions, Text, Image } from 'react-native';
+import { View, StyleSheet, Dimensions, Text } from 'react-native';
 import Swiper from 'react-native-swiper';
 import { Body } from 'native-base';
 import ProfileButton from './ProfileButton';
@@ -25,7 +25,7 @@ const images = [
   },
   {
     image: require('../../images/menuIcons/trophy.png'),
-    routeName: 'Profile',
+    routeName: 'FuelRefill',
     pageName: 'Rangering',
   },
   {
@@ -113,12 +113,12 @@ class MenuScreen extends Component {
         </View>
         <View style={styles.boxContainer}>
           {images.map((data, i) =>
-            <MenuBox
+            (<MenuBox
               key={i}
               image={data.image}
               routeName={data.routeName}
               pageName={data.pageName}
-            />)}
+            />))}
         </View>
       </View>
     );

@@ -69,5 +69,6 @@ module.exports.policies = {
 		'*': false,
 		register: 'sessionAuth',
 		getAll: 'sessionAuth',
-	}
+		remove: 'sessionAuth',
+	},
 };
