@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import t from 'tcomb-form-native';
 import Timepicker from 'react-native-modal-datetime-picker';
 import { Notifications, Permissions, Constants } from 'expo';
-import { StyleSheet, Text, View, Button, TouchableOpacity, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 import { reduxForm } from 'redux-form';
 import { showModal, hideModal, postFuelDay } from '../../actions/fuelDay';
 
 const width = Dimensions.get('window').width;
+const window = Dimensions.get('window');
 
 class FuelDayForm extends Component {
   async componentDidMount() {
@@ -148,45 +149,58 @@ class FuelDayForm extends Component {
     formStylesheet.formGroup.normal.justifyContent = 'space-between';
     formStylesheet.textbox.normal.flex = 1;
     formStylesheet.textbox.error.flex = 1;
+
+    formStylesheet.pickerValue.normal.paddingLeft = 0;
+    formStylesheet.pickerValue.normal.marginLeft = 'auto';
+    formStylesheet.pickerValue.normal.marginRight = 'auto';
     // Sets the cloned stylesheet as the new stylesheet
     const FormOptions = {
       stylesheet: formStylesheet,
+      fields: {
+        Day: {
+          label: 'Ukedag',
+        },
+        Notification: {
+          label: 'Påminnelse',
+        },
+      },
     };
     console.log(formStylesheet);
     return (
       <View style={styles.container}>
-        <Text
-          style={styles.debugColor}
-        >
-          Current time: {user.FuelTime}
-        </Text>
-        <View style={styles.formContainer}>
-          <View style={styles.timeBox}>
-            <Text style={styles.textField}>Tidspunkt</Text>
-            <View style={styles.buttonBox}>
-              <TouchableOpacity onPress={() => showModal()}>
-                <View style={styles.button}>
-                  <Text>{user.FuelTime.replace('-', ':')}</Text>
-                </View>
-              </TouchableOpacity>
+        <ScrollView>
+
+          <Text style={styles.introText}>
+            Sett inn ønsket tidspunkt for påminnelse om bensinfylling.
+          </Text>
+          <View style={styles.formContainer}>
+            <View style={styles.timeBox}>
+              <Text style={styles.textField}>Tidspunkt</Text>
+              <View style={styles.buttonBox}>
+                <TouchableOpacity onPress={() => showModal()}>
+                  <View style={styles.button}>
+                    <Text style={styles.buttonText}>{user.FuelTime.replace('-', ':')}</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View style={styles.formBox}>
+              <Form
+                ref={c => this.form = c}
+                type={FuelDay}
+                value={{ Day: user.FuelDay, Notification: user.FuelNotification }}
+                onChange={postFuelForm}
+                options={FormOptions}
+              />
             </View>
           </View>
-          <View style={styles.formBox}>
-            <Form
-              ref={c => this.form = c}
-              type={FuelDay}
-              value={{ Day: user.FuelDay, Notification: user.FuelNotification }}
-              onChange={postFuelForm}
-              options={FormOptions}
-            />
-          </View>
-        </View>
-        <Timepicker
-          mode="time"
-          isVisible={isShowing}
-          onConfirm={postTime}
-          onCancel={hideModal}
-        />
+          <Timepicker
+            mode="time"
+            isVisible={isShowing}
+            onConfirm={postTime}
+            onCancel={hideModal}
+          />
+        </ScrollView>
       </View>
     );
   }
@@ -220,33 +234,43 @@ export default connect(
 const styles = StyleSheet.create({
   button: {
     backgroundColor: 'white',
-    height: width / 8,
+    height: window.height / 14,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    width: width / 1.8,
+  },
+  buttonText: {
+    fontSize: 15,
   },
   container: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   },
+  introText: {
+    color: 'white',
+    fontSize: 18,
+    width: width / 1.3,
+    textAlign: 'center',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
   formContainer: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'red',
     width: width,
+    marginTop: window.height / 20,
   },
   buttonBox: {
     // marginLeft: 50,
     paddingLeft: 6,
-    width: width / 1.8,
   },
   timeBox: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: 'grey',
     width: width / 1.1,
     marginBottom: 20,
     paddingRight: 15,
@@ -255,12 +279,11 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'green',
     width: width / 1.1,
 
   },
   textField: {
-    height: width / 8,
+    height: window.height / 14,
     color: 'white',
     fontSize: 18,
     fontWeight: 'bold',
