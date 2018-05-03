@@ -89,12 +89,12 @@ export function acceptCar(car) {
     })
       .then((response) => {
         if (!response.ok && !response.status === 200) {
-          dispatch(carSaveFailure('Noe gikk galt!'));
+          dispatch(carSaveFailure('Noe gikk galt når bilen skulle lagres! Prøv igjen.'));
         }
         dispatch(carAccepted(true));
       })
       .catch(() => {
-        dispatch(carSaveFailure('Noe gikk galt!'));
+        dispatch(carSaveFailure('Noe gikk galt når bilen skulle lagres! Prøv igjen.'));
       });
   };
 }

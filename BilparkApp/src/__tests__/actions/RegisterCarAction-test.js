@@ -173,7 +173,7 @@ describe('Get car async actions', () => {
     const expectedActions = [
       {
         type: GET_CAR_SAVE_FAILURE,
-        hasErrored: 'Noe gikk galt!',
+        hasErrored: 'Noe gikk galt når bilen skulle lagres! Prøv igjen.',
       },
     ];
 

@@ -1,5 +1,5 @@
-import { GET_CAR_FAILURE, GET_CAR_REQUEST, GET_CAR_SUCCESS, GET_CAR_ACCEPT, GET_CAR_DECLINE } from '../../actions/registerCar';
-import { carFetch, initialState } from '../../reducers/registerCar';
+import { GET_CAR_FAILURE, GET_CAR_REQUEST, GET_CAR_SUCCESS, GET_CAR_ACCEPT, GET_CAR_DECLINE, GET_CAR_SAVE_FAILURE, GET_CAR_FORM_VALUE } from '../../actions/registerCar';
+import { carFetch, carForm, initialState } from '../../reducers/registerCar';
 
 describe('Get car reducer tests', () => {
 
@@ -83,11 +83,11 @@ describe('Get car reducer tests', () => {
     InsuranceCompany: 'IF',
   });
 
-  const newInitialState = Object.assign(initialState);
-  newInitialState.car = car;
+  const carInitialState = Object.assign(initialState);
+  carInitialState.car = car;
 
   it('Should handle GET_CAR_DECLINE', () => {
-    expect(carFetch(newInitialState, {
+    expect(carFetch(carInitialState, {
       type: GET_CAR_DECLINE,
     })).toEqual({
       hasErrored: '',
@@ -98,7 +98,7 @@ describe('Get car reducer tests', () => {
   });
 
   it('Should handle GET_CAR_ACCEPT', () => {
-    expect(carFetch(newInitialState, {
+    expect(carFetch(carInitialState, {
       type: GET_CAR_ACCEPT,
       isAccepted: true,
     })).toEqual({
@@ -107,6 +107,37 @@ describe('Get car reducer tests', () => {
       car,
       isAccepted: true,
     });
+  });
+
+  it('Should handle GET_CAR_SAVE_FAILURE', () => {
+    expect(carFetch(carInitialState, {
+      type: GET_CAR_SAVE_FAILURE,
+      hasErrored: 'Noe gikk galt når bilen skulle lagres! Prøv igjen.',
+    })).toEqual({
+      hasErrored: 'Noe gikk galt når bilen skulle lagres! Prøv igjen.',
+      isLoading: false,
+      car: '',
+      isAccepted: false,
+    });
+  });
+
+  it('Should return the default state when no valid action is inputted to carFetch function', () => {
+    expect(carFetch(initialState, {
+      type: 'NONE',
+    })).toEqual(initialState);
+  });
+
+  it('Should handle GET_CAR_FORM_VALUE', () => {
+    expect(carForm({}, {
+      type: GET_CAR_FORM_VALUE,
+      carFormValue: 'VH12345',
+    })).toEqual('VH12345');
+  });
+
+  it('Should return the default state when no valid action is inputted to carForm function', () => {
+    expect(carForm({}, {
+      type: 'NONE',
+    })).toEqual({});
   });
 
 });
