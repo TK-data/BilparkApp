@@ -67,8 +67,13 @@ export function getCar(nr) {
         dispatch(carFetchSuccess(JSON.stringify(response.data)));
       })
       .catch((error) => {
-        if (error.response.status === 404) {
-          dispatch(carFetchFailure('Registreringsnummeret finnes ikke!'));
+        if (error.response.status !== undefined) {
+          if (error.response.status === 404) {
+            dispatch(carFetchFailure('Registreringsnummeret finnes ikke!'));
+          }
+          else {
+            throw error;
+          }
         } else {
           throw error;
         }
