@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { carFetchFailure, carFetchSuccess, carFetchLoading, carDeclined,
-  carAccepted, getCar, acceptCar, GET_CAR_FAILURE, GET_CAR_REQUEST,
+import { carFetchFailure, carFetchSuccess, carFetchLoading, carDeclined, carFormValue,
+  carAccepted, getCar, acceptCar, GET_CAR_FAILURE, GET_CAR_REQUEST, GET_CAR_FORM_VALUE,
   GET_CAR_SUCCESS, GET_CAR_ACCEPT, GET_CAR_DECLINE, GET_CAR_SAVE_FAILURE }
   from '../../actions/registerCar';
 
@@ -67,7 +67,19 @@ describe('Register car actions', () => {
     };
     expect(carFetchSuccess(car)).toEqual(expectedAction);
   });
+
+  it('should create an action to receive car form value', () => {
+    const value = {
+      value: 'VH12345',
+    };
+    const expectedAction = {
+      type: GET_CAR_FORM_VALUE,
+      carFormValue: value,
+    };
+    expect(carFormValue(value)).toEqual(expectedAction);
+  });
 });
+
 
 describe('Get car async actions', () => {
   let axiosMock = new MockAdapter(axios);

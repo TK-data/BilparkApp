@@ -90,7 +90,6 @@ export function acceptCar(car) {
       .then((response) => {
         if (!response.ok && !response.status === 200) {
           dispatch(carSaveFailure('Noe gikk galt!'));
-          return;
         }
         dispatch(carAccepted(true));
       })
