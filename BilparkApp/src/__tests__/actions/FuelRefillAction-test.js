@@ -1,6 +1,6 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { postFuelRefillFailure, postFuelRefillLoading, postFuelRefillSuccess, postFuelRefill } from '../../actions/fuelRefill';
+import { postFuelRefillFailure, postFuelRefillLoading, postFuelRefill, removeFuelRefill, registerFuelRefill } from '../../actions/fuelRefill';
 
 const axios = require('axios');
 
@@ -27,6 +27,22 @@ describe('actions', () => {
       isLoading: true,
     };
     expect(postFuelRefillLoading(data)).toEqual(expectedAction);
+  });
+  it('should create an action to delete the registered fuel refill', () => {
+    const data = '123123';
+    const expectedAction = {
+      type: 'REMOVE_FUELREFILL',
+      RefillID: '123123',
+    };
+    expect(removeFuelRefill(data)).toEqual(expectedAction);
+  });
+  it('should create an action to register the registered fuel refill', () => {
+    const data = '123123';
+    const expectedAction = {
+      type: 'REGISTER_FUELREFILL',
+      RefillItem: '123123',
+    };
+    expect(registerFuelRefill(data)).toEqual(expectedAction);
   });
 });
 
