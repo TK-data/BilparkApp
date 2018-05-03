@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput } from 'react-native';
 import { Button } from 'native-base';
 import { connect } from 'react-redux';
+import Timepicker from 'react-native-modal-datetime-picker';
+import { showModal, hideModal } from '../../actions/fuelDay';
 import { setDate, setRate, setPrice, reset } from '../../actions/fuelRefillForm';
 
 import { postFuelRefill } from '../../actions/fuelRefill';
@@ -31,7 +33,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const FuelRefillForm = ({ register, date, rate, price, changePrice, changeRate, resetInput }) => {
+const FuelRefillForm = ({ register, date, rate, price, changePrice, changeRate, changeDate, resetInput, isShowing, showModal, hideModal }) => {
   return (
     <View style={styles.content}>
       <TouchableOpacity style={styles.view} onPress={() => resetInput()}>
@@ -69,6 +71,17 @@ const FuelRefillForm = ({ register, date, rate, price, changePrice, changeRate, 
           maxLength={5}
         />
       </View>
+      <TouchableOpacity onPress={() => showModal()}>
+        <View style={styles.button}>
+          <Text>{date.getHours() + ':' + date.getMinutes()}</Text>
+        </View>
+      </TouchableOpacity>
+      <Timepicker
+        mode="datetime"
+        isVisible={isShowing}
+        onConfirm={changeDate}
+        onCancel={hideModal}
+      />
       <Button
         light
         style={styles.view}
@@ -89,7 +102,13 @@ const mapDispatchToProps = (dispatch) => {
     },
     changePrice: (price) => { dispatch(setPrice(price)); },
     changeRate: (rate) => { dispatch(setRate(rate)); },
+    changeDate: (time) => {
+      dispatch(setDate(time));
+      dispatch(hideModal());
+    },
     resetInput: () => { dispatch(reset()); },
+    showModal: () => dispatch(showModal()),
+    hideModal: () => dispatch(hideModal()),
   };
 };
 
@@ -98,6 +117,7 @@ const mapStateToProps = (state) => {
     date: state.fuelRefillForm.date,
     rate: state.fuelRefillForm.rate,
     price: state.fuelRefillForm.price,
+    isShowing: state.modals.isShowing,
   };
 };
 
