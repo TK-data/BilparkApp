@@ -51,7 +51,6 @@ export function carFetch(state = initialState, action) {
       isLoading: false,
       car: '',
       isAccepted: false,
-      options: initialFormOptions,
     };
   default:
     return state;

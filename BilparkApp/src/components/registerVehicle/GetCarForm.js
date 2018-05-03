@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { StyleSheet, Dimensions } from 'react-native';
 import { Button, Text, View, H2, Spinner, Icon } from 'native-base';
 import CarForm from './CarForm';
-import { getCar, declineCar, acceptCar } from '../../actions/registerCar';
+import { declineCar, acceptCar } from '../../actions/registerCar';
 
 class GetCarForm extends Component {
 
@@ -146,7 +146,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCar: regnr => dispatch(getCar(regnr)),
     declineCar: () => dispatch(declineCar()),
     acceptCar: car => dispatch(acceptCar(car)),
   };
