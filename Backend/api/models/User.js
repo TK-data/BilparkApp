@@ -55,7 +55,7 @@ module.exports = {
       defaultsTo: 0
     },
     FuelTime: {
-      type: 'time'
+      type: 'string'
     },
     FuelNotification: {
       type: 'boolean',

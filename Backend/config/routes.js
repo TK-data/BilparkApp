@@ -36,4 +36,7 @@ module.exports.routes = {
   'GET /api/user/current': 'UserController.current',
   'POST /api/user/notification': 'UserController.notification',
   'POST /api/car/save': 'CarController.save',
+  'GET /api/fuelrefill/getall': 'FuelRefillController.getAll',
+  'POST /api/fuelrefill/register': 'FuelRefillController.register',
+  'POST /api/fuelrefill/remove': 'FuelRefillController.remove'
 };

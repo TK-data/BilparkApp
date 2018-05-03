@@ -3,37 +3,31 @@ import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import Form from '../../components/registerVehicle/Form';
+import MenuBox from '../../../components/menu/MenuBox';
+
+const initialState = {
+};
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
-const initialState = {
-  carFetch: {
-    hasErrored: false,
-    isLoading: false,
-    car: '',
-    isAccepted: false,
-  },
-};
-
-
-describe('Testing register car form', () => {
+describe('Testing menu boxes', () => {
   it('Renders as expected', () => {
     const comp = shallow(
-      <Form />,
+      <MenuBox />,
       { context: { store: mockStore(initialState) } },
     );
     expect(comp.dive()).toMatchSnapshot();
   });
 
   const wrapper = shallow(
-    <Form />,
+    <MenuBox />,
     { context: { store: mockStore(initialState) } },
   );
 
-  it('Contains a form', () => {
-    const render = wrapper.dive().dive().dive();
-    expect(render.find('Form').exists());
+  it('Pressing the menubox button', () => {
+    const render = wrapper.dive();
+    const submitButton = render.find('TouchableOpacity');
+    submitButton.simulate('press');
   });
 });

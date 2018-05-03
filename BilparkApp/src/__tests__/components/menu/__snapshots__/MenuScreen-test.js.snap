@@ -20,13 +20,14 @@ ShallowWrapper {
       }
     >
       <_default
-        activeDotColor="rgb(000, 039, 118)"
+        activeDotColor="white"
         automaticallyAdjustContentInsets={false}
         autoplay={false}
         autoplayDirection={true}
         autoplayTimeout={2.5}
         bounces={false}
         disableNextButton={false}
+        dotColor="lightgrey"
         horizontal={true}
         index={0}
         loadMinimal={false}
@@ -46,7 +47,7 @@ ShallowWrapper {
           style={
             Object {
               "alignItems": "center",
-              "backgroundColor": "white",
+              "backgroundColor": "rgb(000, 039, 118)",
               "flex": 1,
               "justifyContent": "center",
             }
@@ -58,8 +59,10 @@ ShallowWrapper {
             ellipsizeMode="tail"
             style={
               Object {
+                "color": "white",
                 "fontSize": 40,
                 "fontWeight": "bold",
+                "marginBottom": 66.7,
               }
             }
           >
@@ -70,7 +73,7 @@ ShallowWrapper {
           style={
             Object {
               "alignItems": "center",
-              "backgroundColor": "white",
+              "backgroundColor": "rgb(000, 039, 118)",
               "flex": 1,
               "justifyContent": "center",
             }
@@ -82,8 +85,10 @@ ShallowWrapper {
             ellipsizeMode="tail"
             style={
               Object {
+                "color": "white",
                 "fontSize": 40,
                 "fontWeight": "bold",
+                "marginBottom": 66.7,
               }
             }
           >
@@ -94,7 +99,7 @@ ShallowWrapper {
           style={
             Object {
               "alignItems": "center",
-              "backgroundColor": "white",
+              "backgroundColor": "rgb(000, 039, 118)",
               "flex": 1,
               "justifyContent": "center",
             }
@@ -106,8 +111,10 @@ ShallowWrapper {
             ellipsizeMode="tail"
             style={
               Object {
+                "color": "white",
                 "fontSize": 40,
                 "fontWeight": "bold",
+                "marginBottom": 66.7,
               }
             }
           >
@@ -125,7 +132,7 @@ ShallowWrapper {
           "flexDirection": "row",
           "flexWrap": "wrap",
           "justifyContent": "center",
-          "paddingTop": 66.7,
+          "paddingTop": 13.34,
         }
       }
     >
@@ -135,6 +142,7 @@ ShallowWrapper {
             "process": [Function],
           }
         }
+        pageName="Bensin"
         routeName="FuelDay"
       />
       <Connect(MenuBox)
@@ -143,6 +151,7 @@ ShallowWrapper {
             "process": [Function],
           }
         }
+        pageName="Kjørebok"
         routeName="Profile"
       />
       <Connect(MenuBox)
@@ -151,6 +160,7 @@ ShallowWrapper {
             "process": [Function],
           }
         }
+        pageName="Skade"
         routeName="RegisterCar"
       />
       <Connect(MenuBox)
@@ -159,7 +169,8 @@ ShallowWrapper {
             "process": [Function],
           }
         }
-        routeName="Profile"
+        pageName="Rangering"
+        routeName="FuelRefill"
       />
       <Connect(MenuBox)
         image={
@@ -167,6 +178,7 @@ ShallowWrapper {
             "process": [Function],
           }
         }
+        pageName="Ditt team"
         routeName="RegisterCar"
       />
       <Connect(MenuBox)
@@ -175,6 +187,7 @@ ShallowWrapper {
             "process": [Function],
           }
         }
+        pageName="Sparing"
         routeName="Profile"
       />
     </View>
@@ -200,13 +213,14 @@ ShallowWrapper {
           }
         >
           <_default
-            activeDotColor="rgb(000, 039, 118)"
+            activeDotColor="white"
             automaticallyAdjustContentInsets={false}
             autoplay={false}
             autoplayDirection={true}
             autoplayTimeout={2.5}
             bounces={false}
             disableNextButton={false}
+            dotColor="lightgrey"
             horizontal={true}
             index={0}
             loadMinimal={false}
@@ -226,7 +240,7 @@ ShallowWrapper {
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "white",
+                  "backgroundColor": "rgb(000, 039, 118)",
                   "flex": 1,
                   "justifyContent": "center",
                 }
@@ -238,8 +252,10 @@ ShallowWrapper {
                 ellipsizeMode="tail"
                 style={
                   Object {
+                    "color": "white",
                     "fontSize": 40,
                     "fontWeight": "bold",
+                    "marginBottom": 66.7,
                   }
                 }
               >
@@ -250,7 +266,7 @@ ShallowWrapper {
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "white",
+                  "backgroundColor": "rgb(000, 039, 118)",
                   "flex": 1,
                   "justifyContent": "center",
                 }
@@ -262,8 +278,10 @@ ShallowWrapper {
                 ellipsizeMode="tail"
                 style={
                   Object {
+                    "color": "white",
                     "fontSize": 40,
                     "fontWeight": "bold",
+                    "marginBottom": 66.7,
                   }
                 }
               >
@@ -274,7 +292,7 @@ ShallowWrapper {
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "white",
+                  "backgroundColor": "rgb(000, 039, 118)",
                   "flex": 1,
                   "justifyContent": "center",
                 }
@@ -286,8 +304,10 @@ ShallowWrapper {
                 ellipsizeMode="tail"
                 style={
                   Object {
+                    "color": "white",
                     "fontSize": 40,
                     "fontWeight": "bold",
+                    "marginBottom": 66.7,
                   }
                 }
               >
@@ -305,7 +325,7 @@ ShallowWrapper {
               "flexDirection": "row",
               "flexWrap": "wrap",
               "justifyContent": "center",
-              "paddingTop": 66.7,
+              "paddingTop": 13.34,
             }
           }
         >
@@ -315,6 +335,7 @@ ShallowWrapper {
                 "process": [Function],
               }
             }
+            pageName="Bensin"
             routeName="FuelDay"
           />
           <Connect(MenuBox)
@@ -323,6 +344,7 @@ ShallowWrapper {
                 "process": [Function],
               }
             }
+            pageName="Kjørebok"
             routeName="Profile"
           />
           <Connect(MenuBox)
@@ -331,6 +353,7 @@ ShallowWrapper {
                 "process": [Function],
               }
             }
+            pageName="Skade"
             routeName="RegisterCar"
           />
           <Connect(MenuBox)
@@ -339,7 +362,8 @@ ShallowWrapper {
                 "process": [Function],
               }
             }
-            routeName="Profile"
+            pageName="Rangering"
+            routeName="FuelRefill"
           />
           <Connect(MenuBox)
             image={
@@ -347,6 +371,7 @@ ShallowWrapper {
                 "process": [Function],
               }
             }
+            pageName="Ditt team"
             routeName="RegisterCar"
           />
           <Connect(MenuBox)
@@ -355,6 +380,7 @@ ShallowWrapper {
                 "process": [Function],
               }
             }
+            pageName="Sparing"
             routeName="Profile"
           />
         </View>,
@@ -372,13 +398,14 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "children": <_default
-            activeDotColor="rgb(000, 039, 118)"
+            activeDotColor="white"
             automaticallyAdjustContentInsets={false}
             autoplay={false}
             autoplayDirection={true}
             autoplayTimeout={2.5}
             bounces={false}
             disableNextButton={false}
+            dotColor="lightgrey"
             horizontal={true}
             index={0}
             loadMinimal={false}
@@ -398,7 +425,7 @@ ShallowWrapper {
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "white",
+                  "backgroundColor": "rgb(000, 039, 118)",
                   "flex": 1,
                   "justifyContent": "center",
                 }
@@ -410,8 +437,10 @@ ShallowWrapper {
                 ellipsizeMode="tail"
                 style={
                   Object {
+                    "color": "white",
                     "fontSize": 40,
                     "fontWeight": "bold",
+                    "marginBottom": 66.7,
                   }
                 }
               >
@@ -422,7 +451,7 @@ ShallowWrapper {
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "white",
+                  "backgroundColor": "rgb(000, 039, 118)",
                   "flex": 1,
                   "justifyContent": "center",
                 }
@@ -434,8 +463,10 @@ ShallowWrapper {
                 ellipsizeMode="tail"
                 style={
                   Object {
+                    "color": "white",
                     "fontSize": 40,
                     "fontWeight": "bold",
+                    "marginBottom": 66.7,
                   }
                 }
               >
@@ -446,7 +477,7 @@ ShallowWrapper {
               style={
                 Object {
                   "alignItems": "center",
-                  "backgroundColor": "white",
+                  "backgroundColor": "rgb(000, 039, 118)",
                   "flex": 1,
                   "justifyContent": "center",
                 }
@@ -458,8 +489,10 @@ ShallowWrapper {
                 ellipsizeMode="tail"
                 style={
                   Object {
+                    "color": "white",
                     "fontSize": 40,
                     "fontWeight": "bold",
+                    "marginBottom": 66.7,
                   }
                 }
               >
@@ -477,7 +510,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "activeDotColor": "rgb(000, 039, 118)",
+            "activeDotColor": "white",
             "automaticallyAdjustContentInsets": false,
             "autoplay": false,
             "autoplayDirection": true,
@@ -488,7 +521,7 @@ ShallowWrapper {
                 style={
                   Object {
                     "alignItems": "center",
-                    "backgroundColor": "white",
+                    "backgroundColor": "rgb(000, 039, 118)",
                     "flex": 1,
                     "justifyContent": "center",
                   }
@@ -500,8 +533,10 @@ ShallowWrapper {
                   ellipsizeMode="tail"
                   style={
                     Object {
+                      "color": "white",
                       "fontSize": 40,
                       "fontWeight": "bold",
+                      "marginBottom": 66.7,
                     }
                   }
                 >
@@ -512,7 +547,7 @@ ShallowWrapper {
                 style={
                   Object {
                     "alignItems": "center",
-                    "backgroundColor": "white",
+                    "backgroundColor": "rgb(000, 039, 118)",
                     "flex": 1,
                     "justifyContent": "center",
                   }
@@ -524,8 +559,10 @@ ShallowWrapper {
                   ellipsizeMode="tail"
                   style={
                     Object {
+                      "color": "white",
                       "fontSize": 40,
                       "fontWeight": "bold",
+                      "marginBottom": 66.7,
                     }
                   }
                 >
@@ -536,7 +573,7 @@ ShallowWrapper {
                 style={
                   Object {
                     "alignItems": "center",
-                    "backgroundColor": "white",
+                    "backgroundColor": "rgb(000, 039, 118)",
                     "flex": 1,
                     "justifyContent": "center",
                   }
@@ -548,8 +585,10 @@ ShallowWrapper {
                   ellipsizeMode="tail"
                   style={
                     Object {
+                      "color": "white",
                       "fontSize": 40,
                       "fontWeight": "bold",
+                      "marginBottom": 66.7,
                     }
                   }
                 >
@@ -558,6 +597,7 @@ ShallowWrapper {
               </View>,
             ],
             "disableNextButton": false,
+            "dotColor": "lightgrey",
             "horizontal": true,
             "index": 0,
             "loadMinimal": false,
@@ -586,8 +626,10 @@ ShallowWrapper {
                   ellipsizeMode="tail"
                   style={
                     Object {
+                      "color": "white",
                       "fontSize": 40,
                       "fontWeight": "bold",
+                      "marginBottom": 66.7,
                     }
                   }
                 >
@@ -595,7 +637,7 @@ ShallowWrapper {
                 </Text>,
                 "style": Object {
                   "alignItems": "center",
-                  "backgroundColor": "white",
+                  "backgroundColor": "rgb(000, 039, 118)",
                   "flex": 1,
                   "justifyContent": "center",
                 },
@@ -611,8 +653,10 @@ ShallowWrapper {
                   "children": "Test 1",
                   "ellipsizeMode": "tail",
                   "style": Object {
+                    "color": "white",
                     "fontSize": 40,
                     "fontWeight": "bold",
+                    "marginBottom": 66.7,
                   },
                 },
                 "ref": null,
@@ -632,8 +676,10 @@ ShallowWrapper {
                   ellipsizeMode="tail"
                   style={
                     Object {
+                      "color": "white",
                       "fontSize": 40,
                       "fontWeight": "bold",
+                      "marginBottom": 66.7,
                     }
                   }
                 >
@@ -641,7 +687,7 @@ ShallowWrapper {
                 </Text>,
                 "style": Object {
                   "alignItems": "center",
-                  "backgroundColor": "white",
+                  "backgroundColor": "rgb(000, 039, 118)",
                   "flex": 1,
                   "justifyContent": "center",
                 },
@@ -657,8 +703,10 @@ ShallowWrapper {
                   "children": "Test 2",
                   "ellipsizeMode": "tail",
                   "style": Object {
+                    "color": "white",
                     "fontSize": 40,
                     "fontWeight": "bold",
+                    "marginBottom": 66.7,
                   },
                 },
                 "ref": null,
@@ -678,8 +726,10 @@ ShallowWrapper {
                   ellipsizeMode="tail"
                   style={
                     Object {
+                      "color": "white",
                       "fontSize": 40,
                       "fontWeight": "bold",
+                      "marginBottom": 66.7,
                     }
                   }
                 >
@@ -687,7 +737,7 @@ ShallowWrapper {
                 </Text>,
                 "style": Object {
                   "alignItems": "center",
-                  "backgroundColor": "white",
+                  "backgroundColor": "rgb(000, 039, 118)",
                   "flex": 1,
                   "justifyContent": "center",
                 },
@@ -703,8 +753,10 @@ ShallowWrapper {
                   "children": "Test 3",
                   "ellipsizeMode": "tail",
                   "style": Object {
+                    "color": "white",
                     "fontSize": 40,
                     "fontWeight": "bold",
+                    "marginBottom": 66.7,
                   },
                 },
                 "ref": null,
@@ -730,6 +782,7 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
+              pageName="Bensin"
               routeName="FuelDay"
             />,
             <Connect(MenuBox)
@@ -738,6 +791,7 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
+              pageName="Kjørebok"
               routeName="Profile"
             />,
             <Connect(MenuBox)
@@ -746,6 +800,7 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
+              pageName="Skade"
               routeName="RegisterCar"
             />,
             <Connect(MenuBox)
@@ -754,7 +809,8 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              routeName="Profile"
+              pageName="Rangering"
+              routeName="FuelRefill"
             />,
             <Connect(MenuBox)
               image={
@@ -762,6 +818,7 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
+              pageName="Ditt team"
               routeName="RegisterCar"
             />,
             <Connect(MenuBox)
@@ -770,6 +827,7 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
+              pageName="Sparing"
               routeName="Profile"
             />,
           ],
@@ -780,7 +838,7 @@ ShallowWrapper {
             "flexDirection": "row",
             "flexWrap": "wrap",
             "justifyContent": "center",
-            "paddingTop": 66.7,
+            "paddingTop": 13.34,
           },
         },
         "ref": null,
@@ -793,6 +851,7 @@ ShallowWrapper {
               "image": Object {
                 "process": [Function],
               },
+              "pageName": "Bensin",
               "routeName": "FuelDay",
             },
             "ref": null,
@@ -807,6 +866,7 @@ ShallowWrapper {
               "image": Object {
                 "process": [Function],
               },
+              "pageName": "Kjørebok",
               "routeName": "Profile",
             },
             "ref": null,
@@ -821,6 +881,7 @@ ShallowWrapper {
               "image": Object {
                 "process": [Function],
               },
+              "pageName": "Skade",
               "routeName": "RegisterCar",
             },
             "ref": null,
@@ -835,7 +896,8 @@ ShallowWrapper {
               "image": Object {
                 "process": [Function],
               },
-              "routeName": "Profile",
+              "pageName": "Rangering",
+              "routeName": "FuelRefill",
             },
             "ref": null,
             "rendered": null,
@@ -849,6 +911,7 @@ ShallowWrapper {
               "image": Object {
                 "process": [Function],
               },
+              "pageName": "Ditt team",
               "routeName": "RegisterCar",
             },
             "ref": null,
@@ -863,6 +926,7 @@ ShallowWrapper {
               "image": Object {
                 "process": [Function],
               },
+              "pageName": "Sparing",
               "routeName": "Profile",
             },
             "ref": null,
@@ -890,13 +954,14 @@ ShallowWrapper {
             }
           >
             <_default
-              activeDotColor="rgb(000, 039, 118)"
+              activeDotColor="white"
               automaticallyAdjustContentInsets={false}
               autoplay={false}
               autoplayDirection={true}
               autoplayTimeout={2.5}
               bounces={false}
               disableNextButton={false}
+              dotColor="lightgrey"
               horizontal={true}
               index={0}
               loadMinimal={false}
@@ -916,7 +981,7 @@ ShallowWrapper {
                 style={
                   Object {
                     "alignItems": "center",
-                    "backgroundColor": "white",
+                    "backgroundColor": "rgb(000, 039, 118)",
                     "flex": 1,
                     "justifyContent": "center",
                   }
@@ -928,8 +993,10 @@ ShallowWrapper {
                   ellipsizeMode="tail"
                   style={
                     Object {
+                      "color": "white",
                       "fontSize": 40,
                       "fontWeight": "bold",
+                      "marginBottom": 66.7,
                     }
                   }
                 >
@@ -940,7 +1007,7 @@ ShallowWrapper {
                 style={
                   Object {
                     "alignItems": "center",
-                    "backgroundColor": "white",
+                    "backgroundColor": "rgb(000, 039, 118)",
                     "flex": 1,
                     "justifyContent": "center",
                   }
@@ -952,8 +1019,10 @@ ShallowWrapper {
                   ellipsizeMode="tail"
                   style={
                     Object {
+                      "color": "white",
                       "fontSize": 40,
                       "fontWeight": "bold",
+                      "marginBottom": 66.7,
                     }
                   }
                 >
@@ -964,7 +1033,7 @@ ShallowWrapper {
                 style={
                   Object {
                     "alignItems": "center",
-                    "backgroundColor": "white",
+                    "backgroundColor": "rgb(000, 039, 118)",
                     "flex": 1,
                     "justifyContent": "center",
                   }
@@ -976,8 +1045,10 @@ ShallowWrapper {
                   ellipsizeMode="tail"
                   style={
                     Object {
+                      "color": "white",
                       "fontSize": 40,
                       "fontWeight": "bold",
+                      "marginBottom": 66.7,
                     }
                   }
                 >
@@ -995,7 +1066,7 @@ ShallowWrapper {
                 "flexDirection": "row",
                 "flexWrap": "wrap",
                 "justifyContent": "center",
-                "paddingTop": 66.7,
+                "paddingTop": 13.34,
               }
             }
           >
@@ -1005,6 +1076,7 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
+              pageName="Bensin"
               routeName="FuelDay"
             />
             <Connect(MenuBox)
@@ -1013,6 +1085,7 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
+              pageName="Kjørebok"
               routeName="Profile"
             />
             <Connect(MenuBox)
@@ -1021,6 +1094,7 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
+              pageName="Skade"
               routeName="RegisterCar"
             />
             <Connect(MenuBox)
@@ -1029,7 +1103,8 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              routeName="Profile"
+              pageName="Rangering"
+              routeName="FuelRefill"
             />
             <Connect(MenuBox)
               image={
@@ -1037,6 +1112,7 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
+              pageName="Ditt team"
               routeName="RegisterCar"
             />
             <Connect(MenuBox)
@@ -1045,6 +1121,7 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
+              pageName="Sparing"
               routeName="Profile"
             />
           </View>,
@@ -1062,13 +1139,14 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": <_default
-              activeDotColor="rgb(000, 039, 118)"
+              activeDotColor="white"
               automaticallyAdjustContentInsets={false}
               autoplay={false}
               autoplayDirection={true}
               autoplayTimeout={2.5}
               bounces={false}
               disableNextButton={false}
+              dotColor="lightgrey"
               horizontal={true}
               index={0}
               loadMinimal={false}
@@ -1088,7 +1166,7 @@ ShallowWrapper {
                 style={
                   Object {
                     "alignItems": "center",
-                    "backgroundColor": "white",
+                    "backgroundColor": "rgb(000, 039, 118)",
                     "flex": 1,
                     "justifyContent": "center",
                   }
@@ -1100,8 +1178,10 @@ ShallowWrapper {
                   ellipsizeMode="tail"
                   style={
                     Object {
+                      "color": "white",
                       "fontSize": 40,
                       "fontWeight": "bold",
+                      "marginBottom": 66.7,
                     }
                   }
                 >
@@ -1112,7 +1192,7 @@ ShallowWrapper {
                 style={
                   Object {
                     "alignItems": "center",
-                    "backgroundColor": "white",
+                    "backgroundColor": "rgb(000, 039, 118)",
                     "flex": 1,
                     "justifyContent": "center",
                   }
@@ -1124,8 +1204,10 @@ ShallowWrapper {
                   ellipsizeMode="tail"
                   style={
                     Object {
+                      "color": "white",
                       "fontSize": 40,
                       "fontWeight": "bold",
+                      "marginBottom": 66.7,
                     }
                   }
                 >
@@ -1136,7 +1218,7 @@ ShallowWrapper {
                 style={
                   Object {
                     "alignItems": "center",
-                    "backgroundColor": "white",
+                    "backgroundColor": "rgb(000, 039, 118)",
                     "flex": 1,
                     "justifyContent": "center",
                   }
@@ -1148,8 +1230,10 @@ ShallowWrapper {
                   ellipsizeMode="tail"
                   style={
                     Object {
+                      "color": "white",
                       "fontSize": 40,
                       "fontWeight": "bold",
+                      "marginBottom": 66.7,
                     }
                   }
                 >
@@ -1167,7 +1251,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "activeDotColor": "rgb(000, 039, 118)",
+              "activeDotColor": "white",
               "automaticallyAdjustContentInsets": false,
               "autoplay": false,
               "autoplayDirection": true,
@@ -1178,7 +1262,7 @@ ShallowWrapper {
                   style={
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "white",
+                      "backgroundColor": "rgb(000, 039, 118)",
                       "flex": 1,
                       "justifyContent": "center",
                     }
@@ -1190,8 +1274,10 @@ ShallowWrapper {
                     ellipsizeMode="tail"
                     style={
                       Object {
+                        "color": "white",
                         "fontSize": 40,
                         "fontWeight": "bold",
+                        "marginBottom": 66.7,
                       }
                     }
                   >
@@ -1202,7 +1288,7 @@ ShallowWrapper {
                   style={
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "white",
+                      "backgroundColor": "rgb(000, 039, 118)",
                       "flex": 1,
                       "justifyContent": "center",
                     }
@@ -1214,8 +1300,10 @@ ShallowWrapper {
                     ellipsizeMode="tail"
                     style={
                       Object {
+                        "color": "white",
                         "fontSize": 40,
                         "fontWeight": "bold",
+                        "marginBottom": 66.7,
                       }
                     }
                   >
@@ -1226,7 +1314,7 @@ ShallowWrapper {
                   style={
                     Object {
                       "alignItems": "center",
-                      "backgroundColor": "white",
+                      "backgroundColor": "rgb(000, 039, 118)",
                       "flex": 1,
                       "justifyContent": "center",
                     }
@@ -1238,8 +1326,10 @@ ShallowWrapper {
                     ellipsizeMode="tail"
                     style={
                       Object {
+                        "color": "white",
                         "fontSize": 40,
                         "fontWeight": "bold",
+                        "marginBottom": 66.7,
                       }
                     }
                   >
@@ -1248,6 +1338,7 @@ ShallowWrapper {
                 </View>,
               ],
               "disableNextButton": false,
+              "dotColor": "lightgrey",
               "horizontal": true,
               "index": 0,
               "loadMinimal": false,
@@ -1276,8 +1367,10 @@ ShallowWrapper {
                     ellipsizeMode="tail"
                     style={
                       Object {
+                        "color": "white",
                         "fontSize": 40,
                         "fontWeight": "bold",
+                        "marginBottom": 66.7,
                       }
                     }
                   >
@@ -1285,7 +1378,7 @@ ShallowWrapper {
                   </Text>,
                   "style": Object {
                     "alignItems": "center",
-                    "backgroundColor": "white",
+                    "backgroundColor": "rgb(000, 039, 118)",
                     "flex": 1,
                     "justifyContent": "center",
                   },
@@ -1301,8 +1394,10 @@ ShallowWrapper {
                     "children": "Test 1",
                     "ellipsizeMode": "tail",
                     "style": Object {
+                      "color": "white",
                       "fontSize": 40,
                       "fontWeight": "bold",
+                      "marginBottom": 66.7,
                     },
                   },
                   "ref": null,
@@ -1322,8 +1417,10 @@ ShallowWrapper {
                     ellipsizeMode="tail"
                     style={
                       Object {
+                        "color": "white",
                         "fontSize": 40,
                         "fontWeight": "bold",
+                        "marginBottom": 66.7,
                       }
                     }
                   >
@@ -1331,7 +1428,7 @@ ShallowWrapper {
                   </Text>,
                   "style": Object {
                     "alignItems": "center",
-                    "backgroundColor": "white",
+                    "backgroundColor": "rgb(000, 039, 118)",
                     "flex": 1,
                     "justifyContent": "center",
                   },
@@ -1347,8 +1444,10 @@ ShallowWrapper {
                     "children": "Test 2",
                     "ellipsizeMode": "tail",
                     "style": Object {
+                      "color": "white",
                       "fontSize": 40,
                       "fontWeight": "bold",
+                      "marginBottom": 66.7,
                     },
                   },
                   "ref": null,
@@ -1368,8 +1467,10 @@ ShallowWrapper {
                     ellipsizeMode="tail"
                     style={
                       Object {
+                        "color": "white",
                         "fontSize": 40,
                         "fontWeight": "bold",
+                        "marginBottom": 66.7,
                       }
                     }
                   >
@@ -1377,7 +1478,7 @@ ShallowWrapper {
                   </Text>,
                   "style": Object {
                     "alignItems": "center",
-                    "backgroundColor": "white",
+                    "backgroundColor": "rgb(000, 039, 118)",
                     "flex": 1,
                     "justifyContent": "center",
                   },
@@ -1393,8 +1494,10 @@ ShallowWrapper {
                     "children": "Test 3",
                     "ellipsizeMode": "tail",
                     "style": Object {
+                      "color": "white",
                       "fontSize": 40,
                       "fontWeight": "bold",
+                      "marginBottom": 66.7,
                     },
                   },
                   "ref": null,
@@ -1420,6 +1523,7 @@ ShallowWrapper {
                     "process": [Function],
                   }
                 }
+                pageName="Bensin"
                 routeName="FuelDay"
               />,
               <Connect(MenuBox)
@@ -1428,6 +1532,7 @@ ShallowWrapper {
                     "process": [Function],
                   }
                 }
+                pageName="Kjørebok"
                 routeName="Profile"
               />,
               <Connect(MenuBox)
@@ -1436,6 +1541,7 @@ ShallowWrapper {
                     "process": [Function],
                   }
                 }
+                pageName="Skade"
                 routeName="RegisterCar"
               />,
               <Connect(MenuBox)
@@ -1444,7 +1550,8 @@ ShallowWrapper {
                     "process": [Function],
                   }
                 }
-                routeName="Profile"
+                pageName="Rangering"
+                routeName="FuelRefill"
               />,
               <Connect(MenuBox)
                 image={
@@ -1452,6 +1559,7 @@ ShallowWrapper {
                     "process": [Function],
                   }
                 }
+                pageName="Ditt team"
                 routeName="RegisterCar"
               />,
               <Connect(MenuBox)
@@ -1460,6 +1568,7 @@ ShallowWrapper {
                     "process": [Function],
                   }
                 }
+                pageName="Sparing"
                 routeName="Profile"
               />,
             ],
@@ -1470,7 +1579,7 @@ ShallowWrapper {
               "flexDirection": "row",
               "flexWrap": "wrap",
               "justifyContent": "center",
-              "paddingTop": 66.7,
+              "paddingTop": 13.34,
             },
           },
           "ref": null,
@@ -1483,6 +1592,7 @@ ShallowWrapper {
                 "image": Object {
                   "process": [Function],
                 },
+                "pageName": "Bensin",
                 "routeName": "FuelDay",
               },
               "ref": null,
@@ -1497,6 +1607,7 @@ ShallowWrapper {
                 "image": Object {
                   "process": [Function],
                 },
+                "pageName": "Kjørebok",
                 "routeName": "Profile",
               },
               "ref": null,
@@ -1511,6 +1622,7 @@ ShallowWrapper {
                 "image": Object {
                   "process": [Function],
                 },
+                "pageName": "Skade",
                 "routeName": "RegisterCar",
               },
               "ref": null,
@@ -1525,7 +1637,8 @@ ShallowWrapper {
                 "image": Object {
                   "process": [Function],
                 },
-                "routeName": "Profile",
+                "pageName": "Rangering",
+                "routeName": "FuelRefill",
               },
               "ref": null,
               "rendered": null,
@@ -1539,6 +1652,7 @@ ShallowWrapper {
                 "image": Object {
                   "process": [Function],
                 },
+                "pageName": "Ditt team",
                 "routeName": "RegisterCar",
               },
               "ref": null,
@@ -1553,6 +1667,7 @@ ShallowWrapper {
                 "image": Object {
                   "process": [Function],
                 },
+                "pageName": "Sparing",
                 "routeName": "Profile",
               },
               "ref": null,
