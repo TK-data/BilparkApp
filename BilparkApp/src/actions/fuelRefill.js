@@ -60,11 +60,11 @@ export function getFuelRefills() {
   };
 }
 
-export function postFuelRefill(FuelTime, Price, Liters) {
+export function postFuelRefill(FuelTime, Price, Rate) {
   const params = {
     FuelTime,
     Price,
-    Liters,
+    Rate,
   };
   return (dispatch) => {
     dispatch(postFuelRefillLoading(true));

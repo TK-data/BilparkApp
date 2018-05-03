@@ -18,7 +18,7 @@ module.exports = {
       type: 'float',
       required: true,
     },
-    Liters: {
+    Rate: {
       type: 'float',
       required: true,
     }

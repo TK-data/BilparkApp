@@ -28,7 +28,7 @@ module.exports = {
 
       const FuelTime = req.param('FuelTime');
       const Price = req.param('Price');
-      const Liters = req.param('Liters');
+      const Rate = req.param('Rate');
 
       // var dateReg = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})$/;
       var numberReg = /^[0-9]{0,5}[.]{0,1}[0-9]{0,5}?$/;
@@ -45,10 +45,10 @@ module.exports = {
         return res.badRequest('Price must be an integer or float');
       }
 
-      if (Liters.match(numberReg) && Liters != '.' && Liters != '') {
-        params['Liters'] = parseFloat(Liters);
+      if (Rate.match(numberReg) && Rate != '.' && Rate != '') {
+        params['Rate'] = parseFloat(Rate);
       } else {
-        return res.badRequest('Liters must be an integer or float');
+        return res.badRequest('Rate must be an integer or float');
       }
 
 

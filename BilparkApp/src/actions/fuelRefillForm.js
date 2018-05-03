@@ -9,10 +9,10 @@ export function setDate(date) {
     date,
   };
 }
-export function setLiters(liters) {
+export function setRate(rate) {
   return {
     type: SET_FUELREFILL_FORM_LITERS,
-    liters,
+    rate,
   };
 }
 export function setPrice(price) {
