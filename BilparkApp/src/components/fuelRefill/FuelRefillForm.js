@@ -8,10 +8,27 @@ import { setDate, setRate, setPrice, reset } from '../../actions/fuelRefillForm'
 
 import { postFuelRefill } from '../../actions/fuelRefill';
 
+const months = {
+  0: 'januar',
+  1: 'februar',
+  2: 'mars',
+  3: 'april',
+  4: 'mai',
+  5: 'juni',
+  6: 'juli',
+  7: 'august',
+  8: 'september',
+  9: 'oktober',
+  10: 'november',
+  11: 'desember',
+};
 
 const styles = StyleSheet.create({
-  text: {
+  whitetext: {
     color: 'white',
+    alignSelf: 'center',
+  },
+  text: {
     alignSelf: 'center',
   },
   content: {
@@ -21,7 +38,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    flex: 1,
+    alignItems: 'center',
+    margin: 5,
+    paddingLeft: 5,
+    paddingRight: 5,
   },
   input: {
     flex: 1,
@@ -34,11 +54,15 @@ const styles = StyleSheet.create({
 });
 
 const FuelRefillForm = ({ register, date, rate, price, changePrice, changeRate, changeDate, resetInput, isShowing, showModal, hideModal }) => {
+
+
+  const hours = date.getHours() > 9 ? date.getHours() : '0' + date.getHours();
+  const minutes = date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes();
   return (
     <View style={styles.content}>
-      <TouchableOpacity style={styles.view} onPress={() => resetInput()}>
-        <Text style={styles.text}> reset </Text>
-      </TouchableOpacity>
+      {/* <TouchableOpacity style={styles.view} onPress={() => resetInput()}>
+        <Text style={styles.whitetext}> reset </Text>
+      </TouchableOpacity> */}
       <View
         style={styles.view}
         backgroundColor="white"
@@ -71,9 +95,10 @@ const FuelRefillForm = ({ register, date, rate, price, changePrice, changeRate, 
           maxLength={5}
         />
       </View>
-      <TouchableOpacity onPress={() => showModal()}>
-        <View style={styles.button}>
-          <Text>{date.getHours() + ':' + date.getMinutes()}</Text>
+      <TouchableOpacity style={styles.view} onPress={() => showModal()}>
+        <View>
+          <Text style={styles.whitetext}>{hours + ':' + minutes}</Text>
+          <Text style={styles.whitetext}>{date.getDate() + '. ' + months[date.getMonth()].substring(0, 3)}</Text>
         </View>
       </TouchableOpacity>
       <Timepicker
@@ -84,12 +109,12 @@ const FuelRefillForm = ({ register, date, rate, price, changePrice, changeRate, 
       />
       <Button
         light
-        style={styles.view}
+        style={styles.button}
         onPress={() => {
           register(date, rate, price);
         }}
       >
-        <Text> Registrer </Text>
+        <Text style={styles.text}>Registrer</Text>
       </Button>
     </View>
   );
