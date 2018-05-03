@@ -18,7 +18,7 @@ class GetCarForm extends Component {
       main = (
         <View>
           <H2 style={styles.header}>DIN BIL:</H2>
-          <Text style={styles.text}>Regnr: {car.Regnr}</Text>
+          <Text style={styles.text}>Regnr: {car.RegNr}</Text>
           <Text style={styles.text}>Merke: {car.Brand}</Text>
           <Text style={styles.text}>Modell: {car.Model}</Text>
           <Text style={styles.text}>Registreringsår: {car.RegYear}</Text>
@@ -32,6 +32,7 @@ class GetCarForm extends Component {
       );
     } else if (this.props.car) {
       const car = JSON.parse(this.props.car);
+
       main = (
         <View style={styles.content}>
           <Text style={styles.header}>ER DETTE DIN BIL?</Text>
