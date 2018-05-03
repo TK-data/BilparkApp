@@ -83,7 +83,6 @@ module.exports = {
       var FuelNotification = req.param('FuelNotification');
 
       let updatedNotification = {};
-      sails.log(FuelTime);
 
 
       if (FuelTime != undefined) {

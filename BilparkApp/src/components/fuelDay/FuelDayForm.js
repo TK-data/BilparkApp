@@ -31,13 +31,8 @@ class FuelDayForm extends Component {
   }
   componentDidUpdate() {
     this.stopDelayedNotification();
-    console.log('Check status: ');
     if (this.props.user.FuelNotification === true) {
-      console.log(this.props.user.FuelNotification);
-      console.log('FuelNotification is on');
       this.sendDelayedNotification();
-    } else {
-      console.log('Hopefully false', this.props.user.FuelNotification);
     }
   }
 
@@ -70,16 +65,23 @@ class FuelDayForm extends Component {
     };
     const dayToSet = this.props.user.FuelDay;
     const date = new Date();
+    const notificationHour = this.props.user.FuelTime.substring(0, this.props.user.FuelTime.indexOf('-'));
+    const notificationMinute = this.props.user.FuelTime.substring(this.props.user.FuelTime.indexOf('-') + 1, this.props.user.FuelTime.length);
+
+
     let currentDay = date.getDay();
     if (currentDay === 0) {
       currentDay = 6;
     } else {
       currentDay -= 1;
     }
-    const distance = ((dayToSet + 7) - currentDay) % 7;
+    let distance = ((dayToSet + 7) - currentDay) % 7;
+    if (currentDay === dayToSet) {
+      if (notificationHour + ':' + notificationMinute + ':00' < date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()) {
+        distance = 7;
+      }
+    }
     date.setDate(date.getDate() + distance);
-    const notificationHour = this.props.user.FuelTime.substring(0, this.props.user.FuelTime.indexOf('-'));
-    const notificationMinute = this.props.user.FuelTime.substring(this.props.user.FuelTime.indexOf('-') + 1, this.props.user.FuelTime.length);
     date.setHours(parseInt(notificationHour, 10), parseInt(notificationMinute, 10), 0, 0);
     const schedulingOptions = {
       time: date,
@@ -128,7 +130,7 @@ class FuelDayForm extends Component {
     const postFuelForm = (value) => {
       this.props.postFuelDay(value.Day, value.Notification);
     };
-    const postFuelTime = (value) => {
+    const postTime = (value) => {
       let hour = value.getHours();
       let minute = value.getMinutes();
       if (hour < 10) {
@@ -138,7 +140,6 @@ class FuelDayForm extends Component {
         minute = '0' + minute;
       }
       const fueltime = hour + '-' + minute;
-      console.log('Hey: ' + fueltime);
       this.props.postFuelTime(fueltime);
       hideModal();
     };
@@ -173,7 +174,7 @@ class FuelDayForm extends Component {
         <Timepicker
           mode="time"
           isVisible={isShowing}
-          onConfirm={postFuelTime}
+          onConfirm={postTime}
           onCancel={hideModal}
         />
         <Form
@@ -218,8 +219,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     height: 30,
     marginTop: 10,
-    textAlign: 'center',
     width: 250,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   debugColor: {
     color: 'white',
