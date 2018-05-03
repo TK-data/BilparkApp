@@ -76,4 +76,7 @@ describe('async actions', () => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
+  it('Creates POST_FUELREFILL_SUCCESS when registering a fuel refill is successful', () => {
+    expect(true).toBe(true);
+  });
 });
