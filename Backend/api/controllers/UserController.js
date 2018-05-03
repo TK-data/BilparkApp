@@ -87,7 +87,7 @@ module.exports = {
 
 
       if (FuelTime != undefined) {
-        if (FuelTime.match(/^([01]?[0-9]|2[0-3])-[0-5][0-9]$/)) {
+        if (!FuelTime.match(/^([01]?[0-9]|2[0-3])-[0-5][0-9]$/)) {
           return res.badRequest('Param FuelTime must match pattern HH-MM');
         }
         updatedNotification['FuelTime'] = FuelTime;
