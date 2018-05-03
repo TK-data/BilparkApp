@@ -1,6 +1,6 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { postFuelRefillFailure, postFuelRefillLoading, postFuelRefill, removeFuelRefill, registerFuelRefill } from '../../actions/fuelRefill';
+import { postFuelRefillFailure, postFuelRefillLoading, postFuelRefill, removeFuelRefill, registerFuelRefill, POST_FUELREFILL_REQUEST, POST_FUELREFILL_SUCCESS, POST_FUELREFILL_FAILURE, REMOVE_FUELREFILL, REGISTER_FUELREFILL } from '../../actions/fuelRefill';
 
 const axios = require('axios');
 
@@ -11,7 +11,7 @@ const mockStore = configureMockStore(middlewares);
 
 
 describe('actions', () => {
-  it('should create an action to add a successfull failure of posting a fuel day', () => {
+  it('should create an action to add a successfull failure of posting a fuelrefill', () => {
     const data = false;
     const expectedAction = {
       type: 'POST_FUELREFILL_FAILURE',
@@ -20,7 +20,7 @@ describe('actions', () => {
     expect(postFuelRefillFailure(data)).toEqual(expectedAction);
   });
 
-  it('should create an action to start the loading of posting a fuelday request', () => {
+  it('should create an action to start the loading of posting a fuelrefill request', () => {
     const data = true;
     const expectedAction = {
       type: 'POST_FUELREFILL_REQUEST',
@@ -47,10 +47,8 @@ describe('actions', () => {
 });
 
 describe('async actions', () => {
-
 // set rules for the axios mocker
   const axiosMock = new MockAdapter(axios);
-
   // after each test is run, it resets and restores the mocker
   // so you can define in the next test what you want it to do {
   // https://github.com/ctimmerm/axios-mock-adapter
@@ -59,28 +57,23 @@ describe('async actions', () => {
     axiosMock.restore();
   });
 
-  // in the postFuelRefill dispatch:
-  // sets loading to true,
-  // get response, set loading to false
-  // update user object.
-  // order of the actions listed is important!
-  const expectedActions = [
-    {
-      type: 'POST_FUELREFILL_REQUEST',
-      isLoading: true,
-    },
-    {
-      type: 'POST_FUELREFILL_REQUEST',
-      isLoading: false,
-    },
-  ];
-
-  // create a mock of the store
-  const store = mockStore({});
-
-  // run the dispatch of postFuelRefill.
-  // then compare the actions expected with the ones in the mock store
-  return store.dispatch(postFuelRefill(0, true)).then(() => {
-    expect(store.getActions()).toEqual(expectedActions);
+  it('Creates POST_FUELREFILL_FAILURE when registering a fuel refill is failed', () => {
+    const expectedActions = [
+      {
+        type: POST_FUELREFILL_REQUEST,
+        isLoading: true,
+      },
+      {
+        type: POST_FUELREFILL_FAILURE,
+        hasErrored: true,
+      },
+    ];
+    // create a mock of the store
+    const store = mockStore({});
+    // run the dispatch of postFuelRefill.
+    // then compare the actions expected with the ones in the mock store
+    return store.dispatch(postFuelRefill('testfuelRefills')).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
   });
 });

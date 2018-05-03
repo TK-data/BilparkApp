@@ -2,7 +2,7 @@ import { API_ADDRESS } from '../config/connections';
 
 const axios = require('axios');
 
-export const POST_FUELREFILL_REQUEST = 'POST_FUELDAY_REQUEST';
+export const POST_FUELREFILL_REQUEST = 'POST_FUELREFILL_REQUEST';
 export const POST_FUELREFILL_FAILURE = 'POST_FUELREFILL_FAILURE';
 export const POST_FUELREFILL_SUCCESS = 'POST_FUELREFILL_SUCCESS';
 export const REMOVE_FUELREFILL = 'REMOVE_FUELREFILL';
