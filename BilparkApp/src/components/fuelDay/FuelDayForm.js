@@ -9,18 +9,6 @@ import { showModal, hideModal, postFuelDay } from '../../actions/fuelDay';
 
 const width = Dimensions.get('window').width;
 
-t.form.Form.stylesheet.formGroup.normal.width = width / 1.3;
-t.form.Form.stylesheet.select.normal.color = 'white';
-t.form.Form.stylesheet.select.normal.borderWidth = 1;
-t.form.Form.stylesheet.select.normal.color = 'black';
-t.form.Form.stylesheet.select.normal.backgroundColor = 'white';
-t.form.Form.stylesheet.select.marginBottom = 50;
-t.form.Form.stylesheet.select.normal.borderRadius = 10;
-t.form.Form.stylesheet.pickerContainer.normal.borderColor = 'black';
-t.form.Form.stylesheet.pickerContainer.normal.borderRadius = 10;
-t.form.Form.stylesheet.pickerTouchable.normal.borderRadius = 10;
-t.form.Form.stylesheet.textboxView.normal.borderWidth = 10;
-
 class FuelDayForm extends Component {
   async componentDidMount() {
     const result = await Permissions.askAsync(Permissions.NOTIFICATIONS);
@@ -148,41 +136,56 @@ class FuelDayForm extends Component {
     // This clones the global Form stylesheet.
     const formStylesheet = JSON.parse(JSON.stringify(t.form.Form.stylesheet));
 
-    // Changes background color for Day picker and aligns checkbox to center
+    // Changes background color for Day picker
     formStylesheet.pickerContainer.normal.backgroundColor = '#fff';
-    formStylesheet.checkbox.normal.alignSelf = 'center';
-
+    formStylesheet.pickerContainer.normal.width = width / 1.8;
+    formStylesheet.pickerContainer.normal.marginBottom = 20;
+    formStylesheet.formGroup.normal.paddingRight = 20;
+    formStylesheet.formGroup.normal.paddingLeft = 15;
+    formStylesheet.pickerContainer.normal.borderRadius = 0;
+    formStylesheet.formGroup.normal.flexDirection = 'row';
+    formStylesheet.formGroup.error.flexDirection = 'row';
+    formStylesheet.formGroup.normal.justifyContent = 'space-between';
+    formStylesheet.textbox.normal.flex = 1;
+    formStylesheet.textbox.error.flex = 1;
     // Sets the cloned stylesheet as the new stylesheet
     const FormOptions = {
       stylesheet: formStylesheet,
     };
-
+    console.log(formStylesheet);
     return (
       <View style={styles.container}>
         <Text
           style={styles.debugColor}
         >
-          Current day: {user.FuelDay}
           Current time: {user.FuelTime}
-          Current value: {user.FuelNotification.toString()}
         </Text>
-        <TouchableOpacity onPress={() => showModal()}>
-          <View style={styles.button}>
-            <Text>Velg tidspunkt</Text>
+        <View style={styles.formContainer}>
+          <View style={styles.timeBox}>
+            <Text style={styles.textField}>Tidspunkt</Text>
+            <View style={styles.buttonBox}>
+              <TouchableOpacity onPress={() => showModal()}>
+                <View style={styles.button}>
+                  <Text>{user.FuelTime.replace('-', ':')}</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
           </View>
-        </TouchableOpacity>
+          <View style={styles.formBox}>
+            <Form
+              ref={c => this.form = c}
+              type={FuelDay}
+              value={{ Day: user.FuelDay, Notification: user.FuelNotification }}
+              onChange={postFuelForm}
+              options={FormOptions}
+            />
+          </View>
+        </View>
         <Timepicker
           mode="time"
           isVisible={isShowing}
           onConfirm={postTime}
           onCancel={hideModal}
-        />
-        <Form
-          ref={c => this.form = c}
-          type={FuelDay}
-          value={{ Day: user.FuelDay, Notification: user.FuelNotification }}
-          onChange={postFuelForm}
-          options={FormOptions}
         />
       </View>
     );
@@ -217,19 +220,49 @@ export default connect(
 const styles = StyleSheet.create({
   button: {
     backgroundColor: 'white',
-    height: 30,
-    marginTop: 10,
-    width: 250,
+    height: width / 8,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  debugColor: {
-    color: 'white',
   },
   container: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  formContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'red',
+    width: width,
+  },
+  buttonBox: {
+    // marginLeft: 50,
+    paddingLeft: 6,
+    width: width / 1.8,
+  },
+  timeBox: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: 'grey',
+    width: width / 1.1,
+    marginBottom: 20,
+    paddingRight: 15,
+  },
+  formBox: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'green',
+    width: width / 1.1,
+
+  },
+  textField: {
+    height: width / 8,
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
