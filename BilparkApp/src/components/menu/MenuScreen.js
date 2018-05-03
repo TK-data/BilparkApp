@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-// import { Text } from 'react-native';
 import { View, StyleSheet, Dimensions, Text } from 'react-native';
 import Swiper from 'react-native-swiper';
 import { Body } from 'native-base';
 import ProfileButton from './ProfileButton';
-
 import MenuBox from './MenuBox';
 
 const images = [
@@ -88,6 +86,7 @@ const styles = StyleSheet.create({
   },
 });
 
+
 class MenuScreen extends Component {
 
   static navigationOptions = {
@@ -95,6 +94,7 @@ class MenuScreen extends Component {
     headerLeft: <Body />,
     headerRight: <ProfileButton />,
   }
+
   render() {
     return (
       <View style={styles.menuContainer}>
