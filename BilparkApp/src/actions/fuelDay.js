@@ -51,7 +51,6 @@ export function postFuelDay(weekday, toggle, fueltime) {
   if (fueltime !== undefined) {
     params.FuelTime = fueltime.toString();
   }
-  console.log(fueltime);
   return (dispatch) => {
     dispatch(postFuelDayLoading(true));
     return axios.post(API_ADDRESS + '/api/user/notification', params)

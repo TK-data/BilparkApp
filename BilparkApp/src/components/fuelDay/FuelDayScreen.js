@@ -5,25 +5,39 @@ import Form from './FuelDayForm';
 
 const styles = StyleSheet.create({
   container: {
+    display: 'flex',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgb(000, 039, 118)',
   },
+  title: {
+    display: 'flex',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   welcome: {
-    fontSize: 20,
+    fontSize: 30,
     textAlign: 'center',
     margin: 10,
     color: 'white',
+  },
+  form: {
+    display: 'flex',
+    flex: 2,
+    alignItems: 'center',
   },
 });
 
 const FuelDayScreen = () => (
   <View style={styles.container}>
-    <View style={styles.container}>
+    <View style={styles.title}>
       <Text style={styles.welcome}>
-        Sett dag for notification!
+        Påminnelse om å fylle bensin
       </Text>
+    </View>
+    <View style={styles.form}>
       <Form />
     </View>
   </View>
