@@ -144,12 +144,26 @@ class FuelDayForm extends Component {
     };
     const Form = t.form.Form;
 
+    // This clones the global Form stylesheet.
+    const formStylesheet = JSON.parse(JSON.stringify(t.form.Form.stylesheet));
+
+    // Changes background color for Day picker and aligns checkbox to center
+    formStylesheet.pickerContainer.normal.backgroundColor = '#fff';
+    formStylesheet.checkbox.normal.alignSelf = 'center';
+
+    // Sets the cloned stylesheet as the new stylesheet
+    const FormOptions = {
+      stylesheet: formStylesheet,
+    };
+
     return (
       <View style={styles.container}>
         <Text
           style={styles.debugColor}
         >
-          Current day: {user.FuelDay} Current time: {user.FuelTime} Current value: {user.FuelNotification.toString()}
+          Current day: {user.FuelDay}
+          Current time: {user.FuelTime}
+          Current value: {user.FuelNotification.toString()}
         </Text>
         <TouchableOpacity onPress={() => showModal()}>
           <View style={styles.button}>
@@ -167,6 +181,7 @@ class FuelDayForm extends Component {
           type={FuelDay}
           value={{ Day: user.FuelDay, Notification: user.FuelNotification }}
           onChange={postFuelForm}
+          options={FormOptions}
         />
       </View>
     );
