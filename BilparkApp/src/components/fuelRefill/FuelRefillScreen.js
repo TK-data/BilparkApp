@@ -3,7 +3,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import { Content, Button } from 'native-base';
 import { connect } from 'react-redux';
 
-import { getFuelRefills, postFuelRefill } from '../../actions/fuelRefill';
+import { getFuelRefills } from '../../actions/fuelRefill';
 import FuelRefillForm from './FuelRefillForm';
 import FuelRefillList from './FuelRefillList';
 
@@ -13,12 +13,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#002776',
   },
   content: {
-    flex: 3,
+    flex: 2,
     justifyContent: 'flex-start',
     backgroundColor: '#002776',
   },
   contentContainer: {
-    flex: 2,
+    flex: 1,
   },
   text: {
     color: 'white',
@@ -43,9 +43,7 @@ class FuelRefillScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.contentContainer}>
-          <Button light style={styles.button} onPress={() => this.props.register()}>
-            <Text>Registrer</Text>
-          </Button>
+          <FuelRefillForm />
           <Content contentContainerStyle={styles.content}>
             <FuelRefillList />
           </Content>

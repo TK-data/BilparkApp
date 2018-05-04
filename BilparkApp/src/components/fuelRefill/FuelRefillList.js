@@ -33,6 +33,8 @@ const FuelRefillList = ({ fuelRefills }) => {
               key={data.RefillID}
               RefillID={data.RefillID}
               FuelTime={data.FuelTime}
+              Price={data.Price}
+              Rate={data.Rate}
             />))
       )}
     </ScrollView>

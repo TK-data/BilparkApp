@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet, View, Image, Text, Dimensions, TouchableOpacity } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
-import { logout } from '../../actions/auth';
 
 const window = Dimensions.get('window');
 const styles = StyleSheet.create({
