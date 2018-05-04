@@ -1,6 +1,11 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { postFuelRefillFailure, postFuelRefillLoading, postFuelRefill, removeFuelRefill, registerFuelRefill, POST_FUELREFILL_REQUEST, POST_FUELREFILL_SUCCESS, POST_FUELREFILL_FAILURE, REMOVE_FUELREFILL, REGISTER_FUELREFILL } from '../../actions/fuelRefill';
+import {
+  postFuelRefillFailure, postFuelRefillLoading, postFuelRefill, removeFuelRefill,
+  registerFuelRefill, POST_FUELREFILL_REQUEST, POST_FUELREFILL_SUCCESS, POST_FUELREFILL_FAILURE,
+  REMOVE_FUELREFILL, REGISTER_FUELREFILL,
+}
+  from '../../actions/fuelRefill';
 
 const axios = require('axios');
 
@@ -47,7 +52,7 @@ describe('actions', () => {
 });
 
 describe('async actions', () => {
-// set rules for the axios mocker
+  // set rules for the axios mocker
   const axiosMock = new MockAdapter(axios);
   // after each test is run, it resets and restores the mocker
   // so you can define in the next test what you want it to do {
