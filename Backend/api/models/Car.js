@@ -56,7 +56,7 @@ module.exports = {
     },
     NextVINotification: {
       type: 'bit',
-      defaultsTo: 0
+      defaultsTo: null
     },
     InsuranceCompany: {
       type: 'string',

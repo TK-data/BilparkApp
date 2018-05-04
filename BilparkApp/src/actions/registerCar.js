@@ -7,12 +7,13 @@ export const GET_CAR_SUCCESS = 'GET_CAR_SUCCESS';
 export const GET_CAR_FAILURE = 'GET_CAR_FAILURE';
 export const GET_CAR_DECLINE = 'GET_CAR_DECLINE';
 export const GET_CAR_ACCEPT = 'GET_CAR_ACCEPT';
+export const GET_CAR_SAVE_FAILURE = 'GET_CAR_SAVE_FAILURE';
+export const GET_CAR_FORM_VALUE = 'GET_CAR_FORM_VALUE';
 
-
-export function carFetchFailure(bool) {
+export function carFetchFailure(message) {
   return {
     type: GET_CAR_FAILURE,
-    hasErrored: bool,
+    hasErrored: message,
   };
 }
 export function carFetchLoading(bool) {
@@ -40,6 +41,20 @@ export function carAccepted(bool) {
   };
 }
 
+export function carSaveFailure(message) {
+  return {
+    type: GET_CAR_SAVE_FAILURE,
+    hasErrored: message,
+  };
+}
+
+export function carFormValue(value) {
+  return {
+    type: GET_CAR_FORM_VALUE,
+    carFormValue: value,
+  };
+}
+
 export function getCar(nr) {
   return (dispatch) => {
     dispatch(carFetchLoading(true));
@@ -52,8 +67,13 @@ export function getCar(nr) {
         dispatch(carFetchSuccess(JSON.stringify(response.data)));
       })
       .catch((error) => {
-        if (error.response.status === 404) {
-          dispatch(carFetchFailure(true));
+        if (error.response.status !== undefined) {
+          if (error.response.status === 404) {
+            dispatch(carFetchFailure('Registreringsnummeret finnes ikke!'));
+          }
+          else {
+            throw error;
+          }
         } else {
           throw error;
         }
@@ -61,9 +81,26 @@ export function getCar(nr) {
   };
 }
 
-export function acceptCar() {
+export function acceptCar(car) {
   return (dispatch) => {
-    dispatch(carAccepted(true));
+
+    return axios.post(API_ADDRESS + '/api/car/save', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      car,
+    })
+      .then((response) => {
+        if (!response.ok && !response.status === 200) {
+          dispatch(carSaveFailure('Noe gikk galt når bilen skulle lagres! Prøv igjen.'));
+        }
+        dispatch(carAccepted(true));
+      })
+      .catch(() => {
+        dispatch(carSaveFailure('Noe gikk galt når bilen skulle lagres! Prøv igjen.'));
+      });
   };
 }
 
