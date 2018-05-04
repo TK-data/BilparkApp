@@ -1,7 +1,8 @@
 module.exports = {
   getCar: function (req, res) {
     const request = require('request');
-
+    const DSM_KEY = process.env.DSM_KEY;
+    const DSM_USER = process.env.DSM_USER;
     const soapReq = '<?xml version="1.0" encoding="UTF-8"?>'
       + '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" '
       + 'xmlns:brukersesjon="http://ws.infotorg.no/xml/Admin/Brukersesjon/2006-07-07/Brukersesjon.xsd" '
@@ -11,8 +12,12 @@ module.exports = {
       + '<brukersesjon:Brukersesjon>'
       + '<distribusjonskanal>PTP</distribusjonskanal>'
       + '<systemnavn>NTNU_PRJ</systemnavn>'
-      + '<brukernavn>SB1BILPT</brukernavn>'
-      + '<passord>BIL8TEST</passord>'
+      + '<brukernavn>'
+      + DSM_USER
+      + '</brukernavn>'
+      + '<passord>'
+      + DSM_KEY
+      + '</passord>'
       + '</brukersesjon:Brukersesjon>'
       + '</soap:Header>'
       + '<soap:Body>'
@@ -56,7 +61,7 @@ module.exports = {
 
 function formatCarObject(car) {
   const object = {
-    Regnr: car['kjennemerke'],
+    RegNr: car['kjennemerke'],
     Cas: car['understellsnr'],
     Brand: car['merkeNavn'],
     Model: car['modellType'],

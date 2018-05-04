@@ -1,28 +1,43 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
+import { Text } from 'native-base';
 
-import Form from './Form';
+import GetCarForm from './GetCarForm';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#002776',
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+    color: 'white',
+  },
+  welcomeContent: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  content: {
+    flex: 2,
+  },
+  carlogo: {
+    height: 100,
+    width: 100,
   },
 });
 
 const GetCarScreen = () => (
   <View style={styles.container}>
-    <Text style={styles.welcome}>
-        Finn din bil!
-    </Text>
-    <Form />
+    <View style={styles.welcomeContent}>
+      <Image resizeMode="contain" style={styles.carlogo} source={require('../../images/search_car.png')} />
+    </View>
+    <View style={styles.content}>
+      <GetCarForm />
+    </View>
   </View>
 );
 
