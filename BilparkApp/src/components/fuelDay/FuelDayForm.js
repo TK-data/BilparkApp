@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import t from 'tcomb-form-native';
 import Timepicker from 'react-native-modal-datetime-picker';
 import { Notifications, Permissions, Constants } from 'expo';
-import { StyleSheet, Text, View, Button, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
-import { reduxForm } from 'redux-form';
+import { StyleSheet, Text, View, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 import { showModal, hideModal, postFuelDay } from '../../actions/fuelDay';
 
 const width = Dimensions.get('window').width;
@@ -30,22 +29,6 @@ class FuelDayForm extends Component {
     console.info(`Notification (${origin}) with data: ${JSON.stringify(data)}`);
   };
 
-  // showTimePicker = () =>
-  /*
-    sendImmediateNotification = () => {
-     const localNotification = {
-       title: 'Superdupertestingnotification',
-       body: 'Trykk på meg for å åpne den beste appen på den beste siden',
-       data: { type: 'immediate' },
-     };
-
-     // console.log('Scheduling immediate notification:', { localNotification });
-
-     Notifications.presentLocalNotificationAsync(localNotification);
-     // .then(id => console.info(`Immediate notification scheduled (${id})`))
-     // .catch(err => console.error(err));
-    };
-    */
   sendDelayedNotification = () => {
     const localNotification = {
       title: 'Delayed testing Title',
@@ -77,12 +60,7 @@ class FuelDayForm extends Component {
       repeat: 'week',
     };
 
-
-    // console.log('Scheduling delayed notification:', { localNotification, schedulingOptions });
-
     Notifications.scheduleLocalNotificationAsync(localNotification, schedulingOptions);
-    // .then(id => console.info(`Delayed notification scheduled (${id}) at ${moment(schedulingOptions.time).format()}`))
-    // .catch(err => console.error(err));
   };
 
   stopDelayedNotification = () => {
@@ -101,21 +79,10 @@ class FuelDayForm extends Component {
       6: 'Søndag',
     });
 
-
     const FuelDay = t.struct({
       Day: Days,
       Notification: t.Boolean,
     });
-    // const Item = Picker.Item;
-    /*
-    const postToggle = (value) => {
-      this.props.postFuelDay(user.FuelDay, value);
-    };
-
-    const postWeekday = (value) => {
-      this.props.postFuelDay(value, user.FuelNotification);
-    };
-    */
     const postFuelForm = (value) => {
       this.props.postFuelDay(value.Day, value.Notification);
     };
@@ -138,9 +105,8 @@ class FuelDayForm extends Component {
     const formStylesheet = JSON.parse(JSON.stringify(t.form.Form.stylesheet));
 
     // Changes background color for Day picker
-    formStylesheet.pickerContainer.normal.backgroundColor = '#fff';
+    // formStylesheet.pickerContainer.normal.backgroundColor = '#fff';
     formStylesheet.pickerContainer.normal.width = width / 1.8;
-    formStylesheet.pickerContainer.normal.marginBottom = 20;
     formStylesheet.formGroup.normal.paddingRight = 20;
     formStylesheet.formGroup.normal.paddingLeft = 15;
     formStylesheet.pickerContainer.normal.borderRadius = 0;
@@ -149,10 +115,16 @@ class FuelDayForm extends Component {
     formStylesheet.formGroup.normal.justifyContent = 'space-between';
     formStylesheet.textbox.normal.flex = 1;
     formStylesheet.textbox.error.flex = 1;
-
+    formStylesheet.formGroup.normal.alignItems = 'center';
+    formStylesheet.formGroup.normal.marginBottom = 40;
     formStylesheet.pickerValue.normal.paddingLeft = 0;
     formStylesheet.pickerValue.normal.marginLeft = 'auto';
     formStylesheet.pickerValue.normal.marginRight = 'auto';
+    formStylesheet.select.normal.color = 'white';
+
+    formStylesheet.pickerContainer.normal.borderWidth = 5;
+    formStylesheet.pickerContainer.normal.borderColor = 'white';
+
     // Sets the cloned stylesheet as the new stylesheet
     const FormOptions = {
       stylesheet: formStylesheet,
@@ -165,11 +137,9 @@ class FuelDayForm extends Component {
         },
       },
     };
-    console.log(formStylesheet);
     return (
       <View style={styles.container}>
         <ScrollView>
-
           <Text style={styles.introText}>
             Sett inn ønsket tidspunkt for påminnelse om bensinfylling.
           </Text>
@@ -222,7 +192,6 @@ const mapDispatchToProps = (dispatch) => {
     postFuelTime: fueltime => dispatch(postFuelDay(undefined, undefined, fueltime)),
     showModal: () => dispatch(showModal()),
     hideModal: () => dispatch(hideModal()),
-
   };
 };
 
@@ -251,7 +220,7 @@ const styles = StyleSheet.create({
   introText: {
     color: 'white',
     fontSize: 18,
-    width: width / 1.3,
+    width: width / 1.1,
     textAlign: 'center',
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -264,7 +233,6 @@ const styles = StyleSheet.create({
     marginTop: window.height / 20,
   },
   buttonBox: {
-    // marginLeft: 50,
     paddingLeft: 6,
   },
   timeBox: {
@@ -283,9 +251,10 @@ const styles = StyleSheet.create({
 
   },
   textField: {
-    height: window.height / 14,
     color: 'white',
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: 'bold',
+    marginTop: window.height / 50,
+    paddingLeft: 5,
   },
 });
