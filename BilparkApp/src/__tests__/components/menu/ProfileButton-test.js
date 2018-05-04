@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import MenuScreen from '../../components/menu/MenuScreen';
+import ProfileButton from '../../../components/menu/ProfileButton';
 
 const initialState = {
 };
@@ -11,10 +11,10 @@ const initialState = {
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
-describe('Testing menuScreen', () => {
+describe('Testing ProfileButton', () => {
   it('Renders as expected', () => {
     const comp = shallow(
-      <MenuScreen />,
+      <ProfileButton />,
       { context: { store: mockStore(initialState) } },
     );
     expect(comp.dive()).toMatchSnapshot();
