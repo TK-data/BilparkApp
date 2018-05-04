@@ -78,6 +78,7 @@ module.exports = {
       // FuelNotification is a bool if the frontend will create a local push notification when the recieve the user object.
       // true = create a notification, false = don't create a notification
 
+
       var FuelTime = req.param('FuelTime');
       var FuelDay = req.param('FuelDay');
       var FuelNotification = req.param('FuelNotification');

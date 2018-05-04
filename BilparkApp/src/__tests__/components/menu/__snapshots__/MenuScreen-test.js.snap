@@ -170,7 +170,7 @@ ShallowWrapper {
           }
         }
         pageName="Rangering"
-        routeName="Profile"
+        routeName="FuelRefill"
       />
       <Connect(MenuBox)
         image={
@@ -363,7 +363,7 @@ ShallowWrapper {
               }
             }
             pageName="Rangering"
-            routeName="Profile"
+            routeName="FuelRefill"
           />
           <Connect(MenuBox)
             image={
@@ -810,7 +810,7 @@ ShallowWrapper {
                 }
               }
               pageName="Rangering"
-              routeName="Profile"
+              routeName="FuelRefill"
             />,
             <Connect(MenuBox)
               image={
@@ -897,7 +897,7 @@ ShallowWrapper {
                 "process": [Function],
               },
               "pageName": "Rangering",
-              "routeName": "Profile",
+              "routeName": "FuelRefill",
             },
             "ref": null,
             "rendered": null,
@@ -1104,7 +1104,7 @@ ShallowWrapper {
                 }
               }
               pageName="Rangering"
-              routeName="Profile"
+              routeName="FuelRefill"
             />
             <Connect(MenuBox)
               image={
@@ -1551,7 +1551,7 @@ ShallowWrapper {
                   }
                 }
                 pageName="Rangering"
-                routeName="Profile"
+                routeName="FuelRefill"
               />,
               <Connect(MenuBox)
                 image={
@@ -1638,7 +1638,7 @@ ShallowWrapper {
                   "process": [Function],
                 },
                 "pageName": "Rangering",
-                "routeName": "Profile",
+                "routeName": "FuelRefill",
               },
               "ref": null,
               "rendered": null,

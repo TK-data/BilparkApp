@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 
 // imported as a connected component!
-import GetCarScreen from '../../components/registerVehicle/GetCarScreen';
+import GetCarScreen from '../../../components/registerVehicle/GetCarScreen';
 
 const middlewares = []; // you can mock any middlewares here if necessary
 const mockStore = configureStore(middlewares);

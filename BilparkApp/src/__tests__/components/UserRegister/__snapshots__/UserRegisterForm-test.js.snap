@@ -7,35 +7,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <UserRegisterForm
     addValues={[Function]}
     fetchData={[Function]}
-    options={
-      Object {
-        "fields": Object {
-          "Address": Object {
-            "error": "Vennligst fyll inn adressen din",
-            "label": "Adresse",
-          },
-          "Email": Object {
-            "error": "Vennligst fyll inn en korrekt epost",
-            "hasError": false,
-            "label": "Epost",
-          },
-          "Fname": Object {
-            "error": "Vennligst fyll inn fornavnet ditt",
-            "label": "Fornavn",
-          },
-          "Lname": Object {
-            "error": "Vennligst fyll inn etternavnet ditt",
-            "label": "Etternavn",
-          },
-          "Password": Object {
-            "error": "Passord må ha minst 8 tegn",
-            "label": "Passord",
-            "password": true,
-            "secureTextEntry": true,
-          },
-        },
-      }
-    }
+    options={undefined}
     resetOptions={[Function]}
     values={
       Object {
@@ -73,35 +45,7 @@ ShallowWrapper {
             }
           }
           onChange={[Function]}
-          options={
-            Object {
-              "fields": Object {
-                "Address": Object {
-                  "error": "Vennligst fyll inn adressen din",
-                  "label": "Adresse",
-                },
-                "Email": Object {
-                  "error": "Vennligst fyll inn en korrekt epost",
-                  "hasError": false,
-                  "label": "Epost",
-                },
-                "Fname": Object {
-                  "error": "Vennligst fyll inn fornavnet ditt",
-                  "label": "Fornavn",
-                },
-                "Lname": Object {
-                  "error": "Vennligst fyll inn etternavnet ditt",
-                  "label": "Etternavn",
-                },
-                "Password": Object {
-                  "error": "Passord må ha minst 8 tegn",
-                  "label": "Passord",
-                  "password": true,
-                  "secureTextEntry": true,
-                },
-              },
-            }
-          }
+          options={undefined}
           stylesheet={
             Object {
               "button": Object {
@@ -310,9 +254,9 @@ ShallowWrapper {
           virtual={undefined}
         >
           <Styled(Button)
+            bordered={true}
             light={true}
             onPress={[Function]}
-            transparent={true}
             virtual={undefined}
           >
             <Styled(Text)
@@ -347,33 +291,7 @@ ShallowWrapper {
             "up": "↑",
           },
           "onChange": [Function],
-          "options": Object {
-            "fields": Object {
-              "Address": Object {
-                "error": "Vennligst fyll inn adressen din",
-                "label": "Adresse",
-              },
-              "Email": Object {
-                "error": "Vennligst fyll inn en korrekt epost",
-                "hasError": false,
-                "label": "Epost",
-              },
-              "Fname": Object {
-                "error": "Vennligst fyll inn fornavnet ditt",
-                "label": "Fornavn",
-              },
-              "Lname": Object {
-                "error": "Vennligst fyll inn etternavnet ditt",
-                "label": "Etternavn",
-              },
-              "Password": Object {
-                "error": "Passord må ha minst 8 tegn",
-                "label": "Passord",
-                "password": true,
-                "secureTextEntry": true,
-              },
-            },
-          },
+          "options": undefined,
           "stylesheet": Object {
             "button": Object {
               "alignSelf": "stretch",
@@ -582,9 +500,9 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "children": <Styled(Button)
+            bordered={true}
             light={true}
             onPress={[Function]}
-            transparent={true}
             virtual={undefined}
           >
             <Styled(Text)
@@ -601,6 +519,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
+            "bordered": true,
             "children": <Styled(Text)
               virtual={undefined}
             >
@@ -608,7 +527,6 @@ ShallowWrapper {
             </Styled(Text)>,
             "light": true,
             "onPress": [Function],
-            "transparent": true,
             "virtual": undefined,
           },
           "ref": null,
@@ -650,35 +568,7 @@ ShallowWrapper {
               }
             }
             onChange={[Function]}
-            options={
-              Object {
-                "fields": Object {
-                  "Address": Object {
-                    "error": "Vennligst fyll inn adressen din",
-                    "label": "Adresse",
-                  },
-                  "Email": Object {
-                    "error": "Vennligst fyll inn en korrekt epost",
-                    "hasError": false,
-                    "label": "Epost",
-                  },
-                  "Fname": Object {
-                    "error": "Vennligst fyll inn fornavnet ditt",
-                    "label": "Fornavn",
-                  },
-                  "Lname": Object {
-                    "error": "Vennligst fyll inn etternavnet ditt",
-                    "label": "Etternavn",
-                  },
-                  "Password": Object {
-                    "error": "Passord må ha minst 8 tegn",
-                    "label": "Passord",
-                    "password": true,
-                    "secureTextEntry": true,
-                  },
-                },
-              }
-            }
+            options={undefined}
             stylesheet={
               Object {
                 "button": Object {
@@ -887,9 +777,9 @@ ShallowWrapper {
             virtual={undefined}
           >
             <Styled(Button)
+              bordered={true}
               light={true}
               onPress={[Function]}
-              transparent={true}
               virtual={undefined}
             >
               <Styled(Text)
@@ -924,33 +814,7 @@ ShallowWrapper {
               "up": "↑",
             },
             "onChange": [Function],
-            "options": Object {
-              "fields": Object {
-                "Address": Object {
-                  "error": "Vennligst fyll inn adressen din",
-                  "label": "Adresse",
-                },
-                "Email": Object {
-                  "error": "Vennligst fyll inn en korrekt epost",
-                  "hasError": false,
-                  "label": "Epost",
-                },
-                "Fname": Object {
-                  "error": "Vennligst fyll inn fornavnet ditt",
-                  "label": "Fornavn",
-                },
-                "Lname": Object {
-                  "error": "Vennligst fyll inn etternavnet ditt",
-                  "label": "Etternavn",
-                },
-                "Password": Object {
-                  "error": "Passord må ha minst 8 tegn",
-                  "label": "Passord",
-                  "password": true,
-                  "secureTextEntry": true,
-                },
-              },
-            },
+            "options": undefined,
             "stylesheet": Object {
               "button": Object {
                 "alignSelf": "stretch",
@@ -1159,9 +1023,9 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": <Styled(Button)
+              bordered={true}
               light={true}
               onPress={[Function]}
-              transparent={true}
               virtual={undefined}
             >
               <Styled(Text)
@@ -1178,6 +1042,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "bordered": true,
               "children": <Styled(Text)
                 virtual={undefined}
               >
@@ -1185,7 +1050,6 @@ ShallowWrapper {
               </Styled(Text)>,
               "light": true,
               "onPress": [Function],
-              "transparent": true,
               "virtual": undefined,
             },
             "ref": null,

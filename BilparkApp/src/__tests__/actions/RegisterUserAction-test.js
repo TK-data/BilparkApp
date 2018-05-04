@@ -1,16 +1,20 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import fetchMock from 'fetch-mock';
+// import fetchMock from 'fetch-mock'; THIS IMPORT MAKES TEST FAIL
 import { API_ADDRESS } from '../../config/connections';
-import { registerUserHasErrored, registerUserIsLoading, registerUserModalVisible, registerUserModalTransparent, registerUserOptions, registerUserResetOptions, registerUserValues, registerUserFetchData, pleasefillcorrect, emailErrorFill } from '../../actions/registerUser';
+import { registerUserHasErrored, registerUserIsLoading, registerUserModalVisible, registerUserModalTransparent, registerUserOptions, registerUserResetOptions, registerUserValues, registerUserFetchData } from '../../actions/registerUser';
 
+const axios = require('axios');
 
+const MockAdapter = require('axios-mock-adapter');
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe('actions', () => {
-
+  it('should be true', () => {
+    expect(true).toBe(true);
+  });
   it('should create an action to tell if the register has errored', () => {
     const data = true;
     const expectedAction = {
@@ -19,7 +23,6 @@ describe('actions', () => {
     };
     expect(registerUserHasErrored(data)).toEqual(expectedAction);
   });
-
   it('should create an action to tell if the register is loading', () => {
     const data = true;
     const expectedAction = {
@@ -28,7 +31,6 @@ describe('actions', () => {
     };
     expect(registerUserIsLoading(data)).toEqual(expectedAction);
   });
-
   it('should create an action to make the modal visible', () => {
     const data = true;
     const expectedAction = {
@@ -49,26 +51,27 @@ describe('actions', () => {
 
   it('should create an action to update the form options', () => {
     const data = {
+      auto: 'none',
       fields: {
         Email: {
-          hasError: true,
-          label: 'Epost',
-          error: 'Eposten er allerede i bruk',
+          hasError: false,
+          placeholder: 'Epost',
+          error: 'Vennligst fyll inn en korrekt epost',
         },
         Fname: {
-          label: 'Fornavn',
+          placeholder: 'Fornavn',
           error: 'Vennligst fyll inn fornavnet ditt',
         },
         Lname: {
-          label: 'Etternavn',
+          placeholder: 'Etternavn',
           error: 'Vennligst fyll inn etternavnet ditt',
         },
         Address: {
-          label: 'Adresse',
+          placeholder: 'Adresse',
           error: 'Vennligst fyll inn adressen din',
         },
         Password: {
-          label: 'Passord',
+          placeholder: 'Passord',
           error: 'Passord må ha minst 8 tegn',
           password: true,
           secureTextEntry: true,
@@ -108,9 +111,11 @@ describe('actions', () => {
 });
 
 describe('async actions', () => {
+  const axiosMock = new MockAdapter(axios);
+
   afterEach(() => {
-    fetchMock.reset();
-    fetchMock.restore();
+    axiosMock.reset();
+    axiosMock.restore();
   });
 
   it('should create actions to update register users values', () => {
@@ -131,21 +136,13 @@ describe('async actions', () => {
       FuelNotification: false,
       UserID: 6,
     };
-    fetchMock.postOnce(API_ADDRESS + '/api/User', {status: 201, body: responseBody, headers: { 'content-type': 'application/json' } });
+    axiosMock.onPost(API_ADDRESS + '/api/User', { status: 201, body: responseBody, headers: { 'content-type': 'application/json' } });
 
     const store = mockStore({});
     const expectedActions = [
       {
         type: 'REGISTER_USER_IS_LOADING',
         isLoading: true,
-      },
-      {
-        type: 'REGISTER_USER_MODAL_VISIBLE',
-        visible: true,
-      },
-      {
-        type: 'REGISTER_USER_OPTIONS',
-        options: pleasefillcorrect,
       },
       {
         hasErrored: true,

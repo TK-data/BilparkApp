@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import Form from '../../components/registerVehicle/Form';
+import Form from '../../../components/registerVehicle/Form';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
