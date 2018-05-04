@@ -41,12 +41,18 @@ module.exports = {
 
       if (Price.match(numberReg) && Price !== '.' && Price !== '') {
         params['Price'] = parseFloat(Price);
+        if (parseFloat(Price) <= 0) {
+          return res.badRequest('Price must be a positive number');
+        }
       } else {
         return res.badRequest('Price must be an integer or float');
       }
 
       if (Rate.match(numberReg) && Rate != '.' && Rate != '') {
         params['Rate'] = parseFloat(Rate);
+        if (parseFloat(Rate) <= 0) {
+          return res.badRequest('Price must be a positive number');
+        }
       } else {
         return res.badRequest('Rate must be an integer or float');
       }
