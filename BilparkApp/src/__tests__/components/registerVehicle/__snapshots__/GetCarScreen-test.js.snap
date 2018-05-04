@@ -8,27 +8,44 @@ ShallowWrapper {
     style={
       Object {
         "alignItems": "center",
-        "backgroundColor": "#F5FCFF",
+        "backgroundColor": "#002776",
         "flex": 1,
         "justifyContent": "center",
       }
     }
   >
-    <Text
-      accessible={true}
-      allowFontScaling={true}
-      ellipsizeMode="tail"
+    <View
       style={
         Object {
-          "fontSize": 20,
-          "margin": 10,
-          "textAlign": "center",
+          "flex": 1,
+          "justifyContent": "center",
         }
       }
     >
-      Finn din bil!
-    </Text>
-    <ReduxForm />
+      <Image
+        resizeMode="contain"
+        source={
+          Object {
+            "process": [Function],
+          }
+        }
+        style={
+          Object {
+            "height": 100,
+            "width": 100,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 2,
+        }
+      }
+    >
+      <Connect(GetCarForm) />
+    </View>
   </View>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -43,25 +60,42 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Text
-          accessible={true}
-          allowFontScaling={true}
-          ellipsizeMode="tail"
+        <View
           style={
             Object {
-              "fontSize": 20,
-              "margin": 10,
-              "textAlign": "center",
+              "flex": 1,
+              "justifyContent": "center",
             }
           }
         >
-          Finn din bil!
-        </Text>,
-        <ReduxForm />,
+          <Image
+            resizeMode="contain"
+            source={
+              Object {
+                "process": [Function],
+              }
+            }
+            style={
+              Object {
+                "height": 100,
+                "width": 100,
+              }
+            }
+          />
+        </View>,
+        <View
+          style={
+            Object {
+              "flex": 2,
+            }
+          }
+        >
+          <Connect(GetCarForm) />
+        </View>,
       ],
       "style": Object {
         "alignItems": "center",
-        "backgroundColor": "#F5FCFF",
+        "backgroundColor": "#002776",
         "flex": 1,
         "justifyContent": "center",
       },
@@ -73,27 +107,66 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "accessible": true,
-          "allowFontScaling": true,
-          "children": "Finn din bil!",
-          "ellipsizeMode": "tail",
+          "children": <Image
+            resizeMode="contain"
+            source={
+              Object {
+                "process": [Function],
+              }
+            }
+            style={
+              Object {
+                "height": 100,
+                "width": 100,
+              }
+            }
+          />,
           "style": Object {
-            "fontSize": 20,
-            "margin": 10,
-            "textAlign": "center",
+            "flex": 1,
+            "justifyContent": "center",
           },
         },
         "ref": null,
-        "rendered": "Finn din bil!",
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "resizeMode": "contain",
+            "source": Object {
+              "process": [Function],
+            },
+            "style": Object {
+              "height": 100,
+              "width": 100,
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         "type": [Function],
       },
       Object {
         "instance": null,
         "key": undefined,
         "nodeType": "class",
-        "props": Object {},
+        "props": Object {
+          "children": <Connect(GetCarForm) />,
+          "style": Object {
+            "flex": 2,
+          },
+        },
         "ref": null,
-        "rendered": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         "type": [Function],
       },
     ],
@@ -106,25 +179,42 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
+          <View
             style={
               Object {
-                "fontSize": 20,
-                "margin": 10,
-                "textAlign": "center",
+                "flex": 1,
+                "justifyContent": "center",
               }
             }
           >
-            Finn din bil!
-          </Text>,
-          <ReduxForm />,
+            <Image
+              resizeMode="contain"
+              source={
+                Object {
+                  "process": [Function],
+                }
+              }
+              style={
+                Object {
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />
+          </View>,
+          <View
+            style={
+              Object {
+                "flex": 2,
+              }
+            }
+          >
+            <Connect(GetCarForm) />
+          </View>,
         ],
         "style": Object {
           "alignItems": "center",
-          "backgroundColor": "#F5FCFF",
+          "backgroundColor": "#002776",
           "flex": 1,
           "justifyContent": "center",
         },
@@ -136,27 +226,66 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "accessible": true,
-            "allowFontScaling": true,
-            "children": "Finn din bil!",
-            "ellipsizeMode": "tail",
+            "children": <Image
+              resizeMode="contain"
+              source={
+                Object {
+                  "process": [Function],
+                }
+              }
+              style={
+                Object {
+                  "height": 100,
+                  "width": 100,
+                }
+              }
+            />,
             "style": Object {
-              "fontSize": 20,
-              "margin": 10,
-              "textAlign": "center",
+              "flex": 1,
+              "justifyContent": "center",
             },
           },
           "ref": null,
-          "rendered": "Finn din bil!",
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "resizeMode": "contain",
+              "source": Object {
+                "process": [Function],
+              },
+              "style": Object {
+                "height": 100,
+                "width": 100,
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           "type": [Function],
         },
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "class",
-          "props": Object {},
+          "props": Object {
+            "children": <Connect(GetCarForm) />,
+            "style": Object {
+              "flex": 2,
+            },
+          },
           "ref": null,
-          "rendered": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           "type": [Function],
         },
       ],
