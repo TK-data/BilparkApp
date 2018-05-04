@@ -8,7 +8,7 @@ module.exports = {
       Car.create(car).exec(function (err, createdCar) {
         if (!err) {
           const carUpdate = {
-            CarID: createdCar.carId,
+            CarID: createdCar.CarID,
           };
 
           User.update(parseInt(req.session.UserID), carUpdate).exec(function (err, user) {
