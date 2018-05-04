@@ -25,6 +25,7 @@
     "sails": "~0.12.14",
     "sails-disk": "~0.10.9",
     "sails-eslint": "^1.1.1",
+    "sails-mysql": "^0.11.4",
     "soap": "^0.23.0",
     "xml2json": "^0.11.0",
     "xmlhttprequest": "^1.8.0"
