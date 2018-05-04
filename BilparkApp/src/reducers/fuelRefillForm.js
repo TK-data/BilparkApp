@@ -1,4 +1,4 @@
-import { SET_FUELREFILL_FORM_DATE, SET_FUELREFILL_FORM_LITERS, SET_FUELREFILL_FORM_PRICE, RESET_FUELREFILL_FORM } from '../actions/fuelRefillForm';
+import { SET_FUELREFILL_FORM_DATE, SET_FUELREFILL_FORM_RATE, SET_FUELREFILL_FORM_PRICE, RESET_FUELREFILL_FORM } from '../actions/fuelRefillForm';
 
 const initialState = {
   date: new Date(),
@@ -13,7 +13,7 @@ export default function fuelRefillForm(state = initialState, action) {
       ...state,
       date: action.date,
     };
-  case SET_FUELREFILL_FORM_LITERS:
+  case SET_FUELREFILL_FORM_RATE:
     return {
       ...state,
       rate: action.rate,

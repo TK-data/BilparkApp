@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: 20,
+    textAlign: 'center',
   },
   view: {
     flex: 1,
@@ -111,7 +112,7 @@ const FuelRefillForm = ({ register, date, rate, price, changePrice, changeRate, 
         light
         style={styles.button}
         onPress={() => {
-          register(date, rate, price);
+          register(date, price, rate);
         }}
       >
         <Text style={styles.text}>Registrer</Text>
