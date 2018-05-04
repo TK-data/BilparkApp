@@ -6,6 +6,7 @@ import form from './redux-form';
 import { carFetch, carForm } from './registerCar';
 import modals from './modals';
 import fuelRefill from './fuelRefill';
+import fuelRefillForm from './fuelRefillForm';
 import { registerUserModalVisible, registerUserModalTransparent, options, values } from './registerUser';
 
 const AppReducer = combineReducers({
@@ -20,8 +21,9 @@ const AppReducer = combineReducers({
   registerUserModalTransparent,
   options,
   values,
-  modals,
   fuelRefill,
+  fuelRefillForm,
+  modals,
 });
 
 export default AppReducer;

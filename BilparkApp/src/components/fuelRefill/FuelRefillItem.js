@@ -8,7 +8,19 @@ import { deleteFuelRefill } from '../../actions/fuelRefill';
 const styles = StyleSheet.create({
   text: {
     color: 'white',
+    alignSelf: 'flex-start',
+  },
+  texts: {
+    flexDirection: 'column',
     alignSelf: 'center',
+  },
+  infoText: {
+    color: 'white',
+    fontSize: 20,
+    alignSelf: 'center',
+  },
+  priceText: {
+
   },
   content: {
     flex: 1,
@@ -48,7 +60,7 @@ const months = {
 };
 
 
-const FuelRefillItem = ({ FuelTime, RefillID, deleteItem }) => {
+const FuelRefillItem = ({ FuelTime, RefillID, deleteItem, Rate, Price }) => {
 
   const fuelDate = new Date(FuelTime);
 
@@ -60,8 +72,16 @@ const FuelRefillItem = ({ FuelTime, RefillID, deleteItem }) => {
 
   return (
     <View style={styles.content}>
-      <Text style={styles.text}>
-        {day} {date}. {month} kl. {hours}:{minutes}
+      <View style={styles.texts}>
+        <Text style={styles.text}>
+          {day} {date}. {month}
+        </Text>
+        <Text style={styles.text}>
+          kl. {hours}:{minutes}
+        </Text>
+      </View>
+      <Text style={styles.infoText}>
+        {Price} kr @ {Rate} kr/l
       </Text>
       <Button
         light

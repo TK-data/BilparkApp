@@ -26,15 +26,37 @@ module.exports = {
         UserID: req.session.UserID,
       };
 
-      var dateReg = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})$/;
+      const FuelTime = req.param('FuelTime');
+      const Price = req.param('Price');
+      const Rate = req.param('Rate');
 
-      if (req.param('FuelTime') !== undefined) {
-        if (req.param('FuelTime').match(dateReg)) {
-          params['FuelTime'] = new Date(req.param('FuelTime'));
-        } else {
-          return res.badRequest('FuelTime must either be undefined or a proper Date object');
-        }
+      // var dateReg = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})$/;
+      var numberReg = /^[0-9]{0,5}[.]{0,1}[0-9]{0,5}?$/;
+
+      if (Date.parse(FuelTime)) {
+        params['FuelTime'] = new Date(FuelTime);
+      } else {
+        return res.badRequest('FuelTime must be a proper Date object');
       }
+
+      if (Price.match(numberReg) && Price !== '.' && Price !== '') {
+        params['Price'] = parseFloat(Price);
+        if (parseFloat(Price) <= 0) {
+          return res.badRequest('Price must be a positive number');
+        }
+      } else {
+        return res.badRequest('Price must be an integer or float');
+      }
+
+      if (Rate.match(numberReg) && Rate != '.' && Rate != '') {
+        params['Rate'] = parseFloat(Rate);
+        if (parseFloat(Rate) <= 0) {
+          return res.badRequest('Price must be a positive number');
+        }
+      } else {
+        return res.badRequest('Rate must be an integer or float');
+      }
+
 
       FuelRefill.create(params).exec(function(err, fuelrefill) {
         if (err) {

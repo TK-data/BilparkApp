@@ -20,6 +20,46 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": Array [
+        <View
+          style={
+            Object {
+              "alignSelf": "center",
+              "flexDirection": "column",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "alignSelf": "flex-start",
+                "color": "white",
+              }
+            }
+          >
+             
+            NaN
+            . 
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "alignSelf": "flex-start",
+                "color": "white",
+              }
+            }
+          >
+            kl. 
+            0NaN
+            :
+            0NaN
+          </Text>
+        </View>,
         <Text
           accessible={true}
           allowFontScaling={true}
@@ -28,16 +68,12 @@ ShallowWrapper {
             Object {
               "alignSelf": "center",
               "color": "white",
+              "fontSize": 20,
             }
           }
         >
-           
-          NaN
-          . 
-           kl. 
-          0NaN
-          :
-          0NaN
+           kr @ 
+           kr/l
         </Text>,
         <Styled(Button)
           light={true}
@@ -73,36 +109,133 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
+          "children": Array [
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "alignSelf": "flex-start",
+                  "color": "white",
+                }
+              }
+            >
+               
+              NaN
+              . 
+            </Text>,
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "alignSelf": "flex-start",
+                  "color": "white",
+                }
+              }
+            >
+              kl. 
+              0NaN
+              :
+              0NaN
+            </Text>,
+          ],
+          "style": Object {
+            "alignSelf": "center",
+            "flexDirection": "column",
+          },
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "accessible": true,
+              "allowFontScaling": true,
+              "children": Array [
+                undefined,
+                " ",
+                NaN,
+                ". ",
+                undefined,
+              ],
+              "ellipsizeMode": "tail",
+              "style": Object {
+                "alignSelf": "flex-start",
+                "color": "white",
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              undefined,
+              " ",
+              NaN,
+              ". ",
+              undefined,
+            ],
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "accessible": true,
+              "allowFontScaling": true,
+              "children": Array [
+                "kl. ",
+                "0NaN",
+                ":",
+                "0NaN",
+              ],
+              "ellipsizeMode": "tail",
+              "style": Object {
+                "alignSelf": "flex-start",
+                "color": "white",
+              },
+            },
+            "ref": null,
+            "rendered": Array [
+              "kl. ",
+              "0NaN",
+              ":",
+              "0NaN",
+            ],
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
           "accessible": true,
           "allowFontScaling": true,
           "children": Array [
             undefined,
-            " ",
-            NaN,
-            ". ",
+            " kr @ ",
             undefined,
-            " kl. ",
-            "0NaN",
-            ":",
-            "0NaN",
+            " kr/l",
           ],
           "ellipsizeMode": "tail",
           "style": Object {
             "alignSelf": "center",
             "color": "white",
+            "fontSize": 20,
           },
         },
         "ref": null,
         "rendered": Array [
           undefined,
-          " ",
-          NaN,
-          ". ",
+          " kr @ ",
           undefined,
-          " kl. ",
-          "0NaN",
-          ":",
-          "0NaN",
+          " kr/l",
         ],
         "type": [Function],
       },
@@ -153,6 +286,46 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": Array [
+          <View
+            style={
+              Object {
+                "alignSelf": "center",
+                "flexDirection": "column",
+              }
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "alignSelf": "flex-start",
+                  "color": "white",
+                }
+              }
+            >
+               
+              NaN
+              . 
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "alignSelf": "flex-start",
+                  "color": "white",
+                }
+              }
+            >
+              kl. 
+              0NaN
+              :
+              0NaN
+            </Text>
+          </View>,
           <Text
             accessible={true}
             allowFontScaling={true}
@@ -161,16 +334,12 @@ ShallowWrapper {
               Object {
                 "alignSelf": "center",
                 "color": "white",
+                "fontSize": 20,
               }
             }
           >
-             
-            NaN
-            . 
-             kl. 
-            0NaN
-            :
-            0NaN
+             kr @ 
+             kr/l
           </Text>,
           <Styled(Button)
             light={true}
@@ -206,36 +375,133 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
+            "children": Array [
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "alignSelf": "flex-start",
+                    "color": "white",
+                  }
+                }
+              >
+                 
+                NaN
+                . 
+              </Text>,
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "alignSelf": "flex-start",
+                    "color": "white",
+                  }
+                }
+              >
+                kl. 
+                0NaN
+                :
+                0NaN
+              </Text>,
+            ],
+            "style": Object {
+              "alignSelf": "center",
+              "flexDirection": "column",
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "accessible": true,
+                "allowFontScaling": true,
+                "children": Array [
+                  undefined,
+                  " ",
+                  NaN,
+                  ". ",
+                  undefined,
+                ],
+                "ellipsizeMode": "tail",
+                "style": Object {
+                  "alignSelf": "flex-start",
+                  "color": "white",
+                },
+              },
+              "ref": null,
+              "rendered": Array [
+                undefined,
+                " ",
+                NaN,
+                ". ",
+                undefined,
+              ],
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "accessible": true,
+                "allowFontScaling": true,
+                "children": Array [
+                  "kl. ",
+                  "0NaN",
+                  ":",
+                  "0NaN",
+                ],
+                "ellipsizeMode": "tail",
+                "style": Object {
+                  "alignSelf": "flex-start",
+                  "color": "white",
+                },
+              },
+              "ref": null,
+              "rendered": Array [
+                "kl. ",
+                "0NaN",
+                ":",
+                "0NaN",
+              ],
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
             "accessible": true,
             "allowFontScaling": true,
             "children": Array [
               undefined,
-              " ",
-              NaN,
-              ". ",
+              " kr @ ",
               undefined,
-              " kl. ",
-              "0NaN",
-              ":",
-              "0NaN",
+              " kr/l",
             ],
             "ellipsizeMode": "tail",
             "style": Object {
               "alignSelf": "center",
               "color": "white",
+              "fontSize": 20,
             },
           },
           "ref": null,
           "rendered": Array [
             undefined,
-            " ",
-            NaN,
-            ". ",
+            " kr @ ",
             undefined,
-            " kl. ",
-            "0NaN",
-            ":",
-            "0NaN",
+            " kr/l",
           ],
           "type": [Function],
         },
