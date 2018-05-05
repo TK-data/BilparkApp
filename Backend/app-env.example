@@ -17,9 +17,9 @@
 // 6. Remember to update app-env on the drive
 //
 
-const DSM_USER = 'SB1BILPT';
-const DSM_KEY = 'BIL8TEST';
-const DB_HOST = '35.205.53.91';
-const DB_USER = 'tkdata';
-const DB_PASS = '12345678';
-const DB_DATA = 'tkdata';
+export DSM_USER='SB1BILPT';
+export DSM_KEY='BIL8TEST';
+export DB_HOST='35.205.53.91';
+export DB_USER='tkdata';
+export DB_PASS='12345678';
+export DB_DATA='tkdata';
