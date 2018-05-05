@@ -3,23 +3,11 @@ import { connect } from 'react-redux';
 import t from 'tcomb-form-native';
 import Timepicker from 'react-native-modal-datetime-picker';
 import { Notifications, Permissions, Constants } from 'expo';
-import { StyleSheet, Text, View, Button, TouchableOpacity, Dimensions } from 'react-native';
-import { reduxForm } from 'redux-form';
+import { StyleSheet, Text, View, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
 import { showModal, hideModal, postFuelDay } from '../../actions/fuelDay';
 
 const width = Dimensions.get('window').width;
-
-t.form.Form.stylesheet.formGroup.normal.width = width / 1.3;
-t.form.Form.stylesheet.select.normal.color = 'white';
-t.form.Form.stylesheet.select.normal.borderWidth = 1;
-t.form.Form.stylesheet.select.normal.color = 'black';
-t.form.Form.stylesheet.select.normal.backgroundColor = 'white';
-t.form.Form.stylesheet.select.marginBottom = 50;
-t.form.Form.stylesheet.select.normal.borderRadius = 10;
-t.form.Form.stylesheet.pickerContainer.normal.borderColor = 'black';
-t.form.Form.stylesheet.pickerContainer.normal.borderRadius = 10;
-t.form.Form.stylesheet.pickerTouchable.normal.borderRadius = 10;
-t.form.Form.stylesheet.textboxView.normal.borderWidth = 10;
+const window = Dimensions.get('window');
 
 class FuelDayForm extends Component {
   async componentDidMount() {
@@ -41,22 +29,6 @@ class FuelDayForm extends Component {
     console.info(`Notification (${origin}) with data: ${JSON.stringify(data)}`);
   };
 
-  // showTimePicker = () =>
-  /*
-    sendImmediateNotification = () => {
-     const localNotification = {
-       title: 'Superdupertestingnotification',
-       body: 'Trykk på meg for å åpne den beste appen på den beste siden',
-       data: { type: 'immediate' },
-     };
-
-     // console.log('Scheduling immediate notification:', { localNotification });
-
-     Notifications.presentLocalNotificationAsync(localNotification);
-     // .then(id => console.info(`Immediate notification scheduled (${id})`))
-     // .catch(err => console.error(err));
-    };
-    */
   sendDelayedNotification = () => {
     const localNotification = {
       title: 'Delayed testing Title',
@@ -88,12 +60,7 @@ class FuelDayForm extends Component {
       repeat: 'week',
     };
 
-
-    // console.log('Scheduling delayed notification:', { localNotification, schedulingOptions });
-
     Notifications.scheduleLocalNotificationAsync(localNotification, schedulingOptions);
-    // .then(id => console.info(`Delayed notification scheduled (${id}) at ${moment(schedulingOptions.time).format()}`))
-    // .catch(err => console.error(err));
   };
 
   stopDelayedNotification = () => {
@@ -112,21 +79,10 @@ class FuelDayForm extends Component {
       6: 'Søndag',
     });
 
-
     const FuelDay = t.struct({
       Day: Days,
       Notification: t.Boolean,
     });
-    // const Item = Picker.Item;
-    /*
-    const postToggle = (value) => {
-      this.props.postFuelDay(user.FuelDay, value);
-    };
-
-    const postWeekday = (value) => {
-      this.props.postFuelDay(value, user.FuelNotification);
-    };
-    */
     const postFuelForm = (value) => {
       this.props.postFuelDay(value.Day, value.Notification);
     };
@@ -148,42 +104,69 @@ class FuelDayForm extends Component {
     // This clones the global Form stylesheet.
     const formStylesheet = JSON.parse(JSON.stringify(t.form.Form.stylesheet));
 
-    // Changes background color for Day picker and aligns checkbox to center
+    // Changes background color for Day picker
     formStylesheet.pickerContainer.normal.backgroundColor = '#fff';
-    formStylesheet.checkbox.normal.alignSelf = 'center';
+    formStylesheet.pickerContainer.normal.width = width / 1.8;
+    formStylesheet.formGroup.normal.paddingRight = 20;
+    formStylesheet.formGroup.normal.paddingLeft = 15;
+    formStylesheet.pickerContainer.normal.borderRadius = 0;
+    formStylesheet.formGroup.normal.flexDirection = 'row';
+    formStylesheet.formGroup.error.flexDirection = 'row';
+    formStylesheet.formGroup.normal.justifyContent = 'space-between';
+    formStylesheet.textbox.normal.flex = 1;
+    formStylesheet.textbox.error.flex = 1;
+    formStylesheet.formGroup.normal.alignItems = 'center';
+    formStylesheet.formGroup.normal.marginBottom = 40;
+    formStylesheet.pickerValue.normal.paddingLeft = 0;
+    formStylesheet.pickerValue.normal.marginLeft = 'auto';
+    formStylesheet.pickerValue.normal.marginRight = 'auto';
 
     // Sets the cloned stylesheet as the new stylesheet
     const FormOptions = {
       stylesheet: formStylesheet,
+      fields: {
+        Day: {
+          label: 'Ukedag',
+        },
+        Notification: {
+          label: 'Påminnelse',
+        },
+      },
     };
-
     return (
       <View style={styles.container}>
-        <Text
-          style={styles.debugColor}
-        >
-          Current day: {user.FuelDay}
-          Current time: {user.FuelTime}
-          Current value: {user.FuelNotification.toString()}
-        </Text>
-        <TouchableOpacity onPress={() => showModal()}>
-          <View style={styles.button}>
-            <Text>Velg tidspunkt</Text>
+        <ScrollView>
+          <Text style={styles.introText}>
+            Sett inn ønsket tidspunkt for påminnelse om bensinfylling.
+          </Text>
+          <View style={styles.formContainer}>
+            <View style={styles.timeBox}>
+              <Text style={styles.textField}>Tidspunkt</Text>
+              <View style={styles.buttonBox}>
+                <TouchableOpacity onPress={() => showModal()}>
+                  <View style={styles.button}>
+                    <Text style={styles.buttonText}>{user.FuelTime.replace('-', ':')}</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+            </View>
+            <View style={styles.formBox}>
+              <Form
+                ref={c => this.form = c}
+                type={FuelDay}
+                value={{ Day: user.FuelDay, Notification: user.FuelNotification }}
+                onChange={postFuelForm}
+                options={FormOptions}
+              />
+            </View>
           </View>
-        </TouchableOpacity>
-        <Timepicker
-          mode="time"
-          isVisible={isShowing}
-          onConfirm={postTime}
-          onCancel={hideModal}
-        />
-        <Form
-          ref={c => this.form = c}
-          type={FuelDay}
-          value={{ Day: user.FuelDay, Notification: user.FuelNotification }}
-          onChange={postFuelForm}
-          options={FormOptions}
-        />
+          <Timepicker
+            mode="time"
+            isVisible={isShowing}
+            onConfirm={postTime}
+            onCancel={hideModal}
+          />
+        </ScrollView>
       </View>
     );
   }
@@ -205,7 +188,6 @@ const mapDispatchToProps = (dispatch) => {
     postFuelTime: fueltime => dispatch(postFuelDay(undefined, undefined, fueltime)),
     showModal: () => dispatch(showModal()),
     hideModal: () => dispatch(hideModal()),
-
   };
 };
 
@@ -217,19 +199,58 @@ export default connect(
 const styles = StyleSheet.create({
   button: {
     backgroundColor: 'white',
-    height: 30,
-    marginTop: 10,
-    width: 250,
+    height: window.height / 14,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    width: width / 1.8,
   },
-  debugColor: {
-    color: 'white',
+  buttonText: {
+    fontSize: 15,
   },
   container: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  introText: {
+    color: 'white',
+    fontSize: 18,
+    width: width / 1.1,
+    textAlign: 'center',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
+  formContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: width,
+    marginTop: window.height / 20,
+  },
+  buttonBox: {
+    paddingLeft: 6,
+  },
+  timeBox: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: width / 1.1,
+    marginBottom: 20,
+    paddingRight: 15,
+  },
+  formBox: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: width / 1.1,
+
+  },
+  textField: {
+    color: 'white',
+    fontSize: 17,
+    fontWeight: 'bold',
+    marginTop: window.height / 50,
+    paddingLeft: 5,
   },
 });
