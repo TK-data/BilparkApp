@@ -40,6 +40,8 @@ You need to set up the environment variables for the DSM API and the database.
 Duplicate ```app-env.example``` and rename it ```app-env```
 Open up ```app-env``` and edit the variables to the correct values for your DSM account and database.
 
+To add these variables to the enviroment, open up console at the backend folder, and execute ```source app-env```
+
 ### React Native Application
 First point to the address of the machine that is running the backend:
 ```
