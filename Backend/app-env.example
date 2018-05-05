@@ -16,3 +16,10 @@
 // 5. You can now use EXAMPLE_KEY wherever you want :D
 // 6. Remember to update app-env on the drive
 //
+
++export DSM_USER='SB1BILPT';
++export DSM_KEY='BIL8TEST';
++export DB_HOST='35.205.53.91';
++export DB_USER='tkdata';
++export DB_PASS='12345678';
++export DB_DATA='tkdata'; 
