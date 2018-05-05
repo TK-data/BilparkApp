@@ -8,7 +8,7 @@
 //
 // How to add new keys
 // 1. Add new key in app-env by writing:
-// export EXAMPLE_KEY = 'Example';
+// export EXAMPLE_KEY='Example';
 // 2. Follow 3 and 4 in SET-UP ^
 // 3. Go to the file you are working with
 // 4. Import the key by writing this:
