@@ -16,3 +16,10 @@
 // 5. You can now use EXAMPLE_KEY wherever you want :D
 // 6. Remember to update app-env on the drive
 //
+
+const DSM_USER = 'SB1BILPT';
+const DSM_KEY = 'BIL8TEST';
+const DB_HOST = '35.205.53.91';
+const DB_USER = 'tkdata';
+const DB_PASS = '12345678';
+const DB_DATA = 'tkdata';

@@ -19,6 +19,11 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.connections.html
  */
 
+const DB_HOST = process.env.DB_HOST;
+const DB_USER = 'process.env.DB_USER;
+const DB_PASS = process.env.DB_PASS;
+const DB_DATA = process.env.DB_DATA;
+
 module.exports.connections = {
 
   /***************************************************************************
@@ -42,10 +47,10 @@ module.exports.connections = {
   ***************************************************************************/
   tkdata_mysql: {
      adapter: 'sails-mysql',
-     host: '35.205.53.91',
-     user: 'tkdata', //optional
-     password: '12345678', //optional
-     database: 'tkdata' //optional
+     host: DB_HOST,
+     user: DB_USER, //optional
+     password: DB_PASS, //optional
+     database: DB_DATA //optional
   },
 
   /***************************************************************************
