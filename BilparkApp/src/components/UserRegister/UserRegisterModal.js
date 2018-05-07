@@ -41,7 +41,7 @@ const UserRegisterModal = ({ modalVisible, modalTransparent, visibleModal, navig
           style={styles.button}
           light
           onPress={() => {
-            login(values.Email, values.Password);
+            login(values);
             // visibleModal(false);
             // navigateToLogin();
           }}
@@ -65,7 +65,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     visibleModal: bool => dispatch(registerUserModalVisible(bool)),
     navigateToLogin: () => dispatch(NavigationActions.navigate({ routeName: 'Login' })),
-    login: (username, password) => dispatch(postUser(username, password)),
+    login: values => dispatch(postUser(values.Email, values.Password)),
   };
 };
 

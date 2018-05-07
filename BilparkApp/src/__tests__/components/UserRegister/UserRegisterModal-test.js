@@ -7,6 +7,13 @@ import { Modal } from 'react-native';
 import UserRegisterModal from '../../../components/UserRegister/UserRegisterModal';
 
 const initialState = {
+  values: {
+    Email: 'test@mail.no',
+    Fname: 'FnameTest',
+    Lname: 'LnameTest',
+    Address: 'AdrTest',
+    Password: 'passwordTest',
+  },
 };
 
 
