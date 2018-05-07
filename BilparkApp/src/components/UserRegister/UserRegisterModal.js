@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
-import { Text, Modal, StyleSheet, View, Button } from 'react-native';
+import { Text, Modal, StyleSheet, View } from 'react-native';
+import { Button } from 'native-base';
 import { registerUserModalVisible } from '../../actions/registerUser';
 import { postUser } from '../../actions/auth';
 
@@ -17,6 +18,12 @@ const styles = StyleSheet.create({
   modalText: {
     color: '#fff',
   },
+  button: {
+    alignSelf: 'center',
+    paddingLeft: 10,
+    paddingRight: 10,
+    marginTop: 10,
+  },
 });
 
 const UserRegisterModal = ({ modalVisible, modalTransparent, visibleModal, navigateToLogin, values, login }) => {
@@ -29,15 +36,18 @@ const UserRegisterModal = ({ modalVisible, modalTransparent, visibleModal, navig
       }}
     >
       <View style={styles.modal}>
-        <Text style={styles.modalText} testID="RegisterModalTextField">Registrering godkjent</Text>
+        <Text style={styles.modalText} testID="RegisterModalTextField">Registrering godkjent!</Text>
         <Button
-          title="Du er logget inn og blir videresendt"
+          style={styles.button}
+          light
           onPress={() => {
             login(values.Email, values.Password);
             // visibleModal(false);
             // navigateToLogin();
           }}
-        />
+        >
+          <Text>Logg inn</Text>
+        </Button>
       </View>
     </Modal>
   );
