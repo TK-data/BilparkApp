@@ -62,20 +62,19 @@ export function getCar(nr) {
     return axios.post(API_ADDRESS + '/api/dsm?regnr=' + nr)
       .then((response) => {
         if (!response.ok && !response.data) {
-          dispatch(carFetchFailure(true));
+          dispatch(carFetchFailure('Noe gikk galt..'));
         }
         dispatch(carFetchSuccess(JSON.stringify(response.data)));
       })
       .catch((error) => {
-        if (error.response.status !== undefined) {
+        if (typeof (error.response.status) !== 'undefined') {
           if (error.response.status === 404) {
             dispatch(carFetchFailure('Registreringsnummeret finnes ikke!'));
-          }
-          else {
-            throw error;
+          } else {
+            dispatch(carFetchFailure('Noe gikk galt..'));
           }
         } else {
-          throw error;
+          dispatch(carFetchFailure('Noe gikk galt..'));
         }
       });
   };
