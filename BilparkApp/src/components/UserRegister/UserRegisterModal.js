@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
 import { Text, Modal, StyleSheet, View, Button } from 'react-native';
 import { registerUserModalVisible } from '../../actions/registerUser';
+import { postUser } from '../../actions/auth';
 
 
 const styles = StyleSheet.create({
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const UserRegisterModal = ({ modalVisible, modalTransparent, visibleModal, navigateToLogin }) => {
+const UserRegisterModal = ({ modalVisible, modalTransparent, visibleModal, navigateToLogin, values, login }) => {
   return (
     <Modal
       visible={modalVisible}
@@ -30,10 +31,11 @@ const UserRegisterModal = ({ modalVisible, modalTransparent, visibleModal, navig
       <View style={styles.modal}>
         <Text style={styles.modalText} testID="RegisterModalTextField">Registrering godkjent</Text>
         <Button
-          title="Gå til innlogging"
+          title="Du er logget inn og blir videresendt"
           onPress={() => {
-            visibleModal(false);
-            navigateToLogin();
+            login(values.Email, values.Password);
+            // visibleModal(false);
+            // navigateToLogin();
           }}
         />
       </View>
@@ -45,6 +47,7 @@ const mapStateToProps = (state) => {
   return {
     modalVisible: state.registerUserModalVisible,
     modalTransparent: state.registerUserModalTransparent,
+    values: state.values,
   };
 };
 
@@ -52,6 +55,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     visibleModal: bool => dispatch(registerUserModalVisible(bool)),
     navigateToLogin: () => dispatch(NavigationActions.navigate({ routeName: 'Login' })),
+    login: (username, password) => dispatch(postUser(username, password)),
   };
 };
 

@@ -79,6 +79,7 @@ export function postUser(username, password) {
       })
       .then((user) => {
         dispatch(postUserSuccess(user));
+        dispatch(registerUserValues({}));
         dispatch(loginMail({}));
         dispatch(loginResetFormOptions());
         dispatch(loginSuccess());
@@ -89,6 +90,14 @@ export function postUser(username, password) {
       });
   };
 }
+
+export function registerUserValues(values) {
+  return {
+    type: 'REGISTER_USER_VALUES',
+    values,
+  };
+}
+
 
 export function postCurrent() {
   return (dispatch) => {

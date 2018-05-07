@@ -128,7 +128,6 @@ export function registerUserFetchData(value) {
         if (response.status === 201) {
           dispatch(registerUserModalVisible(true));
           dispatch(registerUserOptions(pleasefillcorrect));
-          dispatch(registerUserValues({}));
           return response.status;
 
         } else if (response.status !== 201) {
