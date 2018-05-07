@@ -71,4 +71,8 @@ module.exports.policies = {
 		getAll: 'sessionAuth',
 		remove: 'sessionAuth',
 	},
+  AdminController: {
+    '*': false,
+		create: 'adminAuth',
+	},
 };
