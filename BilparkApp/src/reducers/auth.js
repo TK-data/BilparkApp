@@ -23,6 +23,7 @@ function auth(state = initialAuthState, action) {
     return {
       isLoggedIn: action.isLoggedIn,
       user: action.user,
+      car: action.car,
     };
   case LOGOUT_SUCCESS:
     return { isLoggedIn: action.isLoggedIn };

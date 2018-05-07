@@ -26,11 +26,12 @@ export function postUserLoading(bool) {
     isLoggedIn: false,
   };
 }
-export function postUserSuccess(user) {
+export function postUserSuccess(object) {
   return {
     type: 'POST_USER_SUCCESS',
     isLoggedIn: true,
-    user,
+    user: object.user,
+    car: object.car,
   };
 }
 
