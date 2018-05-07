@@ -55,7 +55,7 @@ ShallowWrapper {
           }
           testID="RegisterModalTextField"
         >
-          Registrering godkjent!
+          Registrering godkjent
         </Text>
         <Styled(Button)
           light={true}
@@ -102,7 +102,7 @@ ShallowWrapper {
             }
             testID="RegisterModalTextField"
           >
-            Registrering godkjent!
+            Registrering godkjent
           </Text>,
           <Styled(Button)
             light={true}
@@ -143,7 +143,7 @@ ShallowWrapper {
           "props": Object {
             "accessible": true,
             "allowFontScaling": true,
-            "children": "Registrering godkjent!",
+            "children": "Registrering godkjent",
             "ellipsizeMode": "tail",
             "style": Object {
               "color": "#fff",
@@ -151,7 +151,7 @@ ShallowWrapper {
             "testID": "RegisterModalTextField",
           },
           "ref": null,
-          "rendered": "Registrering godkjent!",
+          "rendered": "Registrering godkjent",
           "type": [Function],
         },
         Object {
@@ -227,7 +227,7 @@ ShallowWrapper {
             }
             testID="RegisterModalTextField"
           >
-            Registrering godkjent!
+            Registrering godkjent
           </Text>
           <Styled(Button)
             light={true}
@@ -274,7 +274,7 @@ ShallowWrapper {
               }
               testID="RegisterModalTextField"
             >
-              Registrering godkjent!
+              Registrering godkjent
             </Text>,
             <Styled(Button)
               light={true}
@@ -315,7 +315,7 @@ ShallowWrapper {
             "props": Object {
               "accessible": true,
               "allowFontScaling": true,
-              "children": "Registrering godkjent!",
+              "children": "Registrering godkjent",
               "ellipsizeMode": "tail",
               "style": Object {
                 "color": "#fff",
@@ -323,7 +323,7 @@ ShallowWrapper {
               "testID": "RegisterModalTextField",
             },
             "ref": null,
-            "rendered": "Registrering godkjent!",
+            "rendered": "Registrering godkjent",
             "type": [Function],
           },
           Object {
