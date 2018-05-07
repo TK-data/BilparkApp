@@ -13,8 +13,9 @@ class GetCarForm extends Component {
       <CarForm />
     );
 
-    if (this.props.isAccepted) {
-      const car = JSON.parse(this.props.car);
+    if (this.props.carSaved && this.props.carSaved !== 'null') {
+
+      const car = JSON.parse(this.props.carSaved);
       main = (
         <View>
           <H2 style={styles.header}>DIN BIL:</H2>
@@ -30,8 +31,8 @@ class GetCarForm extends Component {
           <Spinner color="white" />
         </View>
       );
-    } else if (this.props.car) {
-      const car = JSON.parse(this.props.car);
+    } else if (this.props.carFetched) {
+      const car = JSON.parse(this.props.carFetched);
 
       main = (
         <View style={styles.content}>
@@ -136,8 +137,10 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => {
+
   return {
-    car: state.carFetch.car,
+    carSaved: state.auth.car,
+    carFetched: state.carFetch.car,
     isLoading: state.carFetch.isLoading,
     hasErrored: state.carFetch.hasErrored,
     isAccepted: state.carFetch.isAccepted,
