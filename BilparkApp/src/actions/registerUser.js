@@ -132,7 +132,7 @@ export function registerUserFetchData(value) {
           return response.status;
 
         } else if (response.status !== 201) {
-          if (JSON.parse(response._bodyText).invalidAttributes.Email) {
+          if (JSON.parse(response._bodyText).message.includes('`Email` already exists')) {
             dispatch(registerUserOptions(emailErrorFill));
             dispatch(registerUserValues(value));
             return { Error: 'Email' };
