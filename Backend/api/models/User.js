@@ -70,8 +70,8 @@ module.exports = {
       return obj;
     },
 
-    checkPassword: function (password, cb) {
-      bcrypt.compare(password, this.Password, cb);
+    checkPassword: async function (password, cb) {
+      return bcrypt.compare(password, this.Password, cb);
     },
 
   },

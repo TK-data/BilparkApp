@@ -10,21 +10,17 @@ module.exports = {
   /**
    * Log in a user with required parameters
    */
-  login: function(req, res) {
+  login: async function (req, res) {
     // check if a requested email excists
-    User.findOne({Email: req.param('Email')}).exec(function(err, user) {
-      if (err) {
-        return res.negotiate(err);
-      }
+    try {
+      const user = await User.findOne({Email: req.param('Email')});
       if (!user) {
         return res.notFound('User not found');
       }
 
       // check if provided password hashed matches with stored hashed password
-      user.checkPassword(req.param('Password'), function(err, verified) {
-        if (err) {
-          res.negotiate(err);
-        }
+      try {
+        const verified = await user.checkPassword(req.param('Password'));
         if (!verified) {
           return res.forbidden();
         }
@@ -32,9 +28,29 @@ module.exports = {
         // verified and user excists, store as logged in.
         req.session.UserID = user.UserID;
         req.session.authenticated = true;
-        return res.json(user);
-      });
-    });
+
+        let result = {
+          user: user,
+          car: null
+        };
+
+        // check if CarID exists. If it does, we also want to return this
+        if (user.CarID !== null) {
+          const car = await Car.findOne({CarID: user.CarID});
+          if (car) {
+            result.car = car;
+          }
+        }
+
+        return res.json(result);
+      }
+      catch (err) {
+        return res.negotiate(err);
+      }
+    }
+    catch (err) {
+      return res.negotiate(err);
+    }
   },
   /**
    * Logout a user by resetting user id and authentication in session
@@ -48,20 +64,32 @@ module.exports = {
   /**
    * Get user details of current user logged in. need to be authenticated and have UserID in session
    */
-  current: function(req, res) {
+  current: async function(req, res) {
     if (req.session.authenticated && req.session.UserID) {
       // find user object
-      User.findOne(req.session.UserID).exec(function(err, user) {
-        if (err) {
-          return res.negotiate(err);
-        }
+      try {
+        const user = User.findOne(req.session.UserID);
         if (!user) {
           return res.notFound('User not found');
         }
+        let result = {
+          user: user,
+          car: null
+        };
 
-        // return details
-        return res.json(user);
-      });
+        // check if CarID exists. If it does, we also want to return this
+        if (user.CarID !== null) {
+          const car = await Car.findOne({CarID: user.CarID});
+          if (car) {
+            result.car = car;
+          }
+        }
+
+        return res.json(result);
+      }
+      catch (err) {
+        return res.negotiate(err);
+      }
     } else {
       return res.forbidden('You are not logged in');
     }
