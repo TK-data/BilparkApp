@@ -31,8 +31,8 @@ class FuelDayForm extends Component {
 
   sendDelayedNotification = () => {
     const localNotification = {
-      title: 'Delayed testing Title',
-      body: 'Testing body',
+      title: 'Fyll bensin!',
+      body: 'Det er billigst i dag - husk å fylle',
       data: { type: 'delayed' },
     };
     const dayToSet = this.props.user.FuelDay;
@@ -105,7 +105,7 @@ class FuelDayForm extends Component {
     const formStylesheet = JSON.parse(JSON.stringify(t.form.Form.stylesheet));
 
     // Changes background color for Day picker
-    // formStylesheet.pickerContainer.normal.backgroundColor = '#fff';
+    formStylesheet.pickerContainer.normal.backgroundColor = '#fff';
     formStylesheet.pickerContainer.normal.width = width / 1.8;
     formStylesheet.formGroup.normal.paddingRight = 20;
     formStylesheet.formGroup.normal.paddingLeft = 15;
@@ -120,10 +120,6 @@ class FuelDayForm extends Component {
     formStylesheet.pickerValue.normal.paddingLeft = 0;
     formStylesheet.pickerValue.normal.marginLeft = 'auto';
     formStylesheet.pickerValue.normal.marginRight = 'auto';
-    formStylesheet.select.normal.color = 'white';
-
-    formStylesheet.pickerContainer.normal.borderWidth = 5;
-    formStylesheet.pickerContainer.normal.borderColor = 'white';
 
     // Sets the cloned stylesheet as the new stylesheet
     const FormOptions = {

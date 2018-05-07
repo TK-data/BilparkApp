@@ -42,10 +42,10 @@ module.exports.connections = {
   ***************************************************************************/
   tkdata_mysql: {
      adapter: 'sails-mysql',
-     host: '35.205.53.91',
-     user: 'tkdata', //optional
-     password: '12345678', //optional
-     database: 'tkdata' //optional
+     host: process.env.DB_HOST,
+     user: process.env.DB_USER, //optional
+     password: process.env.DB_PASS, //optional
+     database: process.env.DB_DATA //optional
   },
 
   /***************************************************************************
