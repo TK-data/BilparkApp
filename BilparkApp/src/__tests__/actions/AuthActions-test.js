@@ -145,6 +145,10 @@ describe('async actions', () => {
         isLoggedIn: true,
         user: mockResponseUser,
       },
+      {
+        type: 'REGISTER_USER_VALUES',
+        values: {},
+      },
       { mail: {},
         type: 'LOGIN_MAIL' },
       {
