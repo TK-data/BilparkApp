@@ -1,0 +1,33 @@
+{
+    "env": {
+        "node": true, // this is the best starting point
+        "es6": true, // enables es6 features
+        "jest/globals": true,
+    },
+    "plugins": ["jest"],
+    "parser": "babel-eslint", // needed to make babel stuff work properly
+    "extends": "airbnb",
+    "globals": {
+      "fetch": false,
+      },
+    "rules": {
+      "react/no-array-index-key": 0,
+      "global-require": 0,
+      "no-unneeded-ternary": 0,
+      "prefer-template": 0,
+      "padded-blocks": 0,
+      "react/forbid-prop-types": 0,
+      "no-undef": 1,
+      "react/prop-types": 0,
+      "prefer-destructuring": 0,
+      "arrow-body-style": 0,
+      "react/jsx-filename-extension": 0,
+      "indent": ["error", 2],
+      "linebreak-style": 0,
+      "no-use-before-define": 0,
+      "react/prefer-stateless-function": 0,
+      "no-multi-spaces": 2,
+      "object-curly-newline": 0
+
+    }
+}

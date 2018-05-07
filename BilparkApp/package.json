@@ -3,9 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "appr": "^1.1.1",
+    "axios-mock-adapter": "^1.15.0",
+    "babel-eslint": "^8.2.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-react": "^7.7.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest-expo": "^25.1.0",
+    "jest-transform-stub": "^1.0.0",
     "react-native-scripts": "1.11.1",
-    "jest-expo": "25.0.0",
-    "react-test-renderer": "16.2.0"
+    "react-test-renderer": "^16.3.1",
+    "redux-mock-store": "^1.5.1"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
@@ -13,16 +24,59 @@
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js"
+    "test": "node_modules/.bin/jest",
+    "appr": "appr"
   },
   "jest": {
     "preset": "jest-expo",
     "coverageDirectory": "./coverage/",
-    "collectCoverage": true
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/build/",
+      "<rootDir>/native-base-theme/"
+    ],
+    "setupFiles": [
+      "<rootDir>/src/utils/setupTests.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/assetsTransformer.js",
+      "\\.(css|less)$": "<rootDir>/assetsTransformer.js"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|tcomb-form-native|native-base|@expo/vector-icons|expo|react-navigation|native-base-shoutem-theme|@shoutem/theme|@shoutem/animation|@shoutem/ui|tcomb-form-native)"
+    ]
   },
   "dependencies": {
+    "@expo/vector-icons": "^6.3.1",
+    "auth0-js": "^8.12.3",
+    "axios": "^0.18.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint-plugin-jest": "^21.15.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "exp": "^53.1.0",
     "expo": "^25.0.0",
+    "fetch-mock": "^6.3.0",
+    "moment": "^2.22.1",
+    "native-base": "^2.4.1",
+    "prop-types": "^15.6.1",
     "react": "16.2.0",
-    "react-native": "0.52.0"
+    "react-dom": "^16.3.1",
+    "react-native": "0.52.0",
+    "react-native-keyboard-aware-scroll-view": "^0.4.4",
+    "react-native-modal-datetime-picker": "^5.1.0",
+    "react-native-swiper": "^1.5.13",
+    "react-native-tab-view": "0.0.77",
+    "react-native-vector-icons": "^4.6.0",
+    "react-navigation": "^1.5.1",
+    "react-navigation-redux-helpers": "^1.0.5",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
+    "redux-form": "^7.3.0",
+    "redux-mock-store": "^1.5.1",
+    "redux-thunk": "^2.2.0",
+    "sinon": "^4.5.0",
+    "tcomb-form-native": "^0.6.11",
+    "yarn": "^1.6.0"
   }
 }
