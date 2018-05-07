@@ -31,8 +31,8 @@ class FuelDayForm extends Component {
 
   sendDelayedNotification = () => {
     const localNotification = {
-      title: 'Delayed testing Title',
-      body: 'Testing body',
+      title: 'Fyll bensin!',
+      body: 'Det er billigst i dag - husk å fylle',
       data: { type: 'delayed' },
     };
     const dayToSet = this.props.user.FuelDay;
