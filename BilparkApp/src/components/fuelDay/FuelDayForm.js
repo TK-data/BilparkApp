@@ -4,7 +4,7 @@ import t from 'tcomb-form-native';
 import Timepicker from 'react-native-modal-datetime-picker';
 import { Notifications, Permissions, Constants } from 'expo';
 import { StyleSheet, Text, View, TouchableOpacity, Dimensions, ScrollView } from 'react-native';
-import { showModal, hideModal, postFuelDay } from '../../actions/fuelDay';
+import { showFuelDayModal, hideModal, postFuelDay } from '../../actions/fuelDay';
 
 const width = Dimensions.get('window').width;
 const window = Dimensions.get('window');
@@ -182,7 +182,7 @@ const mapStateToProps = (state) => {
     hasErrored: state.postFuelDayFailure,
     hasSucceeded: state.postFuelDaySuccess,
     user: state.auth.user,
-    isShowing: state.modals.isShowing,
+    isShowing: state.modals.fuelDay,
   };
 };
 
@@ -190,7 +190,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     postFuelDay: (weekday, toggle) => dispatch(postFuelDay(weekday, toggle)),
     postFuelTime: fueltime => dispatch(postFuelDay(undefined, undefined, fueltime)),
-    showModal: () => dispatch(showModal()),
+    showModal: () => dispatch(showFuelDayModal()),
     hideModal: () => dispatch(hideModal()),
   };
 };
