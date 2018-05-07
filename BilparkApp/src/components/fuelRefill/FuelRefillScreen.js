@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { Content, Button } from 'native-base';
+import { StyleSheet, View } from 'react-native';
+import { Content, Body } from 'native-base';
 import { connect } from 'react-redux';
 
+import SettingsButton from './SettingsButton';
 import { getFuelRefills } from '../../actions/fuelRefill';
 import FuelRefillForm from './FuelRefillForm';
 import FuelRefillList from './FuelRefillList';
@@ -34,6 +35,11 @@ const styles = StyleSheet.create({
 });
 
 class FuelRefillScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Drivstoff',
+    headerRight: <SettingsButton />,
+  }
+
   constructor(props) {
     super(props);
     this.props.getItems();
