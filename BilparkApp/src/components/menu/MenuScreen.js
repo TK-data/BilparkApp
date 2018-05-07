@@ -8,34 +8,34 @@ import MenuBox from './MenuBox';
 const images = [
   {
     image: require('../../images/menuIcons/gas_station.png'),
-    routeName: 'FuelDay',
-    pageName: 'Bensin',
+    routeName: 'FuelRefill',
+    pageName: 'Drivstoff',
   },
   {
     image: require('../../images/menuIcons/clipboard.png'),
     routeName: 'Profile',
-    pageName: 'Kjørebok',
+    pageName: 'Placeholder',
   },
   {
     image: require('../../images/menuIcons/car_repair.png'),
     routeName: 'RegisterCar',
-    pageName: 'Skade',
+    pageName: 'Din bil',
   },
   {
     image: require('../../images/menuIcons/trophy.png'),
-    routeName: 'FuelRefill',
-    pageName: 'Rangering',
+    routeName: 'Profile',
+    pageName: 'Placeholder',
   },
   {
     image: require('../../images/menuIcons/team_people.png'),
-    routeName: 'RegisterCar',
-    pageName: 'Ditt team',
+    routeName: 'Profile',
+    pageName: 'Placeholder',
 
   },
   {
     image: require('../../images/menuIcons/money_hands.png'),
     routeName: 'Profile',
-    pageName: 'Sparing',
+    pageName: 'Placeholder',
 
   },
 ];
