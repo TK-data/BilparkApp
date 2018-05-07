@@ -22,8 +22,8 @@ function auth(state = initialAuthState, action) {
   case POST_USER_SUCCESS:
     return {
       isLoggedIn: action.isLoggedIn,
-      user: action.user,
-      car: action.car,
+      user: JSON.stringify(action.user),
+      car: JSON.stringify(action.car),
     };
   case LOGOUT_SUCCESS:
     return { isLoggedIn: action.isLoggedIn };
