@@ -7,6 +7,13 @@ import { Modal } from 'react-native';
 import UserRegisterModal from '../../../components/UserRegister/UserRegisterModal';
 
 const initialState = {
+  values: {
+    Email: 'test@mail.no',
+    Fname: 'FnameTest',
+    Lname: 'LnameTest',
+    Address: 'AdrTest',
+    Password: 'passwordTest',
+  },
 };
 
 
@@ -41,7 +48,7 @@ describe('Testing UserRegisterModal', () => {
   it('Contains the go to login button', () => {
     const render = wrapper.dive().dive();
     expect(render.children().childAt(1).text())
-      .toEqual('<Button />');
+      .toEqual('<Styled(Button) />');
   });
   it('Can press the go to login button', () => {
     const render = wrapper.dive().dive();
