@@ -13,35 +13,34 @@ module.exports = {
   login: async function (req, res) {
     // check if a requested email excists
     try {
-      const user = await User.findOne({Email: req.param('Email')});
-      if (!user) {
+      const userObject = await User.findOne({Email: req.param('Email')});
+      if (!userObject) {
         return res.notFound('User not found');
       }
 
       // check if provided password hashed matches with stored hashed password
       try {
-        const verified = await user.checkPassword(req.param('Password'));
+        const verified = await userObject.checkPassword(req.param('Password'));
         if (!verified) {
           return res.forbidden();
         }
 
         // verified and user excists, store as logged in.
-        req.session.UserID = user.UserID;
+        req.session.UserID = userObject.UserID;
         req.session.authenticated = true;
 
-        let result = {
-          user: user,
+        const result = {
+          user: userObject,
           car: null
         };
 
         // check if CarID exists. If it does, we also want to return this
-        if (user.CarID !== null) {
-          const car = await Car.findOne({CarID: user.CarID});
-          if (car) {
-            result.car = car;
+        if (userObject.CarID !== null) {
+          const carObject = await Car.findOne({CarID: userObject.CarID});
+          if (carObject) {
+            result.car = carObject;
           }
         }
-
         return res.json(result);
       }
       catch (err) {
@@ -68,23 +67,23 @@ module.exports = {
     if (req.session.authenticated && req.session.UserID) {
       // find user object
       try {
-        const user = User.findOne(req.session.UserID);
-        if (!user) {
+        const userObject = await User.findOne({UserID: req.session.UserID});
+        if (!userObject) {
           return res.notFound('User not found');
         }
-        let result = {
-          user: user,
+
+        const result = {
+          user: userObject,
           car: null
         };
 
         // check if CarID exists. If it does, we also want to return this
-        if (user.CarID !== null) {
-          const car = await Car.findOne({CarID: user.CarID});
-          if (car) {
-            result.car = car;
+        if (userObject.CarID !== null) {
+          const carObject = await Car.findOne({CarID: userObject.CarID});
+          if (carObject) {
+            result.car = carObject;
           }
         }
-
         return res.json(result);
       }
       catch (err) {
