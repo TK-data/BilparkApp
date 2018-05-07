@@ -1,17 +1,24 @@
-import { SHOW_MODAL, HIDE_MODAL } from '../actions/fuelDay';
+import { SHOW_FUELDAY_MODAL, SHOW_FUELREFILL_MODAL, HIDE_MODAL } from '../actions/fuelDay';
 
-function modals(state = {
-  isShowing: false,
-}, action) {
+const init = {
+  fuelRefill: false,
+  fuelDay: false,
+};
+
+function modals(state = init, action) {
   switch (action.type) {
-  case SHOW_MODAL:
+  case SHOW_FUELDAY_MODAL:
     return {
-      isShowing: true,
+      ...state,
+      fuelDay: true,
+    };
+  case SHOW_FUELREFILL_MODAL:
+    return {
+      ...state,
+      fuelRefill: true,
     };
   case HIDE_MODAL:
-    return {
-      isShowing: false,
-    };
+    return init;
   default:
     return state;
   }

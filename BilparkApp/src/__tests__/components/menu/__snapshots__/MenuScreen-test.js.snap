@@ -142,34 +142,7 @@ ShallowWrapper {
             "process": [Function],
           }
         }
-        pageName="Bensin"
-        routeName="FuelDay"
-      />
-      <Connect(MenuBox)
-        image={
-          Object {
-            "process": [Function],
-          }
-        }
-        pageName="Kjørebok"
-        routeName="Profile"
-      />
-      <Connect(MenuBox)
-        image={
-          Object {
-            "process": [Function],
-          }
-        }
-        pageName="Skade"
-        routeName="RegisterCar"
-      />
-      <Connect(MenuBox)
-        image={
-          Object {
-            "process": [Function],
-          }
-        }
-        pageName="Rangering"
+        pageName="Drivstoff"
         routeName="FuelRefill"
       />
       <Connect(MenuBox)
@@ -178,7 +151,16 @@ ShallowWrapper {
             "process": [Function],
           }
         }
-        pageName="Ditt team"
+        pageName="Placeholder"
+        routeName="Profile"
+      />
+      <Connect(MenuBox)
+        image={
+          Object {
+            "process": [Function],
+          }
+        }
+        pageName="Din bil"
         routeName="RegisterCar"
       />
       <Connect(MenuBox)
@@ -187,7 +169,25 @@ ShallowWrapper {
             "process": [Function],
           }
         }
-        pageName="Sparing"
+        pageName="Placeholder"
+        routeName="Profile"
+      />
+      <Connect(MenuBox)
+        image={
+          Object {
+            "process": [Function],
+          }
+        }
+        pageName="Placeholder"
+        routeName="Profile"
+      />
+      <Connect(MenuBox)
+        image={
+          Object {
+            "process": [Function],
+          }
+        }
+        pageName="Placeholder"
         routeName="Profile"
       />
     </View>
@@ -335,34 +335,7 @@ ShallowWrapper {
                 "process": [Function],
               }
             }
-            pageName="Bensin"
-            routeName="FuelDay"
-          />
-          <Connect(MenuBox)
-            image={
-              Object {
-                "process": [Function],
-              }
-            }
-            pageName="Kjørebok"
-            routeName="Profile"
-          />
-          <Connect(MenuBox)
-            image={
-              Object {
-                "process": [Function],
-              }
-            }
-            pageName="Skade"
-            routeName="RegisterCar"
-          />
-          <Connect(MenuBox)
-            image={
-              Object {
-                "process": [Function],
-              }
-            }
-            pageName="Rangering"
+            pageName="Drivstoff"
             routeName="FuelRefill"
           />
           <Connect(MenuBox)
@@ -371,7 +344,16 @@ ShallowWrapper {
                 "process": [Function],
               }
             }
-            pageName="Ditt team"
+            pageName="Placeholder"
+            routeName="Profile"
+          />
+          <Connect(MenuBox)
+            image={
+              Object {
+                "process": [Function],
+              }
+            }
+            pageName="Din bil"
             routeName="RegisterCar"
           />
           <Connect(MenuBox)
@@ -380,7 +362,25 @@ ShallowWrapper {
                 "process": [Function],
               }
             }
-            pageName="Sparing"
+            pageName="Placeholder"
+            routeName="Profile"
+          />
+          <Connect(MenuBox)
+            image={
+              Object {
+                "process": [Function],
+              }
+            }
+            pageName="Placeholder"
+            routeName="Profile"
+          />
+          <Connect(MenuBox)
+            image={
+              Object {
+                "process": [Function],
+              }
+            }
+            pageName="Placeholder"
             routeName="Profile"
           />
         </View>,
@@ -782,34 +782,7 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              pageName="Bensin"
-              routeName="FuelDay"
-            />,
-            <Connect(MenuBox)
-              image={
-                Object {
-                  "process": [Function],
-                }
-              }
-              pageName="Kjørebok"
-              routeName="Profile"
-            />,
-            <Connect(MenuBox)
-              image={
-                Object {
-                  "process": [Function],
-                }
-              }
-              pageName="Skade"
-              routeName="RegisterCar"
-            />,
-            <Connect(MenuBox)
-              image={
-                Object {
-                  "process": [Function],
-                }
-              }
-              pageName="Rangering"
+              pageName="Drivstoff"
               routeName="FuelRefill"
             />,
             <Connect(MenuBox)
@@ -818,7 +791,16 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              pageName="Ditt team"
+              pageName="Placeholder"
+              routeName="Profile"
+            />,
+            <Connect(MenuBox)
+              image={
+                Object {
+                  "process": [Function],
+                }
+              }
+              pageName="Din bil"
               routeName="RegisterCar"
             />,
             <Connect(MenuBox)
@@ -827,7 +809,25 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              pageName="Sparing"
+              pageName="Placeholder"
+              routeName="Profile"
+            />,
+            <Connect(MenuBox)
+              image={
+                Object {
+                  "process": [Function],
+                }
+              }
+              pageName="Placeholder"
+              routeName="Profile"
+            />,
+            <Connect(MenuBox)
+              image={
+                Object {
+                  "process": [Function],
+                }
+              }
+              pageName="Placeholder"
               routeName="Profile"
             />,
           ],
@@ -851,8 +851,8 @@ ShallowWrapper {
               "image": Object {
                 "process": [Function],
               },
-              "pageName": "Bensin",
-              "routeName": "FuelDay",
+              "pageName": "Drivstoff",
+              "routeName": "FuelRefill",
             },
             "ref": null,
             "rendered": null,
@@ -866,7 +866,7 @@ ShallowWrapper {
               "image": Object {
                 "process": [Function],
               },
-              "pageName": "Kjørebok",
+              "pageName": "Placeholder",
               "routeName": "Profile",
             },
             "ref": null,
@@ -881,7 +881,7 @@ ShallowWrapper {
               "image": Object {
                 "process": [Function],
               },
-              "pageName": "Skade",
+              "pageName": "Din bil",
               "routeName": "RegisterCar",
             },
             "ref": null,
@@ -896,8 +896,8 @@ ShallowWrapper {
               "image": Object {
                 "process": [Function],
               },
-              "pageName": "Rangering",
-              "routeName": "FuelRefill",
+              "pageName": "Placeholder",
+              "routeName": "Profile",
             },
             "ref": null,
             "rendered": null,
@@ -911,8 +911,8 @@ ShallowWrapper {
               "image": Object {
                 "process": [Function],
               },
-              "pageName": "Ditt team",
-              "routeName": "RegisterCar",
+              "pageName": "Placeholder",
+              "routeName": "Profile",
             },
             "ref": null,
             "rendered": null,
@@ -926,7 +926,7 @@ ShallowWrapper {
               "image": Object {
                 "process": [Function],
               },
-              "pageName": "Sparing",
+              "pageName": "Placeholder",
               "routeName": "Profile",
             },
             "ref": null,
@@ -1076,34 +1076,7 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              pageName="Bensin"
-              routeName="FuelDay"
-            />
-            <Connect(MenuBox)
-              image={
-                Object {
-                  "process": [Function],
-                }
-              }
-              pageName="Kjørebok"
-              routeName="Profile"
-            />
-            <Connect(MenuBox)
-              image={
-                Object {
-                  "process": [Function],
-                }
-              }
-              pageName="Skade"
-              routeName="RegisterCar"
-            />
-            <Connect(MenuBox)
-              image={
-                Object {
-                  "process": [Function],
-                }
-              }
-              pageName="Rangering"
+              pageName="Drivstoff"
               routeName="FuelRefill"
             />
             <Connect(MenuBox)
@@ -1112,7 +1085,16 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              pageName="Ditt team"
+              pageName="Placeholder"
+              routeName="Profile"
+            />
+            <Connect(MenuBox)
+              image={
+                Object {
+                  "process": [Function],
+                }
+              }
+              pageName="Din bil"
               routeName="RegisterCar"
             />
             <Connect(MenuBox)
@@ -1121,7 +1103,25 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              pageName="Sparing"
+              pageName="Placeholder"
+              routeName="Profile"
+            />
+            <Connect(MenuBox)
+              image={
+                Object {
+                  "process": [Function],
+                }
+              }
+              pageName="Placeholder"
+              routeName="Profile"
+            />
+            <Connect(MenuBox)
+              image={
+                Object {
+                  "process": [Function],
+                }
+              }
+              pageName="Placeholder"
               routeName="Profile"
             />
           </View>,
@@ -1523,34 +1523,7 @@ ShallowWrapper {
                     "process": [Function],
                   }
                 }
-                pageName="Bensin"
-                routeName="FuelDay"
-              />,
-              <Connect(MenuBox)
-                image={
-                  Object {
-                    "process": [Function],
-                  }
-                }
-                pageName="Kjørebok"
-                routeName="Profile"
-              />,
-              <Connect(MenuBox)
-                image={
-                  Object {
-                    "process": [Function],
-                  }
-                }
-                pageName="Skade"
-                routeName="RegisterCar"
-              />,
-              <Connect(MenuBox)
-                image={
-                  Object {
-                    "process": [Function],
-                  }
-                }
-                pageName="Rangering"
+                pageName="Drivstoff"
                 routeName="FuelRefill"
               />,
               <Connect(MenuBox)
@@ -1559,7 +1532,16 @@ ShallowWrapper {
                     "process": [Function],
                   }
                 }
-                pageName="Ditt team"
+                pageName="Placeholder"
+                routeName="Profile"
+              />,
+              <Connect(MenuBox)
+                image={
+                  Object {
+                    "process": [Function],
+                  }
+                }
+                pageName="Din bil"
                 routeName="RegisterCar"
               />,
               <Connect(MenuBox)
@@ -1568,7 +1550,25 @@ ShallowWrapper {
                     "process": [Function],
                   }
                 }
-                pageName="Sparing"
+                pageName="Placeholder"
+                routeName="Profile"
+              />,
+              <Connect(MenuBox)
+                image={
+                  Object {
+                    "process": [Function],
+                  }
+                }
+                pageName="Placeholder"
+                routeName="Profile"
+              />,
+              <Connect(MenuBox)
+                image={
+                  Object {
+                    "process": [Function],
+                  }
+                }
+                pageName="Placeholder"
                 routeName="Profile"
               />,
             ],
@@ -1592,8 +1592,8 @@ ShallowWrapper {
                 "image": Object {
                   "process": [Function],
                 },
-                "pageName": "Bensin",
-                "routeName": "FuelDay",
+                "pageName": "Drivstoff",
+                "routeName": "FuelRefill",
               },
               "ref": null,
               "rendered": null,
@@ -1607,7 +1607,7 @@ ShallowWrapper {
                 "image": Object {
                   "process": [Function],
                 },
-                "pageName": "Kjørebok",
+                "pageName": "Placeholder",
                 "routeName": "Profile",
               },
               "ref": null,
@@ -1622,7 +1622,7 @@ ShallowWrapper {
                 "image": Object {
                   "process": [Function],
                 },
-                "pageName": "Skade",
+                "pageName": "Din bil",
                 "routeName": "RegisterCar",
               },
               "ref": null,
@@ -1637,8 +1637,8 @@ ShallowWrapper {
                 "image": Object {
                   "process": [Function],
                 },
-                "pageName": "Rangering",
-                "routeName": "FuelRefill",
+                "pageName": "Placeholder",
+                "routeName": "Profile",
               },
               "ref": null,
               "rendered": null,
@@ -1652,8 +1652,8 @@ ShallowWrapper {
                 "image": Object {
                   "process": [Function],
                 },
-                "pageName": "Ditt team",
-                "routeName": "RegisterCar",
+                "pageName": "Placeholder",
+                "routeName": "Profile",
               },
               "ref": null,
               "rendered": null,
@@ -1667,7 +1667,7 @@ ShallowWrapper {
                 "image": Object {
                   "process": [Function],
                 },
-                "pageName": "Sparing",
+                "pageName": "Placeholder",
                 "routeName": "Profile",
               },
               "ref": null,

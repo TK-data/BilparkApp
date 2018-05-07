@@ -4,14 +4,22 @@ const axios = require('axios');
 
 export const POST_FUELDAY_REQUEST = 'POST_FUELDAY_REQUEST';
 export const POST_FUELDAY_FAILURE = 'POST_FUELDAY_FAILURE';
-export const SHOW_MODAL = 'SHOW_MODAL';
+export const SHOW_FUELDAY_MODAL = 'SHOW_FUELDAY_MODAL';
+export const SHOW_FUELREFILL_MODAL = 'SHOW_FUELREFILL_MODAL';
 export const HIDE_MODAL = 'HIDE_MODAL';
 
-export function showModal() {
+export function showFuelDayModal() {
   return {
-    type: SHOW_MODAL,
+    type: SHOW_FUELDAY_MODAL,
   };
 }
+
+export function showFuelRefillModal() {
+  return {
+    type: SHOW_FUELREFILL_MODAL,
+  };
+}
+
 export function hideModal() {
   return {
     type: HIDE_MODAL,

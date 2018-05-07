@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity, TextInput } from 'react-nativ
 import { Button } from 'native-base';
 import { connect } from 'react-redux';
 import Timepicker from 'react-native-modal-datetime-picker';
-import { showModal, hideModal } from '../../actions/fuelDay';
+import { showFuelRefillModal, hideModal } from '../../actions/fuelDay';
 import { setDate, setRate, setPrice, reset } from '../../actions/fuelRefillForm';
 
 import { postFuelRefill } from '../../actions/fuelRefill';
@@ -133,7 +133,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(hideModal());
     },
     resetInput: () => { dispatch(reset()); },
-    showModal: () => dispatch(showModal()),
+    showModal: () => dispatch(showFuelRefillModal()),
     hideModal: () => dispatch(hideModal()),
   };
 };
@@ -143,7 +143,7 @@ const mapStateToProps = (state) => {
     date: state.fuelRefillForm.date,
     rate: state.fuelRefillForm.rate,
     price: state.fuelRefillForm.price,
-    isShowing: state.modals.isShowing,
+    isShowing: state.modals.fuelRefill,
   };
 };
 
