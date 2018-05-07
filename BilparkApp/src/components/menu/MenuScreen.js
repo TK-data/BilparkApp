@@ -4,6 +4,7 @@ import Swiper from 'react-native-swiper';
 import { Body } from 'native-base';
 import ProfileButton from './ProfileButton';
 import MenuBox from './MenuBox';
+import Slide1 from './Slide1';
 
 const images = [
   {
@@ -66,12 +67,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: window.height / 20,
   },
-  slide1: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgb(000, 039, 118)',
-  },
   slide2: {
     flex: 1,
     justifyContent: 'center',
@@ -100,9 +95,7 @@ class MenuScreen extends Component {
       <View style={styles.menuContainer}>
         <View style={styles.infoGraphics}>
           <Swiper style={styles.wrapper} dotColor="lightgrey" activeDotColor="white">
-            <View style={styles.slide1}>
-              <Text style={styles.buzzWord}>Test 1</Text>
-            </View>
+            <Slide1 />
             <View style={styles.slide2}>
               <Text style={styles.buzzWord}>Test 2</Text>
             </View>
