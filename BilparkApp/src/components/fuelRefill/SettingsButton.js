@@ -8,7 +8,7 @@ const SettingsButton = ({ navigate }) => {
   return (
     <Content>
       <Button onPress={navigate}>
-        <Icon name="settings" color="#fff" />
+        <Icon name="notifications" color="#fff" />
       </Button>
     </Content>
   );
