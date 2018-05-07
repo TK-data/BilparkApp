@@ -34,7 +34,7 @@ describe('actions', () => {
   });
 
   it('should create the correct action when calling postUserSuccess', () => {
-    const data = {
+    const userData = {
       Email: 'aaaa@a.com',
       Fname: 'er',
       Lname: 'ling',
@@ -43,11 +43,17 @@ describe('actions', () => {
       UserID: 4,
       FuelDay: 5,
     };
+    const carData = {
+      CarID: 123,
+    };
+
+    const data = { user: userData, car: carData };
 
     const expectedAction = {
-      type: 'POST_USER_SUCCESS',
       isLoggedIn: true,
-      user: data,
+      user: userData,
+      car: carData,
+      type: 'POST_USER_SUCCESS',
     };
 
     expect(postUserSuccess(data)).toEqual(expectedAction);
@@ -112,13 +118,18 @@ describe('async actions', () => {
     axiosMock = new MockAdapter(axios);
   });
   const mockResponseUser = {
-    Email: 'aaaa@a.com',
-    Fname: 'er',
-    Lname: 'ling',
-    Address: 'krok 80',
-    FuelNotification: true,
-    UserID: 4,
-    FuelDay: 5,
+    user: {
+      Email: 'aaaa@a.com',
+      Fname: 'er',
+      Lname: 'ling',
+      Address: 'krok 80',
+      FuelNotification: true,
+      UserID: 4,
+      FuelDay: 5,
+    },
+    car: {
+      CarID: 123,
+    },
   };
   // first test, checks the actions added after running a successfull postUser
   it('should set the correct actions when calling the async login function', () => {
@@ -143,7 +154,8 @@ describe('async actions', () => {
       {
         type: 'POST_USER_SUCCESS',
         isLoggedIn: true,
-        user: mockResponseUser,
+        user: mockResponseUser.user,
+        car: mockResponseUser.car,
       },
       { mail: {},
         type: 'LOGIN_MAIL' },
@@ -187,7 +199,8 @@ describe('async actions', () => {
       {
         type: 'POST_USER_SUCCESS',
         isLoggedIn: true,
-        user: mockResponseUser,
+        user: mockResponseUser.user,
+        car: mockResponseUser.car,
       },
       {
         type: 'LOGIN_SUCCESS',
@@ -221,6 +234,9 @@ describe('async actions', () => {
         type: 'POST_USER_REQUEST',
         isLoading: false,
         isLoggedIn: false,
+      },
+      {
+        type: 'RESET_GET_CAR',
       },
       {
         type: 'LOGOUT_SUCCESS',
