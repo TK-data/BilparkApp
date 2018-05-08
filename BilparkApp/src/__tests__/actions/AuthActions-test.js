@@ -157,6 +157,10 @@ describe('async actions', () => {
         user: mockResponseUser.user,
         car: mockResponseUser.car,
       },
+      {
+        type: 'REGISTER_USER_VALUES',
+        values: {},
+      },
       { mail: {},
         type: 'LOGIN_MAIL' },
       {
