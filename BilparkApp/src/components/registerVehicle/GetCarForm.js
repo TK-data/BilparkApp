@@ -25,6 +25,17 @@ class GetCarForm extends Component {
           <Text style={styles.text}>Registreringsår: {car.RegYear}</Text>
         </View>
       );
+    } else if (this.props.isAccepted) {
+      const car = JSON.parse(this.props.carFetched);
+      main = (
+        <View>
+          <H2 style={styles.header}>DIN BIL:</H2>
+          <Text style={styles.text}>Regnr: {car.RegNr}</Text>
+          <Text style={styles.text}>Merke: {car.Brand}</Text>
+          <Text style={styles.text}>Modell: {car.Model}</Text>
+          <Text style={styles.text}>Registreringsår: {car.RegYear}</Text>
+        </View>
+      );
     } else if (this.props.isLoading) {
       main = (
         <View>
@@ -62,7 +73,7 @@ class GetCarForm extends Component {
               bordered
               light
               onPress={() => {
-                this.props.acceptCar(this.props.car);
+                this.props.acceptCar(this.props.carFetched);
               }}
               style={styles.button}
             >
