@@ -60,6 +60,8 @@ module.exports = {
 };
 
 function formatCarObject(car) {
+  const insurance = Object.keys(car['forrSelskapnavn']).length === 0 && car['forrSelskapnavn'].constructor === Object ? null : car['forrSelskapnavn'];
+
   const object = {
     RegNr: car['kjennemerke'],
     Cas: car['understellsnr'],
@@ -73,7 +75,7 @@ function formatCarObject(car) {
     FuelConsumption: null,
     ParticleEmmision: null,
     NextVI: null,
-    InsuranceCompany: car['forrSelskapnavn'],
+    InsuranceCompany: insurance,
   };
 
   return object;
