@@ -9,7 +9,8 @@ module.exports = {
 
   attributes: {
     UserID: {
-      typ: 'integer',
+      type: 'integer',
+      required: true,
       unique: true,
       primaryKey: true,
     },

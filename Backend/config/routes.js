@@ -38,5 +38,7 @@ module.exports.routes = {
   'POST /api/car/save': 'CarController.save',
   'GET /api/fuelrefill/getall': 'FuelRefillController.getAll',
   'POST /api/fuelrefill/register': 'FuelRefillController.register',
-  'POST /api/fuelrefill/remove': 'FuelRefillController.remove'
+  'POST /api/fuelrefill/remove': 'FuelRefillController.remove',
+  'POST /api/admin/login': 'AdminController.login',
+
 };

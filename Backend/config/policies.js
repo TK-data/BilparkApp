@@ -52,10 +52,10 @@ module.exports.policies = {
 	UserController: {
 		'*': false,
 		create: true,
-		find: false,
-		findOne: false,
-		destroy: false,
-		populate: false,
+		find: 'adminAuth',
+		findOne: 'adminAuth',
+		destroy: 'adminAuth',
+		populate: 'adminAuth',
 		login: true,
 		logout: true,
 		current: true,
@@ -71,8 +71,17 @@ module.exports.policies = {
 		getAll: 'sessionAuth',
 		remove: 'sessionAuth',
 	},
+	CarController: {
+		'*': false,
+		save: 'sessionAuth',
+		find: 'adminAuth',
+		findOne: 'adminAuth',
+		destroy: 'adminAuth',
+		populate: 'adminAuth',
+	},
   AdminController: {
     '*': false,
 		create: 'adminAuth',
+		login: true,
 	},
 };
