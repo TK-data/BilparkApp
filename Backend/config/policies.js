@@ -83,5 +83,6 @@ module.exports.policies = {
     '*': false,
 		create: 'adminAuth',
 		login: true,
+		logout: true,
 	},
 };

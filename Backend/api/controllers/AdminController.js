@@ -49,4 +49,11 @@ module.exports = {
     });
   },
 
+  logout: function(req, res) {
+    req.session.UserID = null;
+    req.session.authenticated = false;
+    req.session.adminAuthenticated = false;
+    return res.ok('Logged out');
+  },
+
 };
