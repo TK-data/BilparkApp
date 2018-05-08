@@ -2,7 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { carFetchFailure, carFetchSuccess, carFetchLoading, carDeclined, carFormValue,
   carAccepted, getCar, acceptCar, GET_CAR_FAILURE, GET_CAR_REQUEST, GET_CAR_FORM_VALUE,
-  GET_CAR_SUCCESS, GET_CAR_ACCEPT, GET_CAR_DECLINE, GET_CAR_SAVE_FAILURE }
+  GET_CAR_SUCCESS, GET_CAR_ACCEPT, GET_CAR_DECLINE, GET_CAR_SAVE_FAILURE, UPDATE_CAR }
   from '../../actions/registerCar';
 
 const axios = require('axios');
@@ -156,6 +156,10 @@ describe('Get car async actions', () => {
       {
         type: GET_CAR_ACCEPT,
         isAccepted: true,
+      },
+      {
+        type: UPDATE_CAR,
+        car: {},
       },
     ];
 

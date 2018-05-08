@@ -11,6 +11,7 @@ export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGIN_MAIL = 'LOGIN_MAIL';
 export const LOGIN_ERROR_FORM_OPTIONS = 'LOGIN_ERROR_FORM_OPTIONS';
 export const LOGIN_RESET_FORM_OPTIONS = 'LOGIN_RESET_FORM_OPTIONS';
+export const RESET_GET_CAR = 'RESET_GET_CAR';
 
 export function postUserFailure(bool) {
   return {
@@ -26,11 +27,12 @@ export function postUserLoading(bool) {
     isLoggedIn: false,
   };
 }
-export function postUserSuccess(user) {
+export function postUserSuccess(object) {
   return {
     type: 'POST_USER_SUCCESS',
     isLoggedIn: true,
-    user,
+    user: object.user,
+    car: object.car,
   };
 }
 
@@ -63,6 +65,12 @@ export function loginErrorFormOptions() {
 export function loginResetFormOptions() {
   return {
     type: 'LOGIN_RESET_FORM_OPTIONS',
+  };
+}
+
+export function resetGetCar() {
+  return {
+    type: RESET_GET_CAR,
   };
 }
 
@@ -123,6 +131,7 @@ export function logout() {
     return axios.get(API_ADDRESS + '/api/user/logout')
       .then(() => {
         dispatch(postUserLoading(false));
+        dispatch(resetGetCar());
         dispatch(logoutSuccess(true));
       })
       .catch(() => dispatch(logoutSuccess(false)));

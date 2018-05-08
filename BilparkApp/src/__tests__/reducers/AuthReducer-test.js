@@ -58,13 +58,18 @@ describe('auth reducer', () => {
       UserID: 3,
       FuelDay: 0,
     };
+    const mockCar = {
+      CarID: '123',
+    };
     expect(reducer([], {
       type: POST_USER_SUCCESS,
       isLoggedIn: true,
       user: mockUser,
+      car: mockCar,
     })).toEqual({
       isLoggedIn: true,
-      user: mockUser,
+      user: JSON.stringify(mockUser),
+      car: JSON.stringify(mockCar),
     });
   });
 });

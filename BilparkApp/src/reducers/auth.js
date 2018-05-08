@@ -1,4 +1,5 @@
 import { POST_USER_FAILURE, LOGOUT_SUCCESS, POST_USER_REQUEST, POST_USER_SUCCESS } from '../actions/auth';
+import { UPDATE_CAR } from '../actions/registerCar';
 
 // Skal currentUser kjøres her først? Usikker på hvor ofte initialAuthState kjøres.
 // Om det bare er start eller hver gang noe kalles.
@@ -22,10 +23,19 @@ function auth(state = initialAuthState, action) {
   case POST_USER_SUCCESS:
     return {
       isLoggedIn: action.isLoggedIn,
-      user: action.user,
+      user: JSON.stringify(action.user),
+      car: JSON.stringify(action.car),
+    };
+  case UPDATE_CAR:
+    return {
+      isLoggedIn: true,
+      user: state.user,
+      car: action.car,
     };
   case LOGOUT_SUCCESS:
-    return { isLoggedIn: action.isLoggedIn };
+    return {
+      isLoggedIn: action.isLoggedIn,
+    };
   default:
     return state;
   }
