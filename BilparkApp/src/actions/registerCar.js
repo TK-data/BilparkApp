@@ -9,6 +9,7 @@ export const GET_CAR_DECLINE = 'GET_CAR_DECLINE';
 export const GET_CAR_ACCEPT = 'GET_CAR_ACCEPT';
 export const GET_CAR_SAVE_FAILURE = 'GET_CAR_SAVE_FAILURE';
 export const GET_CAR_FORM_VALUE = 'GET_CAR_FORM_VALUE';
+export const UPDATE_CAR = 'UPDATE_CAR';
 
 export function carFetchFailure(message) {
   return {
@@ -55,6 +56,13 @@ export function carFormValue(value) {
   };
 }
 
+export function updateCar(car) {
+  return {
+    type: UPDATE_CAR,
+    car,
+  };
+}
+
 export function getCar(nr) {
   return (dispatch) => {
     dispatch(carFetchLoading(true));
@@ -96,6 +104,7 @@ export function acceptCar(car) {
           dispatch(carSaveFailure('Noe gikk galt når bilen skulle lagres! Prøv igjen.'));
         }
         dispatch(carAccepted(true));
+        dispatch(updateCar(car));
       })
       .catch(() => {
         dispatch(carSaveFailure('Noe gikk galt når bilen skulle lagres! Prøv igjen.'));
