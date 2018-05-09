@@ -40,12 +40,15 @@ const styles = StyleSheet.create({
 class Slide1 extends Component {
   render() {
 
-    if (typeof (this.props.user) === 'undefined' || typeof (this.props.car) === 'undefined') {
-      return <View style={styles.slide1} />;
+    if (typeof (this.props.user) === 'undefined') {
+      return (
+        <View style={styles.slide1}>
+          <Text>Du må logge inn og ut</Text>
+        </View>
+      );
     }
 
     const user = JSON.parse(this.props.user);
-    const car = JSON.parse(this.props.car);
 
     let content = (
       <View>
@@ -61,15 +64,20 @@ class Slide1 extends Component {
       </View>
     );
 
-    if (car) {
-      content = (
-        <View style={styles.carDiv}>
-          <Text style={styles.carHeader}>Din bil:</Text>
-          <Text style={styles.text}>{car.Brand} {car.Model}</Text>
-          <Text style={styles.text}>Registreringsnummer {car.RegNr}</Text>
-          <Text style={styles.text}>Forsikrigsselskap: {car.InsuranceCompany}</Text>
-        </View>
-      );
+
+    if (typeof (this.props.car) !== 'undefined') {
+      const car = JSON.parse(this.props.car);
+
+      if (car) {
+        content = (
+          <View style={styles.carDiv}>
+            <Text style={styles.carHeader}>Din bil:</Text>
+            <Text style={styles.text}>{car.Brand} {car.Model}</Text>
+            <Text style={styles.text}>Registreringsnummer {car.RegNr}</Text>
+            <Text style={styles.text}>Forsikrigsselskap: {car.InsuranceCompany}</Text>
+          </View>
+        );
+      }
     }
 
     return (
