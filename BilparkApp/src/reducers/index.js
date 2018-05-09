@@ -7,6 +7,7 @@ import { carFetch, carForm } from './registerCar';
 import modals from './modals';
 import fuelRefill from './fuelRefill';
 import fuelRefillForm from './fuelRefillForm';
+import registerCompany from './registerCompany';
 import { registerUserModalVisible, registerUserModalTransparent, options, values } from './registerUser';
 
 const AppReducer = combineReducers({
@@ -24,6 +25,7 @@ const AppReducer = combineReducers({
   fuelRefill,
   fuelRefillForm,
   modals,
+  registerCompany,
 });
 
 export default AppReducer;
