@@ -240,9 +240,6 @@ describe('async actions', () => {
         isLoggedIn: false,
       },
       {
-        type: 'RESET_GET_CAR',
-      },
-      {
         type: 'USER_LOGOUT',
       },
       {

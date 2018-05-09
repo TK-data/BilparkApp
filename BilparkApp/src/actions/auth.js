@@ -138,7 +138,7 @@ export function logout() {
     return axios.get(API_ADDRESS + '/api/user/logout')
       .then(() => {
         dispatch(postUserLoading(false));
-        dispatch(resetGetCar());
+        //dispatch(resetGetCar());
         dispatch(logoutLocal());
         dispatch(logoutSuccess(true));
       })
