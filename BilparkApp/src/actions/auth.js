@@ -12,6 +12,7 @@ export const LOGIN_MAIL = 'LOGIN_MAIL';
 export const LOGIN_ERROR_FORM_OPTIONS = 'LOGIN_ERROR_FORM_OPTIONS';
 export const LOGIN_RESET_FORM_OPTIONS = 'LOGIN_RESET_FORM_OPTIONS';
 export const RESET_GET_CAR = 'RESET_GET_CAR';
+export const USER_LOGOUT = 'USER_LOGOUT';
 
 export function postUserFailure(bool) {
   return {
@@ -74,6 +75,12 @@ export function resetGetCar() {
   };
 }
 
+export function logoutLocal() {
+  return {
+    type: USER_LOGOUT,
+  };
+}
+
 export function postUser(username, password) {
   return (dispatch) => {
     dispatch(postUserLoading(true));
@@ -132,6 +139,7 @@ export function logout() {
       .then(() => {
         dispatch(postUserLoading(false));
         dispatch(resetGetCar());
+        dispatch(logoutLocal());
         dispatch(logoutSuccess(true));
       })
       .catch(() => dispatch(logoutSuccess(false)));
