@@ -87,6 +87,7 @@ module.exports.policies = {
   },
   CompanyController: {
     '*': false,
+    find: 'sessionAuth',
     save: 'sessionAuth',
   },
 };
