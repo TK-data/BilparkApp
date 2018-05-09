@@ -98,4 +98,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(Slide1);
-
