@@ -9,7 +9,7 @@ import fuelRefill from './fuelRefill';
 import fuelRefillForm from './fuelRefillForm';
 import { registerUserModalVisible, registerUserModalTransparent, options, values } from './registerUser';
 
-const AppReducer = combineReducers({
+const RootReducer = combineReducers({
   nav,
   auth,
   loginMail,
@@ -25,5 +25,14 @@ const AppReducer = combineReducers({
   fuelRefillForm,
   modals,
 });
+
+const AppReducer = (state, action) => {
+  let nState = state;
+  if (action.type === 'USER_LOGOUT') {
+    nState = undefined;
+  }
+
+  return RootReducer(nState, action);
+};
 
 export default AppReducer;
