@@ -15,7 +15,7 @@ const images = [
   {
     image: require('../../images/menuIcons/clipboard.png'),
     routeName: 'DamageReport',
-    pageName: 'Skaderegistrering',
+    pageName: 'Skade',
   },
   {
     image: require('../../images/menuIcons/car_repair.png'),

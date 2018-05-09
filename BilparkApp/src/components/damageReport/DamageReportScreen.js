@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text } from 'native-base';
 
+import DamageReportForm from './DamageReportForm';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -9,11 +11,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#002776',
   },
+  text: {
+    color: 'white',
+  },
 });
 
 const DamageReportScreen = () => (
   <View style={styles.container}>
-    <Text>This is the DamageReportScreen</Text>
+    <Text style={styles.text}>Registrer skader på ditt kjøretøy her</Text>
+    <DamageReportForm />
   </View>
 );
 
