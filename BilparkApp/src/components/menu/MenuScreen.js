@@ -14,7 +14,7 @@ const images = [
   },
   {
     image: require('../../images/menuIcons/clipboard.png'),
-    routeName: 'DamageRegister',
+    routeName: 'DamageReport',
     pageName: 'Skaderegistrering',
   },
   {
