@@ -6,7 +6,7 @@ import CompanyPicker from './CompanyPicker';
 const styles = StyleSheet.create({
 });
 
-const ChooseCompanyScreen = () => (
+const RegisterCompanyScreen = () => (
   <View>
     <View>
       <Text> Velg tilhørighet </Text>
@@ -17,8 +17,8 @@ const ChooseCompanyScreen = () => (
   </View>
 );
 
-ChooseCompanyScreen.navigationOptions = {
+RegisterCompanyScreen.navigationOptions = {
   title: 'Selskap',
 };
 
-export default ChooseCompanyScreen;
+export default RegisterCompanyScreen;

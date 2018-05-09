@@ -29,8 +29,8 @@ const images = [
   },
   {
     image: require('../../images/menuIcons/team_people.png'),
-    routeName: 'Profile',
-    pageName: 'Placeholder',
+    routeName: 'RegisterCompany',
+    pageName: 'Company',
 
   },
   {

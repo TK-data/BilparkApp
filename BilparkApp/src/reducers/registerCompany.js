@@ -8,7 +8,7 @@ export const initialCompanySaveState = {
   companies: {},
 };
 
-export function saveCompany(state = initialCompanySaveState, action) {
+export function registerCompany(state = initialCompanySaveState, action) {
   switch (action.type) {
   case REGISTER_COMPANY_REQUEST:
     return {
