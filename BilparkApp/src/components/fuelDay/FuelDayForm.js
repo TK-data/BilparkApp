@@ -68,7 +68,13 @@ class FuelDayForm extends Component {
   };
 
   render() {
-    const { hideModal, showModal, isShowing, user } = this.props;
+    const { hideModal, showModal, isShowing } = this.props;
+    let user = {};
+    if (typeof this.props.user === 'string') {
+      user = JSON.parse(this.props.user);
+    } else {
+      user = this.props.user;
+    }
     const Days = t.enums({
       0: 'Mandag',
       1: 'Tirsdag',
