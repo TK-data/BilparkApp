@@ -85,4 +85,8 @@ module.exports.policies = {
     login: true,
     logout: true,
   },
+  CompanyController: {
+    '*': false,
+    save: 'sessionAuth',
+  },
 };
