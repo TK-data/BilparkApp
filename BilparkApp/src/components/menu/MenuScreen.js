@@ -14,8 +14,8 @@ const images = [
   },
   {
     image: require('../../images/menuIcons/clipboard.png'),
-    routeName: 'Profile',
-    pageName: 'Placeholder',
+    routeName: 'DamageRegister',
+    pageName: 'Skaderegistrering',
   },
   {
     image: require('../../images/menuIcons/car_repair.png'),
