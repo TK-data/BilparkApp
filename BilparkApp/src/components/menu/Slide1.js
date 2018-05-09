@@ -39,8 +39,10 @@ const styles = StyleSheet.create({
 
 class Slide1 extends Component {
   render() {
+    console.log('trigger');
 
     if (typeof (this.props.user) === 'undefined' || typeof (this.props.car) === 'undefined') {
+      console.log('nulled');
       return <View style={styles.slide1} />;
     }
 
@@ -98,4 +100,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(Slide1);
-
