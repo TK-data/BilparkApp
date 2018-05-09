@@ -41,7 +41,7 @@ class Slide1 extends Component {
   render() {
 
     if (typeof (this.props.user) === 'undefined' || typeof (this.props.car) === 'undefined') {
-      return <View />;
+      return <View style={styles.slide1} />;
     }
 
     const user = JSON.parse(this.props.user);
