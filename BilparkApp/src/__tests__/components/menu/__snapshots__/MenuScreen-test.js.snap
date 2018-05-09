@@ -126,8 +126,8 @@ ShallowWrapper {
             "process": [Function],
           }
         }
-        pageName="Placeholder"
-        routeName="Profile"
+        pageName="Skade"
+        routeName="DamageReport"
       />
       <Connect(MenuBox)
         image={
@@ -294,8 +294,8 @@ ShallowWrapper {
                 "process": [Function],
               }
             }
-            pageName="Placeholder"
-            routeName="Profile"
+            pageName="Skade"
+            routeName="DamageReport"
           />
           <Connect(MenuBox)
             image={
@@ -650,8 +650,8 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              pageName="Placeholder"
-              routeName="Profile"
+              pageName="Skade"
+              routeName="DamageReport"
             />,
             <Connect(MenuBox)
               image={
@@ -725,8 +725,8 @@ ShallowWrapper {
               "image": Object {
                 "process": [Function],
               },
-              "pageName": "Placeholder",
-              "routeName": "Profile",
+              "pageName": "Skade",
+              "routeName": "DamageReport",
             },
             "ref": null,
             "rendered": null,
@@ -919,8 +919,8 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              pageName="Placeholder"
-              routeName="Profile"
+              pageName="Skade"
+              routeName="DamageReport"
             />
             <Connect(MenuBox)
               image={
@@ -1275,8 +1275,8 @@ ShallowWrapper {
                     "process": [Function],
                   }
                 }
-                pageName="Placeholder"
-                routeName="Profile"
+                pageName="Skade"
+                routeName="DamageReport"
               />,
               <Connect(MenuBox)
                 image={
@@ -1350,8 +1350,8 @@ ShallowWrapper {
                 "image": Object {
                   "process": [Function],
                 },
-                "pageName": "Placeholder",
-                "routeName": "Profile",
+                "pageName": "Skade",
+                "routeName": "DamageReport",
               },
               "ref": null,
               "rendered": null,
