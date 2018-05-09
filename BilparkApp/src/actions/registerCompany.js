@@ -65,37 +65,42 @@ export const GET_COMPANIES_REQUEST = 'GET_COMPANIES_REQUEST';
 export const GET_COMPANIES_COMPLETE = 'GET_COMPANIES_COMPLETE';
 export const GET_COMPANIES_FAILURE = 'GET_COMPANIES_FAILURE';
 
-export function getCompaniesRequest() {
+export function getCompaniesRequest(isLoading) {
   return {
     type: GET_COMPANIES_REQUEST,
+    isLoading,
   };
 }
 
-export function getCompaniesComplete() {
+export function getCompaniesComplete(companies) {
   return {
     type: GET_COMPANIES_COMPLETE,
+    companies,
   };
 }
 
-export function getCompaniesError() {
+export function getCompaniesError(hasErrored) {
   return {
     type: GET_COMPANIES_FAILURE,
+    hasErrored,
   };
 }
 
 export function getCompanies() {
   return (dispatch) => {
-    dispatch(getCompaniesRequest());
+    dispatch(getCompaniesRequest(true));
+    dispatch(getCompaniesError(false));
 
     return axios.get(API_ADDRESS + '/api/company/find')
       .then((response) => {
+        dispatch(getCompaniesRequest(false));
         if (response.ok) {
-          dispatch(getCompaniesComplete());
+          dispatch(getCompaniesComplete(response.data));
         }
-        dispatch(registerCompanyFailure());
+        dispatch(getCompaniesError(true));
       })
       .catch(() => {
-        dispatch(getCompaniesError());
+        dispatch(getCompaniesError(true));
       });
   };
 }

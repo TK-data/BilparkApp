@@ -1,10 +1,11 @@
-import { REGISTER_COMPANY_REQUEST, REGISTER_COMPANY_COMPLETE, REGISTER_COMPANY_FAILURE } from '../actions/registerCompany';
+import { REGISTER_COMPANY_REQUEST, REGISTER_COMPANY_COMPLETE, REGISTER_COMPANY_FAILURE, GET_COMPANIES_REQUEST, GET_COMPANIES_COMPLETE, GET_COMPANIES_FAILURE } from '../actions/registerCompany';
 
 
 export const initialCompanySaveState = {
   hasErrored: false,
   isLoading: false,
   company: '',
+  companies: {},
 };
 
 export function saveCompany(state = initialCompanySaveState, action) {
@@ -20,6 +21,21 @@ export function saveCompany(state = initialCompanySaveState, action) {
       company: action.company,
     };
   case REGISTER_COMPANY_FAILURE:
+    return {
+      ...state,
+      hasErrored: action.hasErrored,
+    };
+  case GET_COMPANIES_REQUEST:
+    return {
+      ...state,
+      isLoading: action.isLoading,
+    };
+  case GET_COMPANIES_COMPLETE:
+    return {
+      ...state,
+      companies: action.companies,
+    };
+  case GET_COMPANIES_FAILURE:
     return {
       ...state,
       hasErrored: action.hasErrored,
