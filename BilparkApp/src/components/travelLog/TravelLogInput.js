@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet } from 'react-native';
-import { View, Text } from 'native-base';
+import { View, Text, Button } from 'native-base';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { registerUserModalVisible } from '../../actions/registerUser';
+import { travelLogDistance } from '../../actions/travelLog';
 import GooglePlacesInputFrom from './GooglePlacesAutocompleteFrom';
 import GooglePlacesInputTo from './GooglePlacesAutocompleteTo';
 
+const distance = require('../../../node_modules/react-native-google-matrix/index.js');
 
 const styles = StyleSheet.create({
   keyboard: {
@@ -20,45 +21,65 @@ const styles = StyleSheet.create({
 
 class TravelLogInput extends React.Component {
 
-  componentDidMount() {
-    this.props.visibleModal(false);
-  }
-
-  render() {
-    const distance = require('../../../node_modules/react-native-google-matrix/index.js');
-
+  handleSubmit() {
     distance.get(
       {
-        origin: '-7.841879,110.409193',
-        destination: '-7.741194,110.342588',
+        origin: this.props.from,
+        destination: this.props.to,
       },
       (err, data) => {
         if (err) return console.log(err);
-        console.log(data);
+        this.props.saveDistance(data.distance);
       },
     );
+  }
+
+
+  render() {
+
+
     return (
       <View>
         <GooglePlacesInputFrom />
         <GooglePlacesInputTo />
         <View>
           <Text>
-            test
+            {this.props.from}
           </Text>
+          <Text>
+            {this.props.to}
+          </Text>
+          <Text>
+            {this.props.distance}
+          </Text>
+          <Button
+            bordered
+            light
+            onPress={() => {
+              this.handleSubmit();
+            }}
+          >
+            <Text>
+              Click me
+            </Text>
+          </Button>
         </View>
       </View>
     );
   }
 }
 
-const mapStateToProps = () => {
+const mapStateToProps = (state) => {
   return {
+    distance: state.travelLog.distance,
+    from: state.travelLog.positionFrom,
+    to: state.travelLog.positionTo,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    visibleModal: bool => dispatch(registerUserModalVisible(bool)),
+    saveDistance: distanceFromTo => dispatch(travelLogDistance(distanceFromTo)),
   };
 };
 

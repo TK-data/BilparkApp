@@ -1,28 +1,30 @@
-import { SHOW_FUELDAY_MODAL, SHOW_FUELREFILL_MODAL, HIDE_MODAL } from '../actions/fuelDay';
+import { TRAVELLOG_FROM, TRAVELLOG_TO, TRAVELLOG_DISTANCE } from '../actions/travelLog';
 
 const init = {
-  fuelRefill: false,
-  fuelDay: false,
+  positionFrom: '123',
+  positionTo: '456',
+  distance: '21km',
 };
 
-function modals(state = init, action) {
+export default function travelLog(state = init, action) {
   switch (action.type) {
-  case SHOW_FUELDAY_MODAL:
+  case TRAVELLOG_FROM:
     return {
       ...state,
-      fuelDay: true,
+      positionFrom: action.positionFrom,
     };
-  case SHOW_FUELREFILL_MODAL:
+  case TRAVELLOG_TO:
     return {
       ...state,
-      fuelRefill: true,
+      positionTo: action.positionTo,
     };
-  case HIDE_MODAL:
-    return init;
+  case TRAVELLOG_DISTANCE:
+    return {
+      ...state,
+      distance: action.distance,
+    };
   default:
     return state;
   }
 
 }
-
-export default modals;
