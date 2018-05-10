@@ -40,7 +40,7 @@ describe('actions', () => {
       FuelDay: 0,
     };
     const expectedAction = {
-      type: 'POST_USER_SUCCESS',
+      type: 'UPDATE_USER',
       isLoggedIn: true,
       user,
     };
@@ -94,7 +94,7 @@ describe('async actions', () => {
         isLoading: false,
       },
       {
-        type: 'POST_USER_SUCCESS',
+        type: 'UPDATE_USER',
         isLoggedIn: true,
         user: mockResponseUser,
       },

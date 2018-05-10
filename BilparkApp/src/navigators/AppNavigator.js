@@ -13,6 +13,7 @@ import GetCarScreen from '../components/registerVehicle/GetCarScreen';
 import FuelDayScreen from '../components/fuelDay/FuelDayScreen';
 import MenuScreen from '../components/menu/MenuScreen';
 import FuelRefillScreen from '../components/fuelRefill/FuelRefillScreen';
+import DamageReportScreen from '../components/damageReport/DamageReportScreen';
 import RegisterCompanyScreen from '../components/registerCompany/RegisterCompanyScreen';
 import { addListener } from '../utils/redux';
 
@@ -68,6 +69,7 @@ export const AppNavigator = StackNavigator(
     FuelDay: { screen: FuelDayScreen },
     Menu: { screen: MenuScreen },
     FuelRefill: { screen: FuelRefillScreen },
+    DamageReport: { screen: DamageReportScreen },
     RegisterCompany: { screen: RegisterCompanyScreen },
   },
   navigationConfig,
