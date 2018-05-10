@@ -8,20 +8,33 @@ class TravelLogCargoForm extends Component {
 
   onChange(value) {
     this.props.cargoValue(value);
+
   }
 
   render() {
 
     const Cargo = t.struct({
       Cargo: t.Boolean,
+      Comment: t.maybe(t.Str),
     });
 
     const Form = t.form.Form;
 
+    const formStylesheet = JSON.parse(JSON.stringify(t.form.Form.stylesheet));
+
+    formStylesheet.textbox.normal.height = 90;
+
+
     const formOptions = {
+      stylesheet: formStylesheet,
       fields: {
         Cargo: {
-          label: 'Bagasje'
+          label: 'Bagasje',
+        },
+        Comment: {
+          label: 'Kommentar (Valgfritt)',
+          multiline: true,
+          numberOfLines: 3,
         },
       },
     };

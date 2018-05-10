@@ -67,8 +67,8 @@ class TravelLogInput extends React.Component {
             </Text>
           </Button>
         </View>
-        <TravelLogCargoForm />
         <TravelLogPassengerForm />
+        <TravelLogCargoForm />
       </View>
     );
   }
