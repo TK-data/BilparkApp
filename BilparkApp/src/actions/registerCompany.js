@@ -42,9 +42,11 @@ export function saveCompany(CompanyID) {
       CompanyID,
     })
       .then((response) => {
+        dispatch(registerCompanyRequest(false));
         if (!response.ok) {
           dispatch(registerCompanyFailure(true));
         }
+        return response.data;
       })
       .then((company) => {
         dispatch(registerCompanyComplete(company));

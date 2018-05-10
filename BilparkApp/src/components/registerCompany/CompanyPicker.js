@@ -5,13 +5,10 @@ import { connect } from 'react-redux';
 
 import { saveCompany, selectCompany } from '../../actions/registerCompany';
 
-const style = StyleSheet.create({
-})
+const styles = StyleSheet.create({
+});
 
 const CompanyPicker = ({ selectedCompany, changeSelect, postCompany, companies }) => {
-
-  console.log(selectedCompany, typeof selectedCompany)
-
 
   return (
     <View>
@@ -29,6 +26,7 @@ const CompanyPicker = ({ selectedCompany, changeSelect, postCompany, companies }
       <View>
         <Button
           light
+          onPress={() => ((selectedCompany === '') ? null : postCompany(selectedCompany))}
         >
           <Text>
             Send
@@ -41,7 +39,7 @@ const CompanyPicker = ({ selectedCompany, changeSelect, postCompany, companies }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    postCompany: () => null,
+    postCompany: value => dispatch(saveCompany(value)),
     changeSelect: value => dispatch(selectCompany(value)),
   };
 };
