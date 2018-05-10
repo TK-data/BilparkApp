@@ -22,10 +22,7 @@ module.exports = {
       log.UserID = UserID;
       log.CarID = user.CarID;
 
-      console.log(log);
-
       const logItem = await DrivingLog.create(log);
-      console.log(logItem);
 
       if (!logItem) {
         return res.serverError('Could not create log item');
@@ -36,8 +33,30 @@ module.exports = {
     }
   },
 
-  getAll: function(req, res) {},
+  getAll: async function(req, res) {
+    if (req.session.authenticated && req.session.UserID) {
+      // find all user's travel log items
+      const logs = await DrivingLog.find({ UserID: req.session.UserID });
+      if (!logs) {
+        return res.notFound('No logs found for user');
+      }
+
+      return res.json(logs);
+    } else {
+      return res.forbidden('You are not logged in');
+    }
+  },
 
 
-  remove: function(req, res) {}
+  remove: async function(req, res) {
+    if (req.session.authenticated && req.session.UserID) {
+      if (req.body.LogID == undefined) {
+        return res.badRequest('LogID must be included');
+      }
+      const deleted = await DrivingLog.destroy({LogID: req.body.LogID});
+      return res.ok();
+    } else {
+      return res.forbidden('You are not logged in');
+    }
+  }
 };
