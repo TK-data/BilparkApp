@@ -61,8 +61,6 @@ function getType(value) {
 class TravelLogPassengerForm extends Component {
 
   onChange(value) {
-    console.log(this.props.value);
-    console.log(value);
     this.props.formValue(value);
     this.props.formType(getType(value));
   }
@@ -71,16 +69,27 @@ class TravelLogPassengerForm extends Component {
 
     const Form = t.form.Form;
 
-    if (this.props.isLoading) {
-      return <Spinner color="white" />;
-    }
+    const formOptions = {
+      fields: {
+        Passenger: {
+          label: 'Antall passasjerer:',
+          nullOption: { value: '', text: 'Velg antall Passasjerer' },
+
+        },
+        Comment: {
+          label: 'Kommentar (Valgfritt)',
+          multiline: true,
+          numberOfLines: 3,
+        },
+      },
+    };
 
     return (
       <View style={styles.container}>
         <Form
           ref={c => this.form = c}
           type={this.props.type}
-          options={this.props.formOptions}
+          options={formOptions}
           value={this.props.value}
           onChange={value => this.onChange(value)}
         />
@@ -116,6 +125,9 @@ export default connect(
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    alignItems: 'center',
+    marginTop: 10,
   },
   input: {
     height: 37,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet } from 'react-native';
-import { View, Text, Button, CheckBox } from 'native-base';
+import { StyleSheet, Dimensions } from 'react-native';
+import { View, Text, Button } from 'native-base';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import { travelLogDistance, travelLogDatepickerVisible, travelLogSaveDate } from '../../actions/travelLog';
@@ -10,80 +10,95 @@ import GooglePlacesInputTo from './GooglePlacesAutocompleteTo';
 import TravelLogPassengerForm from './TravelLogPassengerForm';
 import TravelLogCargoForm from './TravelLogCargoForm';
 
-const distance = require('../../../node_modules/react-native-google-matrix/index.js');
-
 class TravelLogInput extends React.Component {
 
-  handleSubmit() {
-    distance.get(
-      {
-        origin: this.props.from,
-        destination: this.props.to,
-      },
-      (err, data) => {
-        if (err) return console.log(err);
-        this.props.saveDistance(data.distance);
-      },
-    );
-  }
-
-
   render() {
-
-
     return (
-      <View>
+      <View style={styles.container}>
         <GooglePlacesInputFrom />
         <GooglePlacesInputTo />
         <View>
           <Text style={styles.distance}>
             Distanse: {this.props.distance}
           </Text>
-          <Button
-            bordered
-            light
-            onPress={() => {
-              this.handleSubmit();
-            }}
-          >
-            <Text>
-              Regn ut distanse
+          <View style={styles.dateContainer}>
+            <Text style={styles.date}>
+              Dato:
             </Text>
-          </Button>
-          <DateTimePicker
-            isVisible={this.props.datepickerVisible}
-            onConfirm={data => this.props.saveDatepickerDate((data.getDate() + '.' + (data.getMonth() + 1) + '.' + (data.getFullYear())))}
-            onCancel={() => this.props.datepickerVisibility(false)}
-          />
-          <Button
-            transparent
-            light
-            onPress={() => {
-              this.props.datepickerVisibility(true);
-            }}
-          >
-            <Text>
-              {this.props.datepickerDate}
-            </Text>
-          </Button>
+            <DateTimePicker
+              isVisible={this.props.datepickerVisible}
+              onConfirm={data => this.props.saveDatepickerDate((data.getDate() + '.' + (data.getMonth() + 1) + '.' + (data.getFullYear())))}
+              onCancel={() => this.props.datepickerVisibility(false)}
+            />
+            <Button
+              light
+              onPress={() => {
+                this.props.datepickerVisibility(true);
+              }}
+              style={styles.dateButton}
+            >
+              <Text style={styles.dateButtonText}>
+                {this.props.datepickerDate}
+              </Text>
+            </Button>
+          </View>
         </View>
         <TravelLogPassengerForm />
         <TravelLogCargoForm />
+        <Button
+          bordered
+          light
+          onPress={() => {
+            this.props.datepickerVisibility(true);
+          }}
+          style={styles.saveButton}
+        >
+          <Text>
+            Lagre kjøring
+          </Text>
+        </Button>
       </View>
     );
   }
 }
 
+const width = Dimensions.get('window').width;
+
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
   distance: {
     color: '#fff',
-    textAlign: 'center',
-    fontSize: 20,
-    margin: 5,
+    fontSize: 18,
+    marginLeft: 10,
+    marginTop: 10,
   },
-  logo: {
-    height: 25,
-    width: 112,
+  date: {
+    color: '#fff',
+    fontSize: 18,
+    fontWeight: 'normal',
+    alignSelf: 'center',
+  },
+  dateButtonText: {
+    color: '#000',
+    fontSize: 20,
+    fontWeight: 'normal',
+    textDecorationLine: 'underline',
+  },
+  dateButton: {
+    alignSelf: 'flex-end',
+  },
+  dateContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: (width - 20),
+    alignSelf: 'center',
+  },
+  saveButton: {
+    alignSelf: 'center',
   },
 });
 

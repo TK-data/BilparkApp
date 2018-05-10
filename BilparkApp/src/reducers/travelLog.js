@@ -9,6 +9,7 @@ import {
   TRAVELLOG_FORM_TYPE,
   TRAVELLOG_FORM_VALUE,
   TRAVELLOG_CARGO,
+  TRAVELLOG_CORDINATES,
 } from '../actions/travelLog';
 
 const Passengers = t.enums({
@@ -52,6 +53,11 @@ export default function travelLog(state = init, action) {
     return {
       ...state,
       positionTo: action.positionTo,
+    };
+  case TRAVELLOG_CORDINATES:
+    return {
+      ...state,
+      cordinates: action.cordinates,
     };
   case TRAVELLOG_DISTANCE:
     return {

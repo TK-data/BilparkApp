@@ -29,10 +29,10 @@ class TravelLogCargoForm extends Component {
       stylesheet: formStylesheet,
       fields: {
         Cargo: {
-          label: 'Bagasje',
+          label: 'Bagasje:',
         },
         Comment: {
-          label: 'Kommentar (Valgfritt)',
+          label: 'Kommentar (Valgfritt):',
           multiline: true,
           numberOfLines: 3,
         },
@@ -73,6 +73,8 @@ export default connect(
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    alignItems: 'center',
   },
   input: {
     height: 37,

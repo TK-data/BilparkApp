@@ -1,12 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, Dimensions } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { GOOGLE_API_KEY } from '../../config/connections';
-import { travelLogTo } from '../../actions/travelLog';
+import { travelLogTo, calculateDistance } from '../../actions/travelLog';
+
+const width = Dimensions.get('window').width;
 
 
-const GooglePlacesInputTo = ({ saveTo }) => {
+const GooglePlacesInputTo = ({ saveTo, saveCordinates, from }) => {
   return (
     <GooglePlacesAutocomplete
       placeholder="Adresse til"
@@ -18,6 +20,10 @@ const GooglePlacesInputTo = ({ saveTo }) => {
       renderDescription={row => row.description} // custom description render
       onPress={(data, details = null) => { // 'details' is provided when fetchDetails = true
         saveTo((details.geometry.location.lat + ',' + details.geometry.location.lng));
+        saveCordinates({
+          origin: from,
+          destination: (details.geometry.location.lat + ',' + details.geometry.location.lng),
+        });
       }}
 
       getDefaultValue={() => ''}
@@ -34,6 +40,8 @@ const GooglePlacesInputTo = ({ saveTo }) => {
           backgroundColor: 'rgba(0,0,0,0)',
           borderTopWidth: 0,
           borderBottomWidth: 0,
+          width: (width - 20),
+          alignSelf: 'center',
         },
         textInput: {
           marginLeft: 0,
@@ -63,6 +71,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     saveTo: positionFrom => dispatch(travelLogTo(positionFrom)),
+    saveCordinates: cordinates => dispatch(calculateDistance(cordinates)),
   };
 };
 

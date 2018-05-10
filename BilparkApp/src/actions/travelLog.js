@@ -6,7 +6,7 @@ export const TRAVELLOG_DATEPICKER_DATE = 'TRAVELLOG_DATEPICKER_DATE';
 export const TRAVELLOG_FORM_VALUE = 'TRAVELLOG_FORM_VALUE';
 export const TRAVELLOG_FORM_TYPE = 'TRAVELLOG_FORM_TYPE';
 export const TRAVELLOG_CARGO = 'TRAVELLOG_CARGO';
-// export const TRAVELLOG_FORM_TYPE = 'TRAVELLOG_FORM_TYPE';
+export const TRAVELLOG_CORDINATES = 'TRAVELLOG_CORDINATES';
 
 
 export function travelLogFrom(positionFrom) {
@@ -20,6 +20,13 @@ export function travelLogTo(positionTo) {
   return {
     type: TRAVELLOG_TO,
     positionTo,
+  };
+}
+
+export function travleLogCordinates(cordinates) {
+  return {
+    type: TRAVELLOG_CORDINATES,
+    cordinates,
   };
 }
 
@@ -69,5 +76,19 @@ export function travelLogCargo(cargoValue) {
   return {
     type: TRAVELLOG_CARGO,
     cargoValue,
+  };
+}
+
+export function calculateDistance(cordinates) {
+  const distance = require('../../node_modules/react-native-google-matrix/index.js');
+
+  return (dispatch) => {
+    distance.get(
+      cordinates,
+      (err, data) => {
+        if (err) return console.log(err);
+        dispatch(travelLogDistance(data.distance));
+      },
+    );
   };
 }
