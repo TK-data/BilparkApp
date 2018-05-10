@@ -51,21 +51,23 @@ export function getDamageReport() {
   };
 }
 
-export function postDamageReport(damagereport) {
+export function postDamageReport(Items) {
   const params = {
-    damagereport,
+    Items,
   };
   return (dispatch) => {
     dispatch(postDamageReportLoading(true));
     return axios.post(API_ADDRESS + '/api/damagereport/register', params)
       .then((response) => {
+        console.log(response);
         dispatch(postDamageReportLoading(false));
         return response.data;
       })
       .then((userdamagereport) => {
         dispatch(registerDamageReport(userdamagereport));
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err);
         dispatch(postDamageReportFailure(true));
       });
   };

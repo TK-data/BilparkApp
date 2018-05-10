@@ -36,7 +36,6 @@ module.exports = {
           res.badRequest('damage report not made');
           return;
         }
-
         itemsToCreate = [];
         for (i = 0; i < damageItems.length; i++) {
           const itemcreate = {
@@ -45,12 +44,12 @@ module.exports = {
             Damaged: damageItems[i].Damaged,
             Description: damageItems[i].Description,
           };
-          itemsToCreate.push(itemsToCreate);
+          itemsToCreate.push(itemcreate);
         }
 
         DamageReportItem.create(itemsToCreate).exec(function (err, items) {
           if (err) {
-            res.negotiate('error creating damage report item' + err);
+            res.negotiate('error creating damage report item: ' + err);
             return;
           }
           if (!items || items.length <= 0) {
