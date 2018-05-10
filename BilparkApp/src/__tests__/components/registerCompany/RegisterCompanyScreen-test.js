@@ -11,7 +11,7 @@ const initialState = {
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
-describe('Testing FuelRefillScreen', () => {
+describe('Testing RegisterCompanyScreen', () => {
   it('Renders as expected', () => {
     const comp = shallow(
       <RegisterCompanyScreen />,

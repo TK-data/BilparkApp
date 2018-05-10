@@ -15,12 +15,22 @@ const initialState = {
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
-describe('Testing FuelRefillScreen', () => {
+describe('Testing CompanyPicker', () => {
   it('Renders as expected', () => {
     const comp = shallow(
       <CompanyPicker />,
       { context: { store: mockStore(initialState) } },
     );
     expect(comp.dive()).toMatchSnapshot();
+  });
+
+  const wrapper = shallow(
+    <CompanyPicker />,
+    { context: { store: mockStore(initialState) } },
+  );
+
+  it('Contains a Picker', () => {
+    const render = wrapper.dive().dive();
+    expect(render.find('Picker').exists());
   });
 });
