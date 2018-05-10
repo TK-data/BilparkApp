@@ -61,9 +61,6 @@ export function saveCompany(CompanyID) {
 
 /* Get all companies */
 
-// HENRIK
-// fjern det under hvis du ikke bruker det, har ikke laget reducers, og det er ikke ferdig
-
 export const GET_COMPANIES_REQUEST = 'GET_COMPANIES_REQUEST';
 export const GET_COMPANIES_COMPLETE = 'GET_COMPANIES_COMPLETE';
 export const GET_COMPANIES_FAILURE = 'GET_COMPANIES_FAILURE';
