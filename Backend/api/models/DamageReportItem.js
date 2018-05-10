@@ -14,16 +14,20 @@ module.exports = {
       unique: true,
       primaryKey: true
     },
-    itemType: {
+    DamageReportID: {
+      type: 'integer',
+      required: true,
+    },
+    ItemType: {
       type: 'string',
       isIn: ['Wheel', 'Window', 'CarLight', 'FrontBumper', 'BackBumper', 'RightBodyWork', 'LeftBodyWork'],
       required: true,
     },
-    damaged: {
+    Damaged: {
       type: 'boolean',
       required: true,
     },
-    description: {
+    Description: {
       type: 'string',
       required: false,
     },
