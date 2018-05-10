@@ -147,6 +147,7 @@ ShallowWrapper {
                   "marginBottom": 4,
                 },
                 "normal": Object {
+                  "backgroundColor": "#fff",
                   "borderColor": "#cccccc",
                   "borderRadius": 4,
                   "borderWidth": 1,
@@ -177,6 +178,8 @@ ShallowWrapper {
                 },
                 "normal": Object {
                   "fontSize": 17,
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
                   "paddingLeft": 7,
                 },
               },
@@ -392,6 +395,7 @@ ShallowWrapper {
                 "marginBottom": 4,
               },
               "normal": Object {
+                "backgroundColor": "#fff",
                 "borderColor": "#cccccc",
                 "borderRadius": 4,
                 "borderWidth": 1,
@@ -422,6 +426,8 @@ ShallowWrapper {
               },
               "normal": Object {
                 "fontSize": 17,
+                "marginLeft": "auto",
+                "marginRight": "auto",
                 "paddingLeft": 7,
               },
             },
@@ -670,6 +676,7 @@ ShallowWrapper {
                     "marginBottom": 4,
                   },
                   "normal": Object {
+                    "backgroundColor": "#fff",
                     "borderColor": "#cccccc",
                     "borderRadius": 4,
                     "borderWidth": 1,
@@ -700,6 +707,8 @@ ShallowWrapper {
                   },
                   "normal": Object {
                     "fontSize": 17,
+                    "marginLeft": "auto",
+                    "marginRight": "auto",
                     "paddingLeft": 7,
                   },
                 },
@@ -915,6 +924,7 @@ ShallowWrapper {
                   "marginBottom": 4,
                 },
                 "normal": Object {
+                  "backgroundColor": "#fff",
                   "borderColor": "#cccccc",
                   "borderRadius": 4,
                   "borderWidth": 1,
@@ -945,6 +955,8 @@ ShallowWrapper {
                 },
                 "normal": Object {
                   "fontSize": 17,
+                  "marginLeft": "auto",
+                  "marginRight": "auto",
                   "paddingLeft": 7,
                 },
               },
