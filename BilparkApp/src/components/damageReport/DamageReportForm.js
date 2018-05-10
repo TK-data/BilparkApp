@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import t from 'tcomb-form-native';
 import { connect } from 'react-redux';
 import { StyleSheet } from 'react-native';
-import { Content } from 'native-base';
+import { Content, Button, Text } from 'native-base';
 
-import postDamageReport from '../../actions/damageReportForm';
+import { postDamageReport } from '../../actions/damageReportForm';
 
 const styles = StyleSheet.create({
 
@@ -62,8 +62,10 @@ class DamageReportForm extends Component {
     Items[5].Description = this.form.getValue().KarosseriHøyreBeskrivelse;
     Items[6].Damaged = this.form.getValue().KarosseriVenstre;
     Items[6].Description = this.form.getValue().KarosseriVenstreBeskrivelse;
-    console.log(Items);
     // this.props.changeValues(Items);
+  }
+  handleSubmit() {
+    this.props.changeValues(Items);
   }
 
   render() {
@@ -88,6 +90,15 @@ class DamageReportForm extends Component {
     const Form = t.form.Form;
     return (
       <Content>
+        <Button
+          bordered
+          light
+          onPress={() => {
+            this.handleSubmit();
+          }}
+        >
+          <Text> Registrer </Text>
+        </Button>
         <Form
           ref={c => this.form = c}
           type={Damages}
@@ -107,7 +118,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // changeValues: ItemArray => dispatch(postDamageReport(ItemArray)),
+    changeValues: ItemArray => dispatch(postDamageReport(ItemArray)),
   };
 };
 

@@ -51,10 +51,9 @@ export function getDamageReport() {
   };
 }
 
-export function postDamageReport(damagereport, description) {
+export function postDamageReport(damagereport) {
   const params = {
     damagereport,
-    description,
   };
   return (dispatch) => {
     dispatch(postDamageReportLoading(true));
