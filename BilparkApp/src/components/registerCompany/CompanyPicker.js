@@ -1,19 +1,37 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { Button, Picker } from 'native-base';
+import { StyleSheet, View, Text, Dimensions, TouchableOpacity } from 'react-native';
+import { Picker } from 'native-base';
 import { connect } from 'react-redux';
 
 import { saveCompany, selectCompany } from '../../actions/registerCompany';
 
+const width = Dimensions.get('window').width;
+
 const styles = StyleSheet.create({
+  container: {
+    width: width / 2,
+    marginTop: 20,
+  },
+  button: {
+    alignSelf: 'stretch',
+  },
+  text: {
+    textAlign: 'center',
+    color: 'white',
+    fontSize: 20,
+    marginTop: 10,
+  },
+  picker: {
+    backgroundColor: 'white',
+  },
 });
 
 const CompanyPicker = ({ selectedCompany, changeSelect, postCompany, companies }) => {
 
   return (
-    <View>
+    <View style={styles.container}>
       <View>
-        <Picker selectedValue={selectedCompany} onValueChange={value => changeSelect(value)}>
+        <Picker style={styles.picker} selectedValue={selectedCompany} onValueChange={value => changeSelect(value)}>
           <Picker.Item label="Velg firma" value="" />
           {companies.map(company =>
             (<Picker.Item
@@ -24,14 +42,13 @@ const CompanyPicker = ({ selectedCompany, changeSelect, postCompany, companies }
         </Picker>
       </View>
       <View>
-        <Button
-          light
+        <TouchableOpacity
           onPress={() => ((selectedCompany === '') ? null : postCompany(selectedCompany))}
         >
-          <Text>
+          <Text style={styles.text}>
             Send
           </Text>
-        </Button>
+        </TouchableOpacity>
       </View>
     </View>
   );
