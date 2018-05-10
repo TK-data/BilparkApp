@@ -134,7 +134,11 @@ export function postCurrent() {
       })
       .then((user) => {
         dispatch(postUserSuccess(user));
-        dispatch(loginSuccess());
+        if (user.CompanyID) {
+          dispatch(loginSuccess());
+        } else {
+          // dispatch(routeToCompanyScreen());
+        }
       })
       .catch(() => {
         dispatch(postUserFailure(true));
