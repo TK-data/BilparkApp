@@ -130,6 +130,10 @@ describe('async actions', () => {
     car: {
       CarID: 123,
     },
+    company: {
+      CompanyID: 3,
+      CompanyName: 'Sparebank 1',
+    },
   };
   // first test, checks the actions added after running a successfull postUser
   it('should set the correct actions when calling the async login function', () => {
@@ -156,6 +160,7 @@ describe('async actions', () => {
         isLoggedIn: true,
         user: mockResponseUser.user,
         car: mockResponseUser.car,
+        company: mockResponseUser.company,
       },
       {
         type: 'REGISTER_USER_VALUES',
@@ -167,7 +172,7 @@ describe('async actions', () => {
         type: 'LOGIN_RESET_FORM_OPTIONS',
       },
       {
-        type: 'LOGIN_SUCCESS',
+        type: 'ROUTE_COMPANY_SCREEN',
       },
     ];
 
@@ -205,9 +210,7 @@ describe('async actions', () => {
         isLoggedIn: true,
         user: mockResponseUser.user,
         car: mockResponseUser.car,
-      },
-      {
-        type: 'LOGIN_SUCCESS',
+        company: mockResponseUser.company,
       },
     ];
 
@@ -235,16 +238,16 @@ describe('async actions', () => {
         isLoggedIn: false,
       },
       {
+        type: 'LOGOUT_SUCCESS',
+        isLoggedIn: !true,
+      },
+      {
         type: 'POST_USER_REQUEST',
         isLoading: false,
         isLoggedIn: false,
       },
       {
         type: 'USER_LOGOUT',
-      },
-      {
-        type: 'LOGOUT_SUCCESS',
-        isLoggedIn: !true,
       },
     ];
 
