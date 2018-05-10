@@ -34,6 +34,7 @@ export function postUserSuccess(object) {
     isLoggedIn: true,
     user: object.user,
     car: object.car,
+    company: object.company,
   };
 }
 
@@ -98,12 +99,12 @@ export function postUser(username, password) {
         dispatch(postUserLoading(false));
         return response.data;
       })
-      .then((user) => {
-        dispatch(postUserSuccess(user));
+      .then((object) => {
+        dispatch(postUserSuccess(object));
         dispatch(registerUserValues({}));
         dispatch(loginMail({}));
         dispatch(loginResetFormOptions());
-        if (user.CompanyID) {
+        if (object.user.CompanyID) {
           dispatch(loginSuccess());
         } else {
           dispatch(routeToCompanyScreen());
@@ -132,9 +133,9 @@ export function postCurrent() {
         dispatch(postUserLoading(false));
         return response.data;
       })
-      .then((user) => {
-        dispatch(postUserSuccess(user));
-        if (user.CompanyID) {
+      .then((object) => {
+        dispatch(postUserSuccess(object));
+        if (object.user.CompanyID) {
           dispatch(loginSuccess());
         } else {
           // dispatch(routeToCompanyScreen());

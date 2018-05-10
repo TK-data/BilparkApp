@@ -5,6 +5,7 @@ import { Body } from 'native-base';
 import ProfileButton from './ProfileButton';
 import MenuBox from './MenuBox';
 import Slide1 from './Slide1';
+import Slide2 from './Slide2';
 
 const images = [
   {
@@ -96,9 +97,7 @@ class MenuScreen extends Component {
         <View style={styles.infoGraphics}>
           <Swiper style={styles.wrapper} dotColor="lightgrey" activeDotColor="white">
             <Slide1 />
-            <View style={styles.slide2}>
-              <Text style={styles.buzzWord}>Test 2</Text>
-            </View>
+            <Slide2 />
             <View style={styles.slide3}>
               <Text style={styles.buzzWord}>Test 3</Text>
             </View>
