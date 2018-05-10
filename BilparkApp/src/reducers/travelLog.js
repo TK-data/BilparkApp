@@ -1,11 +1,37 @@
-import { TRAVELLOG_FROM, TRAVELLOG_TO, TRAVELLOG_DISTANCE, TRAVELLOG_DATEPICKER_VISIBLE, TRAVELLOG_DATEPICKER_DATE } from '../actions/travelLog';
+import t from 'tcomb-form-native';
+
+import {
+  TRAVELLOG_FROM,
+  TRAVELLOG_TO,
+  TRAVELLOG_DISTANCE,
+  TRAVELLOG_DATEPICKER_VISIBLE,
+  TRAVELLOG_DATEPICKER_DATE,
+  TRAVELLOG_FORM_TYPE,
+  TRAVELLOG_FORM_VALUE,
+} from '../actions/travelLog';
+
+const Passengers = t.enums({
+  0: '0',
+  1: '1',
+  2: '2',
+  3: '3',
+  4: '4',
+  5: '5',
+});
+
+const Passenger = t.struct({
+  Passenger: Passengers,
+});
+
+const date = new Date();
 
 const init = {
   positionFrom: '123',
   positionTo: '456',
   distance: '0km',
   datepickerVisible: false,
-  datepickerDate: 'Velg dato',
+  datepickerDate: (date.getDate() + '.' + (date.getMonth() + 1) + '.' + (date.getFullYear())),
+  formType: Passenger,
 };
 
 export default function travelLog(state = init, action) {
@@ -34,6 +60,16 @@ export default function travelLog(state = init, action) {
     return {
       ...state,
       datepickerDate: action.date,
+    };
+  case TRAVELLOG_FORM_TYPE:
+    return {
+      ...state,
+      formType: action.formType,
+    };
+  case TRAVELLOG_FORM_VALUE:
+    return {
+      ...state,
+      formValue: action.value,
     };
   default:
     return state;

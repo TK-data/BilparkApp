@@ -1,22 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet } from 'react-native';
-import { View, Text, Button, TouchableOpacity } from 'native-base';
+import { View, Text, Button, CheckBox } from 'native-base';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import { travelLogDistance, travelLogDatepickerVisible, travelLogSaveDate } from '../../actions/travelLog';
 import GooglePlacesInputFrom from './GooglePlacesAutocompleteFrom';
 import GooglePlacesInputTo from './GooglePlacesAutocompleteTo';
-
+import TravelLogPassengerForm from './TravelLogPassengerForm';
 
 const distance = require('../../../node_modules/react-native-google-matrix/index.js');
 
 class TravelLogInput extends React.Component {
-
-  _handleDatePicked = (date) => {
-    console.log('A date has been picked: ', date);
-    this._hideDateTimePicker();
-  };
 
   handleSubmit() {
     distance.get(
@@ -60,7 +55,7 @@ class TravelLogInput extends React.Component {
             onCancel={() => this.props.datepickerVisibility(false)}
           />
           <Button
-            bordered
+            transparent
             light
             onPress={() => {
               this.props.datepickerVisibility(true);
@@ -71,6 +66,7 @@ class TravelLogInput extends React.Component {
             </Text>
           </Button>
         </View>
+        <TravelLogPassengerForm />
       </View>
     );
   }

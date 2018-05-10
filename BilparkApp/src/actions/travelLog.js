@@ -3,8 +3,8 @@ export const TRAVELLOG_TO = 'TRAVELLOG_TO';
 export const TRAVELLOG_DISTANCE = 'TRAVELLOG_DISTANCE';
 export const TRAVELLOG_DATEPICKER_VISIBLE = 'TRAVELLOG_DATEPICKER_VISIBLE';
 export const TRAVELLOG_DATEPICKER_DATE = 'TRAVELLOG_DATEPICKER_DATE';
-// export const TRAVELLOG_DATEPICKER_DATE = 'TRAVELLOG_DATEPICKER_DATE';
-// export const TRAVELLOG_DATEPICKER_DATE = 'TRAVELLOG_DATEPICKER_DATE';
+export const TRAVELLOG_FORM_VALUE = 'TRAVELLOG_FORM_VALUE';
+export const TRAVELLOG_FORM_TYPE = 'TRAVELLOG_FORM_TYPE';
 
 
 export function travelLogFrom(positionFrom) {
@@ -46,5 +46,19 @@ export function travelLogSaveDate(date) {
   return (dispatch) => {
     dispatch(travelLogDatepickerDate(date));
     dispatch(travelLogDatepickerVisible(false));
+  };
+}
+
+export function travelLogFormValue(value) {
+  return {
+    type: TRAVELLOG_FORM_VALUE,
+    value,
+  };
+}
+
+export function travelLogFormType(formType) {
+  return {
+    type: TRAVELLOG_FORM_TYPE,
+    formType,
   };
 }
