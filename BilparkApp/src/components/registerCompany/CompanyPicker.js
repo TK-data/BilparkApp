@@ -28,11 +28,23 @@ const styles = StyleSheet.create({
 
 const CompanyPicker = ({ selectedCompany, changeSelect, postCompany, companies }) => {
 
+  if (companies.length === 0) {
+    return (
+      <View style={styles.container} />
+    );
+  }
+
   return (
     <View style={styles.container}>
       <View>
-        <Picker style={styles.picker} selectedValue={selectedCompany} onValueChange={value => changeSelect(value)}>
-          <Picker.Item label="Velg firma" value="" />
+        <Picker
+          iosHeader="Velg Selskap"
+          mode="dropdown"
+          style={styles.picker}
+          selectedValue={selectedCompany}
+          onValueChange={value => changeSelect(value)}
+          placeholder="Velg selskap"
+        >
           {companies.map(company =>
             (<Picker.Item
               key={company.CompanyID}

@@ -42,9 +42,8 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const mapStateToProps = (state) => {
-  return {
-  };
+const mapStateToProps = () => {
+  return {};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RegisterCompanyScreen);
