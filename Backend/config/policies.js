@@ -19,70 +19,47 @@
 
 module.exports.policies = {
 
-  /***************************************************************************
-  *                                                                          *
-  * Default policy for all controllers and actions (`true` allows public     *
-  * access)                                                                  *
-  *                                                                          *
-  ***************************************************************************/
-
-  // '*': true,
-
-  /***************************************************************************
-  *                                                                          *
-  * Here's an example of mapping some policies to run before a controller    *
-  * and its actions                                                          *
-  *                                                                          *
-  ***************************************************************************/
-	// RabbitController: {
-
-	// Apply the `false` policy as the default for all of RabbitController's actions
-	// (`false` prevents all access, which ensures that nothing bad happens to our rabbits)
-	// '*': false,
-
-	// For the action `nurture`, apply the 'isRabbitMother' policy
-	// (this overrides `false` above)
-	// nurture	: 'isRabbitMother',
-
-	// Apply the `isNiceToAnimals` AND `hasRabbitFood` policies
-	// before letting any users feed our rabbits
-	// feed : ['isNiceToAnimals', 'hasRabbitFood']
-	// }
-
-	UserController: {
-		'*': false,
-		create: true,
-		find: 'adminAuth',
-		findOne: 'adminAuth',
-		destroy: 'adminAuth',
-		populate: 'adminAuth',
-		login: true,
-		logout: true,
-		current: true,
-		notification: true,
-	},
-	DSMController: {
-		'*': false,
-		getCar: 'sessionAuth',
-	},
-	FuelRefillController: {
-		'*': false,
-		register: 'sessionAuth',
-		getAll: 'sessionAuth',
-		remove: 'sessionAuth',
-	},
-	CarController: {
-		'*': false,
-		save: 'sessionAuth',
-		find: 'adminAuth',
-		findOne: 'adminAuth',
-		destroy: 'adminAuth',
-		populate: 'adminAuth',
-	},
+  UserController: {
+    '*': false,
+    create: true,
+    find: 'adminAuth',
+    findOne: 'adminAuth',
+    destroy: 'adminAuth',
+    populate: 'adminAuth',
+    login: true,
+    logout: true,
+    current: true,
+    notification: true,
+  },
+  DSMController: {
+    '*': false,
+    getCar: 'sessionAuth',
+  },
+  FuelRefillController: {
+    '*': false,
+    register: 'sessionAuth',
+    getAll: 'sessionAuth',
+    remove: 'sessionAuth',
+  },
+  CarController: {
+    '*': false,
+    save: 'sessionAuth',
+    find: 'adminAuth',
+    findOne: 'adminAuth',
+    destroy: 'adminAuth',
+    populate: 'adminAuth',
+  },
   AdminController: {
     '*': false,
-		create: 'adminAuth',
-		login: true,
-		logout: true,
-	},
+    create: 'adminAuth',
+    login: true,
+    logout: true,
+  },
+  DrivingLogController: {
+    '*': false,
+    find: 'adminAuth',
+    save: 'sessionAuth',
+    getAll: 'sessionAuth',
+    remove: 'sessionAuth',
+  },
 };

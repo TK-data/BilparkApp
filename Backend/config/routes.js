@@ -41,5 +41,7 @@ module.exports.routes = {
   'POST /api/fuelrefill/remove': 'FuelRefillController.remove',
   'POST /api/admin/login': 'AdminController.login',
   'GET /api/admin/logout': 'AdminController.logout',
-
+  'POST /api/drivinglog/save': 'DrivingLogController.save',
+  'GET /api/drivinglog/getall': 'DrivingLogController.getAll',
+  'POST /api/drivinglog/remove': 'DrivingLogController.remove',
 };
