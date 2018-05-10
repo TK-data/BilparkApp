@@ -27,7 +27,7 @@ module.exports = {
       defaultsTo: null
     },
     Date: {
-      type: 'date',
+      type: 'string',
       defaultsTo: null
     },
     Cargo: {
