@@ -14,6 +14,7 @@ import FuelDayScreen from '../components/fuelDay/FuelDayScreen';
 import MenuScreen from '../components/menu/MenuScreen';
 import FuelRefillScreen from '../components/fuelRefill/FuelRefillScreen';
 import DamageReportScreen from '../components/damageReport/DamageReportScreen';
+import TravelLogScreen from '../components/travelLog/TravelLogScreen';
 import { addListener } from '../utils/redux';
 
 const styles = StyleSheet.create({
@@ -69,6 +70,7 @@ export const AppNavigator = StackNavigator(
     Menu: { screen: MenuScreen },
     FuelRefill: { screen: FuelRefillScreen },
     DamageReport: { screen: DamageReportScreen },
+    TravelLog: { screen: TravelLogScreen },
   },
   navigationConfig,
   {
