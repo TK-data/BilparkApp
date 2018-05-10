@@ -5,6 +5,8 @@ export const TRAVELLOG_DATEPICKER_VISIBLE = 'TRAVELLOG_DATEPICKER_VISIBLE';
 export const TRAVELLOG_DATEPICKER_DATE = 'TRAVELLOG_DATEPICKER_DATE';
 export const TRAVELLOG_FORM_VALUE = 'TRAVELLOG_FORM_VALUE';
 export const TRAVELLOG_FORM_TYPE = 'TRAVELLOG_FORM_TYPE';
+export const TRAVELLOG_CARGO = 'TRAVELLOG_CARGO';
+// export const TRAVELLOG_FORM_TYPE = 'TRAVELLOG_FORM_TYPE';
 
 
 export function travelLogFrom(positionFrom) {
@@ -60,5 +62,12 @@ export function travelLogFormType(formType) {
   return {
     type: TRAVELLOG_FORM_TYPE,
     formType,
+  };
+}
+
+export function travelLogCargo(cargoValue) {
+  return {
+    type: TRAVELLOG_CARGO,
+    cargoValue,
   };
 }

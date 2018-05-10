@@ -8,6 +8,7 @@ import { travelLogDistance, travelLogDatepickerVisible, travelLogSaveDate } from
 import GooglePlacesInputFrom from './GooglePlacesAutocompleteFrom';
 import GooglePlacesInputTo from './GooglePlacesAutocompleteTo';
 import TravelLogPassengerForm from './TravelLogPassengerForm';
+import TravelLogCargoForm from './TravelLogCargoForm';
 
 const distance = require('../../../node_modules/react-native-google-matrix/index.js');
 
@@ -66,6 +67,7 @@ class TravelLogInput extends React.Component {
             </Text>
           </Button>
         </View>
+        <TravelLogCargoForm />
         <TravelLogPassengerForm />
       </View>
     );

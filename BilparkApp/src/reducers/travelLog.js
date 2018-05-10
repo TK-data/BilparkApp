@@ -8,6 +8,7 @@ import {
   TRAVELLOG_DATEPICKER_DATE,
   TRAVELLOG_FORM_TYPE,
   TRAVELLOG_FORM_VALUE,
+  TRAVELLOG_CARGO,
 } from '../actions/travelLog';
 
 const Passengers = t.enums({
@@ -32,6 +33,12 @@ const init = {
   datepickerVisible: false,
   datepickerDate: (date.getDate() + '.' + (date.getMonth() + 1) + '.' + (date.getFullYear())),
   formType: Passenger,
+  formValue: {
+    Passenger: '0',
+  },
+  cargoValue: {
+    Cargo: false,
+  },
 };
 
 export default function travelLog(state = init, action) {
@@ -70,6 +77,11 @@ export default function travelLog(state = init, action) {
     return {
       ...state,
       formValue: action.value,
+    };
+  case TRAVELLOG_CARGO:
+    return {
+      ...state,
+      cargoValue: action.cargoValue,
     };
   default:
     return state;

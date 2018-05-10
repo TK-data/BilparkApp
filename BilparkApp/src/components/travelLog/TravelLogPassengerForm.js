@@ -60,39 +60,11 @@ function getType(value) {
 
 class TravelLogPassengerForm extends Component {
 
-  componentWillMount() {
-    const Passengers = t.enums({
-      0: '0',
-      1: '1',
-      2: '2',
-      3: '3',
-      4: '4',
-      5: '5',
-    });
-
-    const Passenger = t.struct({
-      Passenger: Passengers,
-    });
-
-    this.props.type = Passenger;
-  }
-
   onChange(value) {
     console.log(this.props.value);
     console.log(value);
     this.props.formValue(value);
     this.props.formType(getType(value));
-  }
-
-  handleSubmit() {
-    const value = this.form.getValue();
-    console.log(value);
-    if (value) {
-      // this.props.loginMail({ Epost: value.Epost });
-      // this.props.postUser(value.Epost, value.Passord);
-      this.props.formValue(value);
-      this.props.formType(getType(value));
-    }
   }
 
   render() {
@@ -112,16 +84,6 @@ class TravelLogPassengerForm extends Component {
           value={this.props.value}
           onChange={value => this.onChange(value)}
         />
-        <Button
-          transparent
-          light
-          onPress={() => {
-            this.handleSubmit();
-          }}
-          style={styles.button}
-        >
-          <Text> Logg inn </Text>
-        </Button>
       </View>
     );
   }
