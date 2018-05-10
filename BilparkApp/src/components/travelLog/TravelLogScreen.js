@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, ScrollView, StatusBar } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { View, Text } from 'native-base';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { registerUserModalVisible } from '../../actions/registerUser';
-
+import TravelLogInput from './TravelLogInput';
 
 const styles = StyleSheet.create({
   keyboard: {
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   },
 });
 
-class UserRegisterScreen extends React.Component {
+class TravelLogScreen extends React.Component {
 
   componentDidMount() {
     this.props.visibleModal(false);
@@ -29,11 +29,7 @@ class UserRegisterScreen extends React.Component {
         resetScrollToCoords={{ x: 0, y: 0 }}
         contentContainerStyle={styles.keyboard}
       >
-        <View>
-          <Text>
-            Testing
-          </Text>
-        </View>
+        <TravelLogInput />
       </KeyboardAwareScrollView>
     );
   }
@@ -50,7 +46,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-UserRegisterScreen.navigationOptions = {
+TravelLogScreen.navigationOptions = {
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserRegisterScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(TravelLogScreen);
