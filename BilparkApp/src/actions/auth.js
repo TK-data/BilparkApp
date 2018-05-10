@@ -81,6 +81,12 @@ export function logoutLocal() {
   };
 }
 
+export function routeToCompanyScreen() {
+  return {
+    type: 'ROUTE_COMPANY_SCREEN',
+  };
+}
+
 export function postUser(username, password) {
   return (dispatch) => {
     dispatch(postUserLoading(true));
@@ -97,7 +103,11 @@ export function postUser(username, password) {
         dispatch(registerUserValues({}));
         dispatch(loginMail({}));
         dispatch(loginResetFormOptions());
-        dispatch(loginSuccess());
+        if (user.CompanyID) {
+          dispatch(loginSuccess());
+        } else {
+          dispatch(routeToCompanyScreen());
+        }
       })
       .catch(() => {
         dispatch(postUserFailure(true));

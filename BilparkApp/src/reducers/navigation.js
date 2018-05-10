@@ -15,6 +15,9 @@ function nav(state = initialNavState, action) {
   case 'LOGOUT_SUCCESS':
     nextState = AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Login' }));
     break;
+  case 'ROUTE_COMPANY_SCREEN':
+    nextState = AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'RegisterCompanyScreen' }));
+    break;
   default:
     nextState = AppNavigator.router.getStateForAction(action, state);
     break;

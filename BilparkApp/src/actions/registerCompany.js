@@ -50,6 +50,7 @@ export function saveCompany(CompanyID) {
       })
       .then((company) => {
         dispatch(registerCompanyComplete(company));
+        dispatch(routeToMenu());
       })
       .catch(() => {
         dispatch(registerCompanyFailure(true));
@@ -85,6 +86,12 @@ export function getCompaniesError(hasErrored) {
   return {
     type: GET_COMPANIES_FAILURE,
     hasErrored,
+  };
+}
+
+export function routeToMenu() {
+  return {
+    type: 'LOGIN_SUCCESS',
   };
 }
 

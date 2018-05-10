@@ -113,6 +113,12 @@ export const emailErrorFill = {
   },
 };
 
+export function routeToCompanyScreen() {
+  return {
+    type: 'ROUTE_COMPANY_SCREEN',
+  };
+}
+
 export function registerUserFetchData(value) {
   return (dispatch) => {
     dispatch(registerUserIsLoading(true));
@@ -126,7 +132,8 @@ export function registerUserFetchData(value) {
     })
       .then((response) => {
         if (response.status === 201) {
-          dispatch(registerUserModalVisible(true));
+          // dispatch(registerUserModalVisible(true));
+          dispatch(routeToCompanyScreen());
           dispatch(registerUserOptions(pleasefillcorrect));
           return response.status;
 
