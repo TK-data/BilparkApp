@@ -3,20 +3,33 @@ import { StyleSheet, View, Text } from 'react-native';
 import { Button, Picker } from 'native-base';
 import { connect } from 'react-redux';
 
-// import action to get companies
+import { saveCompany, selectCompany } from '../../actions/registerCompany';
 
 const style = StyleSheet.create({
 })
 
-const CompanyPicker = ({ getCompanies, postCompany, companies }) => {
+const CompanyPicker = ({ selectedCompany, changeSelect, postCompany, companies }) => {
+
+  console.log(selectedCompany, typeof selectedCompany)
+
 
   return (
     <View>
       <View>
-        <Picker />
+        <Picker selectedValue={selectedCompany} onValueChange={value => changeSelect(value)}>
+          <Picker.Item label="Velg firma" value="" />
+          {companies.map(company =>
+            (<Picker.Item
+              key={company.CompanyID}
+              label={company.CompanyName}
+              value={company.CompanyID}
+            />))}
+        </Picker>
       </View>
       <View>
-        <Button light>
+        <Button
+          light
+        >
           <Text>
             Send
           </Text>
@@ -24,18 +37,19 @@ const CompanyPicker = ({ getCompanies, postCompany, companies }) => {
       </View>
     </View>
   );
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCompanies: () => null,
     postCompany: () => null,
+    changeSelect: value => dispatch(selectCompany(value)),
   };
 };
 
 const mapStateToProps = (state) => {
   return {
-    companies: state.companies,
+    companies: state.registerCompany.companies,
+    selectedCompany: state.registerCompany.selectedCompany,
   };
 };
 

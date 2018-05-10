@@ -91,16 +91,22 @@ export function getCompanies() {
     dispatch(getCompaniesRequest(true));
     dispatch(getCompaniesError(false));
 
-    return axios.get(API_ADDRESS + '/api/company/find')
+    return axios.get(API_ADDRESS + '/api/Company')
       .then((response) => {
         dispatch(getCompaniesRequest(false));
-        if (response.ok) {
-          dispatch(getCompaniesComplete(response.data));
-        }
-        dispatch(getCompaniesError(true));
+        dispatch(getCompaniesComplete(response.data));
       })
       .catch(() => {
         dispatch(getCompaniesError(true));
       });
+  };
+}
+
+export const ONCHANGE_COMPANY = 'ONCHANGE_COMPANY';
+
+export function selectCompany(selectedCompany) {
+  return {
+    type: ONCHANGE_COMPANY,
+    selectedCompany,
   };
 }

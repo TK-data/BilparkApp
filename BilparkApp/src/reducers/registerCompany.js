@@ -1,11 +1,12 @@
-import { REGISTER_COMPANY_REQUEST, REGISTER_COMPANY_COMPLETE, REGISTER_COMPANY_FAILURE, GET_COMPANIES_REQUEST, GET_COMPANIES_COMPLETE, GET_COMPANIES_FAILURE } from '../actions/registerCompany';
+import { ONCHANGE_COMPANY, REGISTER_COMPANY_REQUEST, REGISTER_COMPANY_COMPLETE, REGISTER_COMPANY_FAILURE, GET_COMPANIES_REQUEST, GET_COMPANIES_COMPLETE, GET_COMPANIES_FAILURE } from '../actions/registerCompany';
 
 
 const initialCompanySaveState = {
   hasErrored: false,
   isLoading: false,
   company: '',
-  companies: {},
+  companies: [],
+  selectedCompany: '',
 };
 
 export default function registerCompany(state = initialCompanySaveState, action) {
@@ -39,6 +40,11 @@ export default function registerCompany(state = initialCompanySaveState, action)
     return {
       ...state,
       hasErrored: action.hasErrored,
+    };
+  case ONCHANGE_COMPANY:
+    return {
+      ...state,
+      selectedCompany: action.selectedCompany,
     };
   default:
     return state;
