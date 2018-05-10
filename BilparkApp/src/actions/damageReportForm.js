@@ -5,6 +5,7 @@ const axios = require('axios');
 export const POST_DAMAGEREPORT_REQUEST = 'POST_DAMAGEREPORT_REQUEST';
 export const POST_DAMAGEREPORT_FAILURE = 'POST_DAMAGEREPORT_FAILURE';
 export const POST_DAMAGEREPORT_SUCCESS = 'POST_DAMAGEREPORT_SUCCESS';
+export const REGISTER_DAMAGEREPORT = 'REGISTER_DAMAGEREPORT';
 
 export function postDamageReportFailure(bool) {
   return {
