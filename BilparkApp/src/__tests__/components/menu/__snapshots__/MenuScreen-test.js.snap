@@ -126,7 +126,7 @@ ShallowWrapper {
             "process": [Function],
           }
         }
-        pageName="Skade"
+        pageName="Kjørebok"
         routeName="TravelLog"
       />
       <Connect(MenuBox)
@@ -294,7 +294,7 @@ ShallowWrapper {
                 "process": [Function],
               }
             }
-            pageName="Skade"
+            pageName="Kjørebok"
             routeName="TravelLog"
           />
           <Connect(MenuBox)
@@ -650,7 +650,7 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              pageName="Skade"
+              pageName="Kjørebok"
               routeName="TravelLog"
             />,
             <Connect(MenuBox)
@@ -725,7 +725,7 @@ ShallowWrapper {
               "image": Object {
                 "process": [Function],
               },
-              "pageName": "Skade",
+              "pageName": "Kjørebok",
               "routeName": "TravelLog",
             },
             "ref": null,
@@ -919,7 +919,7 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              pageName="Skade"
+              pageName="Kjørebok"
               routeName="TravelLog"
             />
             <Connect(MenuBox)
@@ -1275,7 +1275,7 @@ ShallowWrapper {
                     "process": [Function],
                   }
                 }
-                pageName="Skade"
+                pageName="Kjørebok"
                 routeName="TravelLog"
               />,
               <Connect(MenuBox)
@@ -1350,7 +1350,7 @@ ShallowWrapper {
                 "image": Object {
                   "process": [Function],
                 },
-                "pageName": "Skade",
+                "pageName": "Kjørebok",
                 "routeName": "TravelLog",
               },
               "ref": null,
