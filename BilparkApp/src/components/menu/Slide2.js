@@ -39,14 +39,18 @@ const styles = StyleSheet.create({
 class Slide2 extends Component {
 
   render() {
-    const company = JSON.parse(this.props.company);
+
+    let company = false;
+    if (this.props.company) {
+      company = JSON.parse(this.props.company);
+    }
     const localCompany = this.props.localCompany;
 
     return (
       <View style={styles.slide1}>
         <Text style={styles.buzzWord}>Du tilhører</Text>
         <Text style={styles.text}>
-          { company.CompanyName || localCompany.CompanyName }
+          { company ? company.CompanyName : localCompany.CompanyName }
         </Text>
       </View>
     );
