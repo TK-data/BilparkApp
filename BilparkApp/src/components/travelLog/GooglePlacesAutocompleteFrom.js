@@ -49,9 +49,15 @@ const GooglePlacesInputFrom = ({ saveFrom, saveCordinates, to }) => {
           height: 38,
           color: '#5d5d5d',
           fontSize: 16,
+          borderRadius: 0,
         },
         predefinedPlacesDescription: {
-          color: '#1faadb'
+          color: '#1faadb',
+        },
+        listView: {
+          backgroundColor: 'white',
+          width: (width - 20),
+          alignSelf: 'center',
         },
       }}
 

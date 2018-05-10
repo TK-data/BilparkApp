@@ -76,6 +76,21 @@ class TravelLogPassengerForm extends Component {
           nullOption: { value: '', text: 'Velg antall Passasjerer' },
 
         },
+        Passenger1: {
+          label: 'Passasjer 1:',
+        },
+        Passenger2: {
+          label: 'Passasjer 2:',
+        },
+        Passenger3: {
+          label: 'Passasjer 3:',
+        },
+        Passenger4: {
+          label: 'Passasjer 4:',
+        },
+        Passenger5: {
+          label: 'Passasjer 5:',
+        },
         Comment: {
           label: 'Kommentar (Valgfritt)',
           multiline: true,
