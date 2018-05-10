@@ -127,7 +127,7 @@ ShallowWrapper {
           }
         }
         pageName="Skade"
-        routeName="DamageReport"
+        routeName="TravelLog"
       />
       <Connect(MenuBox)
         image={
@@ -295,7 +295,7 @@ ShallowWrapper {
               }
             }
             pageName="Skade"
-            routeName="DamageReport"
+            routeName="TravelLog"
           />
           <Connect(MenuBox)
             image={
@@ -651,7 +651,7 @@ ShallowWrapper {
                 }
               }
               pageName="Skade"
-              routeName="DamageReport"
+              routeName="TravelLog"
             />,
             <Connect(MenuBox)
               image={
@@ -726,7 +726,7 @@ ShallowWrapper {
                 "process": [Function],
               },
               "pageName": "Skade",
-              "routeName": "DamageReport",
+              "routeName": "TravelLog",
             },
             "ref": null,
             "rendered": null,
@@ -920,7 +920,7 @@ ShallowWrapper {
                 }
               }
               pageName="Skade"
-              routeName="DamageReport"
+              routeName="TravelLog"
             />
             <Connect(MenuBox)
               image={
@@ -1276,7 +1276,7 @@ ShallowWrapper {
                   }
                 }
                 pageName="Skade"
-                routeName="DamageReport"
+                routeName="TravelLog"
               />,
               <Connect(MenuBox)
                 image={
@@ -1351,7 +1351,7 @@ ShallowWrapper {
                   "process": [Function],
                 },
                 "pageName": "Skade",
-                "routeName": "DamageReport",
+                "routeName": "TravelLog",
               },
               "ref": null,
               "rendered": null,
