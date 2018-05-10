@@ -1,9 +1,11 @@
-import { TRAVELLOG_FROM, TRAVELLOG_TO, TRAVELLOG_DISTANCE } from '../actions/travelLog';
+import { TRAVELLOG_FROM, TRAVELLOG_TO, TRAVELLOG_DISTANCE, TRAVELLOG_DATEPICKER_VISIBLE, TRAVELLOG_DATEPICKER_DATE } from '../actions/travelLog';
 
 const init = {
   positionFrom: '123',
   positionTo: '456',
-  distance: '21km',
+  distance: '0km',
+  datepickerVisible: false,
+  datepickerDate: 'Velg dato',
 };
 
 export default function travelLog(state = init, action) {
@@ -22,6 +24,16 @@ export default function travelLog(state = init, action) {
     return {
       ...state,
       distance: action.distance,
+    };
+  case TRAVELLOG_DATEPICKER_VISIBLE:
+    return {
+      ...state,
+      datepickerVisible: action.bool,
+    };
+  case TRAVELLOG_DATEPICKER_DATE:
+    return {
+      ...state,
+      datepickerDate: action.date,
     };
   default:
     return state;

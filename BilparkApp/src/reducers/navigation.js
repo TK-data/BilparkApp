@@ -10,7 +10,7 @@ function nav(state = initialNavState, action) {
   let nextState;
   switch (action.type) {
   case 'LOGIN_SUCCESS':
-    nextState = AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'TravelLog' }));
+    nextState = AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Menu' }));
     break;
   case 'LOGOUT_SUCCESS':
     nextState = AppNavigator.router.getStateForAction(NavigationActions.navigate({ routeName: 'Login' }));

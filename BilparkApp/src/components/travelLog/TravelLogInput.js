@@ -1,25 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet } from 'react-native';
-import { View, Text, Button } from 'native-base';
+import { View, Text, Button, TouchableOpacity } from 'native-base';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { travelLogDistance } from '../../actions/travelLog';
+import DateTimePicker from 'react-native-modal-datetime-picker';
+import { travelLogDistance, travelLogDatepickerVisible, travelLogSaveDate } from '../../actions/travelLog';
 import GooglePlacesInputFrom from './GooglePlacesAutocompleteFrom';
 import GooglePlacesInputTo from './GooglePlacesAutocompleteTo';
 
+
 const distance = require('../../../node_modules/react-native-google-matrix/index.js');
 
-const styles = StyleSheet.create({
-  keyboard: {
-    backgroundColor: '#002776',
-  },
-  logo: {
-    height: 25,
-    width: 112,
-  },
-});
-
 class TravelLogInput extends React.Component {
+
+  _handleDatePicked = (date) => {
+    console.log('A date has been picked: ', date);
+    this._hideDateTimePicker();
+  };
 
   handleSubmit() {
     distance.get(
@@ -43,14 +40,8 @@ class TravelLogInput extends React.Component {
         <GooglePlacesInputFrom />
         <GooglePlacesInputTo />
         <View>
-          <Text>
-            {this.props.from}
-          </Text>
-          <Text>
-            {this.props.to}
-          </Text>
-          <Text>
-            {this.props.distance}
+          <Text style={styles.distance}>
+            Distanse: {this.props.distance}
           </Text>
           <Button
             bordered
@@ -60,7 +51,23 @@ class TravelLogInput extends React.Component {
             }}
           >
             <Text>
-              Click me
+              Regn ut distanse
+            </Text>
+          </Button>
+          <DateTimePicker
+            isVisible={this.props.datepickerVisible}
+            onConfirm={data => this.props.saveDatepickerDate((data.getDate() + '.' + (data.getMonth() + 1) + '.' + (data.getFullYear())))}
+            onCancel={() => this.props.datepickerVisibility(false)}
+          />
+          <Button
+            bordered
+            light
+            onPress={() => {
+              this.props.datepickerVisibility(true);
+            }}
+          >
+            <Text>
+              {this.props.datepickerDate}
             </Text>
           </Button>
         </View>
@@ -69,17 +76,34 @@ class TravelLogInput extends React.Component {
   }
 }
 
+const styles = StyleSheet.create({
+  distance: {
+    color: '#fff',
+    textAlign: 'center',
+    fontSize: 20,
+    margin: 5,
+  },
+  logo: {
+    height: 25,
+    width: 112,
+  },
+});
+
 const mapStateToProps = (state) => {
   return {
     distance: state.travelLog.distance,
     from: state.travelLog.positionFrom,
     to: state.travelLog.positionTo,
+    datepickerVisible: state.travelLog.datepickerVisible,
+    datepickerDate: state.travelLog.datepickerDate,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     saveDistance: distanceFromTo => dispatch(travelLogDistance(distanceFromTo)),
+    datepickerVisibility: bool => dispatch(travelLogDatepickerVisible(bool)),
+    saveDatepickerDate: date => dispatch(travelLogSaveDate(date)),
   };
 };
 
