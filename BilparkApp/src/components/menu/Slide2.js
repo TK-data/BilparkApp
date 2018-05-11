@@ -50,7 +50,7 @@ class Slide2 extends Component {
       <View style={styles.slide1}>
         <Text style={styles.buzzWord}>Du tilhører</Text>
         <Text style={styles.text}>
-          { company ? company.CompanyName : localCompany.CompanyName }
+          { localCompany !== '' ? localCompany.CompanyName : company.CompanyName }
         </Text>
       </View>
     );
