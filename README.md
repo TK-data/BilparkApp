@@ -120,6 +120,43 @@ POST /dsm?regnr=XX00000
 ```
 Get json car object for the input registration number, or a 404 error if no such car exists
 
+### DamageReport
+
+```
+POST /api/damagereport/register
+```
+Register a new damage report.
+
+Example of body for POST request, notice description is not required:
+
+```
+{
+	"Items": [
+		{
+			"ItemType": "Wheel",
+			"Damaged": true,
+			"Description": "tire frame exploded",
+		},
+		{
+			"ItemType": "Window",
+			"Damaged": true,
+		},
+	]
+}
+```
+
+
+```
+GET /api/damagereport/getall
+```
+
+Gets all damage reports from a logged in user
+
+```
+GET /api/damagereport/getcurrent
+```
+
+Gets the latest damage report from a logged in user
 ### Blueprint APIs
 #### Models
 #### Controllers
