@@ -8,7 +8,6 @@
 module.exports = {
   register: async function(req, res) {
     try {
-      sails.log(req.body);
       if (!(req.session.authenticated && req.session.UserID)) {
         res.forbidden('not logged in');
         return;
