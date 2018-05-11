@@ -68,18 +68,25 @@ export function getDamageReport() {
 }
 
 export function getCurrentDamageReport() {
+  console.log('getCurrentDamageReport');
   return (dispatch) => {
     dispatch(postDamageReportLoading(true));
+    console.log('getCurrentDamageReport - dispatch');
     return axios.get(API_ADDRESS + '/api/damagereport/getcurrent')
       .then((response) => {
+        console.log(response.status);
+        console.log('response');
         dispatch(postDamageReportLoading(false));
+        console.log(response);
         return response.data;
       })
       .then((userdamagereport) => {
+        console.log('userdamagereport');
         dispatch(getCurrentDamageReportSuccess(userdamagereport));
         dispatch(damageReportValues(userdamagereport.Items));
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err);
         dispatch(postDamageReportFailure(true));
       });
   };

@@ -74,6 +74,14 @@ class DamageReportForm extends Component {
       );
     }
 
+    if (typeof (this.props.car) === 'undefined') {
+      return (
+        <View>
+          <Text> Du må registrere bilen din først </Text>
+        </View>
+      );
+    }
+
     if (this.props.currentDamageReport.Items) {
       this.Items = this.props.currentDamageReport.Items;
     }
@@ -125,6 +133,7 @@ const mapStateToProps = (state) => {
     hasErrored: state.damageReportForm.hasErrored,
     currentDamageReport: state.damageReportForm.currentDamageReport,
     values: state.damageReportValues,
+    car: state.auth.car,
   };
 };
 
