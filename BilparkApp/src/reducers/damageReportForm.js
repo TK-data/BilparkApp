@@ -4,6 +4,7 @@ const initialState = {
   hasErrored: false,
   isLoading: false,
   damageReports: [],
+  currentDamageReport: [],
 };
 
 export default function damageReportForm(state = initialState, action) {

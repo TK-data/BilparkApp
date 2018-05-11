@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { StyleSheet } from 'react-native';
 import { Content, Button, Text } from 'native-base';
 
-import { postDamageReport, getCurrentDamageReport } from '../../actions/damageReportForm';
+import { postDamageReport } from '../../actions/damageReportForm';
 
 const styles = StyleSheet.create({
 
@@ -13,13 +13,11 @@ const styles = StyleSheet.create({
 const Items = [
   {
     ItemType: 'Wheel',
-    Damaged: true,
-    Description: 'cracked or something',
+    Damaged: false,
   },
   {
     ItemType: 'Window',
-    Damaged: true,
-    Description: 'smashed',
+    Damaged: false,
   },
   {
     ItemType: 'CarLight',
@@ -63,7 +61,8 @@ class DamageReportForm extends Component {
   }
   handleSubmit() {
     this.props.changeValues(Items);
-    console.log(this.currentDamageReport);
+    console.log(this.props.hasErrored);
+    console.log(this.props.currentDamageReport);
   }
 
   render() {
@@ -110,8 +109,11 @@ class DamageReportForm extends Component {
 }
 
 const mapStateToProps = (state) => {
+  // console.log(state);
   return {
-    currentDamageReport: state.DamageReportForm.currentDamageReport,
+    isLoading: state.damageReportForm.isLoading,
+    hasErrored: state.damageReportForm.hasErrored,
+    currentDamageReport: state.damageReportForm.currentDamageReport,
   };
 };
 
