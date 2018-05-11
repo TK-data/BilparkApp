@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { StyleSheet } from 'react-native';
 import { Content, Button, Text } from 'native-base';
 
-import { postDamageReport } from '../../actions/damageReportForm';
+import { postDamageReport, getCurrentDamageReport } from '../../actions/damageReportForm';
 
 const styles = StyleSheet.create({
 
@@ -61,8 +61,9 @@ class DamageReportForm extends Component {
   }
   handleSubmit() {
     this.props.changeValues(Items);
-    console.log(this.props.hasErrored);
-    console.log(this.props.currentDamageReport);
+    // console.log(this.props.hasErrored);
+    // this.props.getValues(Items);
+    // console.log(this.props.currentDamageReport);
   }
 
   render() {
@@ -109,7 +110,6 @@ class DamageReportForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-  // console.log(state);
   return {
     isLoading: state.damageReportForm.isLoading,
     hasErrored: state.damageReportForm.hasErrored,
@@ -120,6 +120,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     changeValues: ItemArray => dispatch(postDamageReport(ItemArray)),
+    getValues: ItemArray => dispatch(getCurrentDamageReport(ItemArray)),
   };
 };
 

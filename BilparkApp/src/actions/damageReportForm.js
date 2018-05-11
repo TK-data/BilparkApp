@@ -38,7 +38,7 @@ export function registerDamageReport(damagereport) {
 export function getCurrentDamageReportSuccess(damagereport) {
   return {
     type: 'GET_CURRENT_DAMAGEREPORT',
-    damagereport,
+    currentDamageReport: damagereport,
   };
 }
 

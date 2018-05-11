@@ -4,7 +4,7 @@ const initialState = {
   hasErrored: false,
   isLoading: false,
   damageReports: [],
-  currentDamageReport: [],
+  currentDamageReport: {},
 };
 
 export default function damageReportForm(state = initialState, action) {
@@ -30,13 +30,13 @@ export default function damageReportForm(state = initialState, action) {
     return {
       ...state,
       hasErrored: false,
-      damageReport: state.damageReport,
+      damageReport: action.damageReport,
     };
   case GET_CURRENT_DAMAGEREPORT:
     return {
       ...state,
       hasErrored: false,
-      currentDamageReport: state.currentDamageReport,
+      currentDamageReport: action.currentDamageReport,
     };
   case 'LOGOUT_SUCCESS':
     return initialState;
