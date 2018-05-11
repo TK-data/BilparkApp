@@ -54,4 +54,55 @@ describe('registerCompany reducer tests', () => {
     });
   });
 
+  it('Should handle GET_COMPANIES_FAILURE', () => {
+    expect(registerCompany(initialCompanySaveState, {
+      type: GET_COMPANIES_FAILURE,
+      hasErrored: true,
+    })).toEqual({
+      hasErrored: true,
+      isLoading: false,
+      company: '',
+      companies: [],
+      selectedCompany: '',
+    });
+  });
+
+  it('Should handle GET_COMPANIES_REQUEST', () => {
+    expect(registerCompany(initialCompanySaveState, {
+      type: GET_COMPANIES_REQUEST,
+      isLoading: true,
+    })).toEqual({
+      hasErrored: false,
+      isLoading: true,
+      company: '',
+      companies: [],
+      selectedCompany: '',
+    });
+  });
+
+  it('Should handle GET_COMPANIES_COMPLETE', () => {
+
+    const companies = [
+      {
+        CompanyID: 5,
+        CompanyName: 'Bedrift1',
+      },
+      {
+        CompanyID: 8,
+        CompanyName: 'Bedrift2',
+      },
+    ];
+
+    expect(registerCompany(initialCompanySaveState, {
+      type: GET_COMPANIES_COMPLETE,
+      companies,
+    })).toEqual({
+      hasErrored: false,
+      isLoading: false,
+      company: '',
+      companies,
+      selectedCompany: '',
+    });
+  });
+
 });
