@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { StyleSheet } from 'react-native';
 import { Content, Button, Text } from 'native-base';
 
-import { postDamageReport } from '../../actions/damageReportForm';
+import { postDamageReport, getCurrentDamageReport } from '../../actions/damageReportForm';
 
 const styles = StyleSheet.create({
 
@@ -63,6 +63,7 @@ class DamageReportForm extends Component {
   }
   handleSubmit() {
     this.props.changeValues(Items);
+    console.log(this.currentDamageReport);
   }
 
   render() {
@@ -110,6 +111,7 @@ class DamageReportForm extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    currentDamageReport: state.DamageReportForm.currentDamageReport,
   };
 };
 

@@ -1,4 +1,4 @@
-import { POST_DAMAGEREPORT_REQUEST, POST_DAMAGEREPORT_FAILURE, POST_DAMAGEREPORT_SUCCESS, REGISTER_DAMAGEREPORT } from '../actions/damageReportForm';
+import { POST_DAMAGEREPORT_REQUEST, POST_DAMAGEREPORT_FAILURE, POST_DAMAGEREPORT_SUCCESS, REGISTER_DAMAGEREPORT, GET_CURRENT_DAMAGEREPORT } from '../actions/damageReportForm';
 
 const initialState = {
   hasErrored: false,
@@ -29,7 +29,13 @@ export default function damageReportForm(state = initialState, action) {
     return {
       ...state,
       hasErrored: false,
-      fuelRefills: state.damageReport,
+      damageReport: state.damageReport,
+    };
+  case GET_CURRENT_DAMAGEREPORT:
+    return {
+      ...state,
+      hasErrored: false,
+      currentDamageReport: state.currentDamageReport,
     };
   case 'LOGOUT_SUCCESS':
     return initialState;

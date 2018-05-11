@@ -6,6 +6,7 @@ export const POST_DAMAGEREPORT_REQUEST = 'POST_DAMAGEREPORT_REQUEST';
 export const POST_DAMAGEREPORT_FAILURE = 'POST_DAMAGEREPORT_FAILURE';
 export const POST_DAMAGEREPORT_SUCCESS = 'POST_DAMAGEREPORT_SUCCESS';
 export const REGISTER_DAMAGEREPORT = 'REGISTER_DAMAGEREPORT';
+export const GET_CURRENT_DAMAGEREPORT = 'GET_CURRENT_DAMAGEREPORT';
 
 export function postDamageReportFailure(bool) {
   return {
@@ -34,6 +35,13 @@ export function registerDamageReport(damagereport) {
   };
 }
 
+export function getCurrentDamageReportSuccess(damagereport) {
+  return {
+    type: 'GET_CURRENT_DAMAGEREPORT',
+    damagereport,
+  };
+}
+
 export function getDamageReport() {
   return (dispatch) => {
     dispatch(postDamageReportLoading(true));
@@ -51,6 +59,23 @@ export function getDamageReport() {
   };
 }
 
+export function getCurrentDamageReport() {
+  return (dispatch) => {
+    dispatch(postDamageReportLoading(true));
+    return axios.get(API_ADDRESS + '/api/damagereport/getcurrent')
+      .then((response) => {
+        dispatch(postDamageReportLoading(false));
+        return response.data;
+      })
+      .then((userdamagereport) => {
+        dispatch(getCurrentDamageReportSuccess(userdamagereport));
+      })
+      .catch(() => {
+        dispatch(postDamageReportFailure(true));
+      });
+  };
+}
+
 export function postDamageReport(Items) {
   const params = {
     Items,
@@ -59,15 +84,13 @@ export function postDamageReport(Items) {
     dispatch(postDamageReportLoading(true));
     return axios.post(API_ADDRESS + '/api/damagereport/register', params)
       .then((response) => {
-        console.log(response);
         dispatch(postDamageReportLoading(false));
         return response.data;
       })
       .then((userdamagereport) => {
         dispatch(registerDamageReport(userdamagereport));
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
         dispatch(postDamageReportFailure(true));
       });
   };
