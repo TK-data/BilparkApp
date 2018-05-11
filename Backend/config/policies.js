@@ -85,4 +85,13 @@ module.exports.policies = {
 		login: true,
 		logout: true,
 	},
+	DamageReport: {
+		'*': false,
+		register: 'sessionAuth',
+		getall: 'sessionAuth',
+		getCurrent: 'sessionAuth',
+	},
+	DamageReportItem: {
+		'*': false,
+	}
 };
