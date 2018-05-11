@@ -20,7 +20,6 @@ module.exports = {
     },
     ItemType: {
       type: 'string',
-      isIn: ['Wheel', 'Window', 'CarLight', 'FrontBumper', 'BackBumper', 'RightBodyWork', 'LeftBodyWork'],
       required: true,
     },
     Damaged: {

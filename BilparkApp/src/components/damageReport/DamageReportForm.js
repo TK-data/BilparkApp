@@ -46,8 +46,6 @@ const Items = [
 
 class DamageReportForm extends Component {
   onChange(values) {
-    // this.props.addValues(values);
-    // console.log(values);
     Items[0].Damaged = this.form.getValue().FelgHjul;
     Items[0].Description = this.form.getValue().FelgHjulBeskrivelse;
     Items[1].Damaged = this.form.getValue().Glass;
@@ -62,7 +60,6 @@ class DamageReportForm extends Component {
     Items[5].Description = this.form.getValue().KarosseriHøyreBeskrivelse;
     Items[6].Damaged = this.form.getValue().KarosseriVenstre;
     Items[6].Description = this.form.getValue().KarosseriVenstreBeskrivelse;
-    // this.props.changeValues(Items);
   }
   handleSubmit() {
     this.props.changeValues(Items);

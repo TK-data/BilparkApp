@@ -49,7 +49,7 @@ module.exports = {
 
         DamageReportItem.create(itemsToCreate).exec(function (err, items) {
           if (err) {
-            res.negotiate('error creating damage report item: ' + err);
+            res.negotiate('error creating damage report item');
             return;
           }
           if (!items || items.length <= 0) {
