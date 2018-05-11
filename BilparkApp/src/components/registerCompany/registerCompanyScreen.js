@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgb(000, 039, 118)',
   },
   title: {
-    // marginTop: window.width / 0.1,
     color: 'white',
     fontSize: 30,
   },
@@ -42,9 +41,8 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const mapStateToProps = (state) => {
-  return {
-  };
+const mapStateToProps = () => {
+  return {};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RegisterCompanyScreen);

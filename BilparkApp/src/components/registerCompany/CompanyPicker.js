@@ -31,7 +31,11 @@ const CompanyPicker = ({ selectedCompany, changeSelect, postCompany, companies }
   return (
     <View style={styles.container}>
       <View>
-        <Picker style={styles.picker} selectedValue={selectedCompany} onValueChange={value => changeSelect(value)}>
+        <Picker
+          style={styles.picker}
+          selectedValue={selectedCompany}
+          onValueChange={value => changeSelect(value)}
+        >
           <Picker.Item label="Velg firma" value="" />
           {companies.map(company =>
             (<Picker.Item
