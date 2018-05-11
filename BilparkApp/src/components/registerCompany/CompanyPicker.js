@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
+import { StyleSheet, Dimensions, TouchableOpacity, Platform } from 'react-native';
 import { Picker, Spinner, View, Text } from 'native-base';
 import { connect } from 'react-redux';
 
@@ -44,6 +44,7 @@ const CompanyPicker = ({ hasErrored, isLoading, selectedCompany, changeSelect, p
     );
   }
 
+
   return (
     <View style={styles.container}>
       <View>
@@ -55,6 +56,7 @@ const CompanyPicker = ({ hasErrored, isLoading, selectedCompany, changeSelect, p
           onValueChange={value => changeSelect(value)}
           placeholder="Velg selskap"
         >
+          { Platform.OS !== 'ios' && <Picker.Item label="Velg" value="" /> }
           {companies.map(company =>
             (<Picker.Item
               key={company.CompanyID}

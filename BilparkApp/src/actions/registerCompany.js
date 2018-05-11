@@ -100,7 +100,6 @@ export function getCompanies() {
         dispatch(getCompaniesComplete(response.data));
       })
       .catch((err) => {
-        console.log(err);
         dispatch(getCompaniesError(true));
       });
   };
