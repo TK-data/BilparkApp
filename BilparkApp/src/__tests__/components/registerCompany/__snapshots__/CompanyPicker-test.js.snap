@@ -129,14 +129,17 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": Array [
-              <Item
-                label="Bedrift1"
-                value={5}
-              />,
-              <Item
-                label="Bedrift2"
-                value={8}
-              />,
+              false,
+              Array [
+                <Item
+                  label="Bedrift1"
+                  value={5}
+                />,
+                <Item
+                  label="Bedrift2"
+                  value={8}
+                />,
+              ],
             ],
             "iosHeader": "Velg Selskap",
             "mode": "dropdown",
@@ -150,6 +153,7 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": Array [
+            false,
             Object {
               "instance": null,
               "key": "5",
@@ -352,14 +356,17 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "children": Array [
-                <Item
-                  label="Bedrift1"
-                  value={5}
-                />,
-                <Item
-                  label="Bedrift2"
-                  value={8}
-                />,
+                false,
+                Array [
+                  <Item
+                    label="Bedrift1"
+                    value={5}
+                  />,
+                  <Item
+                    label="Bedrift2"
+                    value={8}
+                  />,
+                ],
               ],
               "iosHeader": "Velg Selskap",
               "mode": "dropdown",
@@ -373,6 +380,7 @@ ShallowWrapper {
             },
             "ref": null,
             "rendered": Array [
+              false,
               Object {
                 "instance": null,
                 "key": "5",
