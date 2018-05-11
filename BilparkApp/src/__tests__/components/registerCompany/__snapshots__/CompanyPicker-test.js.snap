@@ -18,6 +18,8 @@ ShallowWrapper {
         },
       ]
     }
+    hasErrored={undefined}
+    isLoading={undefined}
     postCompany={[Function]}
     selectedCompany={5}
   />,
@@ -34,9 +36,14 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": Array [
-        <View>
+        <Styled(ViewNB)
+          virtual={undefined}
+        >
           <Styled(PickerNB)
+            iosHeader="Velg Selskap"
+            mode="dropdown"
             onValueChange={[Function]}
+            placeholder="Velg selskap"
             selectedValue={5}
             style={
               Object {
@@ -45,10 +52,6 @@ ShallowWrapper {
             }
             virtual={undefined}
           >
-            <Item
-              label="Velg firma"
-              value=""
-            />
             <Item
               label="Bedrift1"
               value={5}
@@ -58,16 +61,15 @@ ShallowWrapper {
               value={8}
             />
           </Styled(PickerNB)>
-        </View>,
-        <View>
+        </Styled(ViewNB)>,
+        <Styled(ViewNB)
+          virtual={undefined}
+        >
           <TouchableOpacity
             activeOpacity={0.2}
             onPress={[Function]}
           >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+            <Styled(Text)
               style={
                 Object {
                   "color": "white",
@@ -76,16 +78,18 @@ ShallowWrapper {
                   "textAlign": "center",
                 }
               }
+              virtual={undefined}
             >
               Send
-            </Text>
+            </Styled(Text)>
           </TouchableOpacity>
-        </View>,
+        </Styled(ViewNB)>,
       ],
       "style": Object {
         "marginTop": 20,
         "width": 375,
       },
+      "virtual": undefined,
     },
     "ref": null,
     "rendered": Array [
@@ -95,7 +99,10 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "children": <Styled(PickerNB)
+            iosHeader="Velg Selskap"
+            mode="dropdown"
             onValueChange={[Function]}
+            placeholder="Velg selskap"
             selectedValue={5}
             style={
               Object {
@@ -105,10 +112,6 @@ ShallowWrapper {
             virtual={undefined}
           >
             <Item
-              label="Velg firma"
-              value=""
-            />
-            <Item
               label="Bedrift1"
               value={5}
             />
@@ -117,6 +120,7 @@ ShallowWrapper {
               value={8}
             />
           </Styled(PickerNB)>,
+          "virtual": undefined,
         },
         "ref": null,
         "rendered": Object {
@@ -126,21 +130,18 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <Item
-                label="Velg firma"
-                value=""
+                label="Bedrift1"
+                value={5}
               />,
-              Array [
-                <Item
-                  label="Bedrift1"
-                  value={5}
-                />,
-                <Item
-                  label="Bedrift2"
-                  value={8}
-                />,
-              ],
+              <Item
+                label="Bedrift2"
+                value={8}
+              />,
             ],
+            "iosHeader": "Velg Selskap",
+            "mode": "dropdown",
             "onValueChange": [Function],
+            "placeholder": "Velg selskap",
             "selectedValue": 5,
             "style": Object {
               "backgroundColor": "white",
@@ -149,18 +150,6 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "class",
-              "props": Object {
-                "label": "Velg firma",
-                "value": "",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
             Object {
               "instance": null,
               "key": "5",
@@ -199,10 +188,7 @@ ShallowWrapper {
             activeOpacity={0.2}
             onPress={[Function]}
           >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+            <Styled(Text)
               style={
                 Object {
                   "color": "white",
@@ -211,10 +197,12 @@ ShallowWrapper {
                   "textAlign": "center",
                 }
               }
+              virtual={undefined}
             >
               Send
-            </Text>
+            </Styled(Text)>
           </TouchableOpacity>,
+          "virtual": undefined,
         },
         "ref": null,
         "rendered": Object {
@@ -223,10 +211,7 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "activeOpacity": 0.2,
-            "children": <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
+            "children": <Styled(Text)
               style={
                 Object {
                   "color": "white",
@@ -235,9 +220,10 @@ ShallowWrapper {
                   "textAlign": "center",
                 }
               }
+              virtual={undefined}
             >
               Send
-            </Text>,
+            </Styled(Text)>,
             "onPress": [Function],
           },
           "ref": null,
@@ -246,16 +232,14 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "accessible": true,
-              "allowFontScaling": true,
               "children": "Send",
-              "ellipsizeMode": "tail",
               "style": Object {
                 "color": "white",
                 "fontSize": 20,
                 "marginTop": 10,
                 "textAlign": "center",
               },
+              "virtual": undefined,
             },
             "ref": null,
             "rendered": "Send",
@@ -275,9 +259,14 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": Array [
-          <View>
+          <Styled(ViewNB)
+            virtual={undefined}
+          >
             <Styled(PickerNB)
+              iosHeader="Velg Selskap"
+              mode="dropdown"
               onValueChange={[Function]}
+              placeholder="Velg selskap"
               selectedValue={5}
               style={
                 Object {
@@ -286,10 +275,6 @@ ShallowWrapper {
               }
               virtual={undefined}
             >
-              <Item
-                label="Velg firma"
-                value=""
-              />
               <Item
                 label="Bedrift1"
                 value={5}
@@ -299,16 +284,15 @@ ShallowWrapper {
                 value={8}
               />
             </Styled(PickerNB)>
-          </View>,
-          <View>
+          </Styled(ViewNB)>,
+          <Styled(ViewNB)
+            virtual={undefined}
+          >
             <TouchableOpacity
               activeOpacity={0.2}
               onPress={[Function]}
             >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
+              <Styled(Text)
                 style={
                   Object {
                     "color": "white",
@@ -317,16 +301,18 @@ ShallowWrapper {
                     "textAlign": "center",
                   }
                 }
+                virtual={undefined}
               >
                 Send
-              </Text>
+              </Styled(Text)>
             </TouchableOpacity>
-          </View>,
+          </Styled(ViewNB)>,
         ],
         "style": Object {
           "marginTop": 20,
           "width": 375,
         },
+        "virtual": undefined,
       },
       "ref": null,
       "rendered": Array [
@@ -336,7 +322,10 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": <Styled(PickerNB)
+              iosHeader="Velg Selskap"
+              mode="dropdown"
               onValueChange={[Function]}
+              placeholder="Velg selskap"
               selectedValue={5}
               style={
                 Object {
@@ -346,10 +335,6 @@ ShallowWrapper {
               virtual={undefined}
             >
               <Item
-                label="Velg firma"
-                value=""
-              />
-              <Item
                 label="Bedrift1"
                 value={5}
               />
@@ -358,6 +343,7 @@ ShallowWrapper {
                 value={8}
               />
             </Styled(PickerNB)>,
+            "virtual": undefined,
           },
           "ref": null,
           "rendered": Object {
@@ -367,21 +353,18 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <Item
-                  label="Velg firma"
-                  value=""
+                  label="Bedrift1"
+                  value={5}
                 />,
-                Array [
-                  <Item
-                    label="Bedrift1"
-                    value={5}
-                  />,
-                  <Item
-                    label="Bedrift2"
-                    value={8}
-                  />,
-                ],
+                <Item
+                  label="Bedrift2"
+                  value={8}
+                />,
               ],
+              "iosHeader": "Velg Selskap",
+              "mode": "dropdown",
               "onValueChange": [Function],
+              "placeholder": "Velg selskap",
               "selectedValue": 5,
               "style": Object {
                 "backgroundColor": "white",
@@ -390,18 +373,6 @@ ShallowWrapper {
             },
             "ref": null,
             "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "label": "Velg firma",
-                  "value": "",
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
               Object {
                 "instance": null,
                 "key": "5",
@@ -440,10 +411,7 @@ ShallowWrapper {
               activeOpacity={0.2}
               onPress={[Function]}
             >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
+              <Styled(Text)
                 style={
                   Object {
                     "color": "white",
@@ -452,10 +420,12 @@ ShallowWrapper {
                     "textAlign": "center",
                   }
                 }
+                virtual={undefined}
               >
                 Send
-              </Text>
+              </Styled(Text)>
             </TouchableOpacity>,
+            "virtual": undefined,
           },
           "ref": null,
           "rendered": Object {
@@ -464,10 +434,7 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "activeOpacity": 0.2,
-              "children": <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
+              "children": <Styled(Text)
                 style={
                   Object {
                     "color": "white",
@@ -476,9 +443,10 @@ ShallowWrapper {
                     "textAlign": "center",
                   }
                 }
+                virtual={undefined}
               >
                 Send
-              </Text>,
+              </Styled(Text)>,
               "onPress": [Function],
             },
             "ref": null,
@@ -487,16 +455,14 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "accessible": true,
-                "allowFontScaling": true,
                 "children": "Send",
-                "ellipsizeMode": "tail",
                 "style": Object {
                   "color": "white",
                   "fontSize": 20,
                   "marginTop": 10,
                   "textAlign": "center",
                 },
+                "virtual": undefined,
               },
               "ref": null,
               "rendered": "Send",
