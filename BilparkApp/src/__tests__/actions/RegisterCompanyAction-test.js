@@ -98,6 +98,13 @@ describe('Get and register company actions', () => {
     expect(getCompaniesComplete(companies)).toEqual(expectedAction);
   });
 
+  it('Should send a LOGIN_SUCCESS on routeToMenu', () => {
+    const expectedAction = {
+      type: 'LOGIN_SUCCESS',
+    };
+    expect(routeToMenu()).toEqual(expectedAction);
+  });
+
 
 });
 
