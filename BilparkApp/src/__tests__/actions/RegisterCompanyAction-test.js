@@ -121,4 +121,71 @@ describe('Register and get car async actions', () => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
+
+  it('Creates a GET_COMPANY_COMPLETE action when get request is successful', () => {
+
+    const companies = [
+      {
+        CompanyID: 5,
+        CompanyName: 'Bedrift1',
+      },
+      {
+        CompanyID: 9,
+        CompanyName: 'Bedrift2',
+      },
+    ];
+
+    axiosMock.onGet().reply(200, companies);
+
+    const expectedActions = [
+      {
+        type: GET_COMPANIES_REQUEST,
+        isLoading: true,
+      },
+      {
+        type: GET_COMPANIES_FAILURE,
+        hasErrored: false,
+      },
+      {
+        type: GET_COMPANIES_REQUEST,
+        isLoading: false,
+      },
+      {
+        type: GET_COMPANIES_COMPLETE,
+        companies,
+      },
+    ];
+
+    const store = mockStore({});
+
+    return store.dispatch(getCompanies()).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it('Creates a GET_COMPANY_FAILURE action when get request is unsuccessful', () => {
+
+    axiosMock.onGet().reply(404);
+
+    const expectedActions = [
+      {
+        type: GET_COMPANIES_REQUEST,
+        isLoading: true,
+      },
+      {
+        type: GET_COMPANIES_FAILURE,
+        hasErrored: false,
+      },
+      {
+        type: GET_COMPANIES_FAILURE,
+        hasErrored: true,
+      },
+    ];
+
+    const store = mockStore({});
+
+    return store.dispatch(getCompanies()).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
 });
