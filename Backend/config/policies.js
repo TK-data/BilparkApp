@@ -89,6 +89,7 @@ module.exports.policies = {
 		'*': false,
 		register: 'sessionAuth',
 		getall: 'sessionAuth',
+		getCurrent: 'sessionAuth',
 	},
 	DamageReportItem: {
 		'*': false,

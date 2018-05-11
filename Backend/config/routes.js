@@ -43,5 +43,7 @@ module.exports.routes = {
   'GET /api/admin/logout': 'AdminController.logout',
   'POST /api/damagereport/register': 'DamageReportController.register',
   'GET /api/Damagereport/getall': 'DamageReportController.getAll',
+  'GET /api/Damagereport/getcurrent': 'DamageReportController.getCurrent',
+
 
 };
