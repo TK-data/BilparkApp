@@ -8,8 +8,8 @@ const initialState = {
 };
 
 const initialValue = {
-  KarosseriVenstre: true,
-  KarosseriVenstreBeskrivelse: 'Initial',
+  KarosseriVenstre: false,
+  KarosseriVenstreBeskrivelse: '',
   KarosseriHøyre: false,
   KarosseriHøyreBeskrivelse: '',
   StøtfangerFront: false,
@@ -27,7 +27,22 @@ const initialValue = {
 export function damageReportValues(state = initialValue, action) {
   switch (action.type) {
   case DAMAGE_REPORT_VALUES:
-    return initialValue;
+    return {
+      KarosseriVenstre: action.currentDamageReportValues[6].Damaged,
+      KarosseriHøyre: action.currentDamageReportValues[5].Damaged,
+      StøtfangerFront: action.currentDamageReportValues[4].Damaged,
+      StøtfangerBak: action.currentDamageReportValues[3].Damaged,
+      LysUtvendig: action.currentDamageReportValues[2].Damaged,
+      Glass: action.currentDamageReportValues[1].Damaged,
+      FelgHjul: action.currentDamageReportValues[0].Damaged,
+      KarosseriVenstreBeskrivelse: action.currentDamageReportValues[6].Description,
+      KarosseriHøyreBeskrivelse: action.currentDamageReportValues[5].Description,
+      StøtfangerFrontBeskrivelse: action.currentDamageReportValues[4].Description,
+      StøtfangerBakBeskrivelse: action.currentDamageReportValues[3].Description,
+      LysUtvendigBeskrivelse: action.currentDamageReportValues[2].Description,
+      GlassBeskrivelse: action.currentDamageReportValues[1].Description,
+      FelgHjulBeskrivelse: action.currentDamageReportValues[0].Description,
+    };
   default:
     return state;
   }
