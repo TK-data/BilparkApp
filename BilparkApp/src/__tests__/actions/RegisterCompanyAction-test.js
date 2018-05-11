@@ -28,6 +28,35 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe('Get and register company actions', () => {
+  it('Should create an action when company register succeeds', () => {
+    const company = {
+      CompanyID: 5,
+      CompanyName: 'Bedrift1',
+    };
+
+    const expectedAction = {
+      type: REGISTER_COMPANY_COMPLETE,
+      company,
+    };
+    expect(registerCompanyComplete(company)).toEqual(expectedAction);
+  });
+
+  it('Should create an action when company register is loading', () => {
+    const expectedAction = {
+      type: REGISTER_COMPANY_REQUEST,
+      isLoading: true,
+    };
+    expect(registerCompanyRequest(true)).toEqual(expectedAction);
+  });
+
+  it('Should create an action when company register fails', () => {
+    const expectedAction = {
+      type: REGISTER_COMPANY_FAILURE,
+      hasErrored: true,
+    };
+    expect(registerCompanyFailure(true)).toEqual(expectedAction);
+  });
+
   it('Should create an action when company fetch fails', () => {
     const expectedAction = {
       type: GET_COMPANIES_FAILURE,
