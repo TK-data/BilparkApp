@@ -105,4 +105,31 @@ describe('registerCompany reducer tests', () => {
     });
   });
 
+  it('Should handle ONCHANGE_COMPANY', () => {
+    const selectedCompany = 5;
+
+    expect(registerCompany(initialCompanySaveState, {
+      type: ONCHANGE_COMPANY,
+      selectedCompany,
+    })).toEqual({
+      hasErrored: false,
+      isLoading: false,
+      company: '',
+      companies: [],
+      selectedCompany,
+    });
+  });
+
+  it('Should properly set default state', () => {
+
+    expect(registerCompany(initialCompanySaveState, {})).toEqual({
+      hasErrored: false,
+      isLoading: false,
+      company: '',
+      companies: [],
+      selectedCompany: '',
+    });
+  });
+
+
 });
