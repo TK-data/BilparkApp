@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import t from 'tcomb-form-native';
 import { connect } from 'react-redux';
 import { StyleSheet } from 'react-native';
-import { Content, Button, Text } from 'native-base';
+import { Content, Button, Text, View, Spinner } from 'native-base';
 
 import { postDamageReport, getCurrentDamageReport } from '../../actions/damageReportForm';
 
@@ -43,7 +43,11 @@ const Items = [
 
 
 class DamageReportForm extends Component {
-  onChange(values) {
+  componentDidMount() {
+    this.props.getValues();
+  }
+
+  handleSubmit() {
     Items[0].Damaged = this.form.getValue().FelgHjul;
     Items[0].Description = this.form.getValue().FelgHjulBeskrivelse;
     Items[1].Damaged = this.form.getValue().Glass;
@@ -58,15 +62,23 @@ class DamageReportForm extends Component {
     Items[5].Description = this.form.getValue().KarosseriHøyreBeskrivelse;
     Items[6].Damaged = this.form.getValue().KarosseriVenstre;
     Items[6].Description = this.form.getValue().KarosseriVenstreBeskrivelse;
-  }
-  handleSubmit() {
     this.props.changeValues(Items);
-    // console.log(this.props.hasErrored);
-    // this.props.getValues(Items);
-    // console.log(this.props.currentDamageReport);
   }
 
   render() {
+    if (this.props.isLoading) {
+      return (
+        <View>
+          <Spinner color="white" />
+        </View>
+      );
+    }
+
+    if (this.props.currentDamageReport.Items) {
+      this.Items = this.props.currentDamageReport.Items;
+      console.log(Items);
+    }
+
     const formOptions = {
     };
     const Damages = t.struct({
@@ -102,7 +114,6 @@ class DamageReportForm extends Component {
           type={Damages}
           options={formOptions}
           value={this.props.values}
-          onChange={value => this.onChange(value)}
         />
       </Content>
     );
@@ -110,6 +121,7 @@ class DamageReportForm extends Component {
 }
 
 const mapStateToProps = (state) => {
+  // console.log(state.damageReportForm);
   return {
     isLoading: state.damageReportForm.isLoading,
     hasErrored: state.damageReportForm.hasErrored,
