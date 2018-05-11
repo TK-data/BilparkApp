@@ -1,7 +1,7 @@
 import { ONCHANGE_COMPANY, REGISTER_COMPANY_REQUEST, REGISTER_COMPANY_COMPLETE, REGISTER_COMPANY_FAILURE, GET_COMPANIES_REQUEST, GET_COMPANIES_COMPLETE, GET_COMPANIES_FAILURE } from '../actions/registerCompany';
 
 
-const initialCompanySaveState = {
+export const initialCompanySaveState = {
   hasErrored: false,
   isLoading: false,
   company: '',
@@ -9,7 +9,7 @@ const initialCompanySaveState = {
   selectedCompany: '',
 };
 
-export default function registerCompany(state = initialCompanySaveState, action) {
+export function registerCompany(state = initialCompanySaveState, action) {
   switch (action.type) {
   case REGISTER_COMPANY_REQUEST:
     return {
