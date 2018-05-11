@@ -1,4 +1,4 @@
-import { POST_DAMAGEREPORT_REQUEST, POST_DAMAGEREPORT_FAILURE, POST_DAMAGEREPORT_SUCCESS, REGISTER_DAMAGEREPORT, GET_CURRENT_DAMAGEREPORT } from '../actions/damageReportForm';
+import { POST_DAMAGEREPORT_REQUEST, POST_DAMAGEREPORT_FAILURE, POST_DAMAGEREPORT_SUCCESS, REGISTER_DAMAGEREPORT, GET_CURRENT_DAMAGEREPORT, DAMAGE_REPORT_VALUES } from '../actions/damageReportForm';
 
 const initialState = {
   hasErrored: false,
@@ -7,7 +7,33 @@ const initialState = {
   currentDamageReport: {},
 };
 
-export default function damageReportForm(state = initialState, action) {
+const initialValue = {
+  KarosseriVenstre: true,
+  KarosseriVenstreBeskrivelse: 'Initial',
+  KarosseriHøyre: false,
+  KarosseriHøyreBeskrivelse: '',
+  StøtfangerFront: false,
+  StøtfangerFrontBeskrivelse: '',
+  StøtfangerBak: false,
+  StøtfangerBakBeskrivelse: '',
+  LysUtvendig: false,
+  LysUtvendigBeskrivelse: '',
+  Glass: false,
+  GlassBeskrivelse: '',
+  FelgHjul: false,
+  FelgHjulBeskrivelse: '',
+};
+
+export function damageReportValues(state = initialValue, action) {
+  switch (action.type) {
+  case DAMAGE_REPORT_VALUES:
+    return initialValue;
+  default:
+    return state;
+  }
+}
+
+export function damageReportForm(state = initialState, action) {
   switch (action.type) {
   case POST_DAMAGEREPORT_FAILURE:
     return {

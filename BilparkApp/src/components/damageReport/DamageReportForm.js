@@ -76,7 +76,6 @@ class DamageReportForm extends Component {
 
     if (this.props.currentDamageReport.Items) {
       this.Items = this.props.currentDamageReport.Items;
-      console.log(Items);
     }
 
     const formOptions = {
@@ -121,11 +120,11 @@ class DamageReportForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-  // console.log(state.damageReportForm);
   return {
     isLoading: state.damageReportForm.isLoading,
     hasErrored: state.damageReportForm.hasErrored,
     currentDamageReport: state.damageReportForm.currentDamageReport,
+    values: state.damageReportValues,
   };
 };
 

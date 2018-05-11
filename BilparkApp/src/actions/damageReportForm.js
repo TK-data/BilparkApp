@@ -7,6 +7,7 @@ export const POST_DAMAGEREPORT_FAILURE = 'POST_DAMAGEREPORT_FAILURE';
 export const POST_DAMAGEREPORT_SUCCESS = 'POST_DAMAGEREPORT_SUCCESS';
 export const REGISTER_DAMAGEREPORT = 'REGISTER_DAMAGEREPORT';
 export const GET_CURRENT_DAMAGEREPORT = 'GET_CURRENT_DAMAGEREPORT';
+export const DAMAGE_REPORT_VALUES = 'DAMAGE_REPORT_VALUES';
 
 export function postDamageReportFailure(bool) {
   return {
@@ -42,6 +43,13 @@ export function getCurrentDamageReportSuccess(damagereport) {
   };
 }
 
+export function damageReportValues(values) {
+  return {
+    type: 'DAMAGE_REPORT_VALUES',
+    currentDamageReportValues: values,
+  };
+}
+
 export function getDamageReport() {
   return (dispatch) => {
     dispatch(postDamageReportLoading(true));
@@ -69,6 +77,8 @@ export function getCurrentDamageReport() {
       })
       .then((userdamagereport) => {
         dispatch(getCurrentDamageReportSuccess(userdamagereport));
+        console.log('dispatching report values');
+        dispatch(damageReportValues(userdamagereport));
       })
       .catch(() => {
         dispatch(postDamageReportFailure(true));
