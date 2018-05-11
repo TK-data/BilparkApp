@@ -99,7 +99,8 @@ export function getCompanies() {
         dispatch(getCompaniesRequest(false));
         dispatch(getCompaniesComplete(response.data));
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err);
         dispatch(getCompaniesError(true));
       });
   };

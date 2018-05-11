@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Text, Dimensions, TouchableOpacity } from 'react-native';
-import { Picker } from 'native-base';
+import { StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
+import { Picker, Spinner, View, Text } from 'native-base';
 import { connect } from 'react-redux';
 
 import { saveCompany, selectCompany } from '../../actions/registerCompany';
@@ -26,11 +26,21 @@ const styles = StyleSheet.create({
   },
 });
 
-const CompanyPicker = ({ selectedCompany, changeSelect, postCompany, companies }) => {
+const CompanyPicker = ({ hasErrored, isLoading, selectedCompany, changeSelect, postCompany, companies }) => {
 
-  if (companies.length === 0) {
+  if (hasErrored || companies.length === 0) {
     return (
-      <View style={styles.container} />
+      <View style={styles.container}>
+        <Text>Noe gikk galt når firmaer skulle hentes..</Text>
+      </View>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <View>
+        <Spinner color="white" />
+      </View>
     );
   }
 
@@ -76,6 +86,8 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   return {
     companies: state.registerCompany.companies,
+    hasErrored: state.registerCompany.hasErrored,
+    isLoading: state.registerCompany.isLoading,
     selectedCompany: state.registerCompany.selectedCompany,
   };
 };

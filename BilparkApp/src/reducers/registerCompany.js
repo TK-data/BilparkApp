@@ -24,6 +24,7 @@ export function registerCompany(state = initialCompanySaveState, action) {
   case REGISTER_COMPANY_FAILURE:
     return {
       ...state,
+      isLoading: false,
       hasErrored: action.hasErrored,
     };
   case GET_COMPANIES_REQUEST:
@@ -40,6 +41,7 @@ export function registerCompany(state = initialCompanySaveState, action) {
     return {
       ...state,
       hasErrored: action.hasErrored,
+      isLoading: false,
     };
   case ONCHANGE_COMPANY:
     return {
