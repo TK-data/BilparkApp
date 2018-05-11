@@ -97,7 +97,10 @@ module.exports = {
     }
 
     let latestReport = damageReports[0];
-    latestReport.Items = await DamageReportItem.find({DamageReportID: latestReport.DamageReportID});
+    latestReport.Items = await DamageReportItem.find({
+      where: { DamageReportID: latestReport.DamageReportID },
+      sort: 'createdAt ASC'
+    });
 
     res.json(latestReport);
   },

@@ -76,8 +76,6 @@ export function getCurrentDamageReport() {
         return response.data;
       })
       .then((userdamagereport) => {
-        console.log('getCurrentDamageReport');
-        console.log(userdamagereport.Items);
         dispatch(getCurrentDamageReportSuccess(userdamagereport));
         dispatch(damageReportValues(userdamagereport.Items));
       })
@@ -99,8 +97,6 @@ export function postDamageReport(Items) {
         return response.data;
       })
       .then((userdamagereport) => {
-        console.log('postDamageReport');
-        console.log(userdamagereport.items);
         dispatch(registerDamageReport(userdamagereport));
         dispatch(damageReportValues(userdamagereport.items));
       })

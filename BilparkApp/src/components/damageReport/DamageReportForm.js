@@ -54,10 +54,10 @@ class DamageReportForm extends Component {
     Items[1].Description = this.form.getValue().GlassBeskrivelse;
     Items[2].Damaged = this.form.getValue().LysUtvendig;
     Items[2].Description = this.form.getValue().LysUtvendigBeskrivelse;
-    Items[3].Damaged = this.form.getValue().StøtfangerBak;
-    Items[3].Description = this.form.getValue().StøtfangerBakBeskrivelse;
-    Items[4].Damaged = this.form.getValue().StøtfangerFront;
-    Items[4].Description = this.form.getValue().StøtfangerFrontBeskrivelse;
+    Items[3].Damaged = this.form.getValue().StøtfangerFront;
+    Items[3].Description = this.form.getValue().StøtfangerFrontBeskrivelse;
+    Items[4].Damaged = this.form.getValue().StøtfangerBak;
+    Items[4].Description = this.form.getValue().StøtfangerBakBeskrivelse;
     Items[5].Damaged = this.form.getValue().KarosseriHøyre;
     Items[5].Description = this.form.getValue().KarosseriHøyreBeskrivelse;
     Items[6].Damaged = this.form.getValue().KarosseriVenstre;

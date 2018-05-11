@@ -25,23 +25,24 @@ const initialValue = {
 };
 
 export function damageReportValues(state = initialValue, action) {
+  const itemArray = action.currentDamageReportValues;
   switch (action.type) {
   case DAMAGE_REPORT_VALUES:
     return {
-      KarosseriVenstre: action.currentDamageReportValues[6].Damaged,
-      KarosseriHøyre: action.currentDamageReportValues[5].Damaged,
-      StøtfangerFront: action.currentDamageReportValues[4].Damaged,
-      StøtfangerBak: action.currentDamageReportValues[3].Damaged,
-      LysUtvendig: action.currentDamageReportValues[2].Damaged,
-      Glass: action.currentDamageReportValues[1].Damaged,
-      FelgHjul: action.currentDamageReportValues[0].Damaged,
-      KarosseriVenstreBeskrivelse: action.currentDamageReportValues[6].Description,
-      KarosseriHøyreBeskrivelse: action.currentDamageReportValues[5].Description,
-      StøtfangerFrontBeskrivelse: action.currentDamageReportValues[4].Description,
-      StøtfangerBakBeskrivelse: action.currentDamageReportValues[3].Description,
-      LysUtvendigBeskrivelse: action.currentDamageReportValues[2].Description,
-      GlassBeskrivelse: action.currentDamageReportValues[1].Description,
-      FelgHjulBeskrivelse: action.currentDamageReportValues[0].Description,
+      KarosseriVenstre: itemArray.find(x => x.ItemType === 'LeftBodyWork').Damaged,
+      KarosseriHøyre: itemArray.find(x => x.ItemType === 'RightBodyWork').Damaged,
+      StøtfangerFront: itemArray.find(x => x.ItemType === 'FrontBumper').Damaged,
+      StøtfangerBak: itemArray.find(x => x.ItemType === 'BackBumper').Damaged,
+      LysUtvendig: itemArray.find(x => x.ItemType === 'CarLight').Damaged,
+      Glass: itemArray.find(x => x.ItemType === 'Window').Damaged,
+      FelgHjul: itemArray.find(x => x.ItemType === 'Wheel').Damaged,
+      KarosseriVenstreBeskrivelse: itemArray.find(x => x.ItemType === 'LeftBodyWork').Description,
+      KarosseriHøyreBeskrivelse: itemArray.find(x => x.ItemType === 'RightBodyWork').Description,
+      StøtfangerFrontBeskrivelse: itemArray.find(x => x.ItemType === 'FrontBumper').Description,
+      StøtfangerBakBeskrivelse: itemArray.find(x => x.ItemType === 'BackBumper').Description,
+      LysUtvendigBeskrivelse: itemArray.find(x => x.ItemType === 'CarLight').Description,
+      GlassBeskrivelse: itemArray.find(x => x.ItemType === 'Window').Description,
+      FelgHjulBeskrivelse: itemArray.find(x => x.ItemType === 'Wheel').Description,
     };
   default:
     return state;
