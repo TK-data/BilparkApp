@@ -14,7 +14,7 @@ import FuelDayScreen from '../components/fuelDay/FuelDayScreen';
 import MenuScreen from '../components/menu/MenuScreen';
 import FuelRefillScreen from '../components/fuelRefill/FuelRefillScreen';
 import DamageReportScreen from '../components/damageReport/DamageReportScreen';
-import RegisterCompanyScreen from '../components/registerCompany/RegisterCompanyScreen';
+import RegisterCompanyScreen from '../components/registerCompany/registerCompanyScreen';
 import { addListener } from '../utils/redux';
 
 const styles = StyleSheet.create({
