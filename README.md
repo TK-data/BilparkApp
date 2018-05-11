@@ -91,7 +91,7 @@ Our back-end is based on [Sails](https://sailsjs.com/), an MVC and API framework
 ```
 GET /api/user
 ```
-Get an array of user objects, in JSON format. Further this api will be limited to admins only.
+Get an array of user objects, in JSON format. limited to logged in admins.
 
 ```
 POST /api/user
@@ -113,12 +113,69 @@ GET /api/user/current
 ```
 Get current logged in user. Will get forbidden if not logged in.
 
+```
+POST /api/user/notification
+```
+Updates the user with what time they want to save their push notification. Need to be logged in.
+
+Required fields in body: `FuelTime: 12-00`, `FuelDay: 0-6`, `FuelNotification: 'true'`
+
+
 ### Car
 
 ```
-POST /dsm?regnr=XX00000
+POST /api/dsm?regnr=XX00000
 ```
 Get json car object for the input registration number, or a 404 error if no such car exists
+
+```
+POST /api/car/save
+```
+Save a car object to a logged in user.
+
+Example of car object:
+```
+"car": {
+  "RegNr": "VH XXXXX",
+  "Cas": "XXXXXXXXXXXX",
+  "Brand": "MERCEDES-BENZ",
+  "Model": "GLC 350 E 4MATIC/204 X",
+  "FuelType": null,
+  "RegYear": "2016",
+  "VehicleGroup": "PERSONBIL",
+  "Co2Emission": null,
+  "NoxEmission": null,
+  "FuelConsumption": null,
+  "ParticleEmmision": null,
+  "NextVI": null,
+  "NextVINotification": null,
+}
+```
+
+### FuelRefilll
+
+```
+POST /api/fuelrefill/register
+```
+registers a new fuelrefill entry.
+
+Required fields in body: `FuelTime, Price, Rate`
+
+
+```
+POST /api/fuelrefill/remove
+```
+Removes a refill entry, for a logged in user.
+
+Required field in body: `RefillID`
+
+
+```
+GET /api/fuelrefill/getall
+```
+Gets all refill entries for a logged in user.
+
+
 
 ### DamageReport
 
