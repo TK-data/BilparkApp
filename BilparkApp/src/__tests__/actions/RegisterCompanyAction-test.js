@@ -28,6 +28,19 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe('Get and register company actions', () => {
+  it('Should update selectCompany on ONCHANGE_COMPANY', () => {
+
+    const selectedCompany = {
+      selectedCompany: 5,
+    };
+
+    const expectedAction = {
+      type: ONCHANGE_COMPANY,
+      selectedCompany,
+    };
+    expect(selectCompany(selectedCompany)).toEqual(expectedAction);
+  });
+
   it('Should create an action when company register succeeds', () => {
     const company = {
       CompanyID: 5,
