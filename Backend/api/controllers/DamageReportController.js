@@ -82,6 +82,25 @@ module.exports = {
       damageReports[i].Items = await DamageReportItem.find({DamageReportID: damageReports[i].DamageReportID});
     }
     res.json(damageReports);
-  }
+  },
+
+  getCurrent: async function(req, res) {
+    if (!(req.session.authenticated && req.session.UserID)) {
+      res.forbidden('not logged in');
+    }
+
+    let damageReports = await DamageReport.find({
+      where: { UserID: req.session.UserID },
+      sort: 'createdAt DESC'
+    });
+    if (!damageReports || damageReports.length <= 0) {
+      res.notFound('no damage reports found for this user');
+    }
+
+    let latestReport = damageReports[0];
+    latestReport.Items = await DamageReportItem.find({DamageReportID: latestReport.DamageReportID});
+
+    res.json(latestReport);
+  },
 
 };
