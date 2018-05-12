@@ -81,13 +81,21 @@ module.exports.policies = {
   },
   AdminController: {
     '*': false,
-    create: 'adminAuth',
-    login: true,
-    logout: true,
-  },
+		create: 'adminAuth',
+		login: true,
+		logout: true,
+	},
+	DamageReport: {
+		'*': false,
+		register: 'sessionAuth',
+		getall: 'sessionAuth',
+		getCurrent: 'sessionAuth',
+	},
+	DamageReportItem: {
+		'*': false,
+	},
   CompanyController: {
     '*': false,
     find: 'sessionAuth',
     save: 'sessionAuth',
-  },
-};
+  },};
