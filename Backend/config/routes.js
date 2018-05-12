@@ -44,6 +44,6 @@ module.exports.routes = {
   'POST /api/damagereport/register': 'DamageReportController.register',
   'GET /api/Damagereport/getall': 'DamageReportController.getAll',
   'GET /api/Damagereport/getcurrent': 'DamageReportController.getCurrent',
-
+  'POST /api/company/save': 'CompanyController.save',
 
 };

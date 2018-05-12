@@ -1,0 +1,505 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing CompanyPicker Renders as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CompanyPicker
+    changeSelect={[Function]}
+    companies={
+      Array [
+        Object {
+          "CompanyID": 5,
+          "CompanyName": "Bedrift1",
+        },
+        Object {
+          "CompanyID": 8,
+          "CompanyName": "Bedrift2",
+        },
+      ]
+    }
+    hasErrored={undefined}
+    isLoading={undefined}
+    postCompany={[Function]}
+    selectedCompany={5}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <Styled(ViewNB)
+          virtual={undefined}
+        >
+          <Styled(PickerNB)
+            iosHeader="Velg Selskap"
+            mode="dropdown"
+            onValueChange={[Function]}
+            placeholder="Velg selskap"
+            selectedValue={5}
+            style={
+              Object {
+                "backgroundColor": "white",
+              }
+            }
+            virtual={undefined}
+          >
+            <Item
+              label="Bedrift1"
+              value={5}
+            />
+            <Item
+              label="Bedrift2"
+              value={8}
+            />
+          </Styled(PickerNB)>
+        </Styled(ViewNB)>,
+        <Styled(ViewNB)
+          virtual={undefined}
+        >
+          <TouchableOpacity
+            activeOpacity={0.2}
+            onPress={[Function]}
+          >
+            <Styled(Text)
+              style={
+                Object {
+                  "color": "white",
+                  "fontSize": 20,
+                  "marginTop": 10,
+                  "textAlign": "center",
+                }
+              }
+              virtual={undefined}
+            >
+              Send
+            </Styled(Text)>
+          </TouchableOpacity>
+        </Styled(ViewNB)>,
+      ],
+      "style": Object {
+        "marginTop": 20,
+        "width": 375,
+      },
+      "virtual": undefined,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <Styled(PickerNB)
+            iosHeader="Velg Selskap"
+            mode="dropdown"
+            onValueChange={[Function]}
+            placeholder="Velg selskap"
+            selectedValue={5}
+            style={
+              Object {
+                "backgroundColor": "white",
+              }
+            }
+            virtual={undefined}
+          >
+            <Item
+              label="Bedrift1"
+              value={5}
+            />
+            <Item
+              label="Bedrift2"
+              value={8}
+            />
+          </Styled(PickerNB)>,
+          "virtual": undefined,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              false,
+              Array [
+                <Item
+                  label="Bedrift1"
+                  value={5}
+                />,
+                <Item
+                  label="Bedrift2"
+                  value={8}
+                />,
+              ],
+            ],
+            "iosHeader": "Velg Selskap",
+            "mode": "dropdown",
+            "onValueChange": [Function],
+            "placeholder": "Velg selskap",
+            "selectedValue": 5,
+            "style": Object {
+              "backgroundColor": "white",
+            },
+            "virtual": undefined,
+          },
+          "ref": null,
+          "rendered": Array [
+            false,
+            Object {
+              "instance": null,
+              "key": "5",
+              "nodeType": "class",
+              "props": Object {
+                "label": "Bedrift1",
+                "value": 5,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "8",
+              "nodeType": "class",
+              "props": Object {
+                "label": "Bedrift2",
+                "value": 8,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <TouchableOpacity
+            activeOpacity={0.2}
+            onPress={[Function]}
+          >
+            <Styled(Text)
+              style={
+                Object {
+                  "color": "white",
+                  "fontSize": 20,
+                  "marginTop": 10,
+                  "textAlign": "center",
+                }
+              }
+              virtual={undefined}
+            >
+              Send
+            </Styled(Text)>
+          </TouchableOpacity>,
+          "virtual": undefined,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "activeOpacity": 0.2,
+            "children": <Styled(Text)
+              style={
+                Object {
+                  "color": "white",
+                  "fontSize": 20,
+                  "marginTop": 10,
+                  "textAlign": "center",
+                }
+              }
+              virtual={undefined}
+            >
+              Send
+            </Styled(Text)>,
+            "onPress": [Function],
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Send",
+              "style": Object {
+                "color": "white",
+                "fontSize": 20,
+                "marginTop": 10,
+                "textAlign": "center",
+              },
+              "virtual": undefined,
+            },
+            "ref": null,
+            "rendered": "Send",
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <Styled(ViewNB)
+            virtual={undefined}
+          >
+            <Styled(PickerNB)
+              iosHeader="Velg Selskap"
+              mode="dropdown"
+              onValueChange={[Function]}
+              placeholder="Velg selskap"
+              selectedValue={5}
+              style={
+                Object {
+                  "backgroundColor": "white",
+                }
+              }
+              virtual={undefined}
+            >
+              <Item
+                label="Bedrift1"
+                value={5}
+              />
+              <Item
+                label="Bedrift2"
+                value={8}
+              />
+            </Styled(PickerNB)>
+          </Styled(ViewNB)>,
+          <Styled(ViewNB)
+            virtual={undefined}
+          >
+            <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+            >
+              <Styled(Text)
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 20,
+                    "marginTop": 10,
+                    "textAlign": "center",
+                  }
+                }
+                virtual={undefined}
+              >
+                Send
+              </Styled(Text)>
+            </TouchableOpacity>
+          </Styled(ViewNB)>,
+        ],
+        "style": Object {
+          "marginTop": 20,
+          "width": 375,
+        },
+        "virtual": undefined,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <Styled(PickerNB)
+              iosHeader="Velg Selskap"
+              mode="dropdown"
+              onValueChange={[Function]}
+              placeholder="Velg selskap"
+              selectedValue={5}
+              style={
+                Object {
+                  "backgroundColor": "white",
+                }
+              }
+              virtual={undefined}
+            >
+              <Item
+                label="Bedrift1"
+                value={5}
+              />
+              <Item
+                label="Bedrift2"
+                value={8}
+              />
+            </Styled(PickerNB)>,
+            "virtual": undefined,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                false,
+                Array [
+                  <Item
+                    label="Bedrift1"
+                    value={5}
+                  />,
+                  <Item
+                    label="Bedrift2"
+                    value={8}
+                  />,
+                ],
+              ],
+              "iosHeader": "Velg Selskap",
+              "mode": "dropdown",
+              "onValueChange": [Function],
+              "placeholder": "Velg selskap",
+              "selectedValue": 5,
+              "style": Object {
+                "backgroundColor": "white",
+              },
+              "virtual": undefined,
+            },
+            "ref": null,
+            "rendered": Array [
+              false,
+              Object {
+                "instance": null,
+                "key": "5",
+                "nodeType": "class",
+                "props": Object {
+                  "label": "Bedrift1",
+                  "value": 5,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": "8",
+                "nodeType": "class",
+                "props": Object {
+                  "label": "Bedrift2",
+                  "value": 8,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <TouchableOpacity
+              activeOpacity={0.2}
+              onPress={[Function]}
+            >
+              <Styled(Text)
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 20,
+                    "marginTop": 10,
+                    "textAlign": "center",
+                  }
+                }
+                virtual={undefined}
+              >
+                Send
+              </Styled(Text)>
+            </TouchableOpacity>,
+            "virtual": undefined,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "activeOpacity": 0.2,
+              "children": <Styled(Text)
+                style={
+                  Object {
+                    "color": "white",
+                    "fontSize": 20,
+                    "marginTop": 10,
+                    "textAlign": "center",
+                  }
+                }
+                virtual={undefined}
+              >
+                Send
+              </Styled(Text)>,
+              "onPress": [Function],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Send",
+                "style": Object {
+                  "color": "white",
+                  "fontSize": 20,
+                  "marginTop": 10,
+                  "textAlign": "center",
+                },
+                "virtual": undefined,
+              },
+              "ref": null,
+              "rendered": "Send",
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+    "context": Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+    },
+  },
+}
+`;

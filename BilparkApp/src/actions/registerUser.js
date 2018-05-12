@@ -1,5 +1,7 @@
 import { API_ADDRESS } from '../config/connections';
 
+import { postUser } from './auth';
+
 export const REGISTER_USER_HAS_ERRORED = 'REGISTER_USER_HAS_ERRORED';
 export const REGISTER_USER_IS_LOADING = 'REGISTER_USER_IS_LOADING';
 export const REGISTER_USER_FETCH_DATA_SUCCESS = 'REGISTER_USER_FETCH_DATA_SUCCESS';
@@ -113,6 +115,13 @@ export const emailErrorFill = {
   },
 };
 
+export function routeToCompanyScreen() {
+  return {
+    type: 'ROUTE_COMPANY_SCREEN',
+  };
+}
+
+
 export function registerUserFetchData(value) {
   return (dispatch) => {
     dispatch(registerUserIsLoading(true));
@@ -126,8 +135,11 @@ export function registerUserFetchData(value) {
     })
       .then((response) => {
         if (response.status === 201) {
-          dispatch(registerUserModalVisible(true));
+          // dispatch(registerUserModalVisible(true));
+          // dispatch(routeToCompanyScreen());
+          dispatch(postUser(value.Email, value.Password));
           dispatch(registerUserOptions(pleasefillcorrect));
+          dispatch(registerUserValues({}));
           return response.status;
 
         } else if (response.status !== 201) {

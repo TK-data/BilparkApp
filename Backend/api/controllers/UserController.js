@@ -31,7 +31,8 @@ module.exports = {
 
         const result = {
           user: userObject,
-          car: null
+          car: null,
+          company: null,
         };
 
         // check if CarID exists. If it does, we also want to return this
@@ -41,6 +42,15 @@ module.exports = {
             result.car = carObject;
           }
         }
+
+        // same for company
+        if (userObject.CompanyID !== null) {
+          const companyObject = await Company.findOne({CompanyID: userObject.CompanyID});
+          if (companyObject) {
+            result.company = companyObject;
+          }
+        }
+
         return res.json(result);
       }
       catch (err) {
@@ -74,7 +84,8 @@ module.exports = {
 
         const result = {
           user: userObject,
-          car: null
+          car: null,
+          company: null,
         };
 
         // check if CarID exists. If it does, we also want to return this
@@ -84,6 +95,15 @@ module.exports = {
             result.car = carObject;
           }
         }
+
+        // same for company
+        if (userObject.CompanyID !== null) {
+          const companyObject = await Company.findOne({CompanyID: userObject.CompanyID});
+          if (companyObject) {
+            result.company = companyObject;
+          }
+        }
+
         return res.json(result);
       }
       catch (err) {
