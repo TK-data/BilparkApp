@@ -94,7 +94,7 @@ module.exports = {
       sort: 'createdAt DESC'
     });
     if (!damageReports || damageReports.length <= 0) {
-      res.notFound('no damage reports found for this user');
+      res.notFound({error: 'No damage reports for this user'});
       return;
     }
 
