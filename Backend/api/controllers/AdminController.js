@@ -8,7 +8,6 @@
 module.exports = {
   login: function(req, res) {
     // check if a requested email excists
-    sails.log(req.param);
     User.findOne({Email: req.param('Email')}).exec(function(err, user) {
       if (err) {
         return res.negotiate(err);

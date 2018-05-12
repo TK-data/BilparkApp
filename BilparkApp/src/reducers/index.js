@@ -7,8 +7,11 @@ import { carFetch, carForm } from './registerCar';
 import modals from './modals';
 import fuelRefill from './fuelRefill';
 import fuelRefillForm from './fuelRefillForm';
+import { registerCompany } from './registerCompany';
 import { registerUserModalVisible, registerUserModalTransparent, options, values } from './registerUser';
 import travelLog from './travelLog';
+import { damageReportForm, damageReportValues } from './damageReportForm';
+
 
 const RootReducer = combineReducers({
   nav,
@@ -26,6 +29,9 @@ const RootReducer = combineReducers({
   fuelRefillForm,
   modals,
   travelLog,
+  damageReportForm,
+  damageReportValues,
+  registerCompany,
 });
 
 const AppReducer = (state, action) => {

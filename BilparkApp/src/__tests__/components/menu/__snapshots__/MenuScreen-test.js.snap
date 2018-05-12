@@ -44,32 +44,7 @@ ShallowWrapper {
         style={undefined}
       >
         <Connect(Slide1) />
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "rgb(000, 039, 118)",
-              "flex": 1,
-              "justifyContent": "center",
-            }
-          }
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
-              Object {
-                "color": "white",
-                "fontSize": 40,
-                "fontWeight": "bold",
-                "marginBottom": 66.7,
-              }
-            }
-          >
-            Test 2
-          </Text>
-        </View>
+        <Connect(Slide2) />
         <View
           style={
             Object {
@@ -153,8 +128,8 @@ ShallowWrapper {
             "process": [Function],
           }
         }
-        pageName="Placeholder"
-        routeName="Profile"
+        pageName="Company"
+        routeName="RegisterCompany"
       />
       <Connect(MenuBox)
         image={
@@ -212,32 +187,7 @@ ShallowWrapper {
             style={undefined}
           >
             <Connect(Slide1) />
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "rgb(000, 039, 118)",
-                  "flex": 1,
-                  "justifyContent": "center",
-                }
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "white",
-                    "fontSize": 40,
-                    "fontWeight": "bold",
-                    "marginBottom": 66.7,
-                  }
-                }
-              >
-                Test 2
-              </Text>
-            </View>
+            <Connect(Slide2) />
             <View
               style={
                 Object {
@@ -321,8 +271,8 @@ ShallowWrapper {
                 "process": [Function],
               }
             }
-            pageName="Placeholder"
-            routeName="Profile"
+            pageName="Company"
+            routeName="RegisterCompany"
           />
           <Connect(MenuBox)
             image={
@@ -372,32 +322,7 @@ ShallowWrapper {
             style={undefined}
           >
             <Connect(Slide1) />
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "rgb(000, 039, 118)",
-                  "flex": 1,
-                  "justifyContent": "center",
-                }
-              }
-            >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
-                  Object {
-                    "color": "white",
-                    "fontSize": 40,
-                    "fontWeight": "bold",
-                    "marginBottom": 66.7,
-                  }
-                }
-              >
-                Test 2
-              </Text>
-            </View>
+            <Connect(Slide2) />
             <View
               style={
                 Object {
@@ -443,32 +368,7 @@ ShallowWrapper {
             "bounces": false,
             "children": Array [
               <Connect(Slide1) />,
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "rgb(000, 039, 118)",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  }
-                }
-              >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Object {
-                      "color": "white",
-                      "fontSize": 40,
-                      "fontWeight": "bold",
-                      "marginBottom": 66.7,
-                    }
-                  }
-                >
-                  Test 2
-                </Text>
-              </View>,
+              <Connect(Slide2) />,
               <View
                 style={
                   Object {
@@ -528,50 +428,9 @@ ShallowWrapper {
               "instance": null,
               "key": undefined,
               "nodeType": "class",
-              "props": Object {
-                "children": <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Object {
-                      "color": "white",
-                      "fontSize": 40,
-                      "fontWeight": "bold",
-                      "marginBottom": 66.7,
-                    }
-                  }
-                >
-                  Test 2
-                </Text>,
-                "style": Object {
-                  "alignItems": "center",
-                  "backgroundColor": "rgb(000, 039, 118)",
-                  "flex": 1,
-                  "justifyContent": "center",
-                },
-              },
+              "props": Object {},
               "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "class",
-                "props": Object {
-                  "accessible": true,
-                  "allowFontScaling": true,
-                  "children": "Test 2",
-                  "ellipsizeMode": "tail",
-                  "style": Object {
-                    "color": "white",
-                    "fontSize": 40,
-                    "fontWeight": "bold",
-                    "marginBottom": 66.7,
-                  },
-                },
-                "ref": null,
-                "rendered": "Test 2",
-                "type": [Function],
-              },
+              "rendered": null,
               "type": [Function],
             },
             Object {
@@ -677,8 +536,8 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              pageName="Placeholder"
-              routeName="Profile"
+              pageName="Company"
+              routeName="RegisterCompany"
             />,
             <Connect(MenuBox)
               image={
@@ -770,8 +629,8 @@ ShallowWrapper {
               "image": Object {
                 "process": [Function],
               },
-              "pageName": "Placeholder",
-              "routeName": "Profile",
+              "pageName": "Company",
+              "routeName": "RegisterCompany",
             },
             "ref": null,
             "rendered": null,
@@ -837,32 +696,7 @@ ShallowWrapper {
               style={undefined}
             >
               <Connect(Slide1) />
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "rgb(000, 039, 118)",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  }
-                }
-              >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Object {
-                      "color": "white",
-                      "fontSize": 40,
-                      "fontWeight": "bold",
-                      "marginBottom": 66.7,
-                    }
-                  }
-                >
-                  Test 2
-                </Text>
-              </View>
+              <Connect(Slide2) />
               <View
                 style={
                   Object {
@@ -946,8 +780,8 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              pageName="Placeholder"
-              routeName="Profile"
+              pageName="Company"
+              routeName="RegisterCompany"
             />
             <Connect(MenuBox)
               image={
@@ -997,32 +831,7 @@ ShallowWrapper {
               style={undefined}
             >
               <Connect(Slide1) />
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "rgb(000, 039, 118)",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  }
-                }
-              >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
-                    Object {
-                      "color": "white",
-                      "fontSize": 40,
-                      "fontWeight": "bold",
-                      "marginBottom": 66.7,
-                    }
-                  }
-                >
-                  Test 2
-                </Text>
-              </View>
+              <Connect(Slide2) />
               <View
                 style={
                   Object {
@@ -1068,32 +877,7 @@ ShallowWrapper {
               "bounces": false,
               "children": Array [
                 <Connect(Slide1) />,
-                <View
-                  style={
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "rgb(000, 039, 118)",
-                      "flex": 1,
-                      "justifyContent": "center",
-                    }
-                  }
-                >
-                  <Text
-                    accessible={true}
-                    allowFontScaling={true}
-                    ellipsizeMode="tail"
-                    style={
-                      Object {
-                        "color": "white",
-                        "fontSize": 40,
-                        "fontWeight": "bold",
-                        "marginBottom": 66.7,
-                      }
-                    }
-                  >
-                    Test 2
-                  </Text>
-                </View>,
+                <Connect(Slide2) />,
                 <View
                   style={
                     Object {
@@ -1153,50 +937,9 @@ ShallowWrapper {
                 "instance": null,
                 "key": undefined,
                 "nodeType": "class",
-                "props": Object {
-                  "children": <Text
-                    accessible={true}
-                    allowFontScaling={true}
-                    ellipsizeMode="tail"
-                    style={
-                      Object {
-                        "color": "white",
-                        "fontSize": 40,
-                        "fontWeight": "bold",
-                        "marginBottom": 66.7,
-                      }
-                    }
-                  >
-                    Test 2
-                  </Text>,
-                  "style": Object {
-                    "alignItems": "center",
-                    "backgroundColor": "rgb(000, 039, 118)",
-                    "flex": 1,
-                    "justifyContent": "center",
-                  },
-                },
+                "props": Object {},
                 "ref": null,
-                "rendered": Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "class",
-                  "props": Object {
-                    "accessible": true,
-                    "allowFontScaling": true,
-                    "children": "Test 2",
-                    "ellipsizeMode": "tail",
-                    "style": Object {
-                      "color": "white",
-                      "fontSize": 40,
-                      "fontWeight": "bold",
-                      "marginBottom": 66.7,
-                    },
-                  },
-                  "ref": null,
-                  "rendered": "Test 2",
-                  "type": [Function],
-                },
+                "rendered": null,
                 "type": [Function],
               },
               Object {
@@ -1302,8 +1045,8 @@ ShallowWrapper {
                     "process": [Function],
                   }
                 }
-                pageName="Placeholder"
-                routeName="Profile"
+                pageName="Company"
+                routeName="RegisterCompany"
               />,
               <Connect(MenuBox)
                 image={
@@ -1395,8 +1138,8 @@ ShallowWrapper {
                 "image": Object {
                   "process": [Function],
                 },
-                "pageName": "Placeholder",
-                "routeName": "Profile",
+                "pageName": "Company",
+                "routeName": "RegisterCompany",
               },
               "ref": null,
               "rendered": null,

@@ -91,7 +91,7 @@ Our back-end is based on [Sails](https://sailsjs.com/), an MVC and API framework
 ```
 GET /api/user
 ```
-Get an array of user objects, in JSON format. Further this api will be limited to admins only.
+Get an array of user objects, in JSON format. limited to logged in admins.
 
 ```
 POST /api/user
@@ -113,13 +113,107 @@ GET /api/user/current
 ```
 Get current logged in user. Will get forbidden if not logged in.
 
+```
+POST /api/user/notification
+```
+Updates the user with what time they want to save their push notification. Need to be logged in.
+
+Required fields in body: `FuelTime: 12-00`, `FuelDay: 0-6`, `FuelNotification: 'true'`
+
+
 ### Car
 
 ```
-POST /dsm?regnr=XX00000
+POST /api/dsm?regnr=XX00000
 ```
 Get json car object for the input registration number, or a 404 error if no such car exists
 
+```
+POST /api/car/save
+```
+Save a car object to a logged in user.
+
+Example of car object:
+```
+"car": {
+  "RegNr": "VH XXXXX",
+  "Cas": "XXXXXXXXXXXX",
+  "Brand": "MERCEDES-BENZ",
+  "Model": "GLC 350 E 4MATIC/204 X",
+  "FuelType": null,
+  "RegYear": "2016",
+  "VehicleGroup": "PERSONBIL",
+  "Co2Emission": null,
+  "NoxEmission": null,
+  "FuelConsumption": null,
+  "ParticleEmmision": null,
+  "NextVI": null,
+  "NextVINotification": null,
+}
+```
+
+### FuelRefilll
+
+```
+POST /api/fuelrefill/register
+```
+registers a new fuelrefill entry.
+
+Required fields in body: `FuelTime, Price, Rate`
+
+
+```
+POST /api/fuelrefill/remove
+```
+Removes a refill entry, for a logged in user.
+
+Required field in body: `RefillID`
+
+
+```
+GET /api/fuelrefill/getall
+```
+Gets all refill entries for a logged in user.
+
+
+
+### DamageReport
+
+```
+POST /api/damagereport/register
+```
+Register a new damage report.
+
+Example of body for POST request, notice description is not required:
+
+```
+{
+	"Items": [
+		{
+			"ItemType": "Wheel",
+			"Damaged": true,
+			"Description": "tire frame exploded",
+		},
+		{
+			"ItemType": "Window",
+			"Damaged": true,
+		},
+	]
+}
+```
+
+
+```
+GET /api/damagereport/getall
+```
+
+Gets all damage reports from a logged in user
+
+```
+GET /api/damagereport/getcurrent
+```
+
+Gets the latest damage report from a logged in user
 ### Blueprint APIs
 #### Models
 #### Controllers
@@ -171,7 +265,7 @@ We use [Expo](https://expo.io) to deploy our application. Login with your Expo a
 ## Authors
 * **Christian Nyvoll** - *Team Leader* - [Git](https://github.com/Chr1stian) - [LinkedIn](https://www.linkedin.com/in/christiannyvoll/)
 * **Emil Schrøder** - *Social Leader* - [Git](https://github.com/emilps) - [LinkedIn](https://www.linkedin.com/in/emil-schroder/)
-* **Erling Ihlen** - *Test Leader* - [Git](https://github.com/)
+* **Erling Ihlen** - *Test Leader* - [Git](https://github.com/Shamzaa)
 * **Henrik Liodden** - *Team Member* - [Git](https://github.com/)
 * **Kristiane Westgård** - *Agile Leader* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/kristianeaw/)
 * **Øystein Hammersland** - *Lead Designer* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/%C3%B8ystein-hammersland-a9698772/)
