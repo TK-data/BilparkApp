@@ -86,7 +86,7 @@ export function getCurrentDamageReport() {
         dispatch(damageReportValues(userdamagereport.Items));
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response);
         dispatch(postDamageReportFailure(true));
       });
   };
