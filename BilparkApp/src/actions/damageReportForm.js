@@ -9,6 +9,7 @@ export const REGISTER_DAMAGEREPORT = 'REGISTER_DAMAGEREPORT';
 export const GET_CURRENT_DAMAGEREPORT = 'GET_CURRENT_DAMAGEREPORT';
 export const DAMAGE_REPORT_VALUES = 'DAMAGE_REPORT_VALUES';
 export const NO_DAMAGE_REPORT_VALUES = 'NO_DAMAGE_REPORT_VALUES';
+export const DAMAGE_REPORT_OPTIONS = 'DAMAGE_REPORT_OPTIONS';
 
 export function postDamageReportFailure(bool) {
   return {
@@ -57,6 +58,34 @@ export function noDamageReportValues() {
   };
 }
 
+export function damageReportOptions(values) {
+  console.log('damageReportOptions - ACTION');
+  return {
+    type: 'DAMAGE_REPORT_OPTIONS',
+    values,
+  };
+}
+
+export function transformDamageReport(userdamagereport) {
+  const itemArray = userdamagereport.Items;
+  return {
+    KarosseriVenstre: itemArray.find(x => x.ItemType === 'LeftBodyWork').Damaged,
+    KarosseriHøyre: itemArray.find(x => x.ItemType === 'RightBodyWork').Damaged,
+    StøtfangerFront: itemArray.find(x => x.ItemType === 'FrontBumper').Damaged,
+    StøtfangerBak: itemArray.find(x => x.ItemType === 'BackBumper').Damaged,
+    LysUtvendig: itemArray.find(x => x.ItemType === 'CarLight').Damaged,
+    Glass: itemArray.find(x => x.ItemType === 'Window').Damaged,
+    FelgHjul: itemArray.find(x => x.ItemType === 'Wheel').Damaged,
+    KarosseriVenstreBeskrivelse: itemArray.find(x => x.ItemType === 'LeftBodyWork').Description,
+    KarosseriHøyreBeskrivelse: itemArray.find(x => x.ItemType === 'RightBodyWork').Description,
+    StøtfangerFrontBeskrivelse: itemArray.find(x => x.ItemType === 'FrontBumper').Description,
+    StøtfangerBakBeskrivelse: itemArray.find(x => x.ItemType === 'BackBumper').Description,
+    LysUtvendigBeskrivelse: itemArray.find(x => x.ItemType === 'CarLight').Description,
+    GlassBeskrivelse: itemArray.find(x => x.ItemType === 'Window').Description,
+    FelgHjulBeskrivelse: itemArray.find(x => x.ItemType === 'Wheel').Description,
+  };
+}
+
 export function getDamageReport() {
   return (dispatch) => {
     dispatch(postDamageReportLoading(true));
@@ -75,6 +104,7 @@ export function getDamageReport() {
 }
 
 export function getCurrentDamageReport() {
+  console.log('getCurrentDamageReport');
   return (dispatch) => {
     dispatch(postDamageReportLoading(true));
     return axios.get(API_ADDRESS + '/api/damagereport/getcurrent')
@@ -85,8 +115,11 @@ export function getCurrentDamageReport() {
       .then((userdamagereport) => {
         dispatch(getCurrentDamageReportSuccess(userdamagereport));
         dispatch(damageReportValues(userdamagereport.Items));
+        console.log('then -- transform');
+        console.log(dispatch(transformDamageReport(userdamagereport)));
       })
       .catch((err) => {
+        console.log(err);
         if (err.response.status === 404) {
           dispatch(postDamageReportLoading(false));
           dispatch(noDamageReportValues());

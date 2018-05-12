@@ -5,7 +5,7 @@ import { NavigationActions } from 'react-navigation';
 import { StyleSheet } from 'react-native';
 import { Content, Button, Text, View, Spinner } from 'native-base';
 
-import { postDamageReport, getCurrentDamageReport } from '../../actions/damageReportForm';
+import { postDamageReport, getCurrentDamageReport, damageReportOptions, damageReportValues } from '../../actions/damageReportForm';
 
 const Items = [
   {
@@ -49,22 +49,18 @@ const styles = StyleSheet.create({
   },
 });
 
-function getType(value) {
-  if (value.FelgHjul === true) {
-    return t.struct({
-    });
-  }
-  return true;
-}
-
-
 class DamageReportForm extends Component {
   componentDidMount() {
+    console.log('componentDidMount');
     this.props.getValues();
   }
 
   onChange(values) {
     console.log(values);
+    this.props.changeOptions(values);
+    // this.props.updateValues(values);
+    console.log('onChangeValues: props.formOptions');
+    console.log(this.props.formOptions);
   }
 
   handleSubmit() {
@@ -114,53 +110,6 @@ class DamageReportForm extends Component {
       this.Items = this.props.currentDamageReport.Items;
     }
 
-    const formOptions = {
-      auto: 'placeholder',
-      fields: {
-        KarosseriVenstre: {
-          label: 'Venstre karosseri',
-        },
-        KarosseriVenstreBeskrivelse: {
-          placeholder: 'Beskrivelse av skaden (Valgfritt)',
-        },
-        KarosseriHøyre: {
-          label: 'Høyre karosseri',
-        },
-        KarosseriHøyreBeskrivelse: {
-          placeholder: 'Beskrivelse av skaden (Valgfritt)',
-        },
-        StøtfangerFront: {
-          label: 'Støtfanger front',
-        },
-        StøtfangerFrontBeskrivelse: {
-          placeholder: 'Beskrivelse av skaden (Valgfritt)',
-        },
-        StøtfangerBak: {
-          label: 'Støtfanger Bak',
-        },
-        StøtfangerBakBeskrivelse: {
-          placeholder: 'Beskrivelse av skaden (Valgfritt)',
-        },
-        LysUtvendig: {
-          label: 'Lys (utvendig)',
-        },
-        LysUtvendigBeskrivelse: {
-          placeholder: 'Beskrivelse av skaden (Valgfritt)',
-        },
-        Glass: {
-          label: 'Vinduer',
-        },
-        GlassBeskrivelse: {
-          placeholder: 'Beskrivelse av skaden (Valgfritt)',
-        },
-        FelgHjul: {
-          label: 'Hjul (felg)',
-        },
-        FelgHjulBeskrivelse: {
-          placeholder: 'Beskrivelse av skaden (Valgfritt)',
-        },
-      },
-    };
     const Damages = t.struct({
       KarosseriVenstre: t.Boolean,
       KarosseriVenstreBeskrivelse: t.maybe(t.String),
@@ -184,7 +133,7 @@ class DamageReportForm extends Component {
           <Form
             ref={c => this.form = c}
             type={Damages}
-            options={formOptions}
+            options={this.props.formOptions}
             value={this.props.values}
             onChange={value => this.onChange(value)}
           />
@@ -211,12 +160,15 @@ const mapStateToProps = (state) => {
     currentDamageReport: state.damageReportForm.currentDamageReport,
     values: state.damageReportValues,
     car: state.auth.car,
+    formOptions: state.damageReportOptions,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    changeOptions: options => dispatch(damageReportOptions(options)),
     changeValues: ItemArray => dispatch(postDamageReport(ItemArray)),
+    // updateValues: values => dispatch(damageReportValues(values)),
     getValues: ItemArray => dispatch(getCurrentDamageReport(ItemArray)),
     navigate: (routeName) => {
       dispatch(NavigationActions.navigate({ routeName }));

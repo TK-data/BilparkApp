@@ -1,4 +1,4 @@
-import { POST_DAMAGEREPORT_REQUEST, POST_DAMAGEREPORT_FAILURE, POST_DAMAGEREPORT_SUCCESS, REGISTER_DAMAGEREPORT, GET_CURRENT_DAMAGEREPORT, DAMAGE_REPORT_VALUES, NO_DAMAGE_REPORT_VALUES } from '../actions/damageReportForm';
+import { POST_DAMAGEREPORT_REQUEST, POST_DAMAGEREPORT_FAILURE, POST_DAMAGEREPORT_SUCCESS, REGISTER_DAMAGEREPORT, GET_CURRENT_DAMAGEREPORT, DAMAGE_REPORT_VALUES, NO_DAMAGE_REPORT_VALUES, DAMAGE_REPORT_OPTIONS } from '../actions/damageReportForm';
 
 const initialState = {
   hasErrored: false,
@@ -23,6 +23,89 @@ const initialValue = {
   FelgHjul: false,
   FelgHjulBeskrivelse: '',
 };
+
+const formOptions = {
+  auto: 'placeholder',
+  fields: {
+    KarosseriVenstre: {
+      label: 'Venstre karosseri',
+    },
+    KarosseriVenstreBeskrivelse: {
+      placeholder: 'Beskrivelse av skaden (Valgfritt)',
+      hidden: true,
+    },
+    KarosseriHøyre: {
+      label: 'Høyre karosseri',
+    },
+    KarosseriHøyreBeskrivelse: {
+      placeholder: 'Beskrivelse av skaden (Valgfritt)',
+      hidden: true,
+    },
+    StøtfangerFront: {
+      label: 'Støtfanger front',
+    },
+    StøtfangerFrontBeskrivelse: {
+      placeholder: 'Beskrivelse av skaden (Valgfritt)',
+      hidden: true,
+    },
+    StøtfangerBak: {
+      label: 'Støtfanger Bak',
+    },
+    StøtfangerBakBeskrivelse: {
+      placeholder: 'Beskrivelse av skaden (Valgfritt)',
+      hidden: true,
+    },
+    LysUtvendig: {
+      label: 'Lys (utvendig)',
+    },
+    LysUtvendigBeskrivelse: {
+      placeholder: 'Beskrivelse av skaden (Valgfritt)',
+      hidden: true,
+    },
+    Glass: {
+      label: 'Vinduer',
+    },
+    GlassBeskrivelse: {
+      placeholder: 'Beskrivelse av skaden (Valgfritt)',
+      hidden: true,
+    },
+    FelgHjul: {
+      label: 'Hjul (felg)',
+    },
+    FelgHjulBeskrivelse: {
+      placeholder: 'Beskrivelse av skaden (Valgfritt)',
+      hidden: true,
+    },
+  },
+};
+
+export function damageReportOptions(state = formOptions, action) {
+  const fields = state.fields;
+  let returnObject = {};
+  switch (action.type) {
+  case DAMAGE_REPORT_OPTIONS:
+    // console.log('action.values');
+    // console.log(action.values);
+    // console.log('state');
+    // console.log(state);
+    fields.KarosseriVenstreBeskrivelse.hidden = !action.values.KarosseriVenstre;
+    fields.KarosseriHøyreBeskrivelse.hidden = !action.values.KarosseriHøyre;
+    fields.StøtfangerFrontBeskrivelse.hidden = !action.values.StøtfangerFront;
+    fields.StøtfangerBakBeskrivelse.hidden = !action.values.StøtfangerBak;
+    fields.LysUtvendigBeskrivelse.hidden = !action.values.LysUtvendig;
+    fields.GlassBeskrivelse.hidden = !action.values.Glass;
+    fields.FelgHjulBeskrivelse.hidden = !action.values.FelgHjul;
+    returnObject = {
+      ...state,
+      fields,
+    };
+    console.log('moro');
+    console.log(returnObject);
+    return returnObject;
+  default:
+    return formOptions;
+  }
+}
 
 export function damageReportValues(state = initialValue, action) {
   const itemArray = action.currentDamageReportValues;
