@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import t from 'tcomb-form-native';
 import { connect } from 'react-redux';
+import { NavigationActions } from 'react-navigation';
 import { StyleSheet } from 'react-native';
 import { Content, Button, Text, View, Spinner } from 'native-base';
 
 import { postDamageReport, getCurrentDamageReport } from '../../actions/damageReportForm';
-
-const styles = StyleSheet.create({
-
-});
 
 const Items = [
   {
@@ -40,6 +37,17 @@ const Items = [
     Damaged: false,
   },
 ];
+
+const styles = StyleSheet.create({
+  finnBil: {
+    color: 'white',
+    fontSize: 18,
+    marginBottom: '8%',
+  },
+  button: {
+    alignSelf: 'center',
+  },
+});
 
 
 class DamageReportForm extends Component {
@@ -77,7 +85,15 @@ class DamageReportForm extends Component {
     if (this.props.car === 'null') {
       return (
         <View>
-          <Text> Du må registrere bilen din først </Text>
+          <Text style={styles.finnBil}>Du har ikke registrert en bil enda.. </Text>
+          <Button
+            bordered
+            light
+            onPress={() => { this.props.navigate('RegisterCar'); }}
+            style={styles.button}
+          >
+            <Text>Finn din bil</Text>
+          </Button>
         </View>
       );
     }
@@ -106,23 +122,26 @@ class DamageReportForm extends Component {
     });
     const Form = t.form.Form;
     return (
-      <Content>
+      <View>
+        <Content>
+          <Form
+            ref={c => this.form = c}
+            type={Damages}
+            options={formOptions}
+            value={this.props.values}
+          />
+        </Content>
         <Button
           bordered
           light
+          style={styles.button}
           onPress={() => {
             this.handleSubmit();
           }}
         >
           <Text> Registrer </Text>
         </Button>
-        <Form
-          ref={c => this.form = c}
-          type={Damages}
-          options={formOptions}
-          value={this.props.values}
-        />
-      </Content>
+      </View>
     );
   }
 }
@@ -141,6 +160,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     changeValues: ItemArray => dispatch(postDamageReport(ItemArray)),
     getValues: ItemArray => dispatch(getCurrentDamageReport(ItemArray)),
+    navigate: (routeName) => {
+      dispatch(NavigationActions.navigate({ routeName }));
+    },
   };
 };
 
