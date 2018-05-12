@@ -59,7 +59,6 @@ export function noDamageReportValues() {
 }
 
 export function damageReportOptions(values) {
-  console.log('damageReportOptions - ACTION');
   return {
     type: 'DAMAGE_REPORT_OPTIONS',
     values,
@@ -104,7 +103,6 @@ export function getDamageReport() {
 }
 
 export function getCurrentDamageReport() {
-  console.log('getCurrentDamageReport');
   return (dispatch) => {
     dispatch(postDamageReportLoading(true));
     return axios.get(API_ADDRESS + '/api/damagereport/getcurrent')
@@ -115,8 +113,6 @@ export function getCurrentDamageReport() {
       .then((userdamagereport) => {
         dispatch(getCurrentDamageReportSuccess(userdamagereport));
         dispatch(damageReportValues(userdamagereport.Items));
-        console.log('then -- transform');
-        console.log(dispatch(transformDamageReport(userdamagereport)));
       })
       .catch((err) => {
         console.log(err);

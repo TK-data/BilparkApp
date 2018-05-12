@@ -81,13 +81,8 @@ const formOptions = {
 
 export function damageReportOptions(state = formOptions, action) {
   const fields = state.fields;
-  let returnObject = {};
   switch (action.type) {
   case DAMAGE_REPORT_OPTIONS:
-    // console.log('action.values');
-    // console.log(action.values);
-    // console.log('state');
-    // console.log(state);
     fields.KarosseriVenstreBeskrivelse.hidden = !action.values.KarosseriVenstre;
     fields.KarosseriHøyreBeskrivelse.hidden = !action.values.KarosseriHøyre;
     fields.StøtfangerFrontBeskrivelse.hidden = !action.values.StøtfangerFront;
@@ -95,13 +90,10 @@ export function damageReportOptions(state = formOptions, action) {
     fields.LysUtvendigBeskrivelse.hidden = !action.values.LysUtvendig;
     fields.GlassBeskrivelse.hidden = !action.values.Glass;
     fields.FelgHjulBeskrivelse.hidden = !action.values.FelgHjul;
-    returnObject = {
+    return {
       ...state,
       fields,
     };
-    console.log('moro');
-    console.log(returnObject);
-    return returnObject;
   default:
     return formOptions;
   }
