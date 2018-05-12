@@ -1,3 +1,7 @@
+import { API_ADDRESS } from '../config/connections';
+
+const axios = require('axios');
+
 export const TRAVELLOG_FROM = 'TRAVELLOG_FROM';
 export const TRAVELLOG_TO = 'TRAVELLOG_TO';
 export const TRAVELLOG_DISTANCE = 'TRAVELLOG_DISTANCE';
@@ -90,5 +94,54 @@ export function calculateDistance(cordinates) {
         dispatch(travelLogDistance(data.distance));
       },
     );
+  };
+}
+
+export function postTravelLogLoading(bool) {
+  return {
+    type: 'POST_TRAVELLOG_LOADING',
+    isLoading: bool,
+  };
+}
+
+export function postTravelLogSuccess() {
+  return {
+    type: 'POST_TRAVELLOG_SUCCESS',
+  };
+}
+
+export function postTravelLogFailure(bool) {
+  return {
+    type: 'POST_TRAVELLOG_FAILURE',
+    hasErrored: bool,
+  };
+}
+
+export function postTravelLog(value) {
+  return (dispatch) => {
+    dispatch(postTravelLogLoading(true));
+    return axios.post(API_ADDRESS + '/api/drivinglog/save', {
+      Km: parseInt(value.distance, 10),
+      LocationFrom: value.positionFrom,
+      LocationTo: value.positionTo,
+      Date: value.datepickerDate,
+      Cargo: 1,
+      NoOfPassengers: parseInt(value.formValue.Passenger, 10),
+      PassengerNames: '',
+      Objective: '',
+    })
+      .then((response) => {
+        console.log(response);
+        dispatch(postTravelLogLoading(false));
+        return response.data;
+      })
+      .then(() => {
+        console.log('Success');
+        dispatch(postTravelLogSuccess());
+      })
+      .catch(() => {
+        console.log('Fail');
+        dispatch(postTravelLogFailure(true));
+      });
   };
 }

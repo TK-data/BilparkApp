@@ -4,7 +4,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 import { View, Text, Button } from 'native-base';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import DateTimePicker from 'react-native-modal-datetime-picker';
-import { travelLogDistance, travelLogDatepickerVisible, travelLogSaveDate } from '../../actions/travelLog';
+import { travelLogDistance, travelLogDatepickerVisible, travelLogSaveDate, postTravelLog } from '../../actions/travelLog';
 import GooglePlacesInputFrom from './GooglePlacesAutocompleteFrom';
 import GooglePlacesInputTo from './GooglePlacesAutocompleteTo';
 import TravelLogPassengerForm from './TravelLogPassengerForm';
@@ -49,7 +49,7 @@ class TravelLogInput extends React.Component {
           bordered
           light
           onPress={() => {
-            this.props.datepickerVisibility(true);
+            this.props.postTravelLog(this.props.travelLog);
           }}
           style={styles.saveButton}
         >
@@ -109,6 +109,7 @@ const mapStateToProps = (state) => {
     to: state.travelLog.positionTo,
     datepickerVisible: state.travelLog.datepickerVisible,
     datepickerDate: state.travelLog.datepickerDate,
+    travelLog: state.travelLog,
   };
 };
 
@@ -117,6 +118,7 @@ const mapDispatchToProps = (dispatch) => {
     saveDistance: distanceFromTo => dispatch(travelLogDistance(distanceFromTo)),
     datepickerVisibility: bool => dispatch(travelLogDatepickerVisible(bool)),
     saveDatepickerDate: date => dispatch(travelLogSaveDate(date)),
+    postTravelLog: value => dispatch(postTravelLog(value)),
   };
 };
 
