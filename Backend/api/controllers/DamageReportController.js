@@ -75,7 +75,7 @@ module.exports = {
     let damageReports = await DamageReport.find({UserID: req.session.UserID});
     if (typeof damageReports === undefined || damageReports.length <= 0) {
       res.notFound('no damage reports found for this user');
-      return res.notFound('Damage Report not found');
+      return;
     }
 
     for (i = 0; i < damageReports.length; i++) {
@@ -95,7 +95,7 @@ module.exports = {
     });
     if (!damageReports || damageReports.length <= 0) {
       res.notFound('no damage reports found for this user');
-      return res.notFound('Damage Report not found');
+      return;
     }
 
     let latestReport = damageReports[0];
