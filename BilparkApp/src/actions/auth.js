@@ -34,6 +34,7 @@ export function postUserSuccess(object) {
     isLoggedIn: true,
     user: object.user,
     car: object.car,
+    company: object.company,
   };
 }
 
@@ -81,6 +82,12 @@ export function logoutLocal() {
   };
 }
 
+export function routeToCompanyScreen() {
+  return {
+    type: 'ROUTE_COMPANY_SCREEN',
+  };
+}
+
 export function postUser(username, password) {
   return (dispatch) => {
     dispatch(postUserLoading(true));
@@ -92,12 +99,16 @@ export function postUser(username, password) {
         dispatch(postUserLoading(false));
         return response.data;
       })
-      .then((user) => {
-        dispatch(postUserSuccess(user));
+      .then((object) => {
+        dispatch(postUserSuccess(object));
         dispatch(registerUserValues({}));
         dispatch(loginMail({}));
         dispatch(loginResetFormOptions());
-        dispatch(loginSuccess());
+        if (object.user.CompanyID) {
+          dispatch(loginSuccess());
+        } else {
+          dispatch(routeToCompanyScreen());
+        }
       })
       .catch(() => {
         dispatch(postUserFailure(true));
@@ -122,9 +133,13 @@ export function postCurrent() {
         dispatch(postUserLoading(false));
         return response.data;
       })
-      .then((user) => {
-        dispatch(postUserSuccess(user));
-        dispatch(loginSuccess());
+      .then((object) => {
+        dispatch(postUserSuccess(object));
+        if (object.user.CompanyID) {
+          dispatch(loginSuccess());
+        } else {
+          // dispatch(routeToCompanyScreen());
+        }
       })
       .catch(() => {
         dispatch(postUserFailure(true));
@@ -137,10 +152,10 @@ export function logout() {
     dispatch(postUserLoading(true));
     return axios.get(API_ADDRESS + '/api/user/logout')
       .then(() => {
+        dispatch(logoutSuccess(true));
         dispatch(postUserLoading(false));
         //dispatch(resetGetCar());
         dispatch(logoutLocal());
-        dispatch(logoutSuccess(true));
       })
       .catch(() => dispatch(logoutSuccess(false)));
   };

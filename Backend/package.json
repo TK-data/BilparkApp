@@ -6,7 +6,7 @@
   "keywords": [],
   "dependencies": {
     "bcrypt": "^1.0.3",
-    "ejs": "^2.5.5",
+    "ejs": "^2.6.1",
     "grunt": "1.0.1",
     "grunt-contrib-clean": "1.0.0",
     "grunt-contrib-coffee": "1.0.0",
@@ -27,7 +27,7 @@
     "sails-eslint": "^1.1.1",
     "sails-mysql": "^0.11.4",
     "soap": "^0.23.0",
-    "xml2json": "^0.11.0",
+    "xml2json": "^0.11.2",
     "xmlhttprequest": "^1.8.0"
   },
   "scripts": {

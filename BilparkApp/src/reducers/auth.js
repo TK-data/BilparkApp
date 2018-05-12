@@ -25,18 +25,21 @@ function auth(state = initialAuthState, action) {
       isLoggedIn: action.isLoggedIn,
       user: JSON.stringify(action.user),
       car: JSON.stringify(action.car),
+      company: JSON.stringify(action.company),
     };
   case 'UPDATE_USER':
     return {
       isLoggedIn: true,
       user: JSON.stringify(action.user),
       car: state.car,
+      company: state.company,
     };
   case UPDATE_CAR:
     return {
       isLoggedIn: true,
       user: state.user,
       car: action.car,
+      company: state.company,
     };
   case LOGOUT_SUCCESS:
     return {
