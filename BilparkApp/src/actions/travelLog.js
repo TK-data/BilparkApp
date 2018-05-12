@@ -118,6 +118,18 @@ export function postTravelLogFailure(bool) {
 }
 
 export function postTravelLog(value) {
+
+  let Passengers = '';
+
+  for (let x = 1; x <= parseInt(value.formValue.Passenger, 10); x += 1) {
+    const name = ('Passenger' + x);
+    if (x < parseInt(value.formValue.Passenger, 10)) {
+      Passengers += (value.formValue[name] + ',');
+    } else {
+      Passengers += value.formValue[name];
+    }
+  }
+
   return (dispatch) => {
     dispatch(postTravelLogLoading(true));
     return axios.post(API_ADDRESS + '/api/drivinglog/save', {
@@ -126,10 +138,10 @@ export function postTravelLog(value) {
         LocationFrom: value.positionFrom,
         LocationTo: value.positionTo,
         Date: value.datepickerDate,
-        Cargo: 1,
+        Cargo: value.cargoValue.Cargo,
         NoOfPassengers: parseInt(value.formValue.Passenger, 10),
-        PassengerNames: '',
-        Objective: '',
+        PassengerNames: Passengers,
+        Objective: value.cargoValue.Comment,
       } })
       .then((response) => {
         console.log(response);

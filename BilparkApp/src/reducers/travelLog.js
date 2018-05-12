@@ -36,9 +36,15 @@ const init = {
   formType: Passenger,
   formValue: {
     Passenger: '0',
+    Passenger1: '',
+    Passenger2: '',
+    Passenger3: '',
+    Passenger4: '',
+    Passenger5: '',
   },
   cargoValue: {
     Cargo: false,
+    Comment: '',
   },
 };
 
