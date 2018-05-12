@@ -83,10 +83,13 @@ export function getCurrentDamageReport() {
         return response.data;
       })
       .then((userdamagereport) => {
+        console.log('got the damagereport');
+        console.log(userdamagereport.Items);
         dispatch(getCurrentDamageReportSuccess(userdamagereport));
         dispatch(damageReportValues(userdamagereport.Items));
       })
       .catch((err) => {
+        console.log(err);
         if (err.response.status === 404) {
           dispatch(postDamageReportLoading(false));
           dispatch(noDamageReportValues());

@@ -93,7 +93,7 @@ module.exports.policies = {
 	},
 	DamageReportItem: {
 		'*': false,
-	}
+	},
   CompanyController: {
     '*': false,
     find: 'sessionAuth',
