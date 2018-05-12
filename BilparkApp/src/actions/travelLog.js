@@ -121,15 +121,16 @@ export function postTravelLog(value) {
   return (dispatch) => {
     dispatch(postTravelLogLoading(true));
     return axios.post(API_ADDRESS + '/api/drivinglog/save', {
-      Km: parseInt(value.distance, 10),
-      LocationFrom: value.positionFrom,
-      LocationTo: value.positionTo,
-      Date: value.datepickerDate,
-      Cargo: 1,
-      NoOfPassengers: parseInt(value.formValue.Passenger, 10),
-      PassengerNames: '',
-      Objective: '',
-    })
+      drivingLog: {
+        Km: parseInt(value.distance, 10),
+        LocationFrom: value.positionFrom,
+        LocationTo: value.positionTo,
+        Date: value.datepickerDate,
+        Cargo: 1,
+        NoOfPassengers: parseInt(value.formValue.Passenger, 10),
+        PassengerNames: '',
+        Objective: '',
+      } })
       .then((response) => {
         console.log(response);
         dispatch(postTravelLogLoading(false));
@@ -139,8 +140,9 @@ export function postTravelLog(value) {
         console.log('Success');
         dispatch(postTravelLogSuccess());
       })
-      .catch(() => {
+      .catch((err) => {
         console.log('Fail');
+        console.log(err);
         dispatch(postTravelLogFailure(true));
       });
   };

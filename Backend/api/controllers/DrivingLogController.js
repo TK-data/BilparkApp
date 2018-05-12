@@ -10,7 +10,7 @@ module.exports = {
       if (!user) {
         return res.notFound('User not found');
       }
-      let log = null;
+      let log = {};
 
       try {
         log = JSON.parse(req.body.drivingLog);

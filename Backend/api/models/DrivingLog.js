@@ -31,8 +31,8 @@ module.exports = {
       defaultsTo: null
     },
     Cargo: {
-      type: 'bit',
-      defaultsTo: null
+      type: 'boolean',
+      defaultsTo: false
     },
     NoOfPassengers: {
       type: 'int',
