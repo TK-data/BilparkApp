@@ -49,10 +49,22 @@ const styles = StyleSheet.create({
   },
 });
 
+function getType(value) {
+  if (value.FelgHjul === true) {
+    return t.struct({
+    });
+  }
+  return true;
+}
+
 
 class DamageReportForm extends Component {
   componentDidMount() {
     this.props.getValues();
+  }
+
+  onChange(values) {
+    console.log(values);
   }
 
   handleSubmit() {
@@ -103,6 +115,51 @@ class DamageReportForm extends Component {
     }
 
     const formOptions = {
+      auto: 'placeholder',
+      fields: {
+        KarosseriVenstre: {
+          label: 'Venstre karosseri',
+        },
+        KarosseriVenstreBeskrivelse: {
+          placeholder: 'Beskrivelse av skaden (Valgfritt)',
+        },
+        KarosseriHøyre: {
+          label: 'Høyre karosseri',
+        },
+        KarosseriHøyreBeskrivelse: {
+          placeholder: 'Beskrivelse av skaden (Valgfritt)',
+        },
+        StøtfangerFront: {
+          label: 'Støtfanger front',
+        },
+        StøtfangerFrontBeskrivelse: {
+          placeholder: 'Beskrivelse av skaden (Valgfritt)',
+        },
+        StøtfangerBak: {
+          label: 'Støtfanger Bak',
+        },
+        StøtfangerBakBeskrivelse: {
+          placeholder: 'Beskrivelse av skaden (Valgfritt)',
+        },
+        LysUtvendig: {
+          label: 'Lys (utvendig)',
+        },
+        LysUtvendigBeskrivelse: {
+          placeholder: 'Beskrivelse av skaden (Valgfritt)',
+        },
+        Glass: {
+          label: 'Vinduer',
+        },
+        GlassBeskrivelse: {
+          placeholder: 'Beskrivelse av skaden (Valgfritt)',
+        },
+        FelgHjul: {
+          label: 'Hjul (felg)',
+        },
+        FelgHjulBeskrivelse: {
+          placeholder: 'Beskrivelse av skaden (Valgfritt)',
+        },
+      },
     };
     const Damages = t.struct({
       KarosseriVenstre: t.Boolean,
@@ -129,6 +186,7 @@ class DamageReportForm extends Component {
             type={Damages}
             options={formOptions}
             value={this.props.values}
+            onChange={value => this.onChange(value)}
           />
         </Content>
         <Button
