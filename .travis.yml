@@ -20,7 +20,7 @@ install:
   - npm install -g codecov
 
 script:
-  - npm test
+  - npm test --runInBand
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then yarn appr; fi'
 
 after_success:
