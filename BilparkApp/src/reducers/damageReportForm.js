@@ -1,4 +1,4 @@
-import { POST_DAMAGEREPORT_REQUEST, POST_DAMAGEREPORT_FAILURE, POST_DAMAGEREPORT_SUCCESS, REGISTER_DAMAGEREPORT, GET_CURRENT_DAMAGEREPORT, DAMAGE_REPORT_VALUES } from '../actions/damageReportForm';
+import { POST_DAMAGEREPORT_REQUEST, POST_DAMAGEREPORT_FAILURE, POST_DAMAGEREPORT_SUCCESS, REGISTER_DAMAGEREPORT, GET_CURRENT_DAMAGEREPORT, DAMAGE_REPORT_VALUES, NO_DAMAGE_REPORT_VALUES } from '../actions/damageReportForm';
 
 const initialState = {
   hasErrored: false,
@@ -44,6 +44,8 @@ export function damageReportValues(state = initialValue, action) {
       GlassBeskrivelse: itemArray.find(x => x.ItemType === 'Window').Description,
       FelgHjulBeskrivelse: itemArray.find(x => x.ItemType === 'Wheel').Description,
     };
+  case NO_DAMAGE_REPORT_VALUES:
+    return { initialValue };
   default:
     return state;
   }

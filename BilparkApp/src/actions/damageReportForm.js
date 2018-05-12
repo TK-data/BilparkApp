@@ -8,6 +8,7 @@ export const POST_DAMAGEREPORT_SUCCESS = 'POST_DAMAGEREPORT_SUCCESS';
 export const REGISTER_DAMAGEREPORT = 'REGISTER_DAMAGEREPORT';
 export const GET_CURRENT_DAMAGEREPORT = 'GET_CURRENT_DAMAGEREPORT';
 export const DAMAGE_REPORT_VALUES = 'DAMAGE_REPORT_VALUES';
+export const NO_DAMAGE_REPORT_VALUES = 'NO_DAMAGE_REPORT_VALUES';
 
 export function postDamageReportFailure(bool) {
   return {
@@ -50,6 +51,12 @@ export function damageReportValues(values) {
   };
 }
 
+export function noDamageReportValues() {
+  return {
+    type: 'NO_DAMAGE_REPORT_VALUES',
+  };
+}
+
 export function getDamageReport() {
   return (dispatch) => {
     dispatch(postDamageReportLoading(true));
@@ -68,25 +75,23 @@ export function getDamageReport() {
 }
 
 export function getCurrentDamageReport() {
-  console.log('getCurrentDamageReport');
   return (dispatch) => {
     dispatch(postDamageReportLoading(true));
-    console.log('getCurrentDamageReport - dispatch');
     return axios.get(API_ADDRESS + '/api/damagereport/getcurrent')
       .then((response) => {
-        console.log(response.status);
-        console.log('response');
         dispatch(postDamageReportLoading(false));
-        console.log(response);
         return response.data;
       })
       .then((userdamagereport) => {
-        console.log('userdamagereport');
         dispatch(getCurrentDamageReportSuccess(userdamagereport));
         dispatch(damageReportValues(userdamagereport.Items));
       })
       .catch((err) => {
-        console.log(err.response);
+        if (err.response.status === 404) {
+          dispatch(postDamageReportLoading(false));
+          dispatch(noDamageReportValues());
+          return;
+        }
         dispatch(postDamageReportFailure(true));
       });
   };
@@ -111,5 +116,4 @@ export function postDamageReport(Items) {
         dispatch(postDamageReportFailure(true));
       });
   };
-
 }

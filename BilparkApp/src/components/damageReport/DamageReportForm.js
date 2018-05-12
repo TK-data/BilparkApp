@@ -74,7 +74,7 @@ class DamageReportForm extends Component {
       );
     }
 
-    if (typeof (this.props.car) === 'undefined') {
+    if (this.props.car === 'null') {
       return (
         <View>
           <Text> Du må registrere bilen din først </Text>
