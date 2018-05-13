@@ -5,6 +5,9 @@ import thunk from 'redux-thunk';
 
 import DamageReportScreen from '../../../components/damageReport/DamageReportScreen';
 
+const initialState = {
+};
+
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
