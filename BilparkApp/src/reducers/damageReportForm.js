@@ -38,6 +38,7 @@ formStylesheet.formGroup.normal.justifyContent = 'space-between';
 formStylesheet.formGroup.normal.alignItems = 'center';
 formStylesheet.formGroup.normal.marginBottom = 10;
 formStylesheet.textbox.normal.width = width * 0.9;
+formStylesheet.textbox.normal.marginTop = -15;
 formStylesheet.checkbox.normal.marginBottom = 20;
 formStylesheet.checkbox.normal.marginTop = 10;
 
