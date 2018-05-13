@@ -21,7 +21,7 @@ const initialState = {
   },
   currentDamageReport: {
     Items: 'testItems',
-  }
+  },
 };
 
 const middlewares = [thunk];
