@@ -15,13 +15,13 @@ const images = [
   },
   {
     image: require('../../images/menuIcons/clipboard.png'),
-    routeName: 'DamageReport',
-    pageName: 'Skade',
+    routeName: 'RegisterCar',
+    pageName: 'Din bil',
   },
   {
     image: require('../../images/menuIcons/car_repair.png'),
-    routeName: 'RegisterCar',
-    pageName: 'Din bil',
+    routeName: 'DamageReport',
+    pageName: 'Skade',
   },
   {
     image: require('../../images/menuIcons/trophy.png'),
