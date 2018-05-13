@@ -113,9 +113,10 @@ export function getCurrentDamageReport() {
       .then((userdamagereport) => {
         dispatch(getCurrentDamageReportSuccess(userdamagereport));
         dispatch(damageReportValues(userdamagereport.Items));
+        const values = transformDamageReport(userdamagereport);
+        dispatch(damageReportOptions(values));
       })
       .catch((err) => {
-        console.log(err);
         if (err.response.status === 404) {
           dispatch(postDamageReportLoading(false));
           dispatch(noDamageReportValues());
