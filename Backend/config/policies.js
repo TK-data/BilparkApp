@@ -81,19 +81,26 @@ module.exports.policies = {
   },
   AdminController: {
     '*': false,
-		create: 'adminAuth',
-		login: true,
-		logout: true,
-	},
-	DamageReport: {
-		'*': false,
-		register: 'sessionAuth',
-		getall: 'sessionAuth',
-		getCurrent: 'sessionAuth',
-	},
-	DamageReportItem: {
-		'*': false,
-	},
+    create: 'adminAuth',
+    login: true,
+    logout: true,
+  },
+  DrivingLogController: {
+    '*': false,
+    find: 'adminAuth',
+    save: 'sessionAuth',
+    getAll: 'sessionAuth',
+    remove: 'sessionAuth',
+  },
+  DamageReport: {
+    '*': false,
+    register: 'sessionAuth',
+    getall: 'sessionAuth',
+    getCurrent: 'sessionAuth',
+  },
+  DamageReportItem: {
+    '*': false,
+  },
   CompanyController: {
     '*': false,
     find: 'sessionAuth',

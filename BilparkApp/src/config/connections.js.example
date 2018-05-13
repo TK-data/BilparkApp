@@ -1,3 +1,4 @@
 // to use this; copy this file, remove .example, and edit in the ip address of the machine running backend.
 
 export const API_ADDRESS = "https://tkdata15-backend-dev.herokuapp.com";
+export const GOOGLE_API_KEY = 'Key here';

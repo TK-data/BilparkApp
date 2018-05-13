@@ -9,7 +9,9 @@ import fuelRefill from './fuelRefill';
 import fuelRefillForm from './fuelRefillForm';
 import { registerCompany } from './registerCompany';
 import { registerUserModalVisible, registerUserModalTransparent, options, values } from './registerUser';
+import travelLog from './travelLog';
 import { damageReportForm, damageReportValues } from './damageReportForm';
+
 
 const RootReducer = combineReducers({
   nav,
@@ -26,6 +28,7 @@ const RootReducer = combineReducers({
   fuelRefill,
   fuelRefillForm,
   modals,
+  travelLog,
   damageReportForm,
   damageReportValues,
   registerCompany,
