@@ -20,6 +20,10 @@ t.form.Form.stylesheet.textbox.error.borderWidth = 3;
 t.form.Form.stylesheet.errorBlock.color = '#db2b1e';
 t.form.Form.stylesheet.controlLabel.normal.color = '#fff';
 t.form.Form.stylesheet.controlLabel.error.color = '#fff';
+t.form.Form.stylesheet.pickerContainer.normal.backgroundColor = '#fff';
+t.form.Form.stylesheet.pickerValue.normal.marginLeft = 'auto';
+t.form.Form.stylesheet.pickerValue.normal.marginRight = 'auto';
+
 
 const mailCheck = t.refinement(t.String, (email) => {
   const reg = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
