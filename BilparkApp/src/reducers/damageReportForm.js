@@ -1,4 +1,8 @@
+import t from 'tcomb-form-native';
+import { Dimensions } from 'react-native';
 import { POST_DAMAGEREPORT_REQUEST, POST_DAMAGEREPORT_FAILURE, POST_DAMAGEREPORT_SUCCESS, REGISTER_DAMAGEREPORT, GET_CURRENT_DAMAGEREPORT, DAMAGE_REPORT_VALUES, NO_DAMAGE_REPORT_VALUES, DAMAGE_REPORT_OPTIONS } from '../actions/damageReportForm';
+
+const width = Dimensions.get('window').width;
 
 const initialState = {
   hasErrored: false,
@@ -24,7 +28,24 @@ const initialValue = {
   FelgHjulBeskrivelse: '',
 };
 
+const formStylesheet = JSON.parse(JSON.stringify(t.form.Form.stylesheet));
+formStylesheet.pickerContainer.normal.backgroundColor = '#fff';
+formStylesheet.formGroup.normal.paddingRight = 10;
+formStylesheet.formGroup.normal.paddingLeft = 10;
+formStylesheet.formGroup.normal.flexDirection = 'row';
+formStylesheet.formGroup.error.flexDirection = 'row';
+formStylesheet.formGroup.normal.justifyContent = 'space-between';
+// formStylesheet.textbox.normal.flex = 1;
+// formStylesheet.textbox.error.flex = 1;
+formStylesheet.formGroup.normal.alignItems = 'center';
+formStylesheet.formGroup.normal.marginBottom = 10;
+formStylesheet.textbox.normal.width = width * 0.9;
+formStylesheet.checkbox.normal.marginBottom = 20;
+formStylesheet.checkbox.normal.marginTop = 10;
+
+
 const formOptions = {
+  stylesheet: formStylesheet,
   auto: 'placeholder',
   fields: {
     KarosseriVenstre: {

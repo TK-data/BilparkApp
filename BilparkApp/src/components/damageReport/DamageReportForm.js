@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import t from 'tcomb-form-native';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import { Content, Button, Text, View, Spinner } from 'native-base';
 
 import { postDamageReport, getCurrentDamageReport, damageReportOptions, damageReportValues } from '../../actions/damageReportForm';
+
+// const width = Dimensions.get('window').width;
 
 const Items = [
   {
@@ -39,6 +41,13 @@ const Items = [
 ];
 
 const styles = StyleSheet.create({
+  form: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  content: {
+  },
   finnBil: {
     color: 'white',
     fontSize: 18,
@@ -138,8 +147,8 @@ class DamageReportForm extends Component {
     });
     const Form = t.form.Form;
     return (
-      <View>
-        <Content>
+      <View style={styles.form}>
+        <Content style={styles.content}>
           <Form
             ref={c => this.form = c}
             type={Damages}
