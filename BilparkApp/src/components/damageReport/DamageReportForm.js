@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import t from 'tcomb-form-native';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Content, Button, Text, View, Spinner } from 'native-base';
 
 import { postDamageReport, getCurrentDamageReport, damageReportOptions, damageReportValues } from '../../actions/damageReportForm';
-
-// const width = Dimensions.get('window').width;
 
 const Items = [
   {
@@ -55,6 +53,7 @@ const styles = StyleSheet.create({
   },
   button: {
     alignSelf: 'center',
+    marginBottom: '3%',
   },
 });
 
