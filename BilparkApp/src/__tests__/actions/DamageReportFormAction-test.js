@@ -1,11 +1,11 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import { postDamageReportFailure, postDamageReportLoading,
-  postDamageReportSuccess, registerDamageReport, getCurrentDamageReportSuccess,
+  registerDamageReport, getCurrentDamageReportSuccess,
   damageReportValues, noDamageReportValues, damageReportOptions,
-  transformDamageReport, getDamageReport, getCurrentDamageReport,
+  getCurrentDamageReport, postDamageReport,
   POST_DAMAGEREPORT_REQUEST, POST_DAMAGEREPORT_FAILURE,
-  POST_DAMAGEREPORT_SUCCESS, REGISTER_DAMAGEREPORT, GET_CURRENT_DAMAGEREPORT,
+  REGISTER_DAMAGEREPORT, GET_CURRENT_DAMAGEREPORT,
   DAMAGE_REPORT_VALUES, NO_DAMAGE_REPORT_VALUES, DAMAGE_REPORT_OPTIONS }
   from '../../actions/damageReportForm';
 
@@ -267,6 +267,51 @@ describe('Testing DamageReport async actions', () => {
     // run the dispatch of postFuelRefill.
     // then compare the actions expected with the ones in the mock store
     return store.dispatch(getCurrentDamageReport()).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+  it('Creates REGISTER_DAMAGEREPORT when posting current DamageReport succeeds', () => {
+    axiosMock.onPost().reply(200, returnedDamageReport);
+    const damagereport =
+    {
+      CarID: 34,
+      DamageReportID: 177,
+      Items: [
+        { DamageReportID: 177, Damaged: false, Description: null, ItemID: 334, ItemType: 'Wheel', createdAt: '2018-05-14T07:59:44.846Z', updatedAt: '2018-05-14T07:59:44.846Z' },
+        { DamageReportID: 177, Damaged: false, Description: null, ItemID: 335, ItemType: 'Window', createdAt: '2018-05-14T07:59:44.846Z', updatedAt: '2018-05-14T07:59:44.846Z' },
+        { DamageReportID: 177, Damaged: false, Description: null, ItemID: 336, ItemType: 'CarLight', createdAt: '2018-05-14T07:59:44.847Z', updatedAt: '2018-05-14T07:59:44.847Z' },
+        { DamageReportID: 177, Damaged: false, Description: null, ItemID: 337, ItemType: 'FrontBumper', createdAt: '2018-05-14T07:59:44.847Z', updatedAt: '2018-05-14T07:59:44.847Z' },
+        { DamageReportID: 177, Damaged: false, Description: null, ItemID: 338, ItemType: 'BackBumper', createdAt: '2018-05-14T07:59:44.847Z', updatedAt: '2018-05-14T07:59:44.847Z' },
+        { DamageReportID: 177, Damaged: false, Description: null, ItemID: 339, ItemType: 'RightBodyWork', createdAt: '2018-05-14T07:59:44.848Z', updatedAt: '2018-05-14T07:59:44.848Z' },
+        { DamageReportID: 177, Damaged: false, Description: null, ItemID: 340, ItemType: 'LeftBodyWork', createdAt: '2018-05-14T07:59:44.848Z', updatedAt: '2018-05-14T07:59:44.848Z' },
+      ],
+      UserID: 49,
+      createdAt: '2018-05-14T07:59:44.799Z',
+      updatedAt: '2018-05-14T07:59:44.799Z',
+    };
+    const expectedActions = [
+      {
+        type: POST_DAMAGEREPORT_REQUEST,
+        isLoading: true,
+      },
+      {
+        type: POST_DAMAGEREPORT_REQUEST,
+        isLoading: false,
+      },
+      {
+        type: REGISTER_DAMAGEREPORT,
+        damagereport,
+      },
+      {
+        type: DAMAGE_REPORT_VALUES,
+        currentDamageReportValues: undefined,
+      },
+    ];
+    // create a mock of the store
+    const store = mockStore({});
+    // run the dispatch of postFuelRefill.
+    // then compare the actions expected with the ones in the mock store
+    return store.dispatch(postDamageReport(damageReportItems)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
