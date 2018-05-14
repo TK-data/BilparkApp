@@ -169,6 +169,13 @@ class DamageReportForm extends Component {
         >
           <Text> Registrer </Text>
         </Button>
+        {this.props.success ? Alert.alert(
+          '',
+          'Turen ble lagret i kjøreboken',
+          [
+            { text: 'OK' },
+          ],
+        ) : null }
       </View>
     );
   }
@@ -182,6 +189,7 @@ const mapStateToProps = (state) => {
     values: state.damageReportValues,
     car: state.auth.car,
     formOptions: state.damageReportOptions,
+    success: state.damageReportForm.success,
   };
 };
 
