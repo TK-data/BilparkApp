@@ -7,7 +7,7 @@ import {
   NO_DAMAGE_REPORT_VALUES,
   DAMAGE_REPORT_OPTIONS } from '../../actions/damageReportForm';
 
-import { damageReportOptions, damageReportValues, damageReportForm, initalState, initalValue, formOptions } from '../../reducers/damageReportForm';
+import { damageReportOptions, damageReportValues, damageReportForm, initalState } from '../../reducers/damageReportForm';
 
 const initialValue =
 { initialValue:
@@ -29,58 +29,55 @@ const initialValue =
   },
 };
 
-const defaultOptions = {
-  auto: 'placeholder',
-  fields: {
-    KarosseriVenstre: {
-      label: 'Venstre karosseri',
-    },
-    KarosseriVenstreBeskrivelse: {
-      placeholder: 'Beskrivelse av skaden (Valgfritt)',
-      hidden: true,
-    },
-    KarosseriHøyre: {
-      label: 'Høyre karosseri',
-    },
-    KarosseriHøyreBeskrivelse: {
-      placeholder: 'Beskrivelse av skaden (Valgfritt)',
-      hidden: true,
-    },
-    StøtfangerFront: {
-      label: 'Støtfanger front',
-    },
-    StøtfangerFrontBeskrivelse: {
-      placeholder: 'Beskrivelse av skaden (Valgfritt)',
-      hidden: true,
-    },
-    StøtfangerBak: {
-      label: 'Støtfanger Bak',
-    },
-    StøtfangerBakBeskrivelse: {
-      placeholder: 'Beskrivelse av skaden (Valgfritt)',
-      hidden: true,
-    },
-    LysUtvendig: {
-      label: 'Lys (utvendig)',
-    },
-    LysUtvendigBeskrivelse: {
-      placeholder: 'Beskrivelse av skaden (Valgfritt)',
-      hidden: true,
-    },
-    Glass: {
-      label: 'Vinduer',
-    },
-    GlassBeskrivelse: {
-      placeholder: 'Beskrivelse av skaden (Valgfritt)',
-      hidden: true,
-    },
-    FelgHjul: {
-      label: 'Hjul (felg)',
-    },
-    FelgHjulBeskrivelse: {
-      placeholder: 'Beskrivelse av skaden (Valgfritt)',
-      hidden: true,
-    },
+const fields = {
+  KarosseriVenstre: {
+    label: 'Venstre karosseri',
+  },
+  KarosseriVenstreBeskrivelse: {
+    placeholder: 'Beskrivelse av skaden (Valgfritt)',
+    hidden: true,
+  },
+  KarosseriHøyre: {
+    label: 'Høyre karosseri',
+  },
+  KarosseriHøyreBeskrivelse: {
+    placeholder: 'Beskrivelse av skaden (Valgfritt)',
+    hidden: true,
+  },
+  StøtfangerFront: {
+    label: 'Støtfanger front',
+  },
+  StøtfangerFrontBeskrivelse: {
+    placeholder: 'Beskrivelse av skaden (Valgfritt)',
+    hidden: true,
+  },
+  StøtfangerBak: {
+    label: 'Støtfanger Bak',
+  },
+  StøtfangerBakBeskrivelse: {
+    placeholder: 'Beskrivelse av skaden (Valgfritt)',
+    hidden: true,
+  },
+  LysUtvendig: {
+    label: 'Lys (utvendig)',
+  },
+  LysUtvendigBeskrivelse: {
+    placeholder: 'Beskrivelse av skaden (Valgfritt)',
+    hidden: true,
+  },
+  Glass: {
+    label: 'Vinduer',
+  },
+  GlassBeskrivelse: {
+    placeholder: 'Beskrivelse av skaden (Valgfritt)',
+    hidden: true,
+  },
+  FelgHjul: {
+    label: 'Hjul (felg)',
+  },
+  FelgHjulBeskrivelse: {
+    placeholder: 'Beskrivelse av skaden (Valgfritt)',
+    hidden: true,
   },
 };
 
@@ -276,5 +273,31 @@ describe('DamageReport reducer tests', () => {
       type: DAMAGE_REPORT_VALUES,
       currentDamageReportValues: Items,
     })).toEqual(initialValues);
+  });
+  it('Should handle DAMAGE_REPORT_OPTIONS', () => {
+    const values = {
+      KarosseriVenstre: false,
+      KarosseriVenstreBeskrivelse: '',
+      KarosseriHøyre: false,
+      KarosseriHøyreBeskrivelse: '',
+      StøtfangerFront: false,
+      StøtfangerFrontBeskrivelse: '',
+      StøtfangerBak: false,
+      StøtfangerBakBeskrivelse: '',
+      LysUtvendig: false,
+      LysUtvendigBeskrivelse: '',
+      Glass: false,
+      GlassBeskrivelse: '',
+      FelgHjul: false,
+      FelgHjulBeskrivelse: '',
+    };
+    const defaultOpt = {
+      fields,
+    };
+
+    expect(damageReportOptions({ fields }, {
+      type: DAMAGE_REPORT_OPTIONS,
+      values,
+    })).toEqual(defaultOpt);
   });
 });
