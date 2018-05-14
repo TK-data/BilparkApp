@@ -40,6 +40,7 @@ ShallowWrapper {
           virtual={undefined}
         >
           <Styled(PickerNB)
+            headerBackButtonText="<"
             iosHeader="Velg Selskap"
             mode="dropdown"
             onValueChange={[Function]}
@@ -47,6 +48,7 @@ ShallowWrapper {
             selectedValue={5}
             style={
               Object {
+                "alignSelf": "center",
                 "backgroundColor": "white",
               }
             }
@@ -80,7 +82,7 @@ ShallowWrapper {
               }
               virtual={undefined}
             >
-              Send
+              Lagre
             </Styled(Text)>
           </TouchableOpacity>
         </Styled(ViewNB)>,
@@ -99,6 +101,7 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "children": <Styled(PickerNB)
+            headerBackButtonText="<"
             iosHeader="Velg Selskap"
             mode="dropdown"
             onValueChange={[Function]}
@@ -106,6 +109,7 @@ ShallowWrapper {
             selectedValue={5}
             style={
               Object {
+                "alignSelf": "center",
                 "backgroundColor": "white",
               }
             }
@@ -129,31 +133,29 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": Array [
-              false,
-              Array [
-                <Item
-                  label="Bedrift1"
-                  value={5}
-                />,
-                <Item
-                  label="Bedrift2"
-                  value={8}
-                />,
-              ],
+              <Item
+                label="Bedrift1"
+                value={5}
+              />,
+              <Item
+                label="Bedrift2"
+                value={8}
+              />,
             ],
+            "headerBackButtonText": "<",
             "iosHeader": "Velg Selskap",
             "mode": "dropdown",
             "onValueChange": [Function],
             "placeholder": "Velg selskap",
             "selectedValue": 5,
             "style": Object {
+              "alignSelf": "center",
               "backgroundColor": "white",
             },
             "virtual": undefined,
           },
           "ref": null,
           "rendered": Array [
-            false,
             Object {
               "instance": null,
               "key": "5",
@@ -203,7 +205,7 @@ ShallowWrapper {
               }
               virtual={undefined}
             >
-              Send
+              Lagre
             </Styled(Text)>
           </TouchableOpacity>,
           "virtual": undefined,
@@ -226,7 +228,7 @@ ShallowWrapper {
               }
               virtual={undefined}
             >
-              Send
+              Lagre
             </Styled(Text)>,
             "onPress": [Function],
           },
@@ -236,7 +238,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "children": "Send",
+              "children": "Lagre",
               "style": Object {
                 "color": "white",
                 "fontSize": 20,
@@ -246,7 +248,7 @@ ShallowWrapper {
               "virtual": undefined,
             },
             "ref": null,
-            "rendered": "Send",
+            "rendered": "Lagre",
             "type": [Function],
           },
           "type": [Function],
@@ -267,6 +269,7 @@ ShallowWrapper {
             virtual={undefined}
           >
             <Styled(PickerNB)
+              headerBackButtonText="<"
               iosHeader="Velg Selskap"
               mode="dropdown"
               onValueChange={[Function]}
@@ -274,6 +277,7 @@ ShallowWrapper {
               selectedValue={5}
               style={
                 Object {
+                  "alignSelf": "center",
                   "backgroundColor": "white",
                 }
               }
@@ -307,7 +311,7 @@ ShallowWrapper {
                 }
                 virtual={undefined}
               >
-                Send
+                Lagre
               </Styled(Text)>
             </TouchableOpacity>
           </Styled(ViewNB)>,
@@ -326,6 +330,7 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "children": <Styled(PickerNB)
+              headerBackButtonText="<"
               iosHeader="Velg Selskap"
               mode="dropdown"
               onValueChange={[Function]}
@@ -333,6 +338,7 @@ ShallowWrapper {
               selectedValue={5}
               style={
                 Object {
+                  "alignSelf": "center",
                   "backgroundColor": "white",
                 }
               }
@@ -356,31 +362,29 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "children": Array [
-                false,
-                Array [
-                  <Item
-                    label="Bedrift1"
-                    value={5}
-                  />,
-                  <Item
-                    label="Bedrift2"
-                    value={8}
-                  />,
-                ],
+                <Item
+                  label="Bedrift1"
+                  value={5}
+                />,
+                <Item
+                  label="Bedrift2"
+                  value={8}
+                />,
               ],
+              "headerBackButtonText": "<",
               "iosHeader": "Velg Selskap",
               "mode": "dropdown",
               "onValueChange": [Function],
               "placeholder": "Velg selskap",
               "selectedValue": 5,
               "style": Object {
+                "alignSelf": "center",
                 "backgroundColor": "white",
               },
               "virtual": undefined,
             },
             "ref": null,
             "rendered": Array [
-              false,
               Object {
                 "instance": null,
                 "key": "5",
@@ -430,7 +434,7 @@ ShallowWrapper {
                 }
                 virtual={undefined}
               >
-                Send
+                Lagre
               </Styled(Text)>
             </TouchableOpacity>,
             "virtual": undefined,
@@ -453,7 +457,7 @@ ShallowWrapper {
                 }
                 virtual={undefined}
               >
-                Send
+                Lagre
               </Styled(Text)>,
               "onPress": [Function],
             },
@@ -463,7 +467,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": "Send",
+                "children": "Lagre",
                 "style": Object {
                   "color": "white",
                   "fontSize": 20,
@@ -473,7 +477,7 @@ ShallowWrapper {
                 "virtual": undefined,
               },
               "ref": null,
-              "rendered": "Send",
+              "rendered": "Lagre",
               "type": [Function],
             },
             "type": [Function],
