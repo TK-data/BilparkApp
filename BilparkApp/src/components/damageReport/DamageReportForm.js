@@ -171,7 +171,7 @@ class DamageReportForm extends Component {
         </Button>
         {this.props.success ? Alert.alert(
           '',
-          'Turen ble lagret i kjøreboken',
+          'Skademeldingen ble lagret',
           [
             { text: 'OK' },
           ],
