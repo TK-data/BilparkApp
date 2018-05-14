@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import t from 'tcomb-form-native';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Alert } from 'react-native';
 import { Content, Button, Text, View, Spinner } from 'native-base';
 
 import { postDamageReport, getCurrentDamageReport, damageReportOptions, damageReportValues } from '../../actions/damageReportForm';
@@ -157,11 +157,25 @@ class DamageReportForm extends Component {
           light
           style={styles.button}
           onPress={() => {
-            this.handleSubmit();
+            Alert.alert(
+              'Bekreft skademelding',
+              'Er du sikker på at informasjonen er riktig?',
+              [
+                { text: 'Avbryt', style: 'cancel' },
+                { text: 'Lagre', onPress: () => this.handleSubmit() },
+              ],
+            );
           }}
         >
           <Text> Registrer </Text>
         </Button>
+        {this.props.success ? Alert.alert(
+          '',
+          'Skademeldingen ble lagret',
+          [
+            { text: 'OK' },
+          ],
+        ) : null }
       </View>
     );
   }
@@ -175,6 +189,7 @@ const mapStateToProps = (state) => {
     values: state.damageReportValues,
     car: state.auth.car,
     formOptions: state.damageReportOptions,
+    success: state.damageReportForm.success,
   };
 };
 

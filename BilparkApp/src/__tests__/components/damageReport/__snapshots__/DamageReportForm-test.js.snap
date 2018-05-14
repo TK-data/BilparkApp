@@ -18,6 +18,7 @@ ShallowWrapper {
     hasErrored={false}
     isLoading={false}
     navigate={[Function]}
+    success={undefined}
     updateValues={[Function]}
     values={
       Object {
@@ -274,6 +275,7 @@ ShallowWrapper {
              Registrer 
           </Styled(Text)>
         </Styled(Button)>,
+        null,
       ],
       "style": Object {
         "alignItems": "center",
@@ -753,6 +755,7 @@ ShallowWrapper {
         },
         "type": [Function],
       },
+      null,
     ],
     "type": [Function],
   },
@@ -999,6 +1002,7 @@ ShallowWrapper {
                Registrer 
             </Styled(Text)>
           </Styled(Button)>,
+          null,
         ],
         "style": Object {
           "alignItems": "center",
@@ -1478,6 +1482,7 @@ ShallowWrapper {
           },
           "type": [Function],
         },
+        null,
       ],
       "type": [Function],
     },

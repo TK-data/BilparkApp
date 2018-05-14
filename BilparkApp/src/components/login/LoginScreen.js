@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Body, Button, Content, Text } from 'native-base';
+import { Body, Content } from 'native-base';
 import { StyleSheet, View, Image } from 'react-native';
-import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 
 import LoginForm from './LoginForm';
@@ -46,14 +44,6 @@ class LoginScreen extends React.Component {
         <View style={styles.contentContainer}>
           <Content contentContainerStyle={styles.content}>
             <LoginForm />
-            <Button
-              transparent
-              light
-              onPress={() => this.props.registerScreen()}
-              style={styles.button}
-            >
-              <Text>Registrer deg her</Text>
-            </Button>
           </Content>
         </View>
       </View>
@@ -62,9 +52,7 @@ class LoginScreen extends React.Component {
 }
 
 
-LoginScreen.propTypes = {
-  registerScreen: PropTypes.func.isRequired,
-};
+
 
 const mapStateToProps = (state) => {
   return {
@@ -72,9 +60,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  registerScreen: () => {
-    dispatch(NavigationActions.navigate({ routeName: 'Register' }));
-  },
 });
 
 

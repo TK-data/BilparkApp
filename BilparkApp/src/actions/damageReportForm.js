@@ -9,6 +9,7 @@ export const GET_CURRENT_DAMAGEREPORT = 'GET_CURRENT_DAMAGEREPORT';
 export const DAMAGE_REPORT_VALUES = 'DAMAGE_REPORT_VALUES';
 export const NO_DAMAGE_REPORT_VALUES = 'NO_DAMAGE_REPORT_VALUES';
 export const DAMAGE_REPORT_OPTIONS = 'DAMAGE_REPORT_OPTIONS';
+export const POST_DAMAGEREPORT_SUCCESS = 'POST_DAMAGEREPORT_SUCCESS';
 
 export function postDamageReportFailure(bool) {
   return {
@@ -20,6 +21,13 @@ export function postDamageReportLoading(bool) {
   return {
     type: 'POST_DAMAGEREPORT_REQUEST',
     isLoading: bool,
+  };
+}
+
+export function postDamageReportSuccess(bool) {
+  return {
+    type: POST_DAMAGEREPORT_SUCCESS,
+    success: bool,
   };
 }
 
@@ -54,6 +62,17 @@ export function damageReportOptions(values) {
   return {
     type: 'DAMAGE_REPORT_OPTIONS',
     values,
+  };
+}
+
+export function successAfterHalfSecond() {
+  return (dispatch) => {
+    setTimeout(() => {
+      dispatch(postDamageReportSuccess(true));
+      setTimeout(() => {
+        dispatch(postDamageReportSuccess(false));
+      }, 500);
+    }, 1);
   };
 }
 
@@ -134,6 +153,7 @@ export function postDamageReport(Items) {
         return response.data;
       })
       .then((userdamagereport) => {
+        dispatch(successAfterHalfSecond());
         dispatch(registerDamageReport(userdamagereport));
         dispatch(damageReportValues(userdamagereport.items));
       })
