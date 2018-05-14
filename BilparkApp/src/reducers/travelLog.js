@@ -10,6 +10,8 @@ import {
   TRAVELLOG_FORM_VALUE,
   TRAVELLOG_CARGO,
   TRAVELLOG_CORDINATES,
+  TRAVELLOG_TO_ADDRESS,
+  TRAVELLOG_FROM_ADDRESS,
 } from '../actions/travelLog';
 
 const Passengers = t.enums({
@@ -28,8 +30,10 @@ const Passenger = t.struct({
 const date = new Date();
 
 const init = {
-  positionFrom: '123',
-  positionTo: '456',
+  positionFrom: '0',
+  positionTo: '0',
+  addressFrom: '',
+  addressTo: '',
   distance: '0km',
   datepickerVisible: false,
   datepickerDate: (date.getDate() + '.' + (date.getMonth() + 1) + '.' + (date.getFullYear())),
@@ -59,6 +63,16 @@ export default function travelLog(state = init, action) {
     return {
       ...state,
       positionTo: action.positionTo,
+    };
+  case TRAVELLOG_FROM_ADDRESS:
+    return {
+      ...state,
+      addressFrom: action.addressFrom,
+    };
+  case TRAVELLOG_TO_ADDRESS:
+    return {
+      ...state,
+      addressTo: action.addressTo,
     };
   case TRAVELLOG_CORDINATES:
     return {
