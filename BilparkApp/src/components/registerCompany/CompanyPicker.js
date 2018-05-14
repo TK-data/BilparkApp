@@ -24,14 +24,18 @@ const styles = StyleSheet.create({
   picker: {
     backgroundColor: 'white',
   },
+  pickerios: {
+    backgroundColor: 'white',
+    alignSelf: 'center',
+  },
 });
 
 const CompanyPicker = ({ hasErrored, isLoading, selectedCompany, changeSelect, postCompany, companies }) => {
 
-  if (hasErrored || companies.length === 0) {
+  if (hasErrored) {
     return (
       <View style={styles.container}>
-        <Text>Noe gikk galt når firmaer skulle hentes..</Text>
+        <Text style={styles.text}>Noe gikk galt når firmaer skulle hentes..</Text>
       </View>
     );
   }
@@ -44,19 +48,53 @@ const CompanyPicker = ({ hasErrored, isLoading, selectedCompany, changeSelect, p
     );
   }
 
+  if (Platform.OS === 'android') {
+    return (
+      <View style={styles.container}>
+        <View>
+          <Picker
+            iosHeader="Velg Selskap"
+            mode="dropdown"
+            style={styles.picker}
+            selectedValue={selectedCompany}
+            onValueChange={value => changeSelect(value)}
+            placeholder="Velg selskap"
+          >
+            { Platform.OS === 'android' && <Picker.Item label="Velg" value="" /> }
+            {companies.map(company =>
+              (<Picker.Item
+                key={company.CompanyID}
+                label={company.CompanyName}
+                value={company.CompanyID}
+              />))}
+          </Picker>
+        </View>
+        <View>
+          <TouchableOpacity
+            onPress={() => ((selectedCompany === '') ? null : postCompany(selectedCompany))}
+          >
+            <Text style={styles.text}>
+              Send
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  }
 
+  // if ios
   return (
     <View style={styles.container}>
       <View>
         <Picker
           iosHeader="Velg Selskap"
           mode="dropdown"
-          style={styles.picker}
+          style={styles.pickerios}
           selectedValue={selectedCompany}
           onValueChange={value => changeSelect(value)}
           placeholder="Velg selskap"
+          headerBackButtonText="<"
         >
-          { Platform.OS !== 'ios' && <Picker.Item label="Velg" value="" /> }
           {companies.map(company =>
             (<Picker.Item
               key={company.CompanyID}
@@ -70,7 +108,7 @@ const CompanyPicker = ({ hasErrored, isLoading, selectedCompany, changeSelect, p
           onPress={() => ((selectedCompany === '') ? null : postCompany(selectedCompany))}
         >
           <Text style={styles.text}>
-            Send
+            Lagre
           </Text>
         </TouchableOpacity>
       </View>

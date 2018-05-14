@@ -9,6 +9,7 @@ before_install:
   - cd src
   - cd config
   - cp connections.js.example connections.js
+  - echo $GOOGLE_KEY_CONNECTIONS >> connections.js
   - cd ..
   - cd ..
 
