@@ -11,7 +11,8 @@ export const TRAVELLOG_FORM_VALUE = 'TRAVELLOG_FORM_VALUE';
 export const TRAVELLOG_FORM_TYPE = 'TRAVELLOG_FORM_TYPE';
 export const TRAVELLOG_CARGO = 'TRAVELLOG_CARGO';
 export const TRAVELLOG_CORDINATES = 'TRAVELLOG_CORDINATES';
-
+export const TRAVELLOG_FROM_ADDRESS = 'TRAVELLOG_FROM_ADDRESS';
+export const TRAVELLOG_TO_ADDRESS = 'TRAVELLOG_TO_ADDRESS';
 
 export function travelLogFrom(positionFrom) {
   return {
@@ -24,6 +25,20 @@ export function travelLogTo(positionTo) {
   return {
     type: TRAVELLOG_TO,
     positionTo,
+  };
+}
+
+export function travelLogFromAddress(addressFrom) {
+  return {
+    type: TRAVELLOG_FROM_ADDRESS,
+    addressFrom,
+  };
+}
+
+export function travelLogToAddress(addressTo) {
+  return {
+    type: TRAVELLOG_TO_ADDRESS,
+    addressTo,
   };
 }
 
@@ -135,8 +150,8 @@ export function postTravelLog(value) {
     return axios.post(API_ADDRESS + '/api/drivinglog/save', {
       drivingLog: {
         Km: parseInt(value.distance, 10),
-        LocationFrom: value.positionFrom,
-        LocationTo: value.positionTo,
+        LocationFrom: value.addressFrom,
+        LocationTo: value.addressTo,
         Date: value.datepickerDate,
         Cargo: value.cargoValue.Cargo,
         NoOfPassengers: parseInt(value.formValue.Passenger, 10),

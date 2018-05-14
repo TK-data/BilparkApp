@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { View, Image, Text, Dimensions } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { GOOGLE_API_KEY } from '../../config/connections';
-import { travelLogTo, calculateDistance } from '../../actions/travelLog';
+import { travelLogTo, calculateDistance, travelLogToAddress } from '../../actions/travelLog';
 
 const width = Dimensions.get('window').width;
 
 
-const GooglePlacesInputTo = ({ saveTo, saveCordinates, from }) => {
+const GooglePlacesInputTo = ({ saveTo, saveCordinates, from, saveAddressTo }) => {
   return (
     <GooglePlacesAutocomplete
       placeholder="Adresse til"
@@ -24,6 +24,7 @@ const GooglePlacesInputTo = ({ saveTo, saveCordinates, from }) => {
           origin: from,
           destination: (details.geometry.location.lat + ',' + details.geometry.location.lng),
         });
+        saveAddressTo(details.formatted_address);
       }}
 
       getDefaultValue={() => ''}
@@ -78,6 +79,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     saveTo: positionFrom => dispatch(travelLogTo(positionFrom)),
     saveCordinates: cordinates => dispatch(calculateDistance(cordinates)),
+    saveAddressTo: address => dispatch(travelLogToAddress(address)),
   };
 };
 
