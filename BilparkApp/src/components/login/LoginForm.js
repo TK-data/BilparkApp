@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import t from 'tcomb-form-native';
+import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import { StyleSheet, View } from 'react-native';
 import { Button, Text, Spinner } from 'native-base';
@@ -38,7 +39,7 @@ class LoginForm extends Component {
     const Form = t.form.Form;
 
     if (this.props.isLoading) {
-      return <Spinner color="white" />;
+      return <View style={styles.container}><Spinner color="white" /></View>;
     }
 
     return (
@@ -58,6 +59,14 @@ class LoginForm extends Component {
           style={styles.button}
         >
           <Text> Logg inn </Text>
+        </Button>
+        <Button
+          transparent
+          light
+          onPress={() => this.props.registerScreen()}
+          style={styles.button}
+        >
+          <Text>Registrer deg her</Text>
         </Button>
       </View>
     );
@@ -79,6 +88,9 @@ const mapDispatchToProps = (dispatch) => {
     postUser: (username, password) => dispatch(postUser(username, password)),
     postCurrent: () => dispatch(postCurrent()),
     loginMail: mail => dispatch(loginMail(mail)),
+    registerScreen: () => {
+      dispatch(NavigationActions.navigate({ routeName: 'Register' }));
+    },
   };
 };
 
