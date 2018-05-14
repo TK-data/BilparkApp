@@ -4,7 +4,6 @@ const axios = require('axios');
 
 export const POST_DAMAGEREPORT_REQUEST = 'POST_DAMAGEREPORT_REQUEST';
 export const POST_DAMAGEREPORT_FAILURE = 'POST_DAMAGEREPORT_FAILURE';
-export const POST_DAMAGEREPORT_SUCCESS = 'POST_DAMAGEREPORT_SUCCESS';
 export const REGISTER_DAMAGEREPORT = 'REGISTER_DAMAGEREPORT';
 export const GET_CURRENT_DAMAGEREPORT = 'GET_CURRENT_DAMAGEREPORT';
 export const DAMAGE_REPORT_VALUES = 'DAMAGE_REPORT_VALUES';
@@ -21,13 +20,6 @@ export function postDamageReportLoading(bool) {
   return {
     type: 'POST_DAMAGEREPORT_REQUEST',
     isLoading: bool,
-  };
-}
-export function postDamageReportSuccess(user) {
-  return {
-    type: 'UPDATE_USER',
-    isLoggedIn: true,
-    user,
   };
 }
 
@@ -85,6 +77,8 @@ export function transformDamageReport(userdamagereport) {
   };
 }
 
+// Function that calls the backend to get all DamageReports. Not currently used.
+/*
 export function getDamageReport() {
   return (dispatch) => {
     dispatch(postDamageReportLoading(true));
@@ -101,6 +95,7 @@ export function getDamageReport() {
       });
   };
 }
+*/
 
 export function getCurrentDamageReport() {
   return (dispatch) => {
