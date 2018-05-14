@@ -24,6 +24,10 @@ const styles = StyleSheet.create({
   picker: {
     backgroundColor: 'white',
   },
+  pickerios: {
+    backgroundColor: 'white',
+    alignSelf: 'center',
+  },
 });
 
 const CompanyPicker = ({ hasErrored, isLoading, selectedCompany, changeSelect, postCompany, companies }) => {
@@ -85,10 +89,11 @@ const CompanyPicker = ({ hasErrored, isLoading, selectedCompany, changeSelect, p
         <Picker
           iosHeader="Velg Selskap"
           mode="dropdown"
-          style={styles.picker}
+          style={styles.pickerios}
           selectedValue={selectedCompany}
           onValueChange={value => changeSelect(value)}
           placeholder="Velg selskap"
+          headerBackButtonText="<"
         >
           {companies.map(company =>
             (<Picker.Item
@@ -103,7 +108,7 @@ const CompanyPicker = ({ hasErrored, isLoading, selectedCompany, changeSelect, p
           onPress={() => ((selectedCompany === '') ? null : postCompany(selectedCompany))}
         >
           <Text style={styles.text}>
-            Send
+            Lagre
           </Text>
         </TouchableOpacity>
       </View>
