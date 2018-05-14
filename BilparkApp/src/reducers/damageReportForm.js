@@ -1,6 +1,6 @@
 import t from 'tcomb-form-native';
 import { Dimensions } from 'react-native';
-import { POST_DAMAGEREPORT_REQUEST, POST_DAMAGEREPORT_FAILURE, POST_DAMAGEREPORT_SUCCESS, REGISTER_DAMAGEREPORT, GET_CURRENT_DAMAGEREPORT, DAMAGE_REPORT_VALUES, NO_DAMAGE_REPORT_VALUES, DAMAGE_REPORT_OPTIONS } from '../actions/damageReportForm';
+import { POST_DAMAGEREPORT_REQUEST, POST_DAMAGEREPORT_FAILURE, REGISTER_DAMAGEREPORT, GET_CURRENT_DAMAGEREPORT, DAMAGE_REPORT_VALUES, NO_DAMAGE_REPORT_VALUES, DAMAGE_REPORT_OPTIONS } from '../actions/damageReportForm';
 
 const width = Dimensions.get('window').width;
 
@@ -158,12 +158,6 @@ export function damageReportForm(state = initialState, action) {
       ...state,
       isLoading: action.isLoading,
       hasErrored: false,
-    };
-  case POST_DAMAGEREPORT_SUCCESS:
-    return {
-      ...state,
-      hasErrored: false,
-      damageReports: action.damageReport,
     };
   case REGISTER_DAMAGEREPORT:
     return {

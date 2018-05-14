@@ -124,10 +124,6 @@ class DamageReportForm extends Component {
       );
     }
 
-    if (this.props.currentDamageReport.Items) {
-      this.Items = this.props.currentDamageReport.Items;
-    }
-
     const Damages = t.struct({
       KarosseriVenstre: t.Boolean,
       KarosseriVenstreBeskrivelse: t.maybe(t.String),
