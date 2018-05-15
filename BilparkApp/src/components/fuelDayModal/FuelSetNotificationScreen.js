@@ -89,7 +89,7 @@ class FuelSetNotificationScreen extends React.Component {
                 <Text style={styles.text}>Kan du spare hele:</Text>
                 <Text style={styles.textBold}>{Math.round(this.state.resultat)} kr i året</Text>
                 <Text style={styles.text}>Dersom differansen mellom billigste og dyreste dag å fylle er:</Text>
-                <View style={styles.inputView}>
+                <View style={[styles.inputView, styles.marginBot]}>
                   <TextInput
                     style={[styles.input]}
                     keyboardType="numeric"
