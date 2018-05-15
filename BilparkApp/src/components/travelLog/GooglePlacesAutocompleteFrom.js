@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Image, Text, Dimensions } from 'react-native';
+import { Dimensions } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { GOOGLE_API_KEY } from '../../config/connections';
 import { travelLogFrom, calculateDistance, travelLogFromAddress } from '../../actions/travelLog';
