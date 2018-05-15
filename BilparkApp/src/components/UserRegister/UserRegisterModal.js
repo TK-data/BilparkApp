@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { NavigationActions } from 'react-navigation';
 import { Text, Modal, StyleSheet, View } from 'react-native';
 import { Button } from 'native-base';
-import { registerUserModalVisible } from '../../actions/registerUser';
 import { postUser } from '../../actions/auth';
 
 
@@ -26,7 +24,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const UserRegisterModal = ({ modalVisible, modalTransparent, visibleModal, navigateToLogin, values, login }) => {
+const UserRegisterModal = ({ modalVisible, modalTransparent, values, login }) => {
   return (
     <Modal
       visible={modalVisible}
@@ -42,8 +40,6 @@ const UserRegisterModal = ({ modalVisible, modalTransparent, visibleModal, navig
           light
           onPress={() => {
             login(values);
-            // visibleModal(false);
-            // navigateToLogin();
           }}
         >
           <Text>Logg inn</Text>
@@ -63,8 +59,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    visibleModal: bool => dispatch(registerUserModalVisible(bool)),
-    navigateToLogin: () => dispatch(NavigationActions.navigate({ routeName: 'Login' })),
     login: values => dispatch(postUser(values.Email, values.Password)),
   };
 };

@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, Dimensions, TouchableOpacity, Platform } from 'react-native';
-import { Picker, Spinner, View, Text } from 'native-base';
+import { StyleSheet, Dimensions, Platform } from 'react-native';
+import { Picker, Spinner, View, Text, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
 
 import { saveCompany, selectCompany } from '../../actions/registerCompany';
@@ -28,9 +28,22 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     alignSelf: 'center',
   },
+  placeholder: {
+    color: 'black',
+  },
+  sendButton: {
+    marginTop: 10,
+    alignSelf: 'center',
+  },
 });
 
-const CompanyPicker = ({ hasErrored, isLoading, selectedCompany, changeSelect, postCompany, companies }) => {
+const CompanyPicker = ({
+  hasErrored,
+  isLoading,
+  selectedCompany,
+  changeSelect,
+  postCompany,
+  companies }) => {
 
   if (hasErrored) {
     return (
@@ -54,6 +67,7 @@ const CompanyPicker = ({ hasErrored, isLoading, selectedCompany, changeSelect, p
         <View>
           <Picker
             iosHeader="Velg Selskap"
+            iosIcon={<Icon android="md-arrow-dropdown" color="black" />}
             mode="dropdown"
             style={styles.picker}
             selectedValue={selectedCompany}
@@ -70,13 +84,16 @@ const CompanyPicker = ({ hasErrored, isLoading, selectedCompany, changeSelect, p
           </Picker>
         </View>
         <View>
-          <TouchableOpacity
+          <Button
+            bordered
+            light
             onPress={() => ((selectedCompany === '') ? null : postCompany(selectedCompany))}
+            style={styles.sendButton}
           >
-            <Text style={styles.text}>
+            <Text>
               Send
             </Text>
-          </TouchableOpacity>
+          </Button>
         </View>
       </View>
     );
@@ -88,11 +105,13 @@ const CompanyPicker = ({ hasErrored, isLoading, selectedCompany, changeSelect, p
       <View>
         <Picker
           iosHeader="Velg Selskap"
+          iosIcon={<Icon name="ios-arrow-down-outline" />}
           mode="dropdown"
           style={styles.pickerios}
           selectedValue={selectedCompany}
           onValueChange={value => changeSelect(value)}
           placeholder="Velg selskap"
+          placeholderStyle={styles.placeholder}
           headerBackButtonText="<"
         >
           {companies.map(company =>
@@ -104,13 +123,16 @@ const CompanyPicker = ({ hasErrored, isLoading, selectedCompany, changeSelect, p
         </Picker>
       </View>
       <View>
-        <TouchableOpacity
+        <Button
+          bordered
+          light
           onPress={() => ((selectedCompany === '') ? null : postCompany(selectedCompany))}
+          style={styles.sendButton}
         >
-          <Text style={styles.text}>
+          <Text>
             Lagre
           </Text>
-        </TouchableOpacity>
+        </Button>
       </View>
     </View>
   );

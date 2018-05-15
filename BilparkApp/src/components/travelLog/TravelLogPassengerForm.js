@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import t from 'tcomb-form-native';
 import { connect } from 'react-redux';
 import { StyleSheet, View } from 'react-native';
-import { Button, Text, Spinner } from 'native-base';
 import { travelLogFormValue, travelLogFormType } from '../../actions/travelLog';
 
 function getType(value) {
