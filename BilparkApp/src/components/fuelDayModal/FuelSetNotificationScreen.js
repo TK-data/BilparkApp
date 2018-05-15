@@ -57,32 +57,40 @@ class FuelSetNotificationScreen extends React.Component {
             <Text style={styles.text}>Mil:</Text>
             <TextInput
               style={styles.input}
+              keyboardType="numeric"
               onChangeText={(text) => {
-                this.setState({ mil: text });
-                this.change();
+                this.setState({ mil: text }, () => {
+                  this.change();
+                });
               }}
               value={this.state.mil}
             />
             <Text style={styles.text}>Forbruk:</Text>
             <TextInput
               style={styles.input}
+              keyboardType="numeric"
               onChangeText={(text) => {
-                this.setState({ forbruk: text });
-                this.change();
+                this.setState({ forbruk: text }, () => {
+                  this.change();
+                });
               }}
               value={this.state.forbruk}
             />
             <Text style={styles.text}>Differanse billigste/dyreste dag (kr):</Text>
             <TextInput
               style={styles.input}
+              keyboardType="numeric"
               onChangeText={(text) => {
-                this.setState({ diff: text });
-                this.change();
+                this.setState({ diff: text }, () => {
+                  this.change();
+                });
               }}
               value={this.state.diff}
             />
             <Text style={styles.text}>
-              Du kan spare {this.state.resultat} kr i året på å fylle den billigste dagen!
+              Du kan spare{' '}
+              <Text style={styles.textUnderlined}>{Math.round(this.state.resultat)}kr</Text>
+              {' '}i året med å fylle på den billigste dagen!
             </Text>
             <Button
               bordered
@@ -180,8 +188,16 @@ const styles = StyleSheet.create({
   text: {
     color: 'white',
   },
-  input: {
+  textUnderlined: {
+    textDecorationLine: 'underline',
     color: 'white',
+  },
+  input: {
+    color: 'black',
+    backgroundColor: 'white',
+    borderRadius: 3,
+    width: '30%',
+    textAlign: 'center',
   },
   button: {
     alignSelf: 'center',
