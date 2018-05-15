@@ -128,7 +128,7 @@ ShallowWrapper {
             "process": [Function],
           }
         }
-        pageName="Company"
+        pageName="Placeholder"
         routeName="RegisterCompany"
       />
       <Connect(MenuBox)
@@ -271,7 +271,7 @@ ShallowWrapper {
                 "process": [Function],
               }
             }
-            pageName="Company"
+            pageName="Placeholder"
             routeName="RegisterCompany"
           />
           <Connect(MenuBox)
@@ -536,7 +536,7 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              pageName="Company"
+              pageName="Placeholder"
               routeName="RegisterCompany"
             />,
             <Connect(MenuBox)
@@ -629,7 +629,7 @@ ShallowWrapper {
               "image": Object {
                 "process": [Function],
               },
-              "pageName": "Company",
+              "pageName": "Placeholder",
               "routeName": "RegisterCompany",
             },
             "ref": null,
@@ -780,7 +780,7 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              pageName="Company"
+              pageName="Placeholder"
               routeName="RegisterCompany"
             />
             <Connect(MenuBox)
@@ -1045,7 +1045,7 @@ ShallowWrapper {
                     "process": [Function],
                   }
                 }
-                pageName="Company"
+                pageName="Placeholder"
                 routeName="RegisterCompany"
               />,
               <Connect(MenuBox)
@@ -1138,7 +1138,7 @@ ShallowWrapper {
                 "image": Object {
                   "process": [Function],
                 },
-                "pageName": "Company",
+                "pageName": "Placeholder",
                 "routeName": "RegisterCompany",
               },
               "ref": null,
