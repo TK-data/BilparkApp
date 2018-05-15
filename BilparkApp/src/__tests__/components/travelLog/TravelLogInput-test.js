@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { Button } from 'native-base';
 
 import TravelLogInput from '../../../components/travelLog/TravelLogInput';
 
@@ -46,8 +45,24 @@ describe('Testing TravelLogInput', () => {
     <TravelLogInput />,
     { context: { store: mockStore(initialState) } },
   );
-  it('Can press the submit button', () => {
+  it('Can press the save button', () => {
     const saveButton = wrapper.dive().dive().childAt(5);
     saveButton.simulate('press');
+  });
+  it('Can press the dateButton', () => {
+    const dateButton = wrapper.dive().dive().childAt(2).childAt(1)
+      .childAt(2);
+    dateButton.simulate('press');
+  });
+  it('Can cancel the datepicker', () => {
+    const datepicker = wrapper.dive().dive().childAt(2).childAt(1)
+      .childAt(1);
+    datepicker.simulate('cancel');
+  });
+  it('Can confirm the datepicker', () => {
+    const data = new Date();
+    const datepicker = wrapper.dive().dive().childAt(2).childAt(1)
+      .childAt(1);
+    datepicker.simulate('confirm', data);
   });
 });

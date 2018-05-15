@@ -102,7 +102,7 @@ ShallowWrapper {
             <CustomDatePickerIOS
               cancelTextIOS="Cancel"
               confirmTextIOS="Confirm"
-              date={2018-05-15T14:54:59.286Z}
+              date={2018-05-15T16:27:19.270Z}
               isVisible={false}
               mode="date"
               neverDisableConfirmIOS={false}
@@ -235,7 +235,7 @@ ShallowWrapper {
               <CustomDatePickerIOS
                 cancelTextIOS="Cancel"
                 confirmTextIOS="Confirm"
-                date={2018-05-15T14:54:59.286Z}
+                date={2018-05-15T16:27:19.270Z}
                 isVisible={false}
                 mode="date"
                 neverDisableConfirmIOS={false}
@@ -322,7 +322,7 @@ ShallowWrapper {
                 <CustomDatePickerIOS
                   cancelTextIOS="Cancel"
                   confirmTextIOS="Confirm"
-                  date={2018-05-15T14:54:59.286Z}
+                  date={2018-05-15T16:27:19.270Z}
                   isVisible={false}
                   mode="date"
                   neverDisableConfirmIOS={false}
@@ -394,7 +394,7 @@ ShallowWrapper {
                 "props": Object {
                   "cancelTextIOS": "Cancel",
                   "confirmTextIOS": "Confirm",
-                  "date": 2018-05-15T14:54:59.286Z,
+                  "date": 2018-05-15T16:27:19.270Z,
                   "isVisible": false,
                   "mode": "date",
                   "neverDisableConfirmIOS": false,
@@ -571,7 +571,7 @@ ShallowWrapper {
               <CustomDatePickerIOS
                 cancelTextIOS="Cancel"
                 confirmTextIOS="Confirm"
-                date={2018-05-15T14:54:59.286Z}
+                date={2018-05-15T16:27:19.270Z}
                 isVisible={false}
                 mode="date"
                 neverDisableConfirmIOS={false}
@@ -704,7 +704,7 @@ ShallowWrapper {
                 <CustomDatePickerIOS
                   cancelTextIOS="Cancel"
                   confirmTextIOS="Confirm"
-                  date={2018-05-15T14:54:59.286Z}
+                  date={2018-05-15T16:27:19.270Z}
                   isVisible={false}
                   mode="date"
                   neverDisableConfirmIOS={false}
@@ -791,7 +791,7 @@ ShallowWrapper {
                   <CustomDatePickerIOS
                     cancelTextIOS="Cancel"
                     confirmTextIOS="Confirm"
-                    date={2018-05-15T14:54:59.286Z}
+                    date={2018-05-15T16:27:19.270Z}
                     isVisible={false}
                     mode="date"
                     neverDisableConfirmIOS={false}
@@ -863,7 +863,7 @@ ShallowWrapper {
                   "props": Object {
                     "cancelTextIOS": "Cancel",
                     "confirmTextIOS": "Confirm",
-                    "date": 2018-05-15T14:54:59.286Z,
+                    "date": 2018-05-15T16:27:19.270Z,
                     "isVisible": false,
                     "mode": "date",
                     "neverDisableConfirmIOS": false,
