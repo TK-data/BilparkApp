@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Content, Body } from 'native-base';
+import { Content } from 'native-base';
 import { connect } from 'react-redux';
 
 import SettingsButton from './SettingsButton';
@@ -63,12 +63,9 @@ const mapDispatchToProps = dispatch => ({
   getItems: () => {
     dispatch(getFuelRefills());
   },
-  register: () => {
-    dispatch(postFuelRefill());
-  },
 });
 
-const mapStateToProps = (state) => {
+const mapStateToProps = () => {
   return {
   };
 };
