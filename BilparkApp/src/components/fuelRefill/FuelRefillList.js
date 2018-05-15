@@ -22,7 +22,7 @@ const FuelRefillList = ({ fuelRefills }) => {
   return (
     <ScrollView style={styles.container}>
       {(fuelRefills.length < 1) ? (
-        <Text style={styles.text}> No refills </Text>
+        <Text style={styles.text}> Ingen registrerte påfyllninger </Text>
       ) : (
         fuelRefills
           .sort((a, b) => {
@@ -41,7 +41,7 @@ const FuelRefillList = ({ fuelRefills }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = () => ({
 });
 
 const mapStateToProps = (state) => {

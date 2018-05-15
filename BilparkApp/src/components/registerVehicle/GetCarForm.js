@@ -17,23 +17,55 @@ class GetCarForm extends Component {
 
       const car = JSON.parse(this.props.carSaved);
       main = (
-        <View>
+        <View style={styles.content}>
           <H2 style={styles.header}>DIN BIL:</H2>
-          <Text style={styles.text}>Regnr: {car.RegNr}</Text>
-          <Text style={styles.text}>Merke: {car.Brand}</Text>
-          <Text style={styles.text}>Modell: {car.Model}</Text>
-          <Text style={styles.text}>Registreringsår: {car.RegYear}</Text>
+          <View style={styles.content}>
+            <View style={styles.carContent}>
+              <View style={styles.textContainer}>
+                <Text style={styles.text}>REGNR:</Text>
+                <Text style={styles.text}>{car.RegNr}</Text>
+              </View>
+              <View style={styles.textContainer}>
+                <Text style={styles.text}>MERKE:</Text>
+                <Text style={styles.text}>{car.Brand}</Text>
+              </View>
+              <View style={styles.textContainer}>
+                <Text style={styles.text}>MODELL:</Text>
+                <Text style={styles.text}>{car.Model}</Text>
+              </View>
+              <View style={styles.textContainer}>
+                <Text style={styles.text}>REGISTRERINGSÅR:</Text>
+                <Text style={styles.text}>{car.RegYear}</Text>
+              </View>
+            </View>
+          </View>
         </View>
       );
     } else if (this.props.isAccepted) {
       const car = JSON.parse(this.props.carFetched);
       main = (
-        <View>
+        <View style={styles.content}>
           <H2 style={styles.header}>DIN BIL:</H2>
-          <Text style={styles.text}>Regnr: {car.RegNr}</Text>
-          <Text style={styles.text}>Merke: {car.Brand}</Text>
-          <Text style={styles.text}>Modell: {car.Model}</Text>
-          <Text style={styles.text}>Registreringsår: {car.RegYear}</Text>
+          <View style={styles.content}>
+            <View style={styles.carContent}>
+              <View style={styles.textContainer}>
+                <Text style={styles.text}>REGNR:</Text>
+                <Text style={styles.text}>{car.RegNr}</Text>
+              </View>
+              <View style={styles.textContainer}>
+                <Text style={styles.text}>MERKE:</Text>
+                <Text style={styles.text}>{car.Brand}</Text>
+              </View>
+              <View style={styles.textContainer}>
+                <Text style={styles.text}>MODELL:</Text>
+                <Text style={styles.text}>{car.Model}</Text>
+              </View>
+              <View style={styles.textContainer}>
+                <Text style={styles.text}>REGISTRERINGSÅR:</Text>
+                <Text style={styles.text}>{car.RegYear}</Text>
+              </View>
+            </View>
+          </View>
         </View>
       );
     } else if (this.props.isLoading) {

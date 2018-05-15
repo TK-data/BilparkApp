@@ -8,7 +8,6 @@ ShallowWrapper {
     login={[Function]}
     modalTransparent={undefined}
     modalVisible={undefined}
-    navigateToLogin={[Function]}
     values={
       Object {
         "Address": "AdrTest",
@@ -18,7 +17,6 @@ ShallowWrapper {
         "Password": "passwordTest",
       }
     }
-    visibleModal={[Function]}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],

@@ -42,9 +42,20 @@ ShallowWrapper {
           <Styled(PickerNB)
             headerBackButtonText="<"
             iosHeader="Velg Selskap"
+            iosIcon={
+              <Styled(Icon)
+                name="ios-arrow-down-outline"
+                virtual={undefined}
+              />
+            }
             mode="dropdown"
             onValueChange={[Function]}
             placeholder="Velg selskap"
+            placeholderStyle={
+              Object {
+                "color": "black",
+              }
+            }
             selectedValue={5}
             style={
               Object {
@@ -67,24 +78,24 @@ ShallowWrapper {
         <Styled(ViewNB)
           virtual={undefined}
         >
-          <TouchableOpacity
-            activeOpacity={0.2}
+          <Styled(Button)
+            bordered={true}
+            light={true}
             onPress={[Function]}
+            style={
+              Object {
+                "alignSelf": "center",
+                "marginTop": 10,
+              }
+            }
+            virtual={undefined}
           >
             <Styled(Text)
-              style={
-                Object {
-                  "color": "white",
-                  "fontSize": 20,
-                  "marginTop": 10,
-                  "textAlign": "center",
-                }
-              }
               virtual={undefined}
             >
               Lagre
             </Styled(Text)>
-          </TouchableOpacity>
+          </Styled(Button)>
         </Styled(ViewNB)>,
       ],
       "style": Object {
@@ -103,9 +114,20 @@ ShallowWrapper {
           "children": <Styled(PickerNB)
             headerBackButtonText="<"
             iosHeader="Velg Selskap"
+            iosIcon={
+              <Styled(Icon)
+                name="ios-arrow-down-outline"
+                virtual={undefined}
+              />
+            }
             mode="dropdown"
             onValueChange={[Function]}
             placeholder="Velg selskap"
+            placeholderStyle={
+              Object {
+                "color": "black",
+              }
+            }
             selectedValue={5}
             style={
               Object {
@@ -144,9 +166,16 @@ ShallowWrapper {
             ],
             "headerBackButtonText": "<",
             "iosHeader": "Velg Selskap",
+            "iosIcon": <Styled(Icon)
+              name="ios-arrow-down-outline"
+              virtual={undefined}
+            />,
             "mode": "dropdown",
             "onValueChange": [Function],
             "placeholder": "Velg selskap",
+            "placeholderStyle": Object {
+              "color": "black",
+            },
             "selectedValue": 5,
             "style": Object {
               "alignSelf": "center",
@@ -190,24 +219,24 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "children": <TouchableOpacity
-            activeOpacity={0.2}
+          "children": <Styled(Button)
+            bordered={true}
+            light={true}
             onPress={[Function]}
+            style={
+              Object {
+                "alignSelf": "center",
+                "marginTop": 10,
+              }
+            }
+            virtual={undefined}
           >
             <Styled(Text)
-              style={
-                Object {
-                  "color": "white",
-                  "fontSize": 20,
-                  "marginTop": 10,
-                  "textAlign": "center",
-                }
-              }
               virtual={undefined}
             >
               Lagre
             </Styled(Text)>
-          </TouchableOpacity>,
+          </Styled(Button)>,
           "virtual": undefined,
         },
         "ref": null,
@@ -216,21 +245,19 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "activeOpacity": 0.2,
+            "bordered": true,
             "children": <Styled(Text)
-              style={
-                Object {
-                  "color": "white",
-                  "fontSize": 20,
-                  "marginTop": 10,
-                  "textAlign": "center",
-                }
-              }
               virtual={undefined}
             >
               Lagre
             </Styled(Text)>,
+            "light": true,
             "onPress": [Function],
+            "style": Object {
+              "alignSelf": "center",
+              "marginTop": 10,
+            },
+            "virtual": undefined,
           },
           "ref": null,
           "rendered": Object {
@@ -239,12 +266,6 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "children": "Lagre",
-              "style": Object {
-                "color": "white",
-                "fontSize": 20,
-                "marginTop": 10,
-                "textAlign": "center",
-              },
               "virtual": undefined,
             },
             "ref": null,
@@ -271,9 +292,20 @@ ShallowWrapper {
             <Styled(PickerNB)
               headerBackButtonText="<"
               iosHeader="Velg Selskap"
+              iosIcon={
+                <Styled(Icon)
+                  name="ios-arrow-down-outline"
+                  virtual={undefined}
+                />
+              }
               mode="dropdown"
               onValueChange={[Function]}
               placeholder="Velg selskap"
+              placeholderStyle={
+                Object {
+                  "color": "black",
+                }
+              }
               selectedValue={5}
               style={
                 Object {
@@ -296,24 +328,24 @@ ShallowWrapper {
           <Styled(ViewNB)
             virtual={undefined}
           >
-            <TouchableOpacity
-              activeOpacity={0.2}
+            <Styled(Button)
+              bordered={true}
+              light={true}
               onPress={[Function]}
+              style={
+                Object {
+                  "alignSelf": "center",
+                  "marginTop": 10,
+                }
+              }
+              virtual={undefined}
             >
               <Styled(Text)
-                style={
-                  Object {
-                    "color": "white",
-                    "fontSize": 20,
-                    "marginTop": 10,
-                    "textAlign": "center",
-                  }
-                }
                 virtual={undefined}
               >
                 Lagre
               </Styled(Text)>
-            </TouchableOpacity>
+            </Styled(Button)>
           </Styled(ViewNB)>,
         ],
         "style": Object {
@@ -332,9 +364,20 @@ ShallowWrapper {
             "children": <Styled(PickerNB)
               headerBackButtonText="<"
               iosHeader="Velg Selskap"
+              iosIcon={
+                <Styled(Icon)
+                  name="ios-arrow-down-outline"
+                  virtual={undefined}
+                />
+              }
               mode="dropdown"
               onValueChange={[Function]}
               placeholder="Velg selskap"
+              placeholderStyle={
+                Object {
+                  "color": "black",
+                }
+              }
               selectedValue={5}
               style={
                 Object {
@@ -373,9 +416,16 @@ ShallowWrapper {
               ],
               "headerBackButtonText": "<",
               "iosHeader": "Velg Selskap",
+              "iosIcon": <Styled(Icon)
+                name="ios-arrow-down-outline"
+                virtual={undefined}
+              />,
               "mode": "dropdown",
               "onValueChange": [Function],
               "placeholder": "Velg selskap",
+              "placeholderStyle": Object {
+                "color": "black",
+              },
               "selectedValue": 5,
               "style": Object {
                 "alignSelf": "center",
@@ -419,24 +469,24 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": <TouchableOpacity
-              activeOpacity={0.2}
+            "children": <Styled(Button)
+              bordered={true}
+              light={true}
               onPress={[Function]}
+              style={
+                Object {
+                  "alignSelf": "center",
+                  "marginTop": 10,
+                }
+              }
+              virtual={undefined}
             >
               <Styled(Text)
-                style={
-                  Object {
-                    "color": "white",
-                    "fontSize": 20,
-                    "marginTop": 10,
-                    "textAlign": "center",
-                  }
-                }
                 virtual={undefined}
               >
                 Lagre
               </Styled(Text)>
-            </TouchableOpacity>,
+            </Styled(Button)>,
             "virtual": undefined,
           },
           "ref": null,
@@ -445,21 +495,19 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "activeOpacity": 0.2,
+              "bordered": true,
               "children": <Styled(Text)
-                style={
-                  Object {
-                    "color": "white",
-                    "fontSize": 20,
-                    "marginTop": 10,
-                    "textAlign": "center",
-                  }
-                }
                 virtual={undefined}
               >
                 Lagre
               </Styled(Text)>,
+              "light": true,
               "onPress": [Function],
+              "style": Object {
+                "alignSelf": "center",
+                "marginTop": 10,
+              },
+              "virtual": undefined,
             },
             "ref": null,
             "rendered": Object {
@@ -468,12 +516,6 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "children": "Lagre",
-                "style": Object {
-                  "color": "white",
-                  "fontSize": 20,
-                  "marginTop": 10,
-                  "textAlign": "center",
-                },
                 "virtual": undefined,
               },
               "ref": null,

@@ -1,35 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
-import { StyleSheet, View, Dimensions, Text } from 'react-native';
-import { Icon, Button } from 'native-base';
+import { StyleSheet, View, Dimensions, Image } from 'react-native';
+import { Button, Text } from 'native-base';
 import LogoutButton from './LogoutButton';
+
+const image = require('../images/user_icon.png');
+
 
 const window = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
     backgroundColor: '#002776',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  icon: {
-    color: '#002776',
-    fontSize: 100,
   },
   logoContainer: {
     width: window.width,
-    marginTop: window.width / 10,
     backgroundColor: 'white',
     display: 'flex',
-    justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'column',
   },
   userName: {
     display: 'flex',
@@ -44,7 +33,6 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'space-between',
   },
   carContent: {
     borderColor: 'white',
@@ -61,23 +49,33 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: 10,
   },
+  profileContent: {
+    flex: 6,
+  },
   logOutButton: {
     marginBottom: 20,
+    flex: 1,
   },
   registerCar: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    marginTop: 10,
+    marginTop: 5,
   },
-  button: {
-    marginTop: 10,
-    width: window.width / 4,
-    justifyContent: 'center',
-  },
-  registerButtonText: {
+  registerCarText: {
     color: 'white',
+    margin: window.width / 30,
+  },
+  companyButton: {
+    alignSelf: 'center',
+    margin: window.width / 30,
+  },
+  image: {
+    width: window.width * 0.15,
+    height: window.width * 0.15,
+    marginTop: window.width / 35,
+    marginBottom: 5,
   },
 });
 class ProfileScreen extends Component {
@@ -90,7 +88,7 @@ class ProfileScreen extends Component {
     if (typeof (this.props.user) !== 'undefined') {
       user = JSON.parse(this.props.user);
       content = (
-        <Text style={styles.userNameText}>{ user.Fname }</Text>
+        <Text style={styles.userNameText}>{ user.Fname + ' ' + user.Lname }</Text>
       );
     }
 
@@ -99,15 +97,14 @@ class ProfileScreen extends Component {
     }
     let carContent = (
       <View style={styles.registerCar}>
-        <Text style={styles.text}> Din bil er ikke registrert </Text>
+        <Text style={styles.registerCarText}> Ditt kjøretøy er ikke registrert </Text>
         <View>
           <Button
             bordered
             light
             onPress={() => { this.props.navigate('RegisterCar'); }}
-            style={styles.button}
           >
-            <Text style={styles.registerButtonText}>Finn din bil</Text>
+            <Text>Finn din bil</Text>
           </Button>
         </View>
       </View>
@@ -140,15 +137,24 @@ class ProfileScreen extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.logoContainer}>
-          <View>
-            <Icon style={styles.icon} name="person" />
-          </View>
+          <Image resizeMode="contain" style={styles.image} source={image} />
           <View style={styles.userName}>
             { content }
           </View>
         </View>
         <View style={styles.content}>
-          {carContent}
+          <View style={styles.profileContent}>
+            {carContent}
+            <View style={styles.companyButton}>
+              <Button
+                bordered
+                light
+                onPress={() => { this.props.navigate('RegisterCompany'); }}
+              >
+                <Text>Endre bedrift</Text>
+              </Button>
+            </View>
+          </View>
           <View style={styles.logOutButton}>
             <LogoutButton />
           </View>

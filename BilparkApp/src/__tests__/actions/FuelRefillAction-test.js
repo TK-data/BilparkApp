@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import {
-  postFuelRefillFailure, postFuelRefillLoading, postFuelRefill, removeFuelRefill,
+  postFuelRefillFailure, getFuelRefills, postFuelRefillLoading, deleteFuelRefill, postFuelRefill, removeFuelRefill,
   registerFuelRefill, POST_FUELREFILL_REQUEST, POST_FUELREFILL_SUCCESS, POST_FUELREFILL_FAILURE,
   REMOVE_FUELREFILL, REGISTER_FUELREFILL,
 }
@@ -53,13 +53,12 @@ describe('actions', () => {
 
 describe('async actions', () => {
   // set rules for the axios mocker
-  const axiosMock = new MockAdapter(axios);
+  let axiosMock = new MockAdapter(axios);
   // after each test is run, it resets and restores the mocker
   // so you can define in the next test what you want it to do {
   // https://github.com/ctimmerm/axios-mock-adapter
   afterEach(() => {
-    axiosMock.reset();
-    axiosMock.restore();
+    axiosMock = new MockAdapter(axios);
   });
 
   it('Creates POST_FUELREFILL_FAILURE when registering a fuel refill is failed', () => {
@@ -73,6 +72,8 @@ describe('async actions', () => {
         hasErrored: true,
       },
     ];
+
+    axiosMock.onPost().reply(404);
     // create a mock of the store
     const store = mockStore({});
     // run the dispatch of postFuelRefill.
@@ -82,6 +83,155 @@ describe('async actions', () => {
     });
   });
   it('Creates POST_FUELREFILL_SUCCESS when registering a fuel refill is successful', () => {
-    expect(true).toBe(true);
+
+    const fuelrefill = {
+      Rate: 5.5,
+      FuelTime: '24-03-18',
+      Price: 10,
+    };
+
+    const expectedActions = [
+      {
+        type: POST_FUELREFILL_REQUEST,
+        isLoading: true,
+      },
+      {
+        type: POST_FUELREFILL_REQUEST,
+        isLoading: false,
+      },
+      {
+        type: REGISTER_FUELREFILL,
+        RefillItem: fuelrefill,
+      },
+    ];
+
+    axiosMock.onPost().reply(200, fuelrefill);
+    // create a mock of the store
+    const store = mockStore({});
+    // run the dispatch of postFuelRefill.
+    // then compare the actions expected with the ones in the mock store
+    return store.dispatch(postFuelRefill('24-03-18', 10, 5.5)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it('Creates REMOVE_FUELREFILL when removing a fuel refill is successful', () => {
+
+    const fuelrefill = {
+      RefillID: 5,
+    };
+
+    const expectedActions = [
+      {
+        type: POST_FUELREFILL_REQUEST,
+        isLoading: true,
+      },
+      {
+        type: POST_FUELREFILL_REQUEST,
+        isLoading: false,
+      },
+      {
+        type: REMOVE_FUELREFILL,
+        RefillID: 5,
+      },
+    ];
+
+    axiosMock.onPost().reply(200, fuelrefill);
+    // create a mock of the store
+    const store = mockStore({});
+    // run the dispatch of postFuelRefill.
+    // then compare the actions expected with the ones in the mock store
+    return store.dispatch(deleteFuelRefill(5)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it('Creates POST_FUELREFILL_FAILURE when removing a fuel refill is unsuccessful', () => {
+
+
+    const expectedActions = [
+      {
+        type: POST_FUELREFILL_REQUEST,
+        isLoading: true,
+      },
+      {
+        type: POST_FUELREFILL_FAILURE,
+        hasErrored: true,
+      },
+    ];
+
+    axiosMock.onPost().reply(404);
+    // create a mock of the store
+    const store = mockStore({});
+    // run the dispatch of postFuelRefill.
+    // then compare the actions expected with the ones in the mock store
+    return store.dispatch(deleteFuelRefill(5)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it('Creates POST_FUELREFILL_SUCCESS when getting fuel refills is successful', () => {
+
+    const fuelrefills = [
+      {
+        FuelTime: '24-03-2018',
+        Rate: 5,
+        Price: 10,
+        RefillID: 0,
+      },
+      {
+        FuelTime: '24-05-2018',
+        Rate: 8.5,
+        Price: 45,
+        RefillID: 2,
+      },
+    ];
+
+    const expectedActions = [
+      {
+        type: POST_FUELREFILL_REQUEST,
+        isLoading: true,
+      },
+      {
+        type: POST_FUELREFILL_REQUEST,
+        isLoading: false,
+      },
+      {
+        type: POST_FUELREFILL_SUCCESS,
+        fuelRefills: fuelrefills,
+      },
+    ];
+
+    axiosMock.onGet().reply(200, fuelrefills);
+    // create a mock of the store
+    const store = mockStore({});
+    // run the dispatch of postFuelRefill.
+    // then compare the actions expected with the ones in the mock store
+    return store.dispatch(getFuelRefills()).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it('Creates POST_FUELREFILL_FAILURE when getting fuel refills is unsuccessful', () => {
+
+    const expectedActions = [
+      {
+        type: POST_FUELREFILL_REQUEST,
+        isLoading: true,
+      },
+      {
+        type: POST_FUELREFILL_FAILURE,
+        hasErrored: true,
+      },
+    ];
+
+    axiosMock.onGet().reply(404);
+    // create a mock of the store
+    const store = mockStore({});
+    // run the dispatch of postFuelRefill.
+    // then compare the actions expected with the ones in the mock store
+    return store.dispatch(getFuelRefills()).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
   });
 });
