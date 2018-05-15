@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, View, Image } from 'react-native';
-import { Text } from 'native-base';
 
 import GetCarForm from './GetCarForm';
 

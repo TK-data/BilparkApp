@@ -51,7 +51,7 @@ class LoginForm extends Component {
           value={this.props.mail}
         />
         <Button
-          transparent
+          bordered
           light
           onPress={() => {
             this.handleSubmit();
@@ -61,7 +61,7 @@ class LoginForm extends Component {
           <Text> Logg inn </Text>
         </Button>
         <Button
-          transparent
+          bordered
           light
           onPress={() => this.props.registerScreen()}
           style={styles.button}
@@ -112,5 +112,6 @@ const styles = StyleSheet.create({
   },
   button: {
     alignSelf: 'center',
+    marginBottom: 12,
   },
 });
