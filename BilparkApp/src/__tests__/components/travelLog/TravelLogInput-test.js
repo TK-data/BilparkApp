@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
+import { Button } from 'native-base';
 
 import TravelLogInput from '../../../components/travelLog/TravelLogInput';
 
@@ -40,5 +41,13 @@ describe('Testing TravelLogInput', () => {
       { context: { store: mockStore(initialState) } },
     );
     expect(comp.dive()).toMatchSnapshot();
+  });
+  const wrapper = shallow(
+    <TravelLogInput />,
+    { context: { store: mockStore(initialState) } },
+  );
+  it('Can press the submit button', () => {
+    const saveButton = wrapper.dive().dive().childAt(5);
+    saveButton.simulate('press');
   });
 });

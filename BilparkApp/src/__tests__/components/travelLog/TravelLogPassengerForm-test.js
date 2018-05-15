@@ -48,4 +48,34 @@ describe('Testing TravelLogPassengerForm', () => {
     );
     expect(comp.dive()).toMatchSnapshot();
   });
+
+  const wrapper = shallow(
+    <TravelLogPassengerForm />,
+    { context: { store: mockStore(initialState) } },
+  );
+  it('Can use the onChange function', () => {
+    const value = {
+      Passenger: '1',
+      Passenger1: '',
+      Passenger2: '',
+      Passenger3: '',
+      Passenger4: '',
+      Passenger5: '',
+    };
+    wrapper.dive().instance().onChange(value);
+  });
+  it('Can be passenger from 1 to 5', () => {
+    const value = {
+      Passenger: '1',
+      Passenger1: '',
+      Passenger2: '',
+      Passenger3: '',
+      Passenger4: '',
+      Passenger5: '',
+    };
+    for (let i = 1; i < 6; i += 1) {
+      value.Passenger = i.toString();
+      wrapper.dive().instance().onChange(value);
+    }
+  });
 });

@@ -5,7 +5,7 @@ import { StyleSheet, View } from 'react-native';
 import { Button, Text, Spinner } from 'native-base';
 import { travelLogFormValue, travelLogFormType } from '../../actions/travelLog';
 
-function getType(value) {
+export function getType(value) {
 
   const Passengers = t.enums({
     0: '0',
@@ -114,7 +114,6 @@ class TravelLogPassengerForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     isLoading: state.auth.isLoading,
     hasErrored: state.auth.hasErrored,
