@@ -548,50 +548,7 @@ describe('Testing DamageReportForm', () => {
     };
     wrapper.dive().instance().onChange(values);
   });
-  it('Can show submit the values', () => {
-    const values = {
-      FelgHjul: false,
-      FelgHjulBeskrivelse: null,
-      Glass: false,
-      GlassBeskrivelse: null,
-      KarosseriHøyre: false,
-      KarosseriHøyreBeskrivelse: null,
-      KarosseriVenstre: false,
-      KarosseriVenstreBeskrivelse: null,
-      LysUtvendig: false,
-      LysUtvendigBeskrivelse: null,
-      StøtfangerBak: true,
-      StøtfangerBakBeskrivelse: null,
-      StøtfangerFront: true,
-      StøtfangerFrontBeskrivelse: null,
-    };
-    wrapper.dive().instance().props.updateValues(Items);
-    wrapper.dive().instance().props.values = values;
-    // console.log('VALUES:');
-    // console.log(wrapper.dive().instance().props.values);
-    // wrapper.dive().instance.dispatch(damageReportValues(Items));
-    // console.log(wrapper.dive().instance().props.values.FelgHjul);
-    // console.log('FormValues:');
-    // const render = wrapper.dive().dive();
-    // console.log(render.find(Form).values = values);
-    // wrapper.dive().instance().onChange();
-    const Damages = t.struct({
-      KarosseriVenstre: t.Boolean,
-      KarosseriVenstreBeskrivelse: t.maybe(t.String),
-      KarosseriHøyre: t.Boolean,
-      KarosseriHøyreBeskrivelse: t.maybe(t.String),
-      StøtfangerFront: t.Boolean,
-      StøtfangerFrontBeskrivelse: t.maybe(t.String),
-      StøtfangerBak: t.Boolean,
-      StøtfangerBakBeskrivelse: t.maybe(t.String),
-      LysUtvendig: t.Boolean,
-      LysUtvendigBeskrivelse: t.maybe(t.String),
-      Glass: t.Boolean,
-      GlassBeskrivelse: t.maybe(t.String),
-      FelgHjul: t.Boolean,
-      FelgHjulBeskrivelse: t.maybe(t.String),
-    });
-    // const formWrapper = shallow(<Form type={Damages} value={Items} />, {});
-    // wrapper.dive().instance().onChange();
+  it('Can use the handleSubmit function', () => {
+    wrapper.dive().instance().handleSubmit();
   });
 });

@@ -82,20 +82,20 @@ class DamageReportForm extends Component {
   }
 
   handleSubmit() {
-    Items[0].Damaged = this.form.getValue().FelgHjul;
-    Items[0].Description = this.form.getValue().FelgHjulBeskrivelse;
-    Items[1].Damaged = this.form.getValue().Glass;
-    Items[1].Description = this.form.getValue().GlassBeskrivelse;
-    Items[2].Damaged = this.form.getValue().LysUtvendig;
-    Items[2].Description = this.form.getValue().LysUtvendigBeskrivelse;
-    Items[3].Damaged = this.form.getValue().StøtfangerFront;
-    Items[3].Description = this.form.getValue().StøtfangerFrontBeskrivelse;
-    Items[4].Damaged = this.form.getValue().StøtfangerBak;
-    Items[4].Description = this.form.getValue().StøtfangerBakBeskrivelse;
-    Items[5].Damaged = this.form.getValue().KarosseriHøyre;
-    Items[5].Description = this.form.getValue().KarosseriHøyreBeskrivelse;
-    Items[6].Damaged = this.form.getValue().KarosseriVenstre;
-    Items[6].Description = this.form.getValue().KarosseriVenstreBeskrivelse;
+    Items[0].Damaged = this.props.values.FelgHjul;
+    Items[0].Description = this.props.values.FelgHjulBeskrivelse;
+    Items[1].Damaged = this.props.values.Glass;
+    Items[1].Description = this.props.values.GlassBeskrivelse;
+    Items[2].Damaged = this.props.values.LysUtvendig;
+    Items[2].Description = this.props.values.LysUtvendigBeskrivelse;
+    Items[3].Damaged = this.props.values.StøtfangerFront;
+    Items[3].Description = this.props.values.StøtfangerFrontBeskrivelse;
+    Items[4].Damaged = this.props.values.StøtfangerBak;
+    Items[4].Description = this.props.values.StøtfangerBakBeskrivelse;
+    Items[5].Damaged = this.props.values.KarosseriHøyre;
+    Items[5].Description = this.props.values.KarosseriHøyreBeskrivelse;
+    Items[6].Damaged = this.props.values.KarosseriVenstre;
+    Items[6].Description = this.props.values.KarosseriVenstreBeskrivelse;
     this.props.changeValues(Items);
   }
 
