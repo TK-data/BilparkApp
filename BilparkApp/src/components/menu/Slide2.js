@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet } from 'react-native';
-import { View, Button, Text } from 'native-base';
+import { View, Text } from 'native-base';
 
 const styles = StyleSheet.create({
   buzzWord: {
@@ -65,7 +65,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = () => ({
 });
 
 export default connect(
