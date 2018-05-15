@@ -18,7 +18,7 @@ class FuelSetNotificationScreen extends React.Component {
       mil: '1000',
       forbruk: '0.8',
       diff: '2',
-      resultat: '0',
+      resultat: '1600',
     };
     this.change = this.change.bind(this);
   }
