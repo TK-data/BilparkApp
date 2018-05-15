@@ -33,7 +33,9 @@
     "collectCoverage": true,
     "coveragePathIgnorePatterns": [
       "<rootDir>/build/",
-      "<rootDir>/native-base-theme/"
+      "<rootDir>/native-base-theme/",
+      "<rootDir>/src/components/travelLog/GooglePlacesAutocompleteFrom.js",
+      "<rootDir>/src/components/travelLog/GooglePlacesAutocompleteTo.js"
     ],
     "setupFiles": [
       "<rootDir>/src/utils/setupTests.js"
