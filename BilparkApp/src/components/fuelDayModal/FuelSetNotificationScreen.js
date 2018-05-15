@@ -15,10 +15,10 @@ class FuelSetNotificationScreen extends React.Component {
     super(props);
     this.state = {
       isModalVisible: true,
-      mil: '1000',
+      mil: '3000',
       forbruk: '0.8',
       diff: '2',
-      resultat: '1600',
+      resultat: '4800',
     };
     this.change = this.change.bind(this);
   }
@@ -38,60 +38,71 @@ class FuelSetNotificationScreen extends React.Component {
         style={styles.container}
       >
         <View style={styles.outer}>
-          <TouchableOpacity
-            style={styles.exitButtonView}
-            onPress={() => this.setState({ isModalVisible: false })}
-          >
-            <Text style={styles.exitButton}>X</Text>
-          </TouchableOpacity>
+          <View style={styles.exitButtonView}>
+            <TouchableOpacity
+              onPress={() => this.setState({ isModalVisible: false })}
+            >
+              <Text style={styles.exitButton}>X</Text>
+            </TouchableOpacity>
+          </View>
           <View style={styles.topContainer}>
             <View style={styles.titleContainer}>
               <Image resizeMode="contain" style={styles.image} source={image} />
               <Text style={styles.title}>Få påminnelse om å fylle tanken!</Text>
             </View>
           </View>
+
           <View style={styles.inner}>
-            <Text style={styles.introText}>
+            <Text style={[styles.introText, styles.marginBot]}>
               Visste du at du kan spare mye på å fylle drivstoff på riktig dag?
             </Text>
-            <Text style={styles.text}>Mil:</Text>
-            <TextInput
-              style={[styles.input, styles.marginBot]}
-              keyboardType="numeric"
-              onChangeText={(text) => {
-                this.setState({ mil: text }, () => {
-                  this.change();
-                });
-              }}
-              value={this.state.mil}
-            />
-            <Text style={styles.text}>Forbruk:</Text>
-            <TextInput
-              style={[styles.input, styles.marginBot]}
-              keyboardType="numeric"
-              onChangeText={(text) => {
-                this.setState({ forbruk: text }, () => {
-                  this.change();
-                });
-              }}
-              value={this.state.forbruk}
-            />
-            <Text style={styles.text}>Differanse billigste/dyreste dag (kr):</Text>
-            <TextInput
-              style={[styles.input, styles.marginBot]}
-              keyboardType="numeric"
-              onChangeText={(text) => {
-                this.setState({ diff: text }, () => {
-                  this.change();
-                });
-              }}
-              value={this.state.diff}
-            />
-            <Text style={styles.text}>
-              Du kan spare{' '}
-              <Text style={styles.textUnderlined}>{Math.round(this.state.resultat)}kr</Text>
-              {' '}i året med å fylle på den billigste dagen!
-            </Text>
+
+            <View style={styles.innerText}>
+              <Text style={styles.text}>Kjører du i snitt:</Text>
+              <View style={styles.inputView}>
+                <TextInput
+                  style={[styles.input, styles.inputBig]}
+                  keyboardType="numeric"
+                  onChangeText={(text) => {
+                    this.setState({ mil: text }, () => {
+                      this.change();
+                    });
+                  }}
+                  value={this.state.mil}
+                />
+                <Text style={styles.text}>mil/år</Text>
+              </View>
+              <Text style={styles.text}>Og har et gjennomsnittlig forbruk på: </Text>
+              <View style={styles.inputView}>
+                <TextInput
+                  style={[styles.input]}
+                  keyboardType="numeric"
+                  onChangeText={(text) => {
+                    this.setState({ forbruk: text }, () => {
+                      this.change();
+                    });
+                  }}
+                  value={this.state.forbruk}
+                />
+                <Text style={styles.text}>liter/mil</Text>
+              </View>
+              <Text style={styles.text}>Kan du spare hele:</Text>
+              <Text style={styles.textBold}>{Math.round(this.state.resultat)} kr i året</Text>
+              <Text style={styles.text}>Dersom differansen mellom billigste og dyreste dag å fylle er:</Text>
+              <View style={styles.inputView}>
+                <TextInput
+                  style={[styles.input]}
+                  keyboardType="numeric"
+                  onChangeText={(text) => {
+                    this.setState({ diff: text }, () => {
+                      this.change();
+                    });
+                  }}
+                  value={this.state.diff}
+                />
+                <Text style={styles.text}>kr</Text>
+              </View>
+            </View>
             <Button
               bordered
               light
@@ -143,17 +154,17 @@ const styles = StyleSheet.create({
     width: window.width * 0.8,
   },
   exitButtonView: {
-    height: window.height * 0.05,
     alignItems: 'flex-end',
   },
   exitButton: {
     fontSize: 22,
     color: 'white',
     padding: 8,
+    marginBottom: 3,
   },
   topContainer: {
     display: 'flex',
-    flex: 1,
+    flex: 0,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -177,34 +188,51 @@ const styles = StyleSheet.create({
     marginTop: -10,
   },
   inner: {
-    display: 'flex',
-    flex: 2,
+    flex: 1,
     width: window.width * 0.8,
     padding: 10,
   },
   introText: {
     color: 'white',
-    fontSize: 17,
+    fontSize: 18,
+    textAlign: 'center',
+  },
+  innerText: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexWrap: 'wrap',
   },
   text: {
     color: 'white',
+    fontSize: 16,
+    margin: 6,
+    textAlign: 'center',
   },
-  textUnderlined: {
-    textDecorationLine: 'underline',
+  textBold: {
+    fontWeight: 'bold',
     color: 'white',
+    fontSize: 18,
+  },
+  inputView: {
+    flexDirection: 'row',
   },
   input: {
-    color: 'black',
-    backgroundColor: 'white',
-    borderRadius: 3,
-    width: '30%',
+    flex: 0,
+    width: 30,
+    color: 'white',
+    borderBottomWidth: 2,
+    borderBottomColor: 'white',
+    fontSize: 16,
     textAlign: 'center',
+  },
+  inputBig: {
+    width: 55,
   },
   button: {
     alignSelf: 'center',
     marginTop: 'auto',
   },
   marginBot: {
-    marginBottom: 5,
+    marginBottom: 16,
   },
 });
