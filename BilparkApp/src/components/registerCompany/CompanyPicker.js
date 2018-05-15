@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Dimensions, TouchableOpacity, Platform } from 'react-native';
+import { StyleSheet, Dimensions, Platform } from 'react-native';
 import { Picker, Spinner, View, Text, Button, Icon } from 'native-base';
 import { connect } from 'react-redux';
 
@@ -37,7 +37,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const CompanyPicker = ({ hasErrored, isLoading, selectedCompany, changeSelect, postCompany, companies }) => {
+const CompanyPicker = ({
+  hasErrored,
+  isLoading,
+  selectedCompany,
+  changeSelect,
+  postCompany,
+  companies }) => {
 
   if (hasErrored) {
     return (
