@@ -1,32 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { View, Text, Dimensions, StyleSheet } from 'react-native';
-import { Button } from 'native-base';
+import { View } from 'react-native';
+import { Button, Icon, Text } from 'native-base';
 
 import { logout } from '../actions/auth';
-
-const window = Dimensions.get('window');
-const styles = StyleSheet.create({
-  logOutButton: {
-    width: window.width / 3.5,
-    display: 'flex',
-    justifyContent: 'center',
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 15,
-  },
-});
 
 const LogoutButton = ({ logoutUser }) => (
   <View>
     <Button
-      bordered
-      light
+      iconRight
+      danger
       onPress={logoutUser}
-      style={styles.logOutButton}
     >
-      <Text style={styles.buttonText}>Logg ut</Text>
+      <Text>Logg ut</Text>
+      <Icon name="log-out" />
     </Button>
   </View>
 );
