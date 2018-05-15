@@ -54,7 +54,7 @@ export const init = {
   },
 };
 
-export default function travelLog(state = init, action) {
+export function travelLog(state = init, action) {
   switch (action.type) {
   case TRAVELLOG_FROM:
     return {
@@ -124,5 +124,4 @@ export default function travelLog(state = init, action) {
   default:
     return state;
   }
-
 }

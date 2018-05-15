@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Bilinfo",
-    "icon": "./src/images/car_icon.png",
+    "icon": "./src/images/favicon.png",
     "version": "1.0.0",
     "slug": "Bilinfo",
     "sdkVersion": "25.0.0",
