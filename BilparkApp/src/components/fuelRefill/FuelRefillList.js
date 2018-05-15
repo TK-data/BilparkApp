@@ -41,7 +41,7 @@ const FuelRefillList = ({ fuelRefills }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = () => ({
 });
 
 const mapStateToProps = (state) => {
