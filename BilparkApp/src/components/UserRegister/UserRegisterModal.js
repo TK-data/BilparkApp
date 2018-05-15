@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const UserRegisterModal = ({ modalVisible, modalTransparent, visibleModal, navigateToLogin, values, login }) => {
+const UserRegisterModal = ({ modalVisible, modalTransparent, values, login }) => {
   return (
     <Modal
       visible={modalVisible}
@@ -42,8 +42,6 @@ const UserRegisterModal = ({ modalVisible, modalTransparent, visibleModal, navig
           light
           onPress={() => {
             login(values);
-            // visibleModal(false);
-            // navigateToLogin();
           }}
         >
           <Text>Logg inn</Text>
