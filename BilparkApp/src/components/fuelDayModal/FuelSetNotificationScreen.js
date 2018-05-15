@@ -56,7 +56,7 @@ class FuelSetNotificationScreen extends React.Component {
             </Text>
             <Text style={styles.text}>Mil:</Text>
             <TextInput
-              style={styles.input}
+              style={[styles.input, styles.marginBot]}
               keyboardType="numeric"
               onChangeText={(text) => {
                 this.setState({ mil: text }, () => {
@@ -67,7 +67,7 @@ class FuelSetNotificationScreen extends React.Component {
             />
             <Text style={styles.text}>Forbruk:</Text>
             <TextInput
-              style={styles.input}
+              style={[styles.input, styles.marginBot]}
               keyboardType="numeric"
               onChangeText={(text) => {
                 this.setState({ forbruk: text }, () => {
@@ -78,7 +78,7 @@ class FuelSetNotificationScreen extends React.Component {
             />
             <Text style={styles.text}>Differanse billigste/dyreste dag (kr):</Text>
             <TextInput
-              style={styles.input}
+              style={[styles.input, styles.marginBot]}
               keyboardType="numeric"
               onChangeText={(text) => {
                 this.setState({ diff: text }, () => {
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgb(000, 039, 118)',
     width: window.width * 0.8,
-    height: window.height * 0.8,
+    height: window.height * 0.85,
     marginLeft: window.width * 0.1,
     marginRight: window.width * 0.1,
   },
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: 'rgb(000, 039, 118)',
-    fontSize: 20,
+    fontSize: 17,
     marginBottom: 5,
     marginTop: -15,
   },
@@ -180,10 +180,11 @@ const styles = StyleSheet.create({
     display: 'flex',
     flex: 2,
     width: window.width * 0.8,
+    padding: 10,
   },
   introText: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 17,
   },
   text: {
     color: 'white',
@@ -201,5 +202,9 @@ const styles = StyleSheet.create({
   },
   button: {
     alignSelf: 'center',
+    marginTop: 'auto',
+  },
+  marginBot: {
+    marginBottom: 5,
   },
 });
