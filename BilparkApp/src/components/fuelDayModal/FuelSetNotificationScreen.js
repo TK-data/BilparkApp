@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, StyleSheet, Image, TouchableOpacity, TextInput } from 'react-native';
+import { Dimensions, StyleSheet, Image, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import Modal from 'react-native-modal';
 import { View, Text, Button } from 'native-base';
@@ -51,70 +51,71 @@ class FuelSetNotificationScreen extends React.Component {
               <Text style={styles.title}>Få påminnelse om å fylle tanken!</Text>
             </View>
           </View>
+          <ScrollView>
+            <View style={styles.inner}>
+              <Text style={[styles.introText, styles.marginBot]}>
+                Visste du at du kan spare mye på å fylle drivstoff på riktig dag?
+              </Text>
 
-          <View style={styles.inner}>
-            <Text style={[styles.introText, styles.marginBot]}>
-              Visste du at du kan spare mye på å fylle drivstoff på riktig dag?
-            </Text>
-
-            <View style={styles.innerText}>
-              <Text style={styles.text}>Kjører du i snitt:</Text>
-              <View style={styles.inputView}>
-                <TextInput
-                  style={[styles.input, styles.inputBig]}
-                  keyboardType="numeric"
-                  onChangeText={(text) => {
-                    this.setState({ mil: text }, () => {
-                      this.change();
-                    });
-                  }}
-                  value={this.state.mil}
-                />
-                <Text style={styles.text}>mil/år</Text>
+              <View style={styles.innerText}>
+                <Text style={styles.text}>Kjører du i snitt:</Text>
+                <View style={styles.inputView}>
+                  <TextInput
+                    style={[styles.input, styles.inputBig]}
+                    keyboardType="numeric"
+                    onChangeText={(text) => {
+                      this.setState({ mil: text }, () => {
+                        this.change();
+                      });
+                    }}
+                    value={this.state.mil}
+                  />
+                  <Text style={styles.text}>mil/år</Text>
+                </View>
+                <Text style={styles.text}>Og har et gjennomsnittlig forbruk på: </Text>
+                <View style={styles.inputView}>
+                  <TextInput
+                    style={[styles.input]}
+                    keyboardType="numeric"
+                    onChangeText={(text) => {
+                      this.setState({ forbruk: text }, () => {
+                        this.change();
+                      });
+                    }}
+                    value={this.state.forbruk}
+                  />
+                  <Text style={styles.text}>liter/mil</Text>
+                </View>
+                <Text style={styles.text}>Kan du spare hele:</Text>
+                <Text style={styles.textBold}>{Math.round(this.state.resultat)} kr i året</Text>
+                <Text style={styles.text}>Dersom differansen mellom billigste og dyreste dag å fylle er:</Text>
+                <View style={styles.inputView}>
+                  <TextInput
+                    style={[styles.input]}
+                    keyboardType="numeric"
+                    onChangeText={(text) => {
+                      this.setState({ diff: text }, () => {
+                        this.change();
+                      });
+                    }}
+                    value={this.state.diff}
+                  />
+                  <Text style={styles.text}>kr</Text>
+                </View>
               </View>
-              <Text style={styles.text}>Og har et gjennomsnittlig forbruk på: </Text>
-              <View style={styles.inputView}>
-                <TextInput
-                  style={[styles.input]}
-                  keyboardType="numeric"
-                  onChangeText={(text) => {
-                    this.setState({ forbruk: text }, () => {
-                      this.change();
-                    });
-                  }}
-                  value={this.state.forbruk}
-                />
-                <Text style={styles.text}>liter/mil</Text>
-              </View>
-              <Text style={styles.text}>Kan du spare hele:</Text>
-              <Text style={styles.textBold}>{Math.round(this.state.resultat)} kr i året</Text>
-              <Text style={styles.text}>Dersom differansen mellom billigste og dyreste dag å fylle er:</Text>
-              <View style={styles.inputView}>
-                <TextInput
-                  style={[styles.input]}
-                  keyboardType="numeric"
-                  onChangeText={(text) => {
-                    this.setState({ diff: text }, () => {
-                      this.change();
-                    });
-                  }}
-                  value={this.state.diff}
-                />
-                <Text style={styles.text}>kr</Text>
-              </View>
+              <Button
+                bordered
+                light
+                onPress={() => {
+                  this.setState({ isModalVisible: false });
+                  this.props.navigate();
+                }}
+                style={styles.button}
+              >
+                <Text>Skru på push-notifikasjon</Text>
+              </Button>
             </View>
-            <Button
-              bordered
-              light
-              onPress={() => {
-                this.setState({ isModalVisible: false });
-                this.props.navigate();
-              }}
-              style={styles.button}
-            >
-              <Text>Skru på push-notifikasjon</Text>
-            </Button>
-          </View>
+          </ScrollView>
         </View>
       </Modal>
     );
@@ -204,7 +205,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'white',
-    fontSize: 16,
+    fontSize: 15,
     margin: 6,
     textAlign: 'center',
   },
