@@ -13,7 +13,6 @@ import travelLog from './travelLog';
 import { damageReportForm, damageReportValues, damageReportOptions } from './damageReportForm';
 
 
-
 const RootReducer = combineReducers({
   nav,
   auth,
