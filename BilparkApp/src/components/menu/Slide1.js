@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: 'bold',
     marginBottom: '5%',
+    alignSelf: 'center',
   },
   text: {
     color: 'white',
@@ -21,6 +22,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     marginBottom: '8%',
+    alignSelf: 'center',
   },
   slide1: {
     flex: 1,
