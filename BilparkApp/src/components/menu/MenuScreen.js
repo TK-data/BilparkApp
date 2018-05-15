@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Dimensions, Text } from 'react-native';
+import { View, StyleSheet, Dimensions, Text, Image } from 'react-native';
 import Swiper from 'react-native-swiper';
 import { Body } from 'native-base';
 import ProfileButton from './ProfileButton';
@@ -80,6 +80,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgb(000, 039, 118)',
   },
+  image: {
+    width: window.width / 1.7,
+  },
 });
 
 
@@ -99,7 +102,7 @@ class MenuScreen extends Component {
             <Slide1 />
             <Slide2 />
             <View style={styles.slide3}>
-              <Text style={styles.buzzWord}>Test 3</Text>
+              <Image resizeMode="contain" style={styles.image} source={require('../../images/graph.png')} />
             </View>
           </Swiper>
         </View>
