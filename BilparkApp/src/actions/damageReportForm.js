@@ -4,11 +4,12 @@ const axios = require('axios');
 
 export const POST_DAMAGEREPORT_REQUEST = 'POST_DAMAGEREPORT_REQUEST';
 export const POST_DAMAGEREPORT_FAILURE = 'POST_DAMAGEREPORT_FAILURE';
-export const POST_DAMAGEREPORT_SUCCESS = 'POST_DAMAGEREPORT_SUCCESS';
 export const REGISTER_DAMAGEREPORT = 'REGISTER_DAMAGEREPORT';
 export const GET_CURRENT_DAMAGEREPORT = 'GET_CURRENT_DAMAGEREPORT';
 export const DAMAGE_REPORT_VALUES = 'DAMAGE_REPORT_VALUES';
 export const NO_DAMAGE_REPORT_VALUES = 'NO_DAMAGE_REPORT_VALUES';
+export const DAMAGE_REPORT_OPTIONS = 'DAMAGE_REPORT_OPTIONS';
+export const POST_DAMAGEREPORT_SUCCESS = 'POST_DAMAGEREPORT_SUCCESS';
 
 export function postDamageReportFailure(bool) {
   return {
@@ -22,11 +23,11 @@ export function postDamageReportLoading(bool) {
     isLoading: bool,
   };
 }
-export function postDamageReportSuccess(user) {
+
+export function postDamageReportSuccess(bool) {
   return {
-    type: 'UPDATE_USER',
-    isLoggedIn: true,
-    user,
+    type: POST_DAMAGEREPORT_SUCCESS,
+    success: bool,
   };
 }
 
@@ -57,6 +58,46 @@ export function noDamageReportValues() {
   };
 }
 
+export function damageReportOptions(values) {
+  return {
+    type: 'DAMAGE_REPORT_OPTIONS',
+    values,
+  };
+}
+
+export function successAfterHalfSecond() {
+  return (dispatch) => {
+    setTimeout(() => {
+      dispatch(postDamageReportSuccess(true));
+      setTimeout(() => {
+        dispatch(postDamageReportSuccess(false));
+      }, 500);
+    }, 1);
+  };
+}
+
+export function transformDamageReport(userdamagereport) {
+  const itemArray = userdamagereport.Items;
+  return {
+    KarosseriVenstre: itemArray.find(x => x.ItemType === 'LeftBodyWork').Damaged,
+    KarosseriHøyre: itemArray.find(x => x.ItemType === 'RightBodyWork').Damaged,
+    StøtfangerFront: itemArray.find(x => x.ItemType === 'FrontBumper').Damaged,
+    StøtfangerBak: itemArray.find(x => x.ItemType === 'BackBumper').Damaged,
+    LysUtvendig: itemArray.find(x => x.ItemType === 'CarLight').Damaged,
+    Glass: itemArray.find(x => x.ItemType === 'Window').Damaged,
+    FelgHjul: itemArray.find(x => x.ItemType === 'Wheel').Damaged,
+    KarosseriVenstreBeskrivelse: itemArray.find(x => x.ItemType === 'LeftBodyWork').Description,
+    KarosseriHøyreBeskrivelse: itemArray.find(x => x.ItemType === 'RightBodyWork').Description,
+    StøtfangerFrontBeskrivelse: itemArray.find(x => x.ItemType === 'FrontBumper').Description,
+    StøtfangerBakBeskrivelse: itemArray.find(x => x.ItemType === 'BackBumper').Description,
+    LysUtvendigBeskrivelse: itemArray.find(x => x.ItemType === 'CarLight').Description,
+    GlassBeskrivelse: itemArray.find(x => x.ItemType === 'Window').Description,
+    FelgHjulBeskrivelse: itemArray.find(x => x.ItemType === 'Wheel').Description,
+  };
+}
+
+// Function that calls the backend to get all DamageReports. Not currently used.
+/*
 export function getDamageReport() {
   return (dispatch) => {
     dispatch(postDamageReportLoading(true));
@@ -73,6 +114,7 @@ export function getDamageReport() {
       });
   };
 }
+*/
 
 export function getCurrentDamageReport() {
   return (dispatch) => {
@@ -85,6 +127,8 @@ export function getCurrentDamageReport() {
       .then((userdamagereport) => {
         dispatch(getCurrentDamageReportSuccess(userdamagereport));
         dispatch(damageReportValues(userdamagereport.Items));
+        const values = transformDamageReport(userdamagereport);
+        dispatch(damageReportOptions(values));
       })
       .catch((err) => {
         if (err.response.status === 404) {
@@ -109,6 +153,7 @@ export function postDamageReport(Items) {
         return response.data;
       })
       .then((userdamagereport) => {
+        dispatch(successAfterHalfSecond());
         dispatch(registerDamageReport(userdamagereport));
         dispatch(damageReportValues(userdamagereport.items));
       })

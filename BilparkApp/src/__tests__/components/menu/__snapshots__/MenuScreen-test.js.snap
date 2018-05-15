@@ -110,8 +110,8 @@ ShallowWrapper {
             "process": [Function],
           }
         }
-        pageName="Din bil"
-        routeName="RegisterCar"
+        pageName="Skade"
+        routeName="DamageReport"
       />
       <Connect(MenuBox)
         image={
@@ -253,8 +253,8 @@ ShallowWrapper {
                 "process": [Function],
               }
             }
-            pageName="Din bil"
-            routeName="RegisterCar"
+            pageName="Skade"
+            routeName="DamageReport"
           />
           <Connect(MenuBox)
             image={
@@ -518,8 +518,8 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              pageName="Din bil"
-              routeName="RegisterCar"
+              pageName="Skade"
+              routeName="DamageReport"
             />,
             <Connect(MenuBox)
               image={
@@ -599,8 +599,8 @@ ShallowWrapper {
               "image": Object {
                 "process": [Function],
               },
-              "pageName": "Din bil",
-              "routeName": "RegisterCar",
+              "pageName": "Skade",
+              "routeName": "DamageReport",
             },
             "ref": null,
             "rendered": null,
@@ -762,8 +762,8 @@ ShallowWrapper {
                   "process": [Function],
                 }
               }
-              pageName="Din bil"
-              routeName="RegisterCar"
+              pageName="Skade"
+              routeName="DamageReport"
             />
             <Connect(MenuBox)
               image={
@@ -1027,8 +1027,8 @@ ShallowWrapper {
                     "process": [Function],
                   }
                 }
-                pageName="Din bil"
-                routeName="RegisterCar"
+                pageName="Skade"
+                routeName="DamageReport"
               />,
               <Connect(MenuBox)
                 image={
@@ -1108,8 +1108,8 @@ ShallowWrapper {
                 "image": Object {
                   "process": [Function],
                 },
-                "pageName": "Din bil",
-                "routeName": "RegisterCar",
+                "pageName": "Skade",
+                "routeName": "DamageReport",
               },
               "ref": null,
               "rendered": null,

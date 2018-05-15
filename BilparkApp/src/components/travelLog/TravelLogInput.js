@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, Dimensions } from 'react-native';
-import { View, Text, Button } from 'native-base';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { StyleSheet, Dimensions, Alert } from 'react-native';
+import { View, Text, Button, Spinner } from 'native-base';
 import DateTimePicker from 'react-native-modal-datetime-picker';
-import { travelLogDistance, travelLogDatepickerVisible, travelLogSaveDate, postTravelLog } from '../../actions/travelLog';
+import { travelLogDistance, travelLogDatepickerVisible, travelLogSaveDate, postTravelLog, resetComponent } from '../../actions/travelLog';
 import GooglePlacesInputFrom from './GooglePlacesAutocompleteFrom';
 import GooglePlacesInputTo from './GooglePlacesAutocompleteTo';
 import TravelLogPassengerForm from './TravelLogPassengerForm';
@@ -13,6 +12,9 @@ import TravelLogCargoForm from './TravelLogCargoForm';
 class TravelLogInput extends React.Component {
 
   render() {
+    if (this.props.isLoading) {
+      return <Spinner color="white" />;
+    }
     return (
       <View style={styles.container}>
         <GooglePlacesInputFrom />
@@ -49,7 +51,14 @@ class TravelLogInput extends React.Component {
           bordered
           light
           onPress={() => {
-            this.props.postTravelLog(this.props.travelLog);
+            Alert.alert(
+              'Bekreft turen',
+              'Er du sikker på at informasjonen er riktig?',
+              [
+                { text: 'Avbryt', style: 'cancel' },
+                { text: 'Lagre', onPress: () => this.props.postTravelLog(this.props.travelLog) },
+              ],
+            );
           }}
           style={styles.saveButton}
         >
@@ -57,6 +66,13 @@ class TravelLogInput extends React.Component {
             Lagre kjøring
           </Text>
         </Button>
+        {this.props.success ? Alert.alert(
+          '',
+          'Turen ble lagret i kjøreboken',
+          [
+            { text: 'OK', onPress: () => this.props.resetComponent() },
+          ],
+        ) : null }
       </View>
     );
   }
@@ -99,6 +115,7 @@ const styles = StyleSheet.create({
   },
   saveButton: {
     alignSelf: 'center',
+    marginBottom: 10,
   },
 });
 
@@ -110,6 +127,8 @@ const mapStateToProps = (state) => {
     datepickerVisible: state.travelLog.datepickerVisible,
     datepickerDate: state.travelLog.datepickerDate,
     travelLog: state.travelLog,
+    isLoading: state.travelLog.isLoading,
+    success: state.travelLog.success,
   };
 };
 
@@ -119,6 +138,7 @@ const mapDispatchToProps = (dispatch) => {
     datepickerVisibility: bool => dispatch(travelLogDatepickerVisible(bool)),
     saveDatepickerDate: date => dispatch(travelLogSaveDate(date)),
     postTravelLog: value => dispatch(postTravelLog(value)),
+    resetComponent: () => dispatch(resetComponent()),
   };
 };
 

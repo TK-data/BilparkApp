@@ -11,7 +11,10 @@ export const TRAVELLOG_FORM_VALUE = 'TRAVELLOG_FORM_VALUE';
 export const TRAVELLOG_FORM_TYPE = 'TRAVELLOG_FORM_TYPE';
 export const TRAVELLOG_CARGO = 'TRAVELLOG_CARGO';
 export const TRAVELLOG_CORDINATES = 'TRAVELLOG_CORDINATES';
-
+export const TRAVELLOG_FROM_ADDRESS = 'TRAVELLOG_FROM_ADDRESS';
+export const TRAVELLOG_TO_ADDRESS = 'TRAVELLOG_TO_ADDRESS';
+export const POST_TRAVELLOG_LOADING = 'POST_TRAVELLOG_LOADING';
+export const POST_TRAVELLOG_SUCCESS = 'POST_TRAVELLOG_SUCCESS';
 
 export function travelLogFrom(positionFrom) {
   return {
@@ -24,6 +27,20 @@ export function travelLogTo(positionTo) {
   return {
     type: TRAVELLOG_TO,
     positionTo,
+  };
+}
+
+export function travelLogFromAddress(addressFrom) {
+  return {
+    type: TRAVELLOG_FROM_ADDRESS,
+    addressFrom,
+  };
+}
+
+export function travelLogToAddress(addressTo) {
+  return {
+    type: TRAVELLOG_TO_ADDRESS,
+    addressTo,
   };
 }
 
@@ -99,14 +116,15 @@ export function calculateDistance(cordinates) {
 
 export function postTravelLogLoading(bool) {
   return {
-    type: 'POST_TRAVELLOG_LOADING',
+    type: POST_TRAVELLOG_LOADING,
     isLoading: bool,
   };
 }
 
-export function postTravelLogSuccess() {
+export function postTravelLogSuccess(bool) {
   return {
-    type: 'POST_TRAVELLOG_SUCCESS',
+    type: POST_TRAVELLOG_SUCCESS,
+    success: bool,
   };
 }
 
@@ -114,6 +132,26 @@ export function postTravelLogFailure(bool) {
   return {
     type: 'POST_TRAVELLOG_FAILURE',
     hasErrored: bool,
+  };
+}
+
+export function successAfterHalfSecond() {
+  return (dispatch) => {
+    setTimeout(() => {
+      dispatch(postTravelLogSuccess(true));
+      setTimeout(() => {
+        dispatch(postTravelLogSuccess(false));
+      }, 500);
+    }, 200);
+  };
+}
+
+export function resetComponent() {
+  return (dispatch) => {
+    dispatch(postTravelLogLoading(true));
+    setTimeout(() => {
+      dispatch(postTravelLogLoading(false));
+    }, 200);
   };
 }
 
@@ -131,12 +169,12 @@ export function postTravelLog(value) {
   }
 
   return (dispatch) => {
-    dispatch(postTravelLogLoading(true));
+    // dispatch(postTravelLogLoading(true));
     return axios.post(API_ADDRESS + '/api/drivinglog/save', {
       drivingLog: {
         Km: parseInt(value.distance, 10),
-        LocationFrom: value.positionFrom,
-        LocationTo: value.positionTo,
+        LocationFrom: value.addressFrom,
+        LocationTo: value.addressTo,
         Date: value.datepickerDate,
         Cargo: value.cargoValue.Cargo,
         NoOfPassengers: parseInt(value.formValue.Passenger, 10),
@@ -145,7 +183,7 @@ export function postTravelLog(value) {
       } })
       .then((response) => {
         console.log(response);
-        dispatch(postTravelLogLoading(false));
+        dispatch(successAfterHalfSecond());
         return response.data;
       })
       .then(() => {
