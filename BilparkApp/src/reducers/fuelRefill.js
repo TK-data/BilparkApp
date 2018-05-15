@@ -1,12 +1,12 @@
 import { POST_FUELREFILL_FAILURE, POST_FUELREFILL_REQUEST, POST_FUELREFILL_SUCCESS, REMOVE_FUELREFILL, REGISTER_FUELREFILL } from '../actions/fuelRefill';
 
-const initialState = {
+export const initialState = {
   hasErrored: false,
   isLoading: false,
   fuelRefills: [],
 };
 
-export default function fuelRefill(state = initialState, action) {
+export function fuelRefill(state = initialState, action) {
   switch (action.type) {
   case POST_FUELREFILL_FAILURE:
     return {
