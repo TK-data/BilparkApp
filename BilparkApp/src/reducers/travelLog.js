@@ -31,7 +31,7 @@ const Passenger = t.struct({
 
 const date = new Date();
 
-const init = {
+export const init = {
   positionFrom: '0',
   positionTo: '0',
   addressFrom: '',
