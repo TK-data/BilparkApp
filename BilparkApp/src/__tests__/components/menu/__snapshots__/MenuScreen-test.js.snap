@@ -55,21 +55,19 @@ ShallowWrapper {
             }
           }
         >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            style={
+          <Image
+            resizeMode="contain"
+            source={
               Object {
-                "color": "white",
-                "fontSize": 40,
-                "fontWeight": "bold",
-                "marginBottom": 66.7,
+                "process": [Function],
               }
             }
-          >
-            Test 3
-          </Text>
+            style={
+              Object {
+                "width": 441.1764705882353,
+              }
+            }
+          />
         </View>
       </_default>
     </View>
@@ -198,21 +196,19 @@ ShallowWrapper {
                 }
               }
             >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
+              <Image
+                resizeMode="contain"
+                source={
                   Object {
-                    "color": "white",
-                    "fontSize": 40,
-                    "fontWeight": "bold",
-                    "marginBottom": 66.7,
+                    "process": [Function],
                   }
                 }
-              >
-                Test 3
-              </Text>
+                style={
+                  Object {
+                    "width": 441.1764705882353,
+                  }
+                }
+              />
             </View>
           </_default>
         </View>,
@@ -333,21 +329,19 @@ ShallowWrapper {
                 }
               }
             >
-              <Text
-                accessible={true}
-                allowFontScaling={true}
-                ellipsizeMode="tail"
-                style={
+              <Image
+                resizeMode="contain"
+                source={
                   Object {
-                    "color": "white",
-                    "fontSize": 40,
-                    "fontWeight": "bold",
-                    "marginBottom": 66.7,
+                    "process": [Function],
                   }
                 }
-              >
-                Test 3
-              </Text>
+                style={
+                  Object {
+                    "width": 441.1764705882353,
+                  }
+                }
+              />
             </View>
           </_default>,
           "style": Object {
@@ -379,21 +373,19 @@ ShallowWrapper {
                   }
                 }
               >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
+                <Image
+                  resizeMode="contain"
+                  source={
                     Object {
-                      "color": "white",
-                      "fontSize": 40,
-                      "fontWeight": "bold",
-                      "marginBottom": 66.7,
+                      "process": [Function],
                     }
                   }
-                >
-                  Test 3
-                </Text>
+                  style={
+                    Object {
+                      "width": 441.1764705882353,
+                    }
+                  }
+                />
               </View>,
             ],
             "disableNextButton": false,
@@ -438,21 +430,19 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "children": <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
+                "children": <Image
+                  resizeMode="contain"
+                  source={
                     Object {
-                      "color": "white",
-                      "fontSize": 40,
-                      "fontWeight": "bold",
-                      "marginBottom": 66.7,
+                      "process": [Function],
                     }
                   }
-                >
-                  Test 3
-                </Text>,
+                  style={
+                    Object {
+                      "width": 441.1764705882353,
+                    }
+                  }
+                />,
                 "style": Object {
                   "alignItems": "center",
                   "backgroundColor": "rgb(000, 039, 118)",
@@ -466,19 +456,16 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "accessible": true,
-                  "allowFontScaling": true,
-                  "children": "Test 3",
-                  "ellipsizeMode": "tail",
+                  "resizeMode": "contain",
+                  "source": Object {
+                    "process": [Function],
+                  },
                   "style": Object {
-                    "color": "white",
-                    "fontSize": 40,
-                    "fontWeight": "bold",
-                    "marginBottom": 66.7,
+                    "width": 441.1764705882353,
                   },
                 },
                 "ref": null,
-                "rendered": "Test 3",
+                "rendered": null,
                 "type": [Function],
               },
               "type": [Function],
@@ -707,21 +694,19 @@ ShallowWrapper {
                   }
                 }
               >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
+                <Image
+                  resizeMode="contain"
+                  source={
                     Object {
-                      "color": "white",
-                      "fontSize": 40,
-                      "fontWeight": "bold",
-                      "marginBottom": 66.7,
+                      "process": [Function],
                     }
                   }
-                >
-                  Test 3
-                </Text>
+                  style={
+                    Object {
+                      "width": 441.1764705882353,
+                    }
+                  }
+                />
               </View>
             </_default>
           </View>,
@@ -842,21 +827,19 @@ ShallowWrapper {
                   }
                 }
               >
-                <Text
-                  accessible={true}
-                  allowFontScaling={true}
-                  ellipsizeMode="tail"
-                  style={
+                <Image
+                  resizeMode="contain"
+                  source={
                     Object {
-                      "color": "white",
-                      "fontSize": 40,
-                      "fontWeight": "bold",
-                      "marginBottom": 66.7,
+                      "process": [Function],
                     }
                   }
-                >
-                  Test 3
-                </Text>
+                  style={
+                    Object {
+                      "width": 441.1764705882353,
+                    }
+                  }
+                />
               </View>
             </_default>,
             "style": Object {
@@ -888,21 +871,19 @@ ShallowWrapper {
                     }
                   }
                 >
-                  <Text
-                    accessible={true}
-                    allowFontScaling={true}
-                    ellipsizeMode="tail"
-                    style={
+                  <Image
+                    resizeMode="contain"
+                    source={
                       Object {
-                        "color": "white",
-                        "fontSize": 40,
-                        "fontWeight": "bold",
-                        "marginBottom": 66.7,
+                        "process": [Function],
                       }
                     }
-                  >
-                    Test 3
-                  </Text>
+                    style={
+                      Object {
+                        "width": 441.1764705882353,
+                      }
+                    }
+                  />
                 </View>,
               ],
               "disableNextButton": false,
@@ -947,21 +928,19 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "class",
                 "props": Object {
-                  "children": <Text
-                    accessible={true}
-                    allowFontScaling={true}
-                    ellipsizeMode="tail"
-                    style={
+                  "children": <Image
+                    resizeMode="contain"
+                    source={
                       Object {
-                        "color": "white",
-                        "fontSize": 40,
-                        "fontWeight": "bold",
-                        "marginBottom": 66.7,
+                        "process": [Function],
                       }
                     }
-                  >
-                    Test 3
-                  </Text>,
+                    style={
+                      Object {
+                        "width": 441.1764705882353,
+                      }
+                    }
+                  />,
                   "style": Object {
                     "alignItems": "center",
                     "backgroundColor": "rgb(000, 039, 118)",
@@ -975,19 +954,16 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
-                    "accessible": true,
-                    "allowFontScaling": true,
-                    "children": "Test 3",
-                    "ellipsizeMode": "tail",
+                    "resizeMode": "contain",
+                    "source": Object {
+                      "process": [Function],
+                    },
                     "style": Object {
-                      "color": "white",
-                      "fontSize": 40,
-                      "fontWeight": "bold",
-                      "marginBottom": 66.7,
+                      "width": 441.1764705882353,
                     },
                   },
                   "ref": null,
-                  "rendered": "Test 3",
+                  "rendered": null,
                   "type": [Function],
                 },
                 "type": [Function],
