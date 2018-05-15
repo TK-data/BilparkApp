@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { NavigationActions } from 'react-navigation';
 import { Text, Modal, StyleSheet, View } from 'react-native';
 import { Button } from 'native-base';
-import { registerUserModalVisible } from '../../actions/registerUser';
 import { postUser } from '../../actions/auth';
 
 
@@ -61,8 +60,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    visibleModal: bool => dispatch(registerUserModalVisible(bool)),
-    navigateToLogin: () => dispatch(NavigationActions.navigate({ routeName: 'Login' })),
     login: values => dispatch(postUser(values.Email, values.Password)),
   };
 };
