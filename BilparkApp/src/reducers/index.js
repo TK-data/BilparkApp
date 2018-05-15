@@ -5,7 +5,7 @@ import { loginMail, loginOptions } from './form';
 import form from './redux-form';
 import { carFetch, carForm } from './registerCar';
 import modals from './modals';
-import fuelRefill from './fuelRefill';
+import { fuelRefill } from './fuelRefill';
 import fuelRefillForm from './fuelRefillForm';
 import { registerCompany } from './registerCompany';
 import { registerUserModalVisible, registerUserModalTransparent, options, values } from './registerUser';
