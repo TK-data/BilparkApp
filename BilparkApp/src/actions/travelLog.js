@@ -183,16 +183,13 @@ export function postTravelLog(value) {
         Objective: value.cargoValue.Comment,
       } })
       .then((response) => {
-        console.log(response);
         dispatch(successAfterHalfSecond());
         return response.data;
       })
       .then(() => {
-        console.log('Success');
         dispatch(postTravelLogSuccess());
       })
       .catch((err) => {
-        console.log('Fail');
         console.log(err);
         dispatch(postTravelLogFailure(true));
       });
