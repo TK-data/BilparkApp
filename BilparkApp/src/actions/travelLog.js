@@ -15,6 +15,7 @@ export const TRAVELLOG_FROM_ADDRESS = 'TRAVELLOG_FROM_ADDRESS';
 export const TRAVELLOG_TO_ADDRESS = 'TRAVELLOG_TO_ADDRESS';
 export const POST_TRAVELLOG_LOADING = 'POST_TRAVELLOG_LOADING';
 export const POST_TRAVELLOG_SUCCESS = 'POST_TRAVELLOG_SUCCESS';
+export const POST_TRAVELLOG_FAILURE = 'POST_TRAVELLOG_FAILURE';
 
 export function travelLogFrom(positionFrom) {
   return {
@@ -130,7 +131,7 @@ export function postTravelLogSuccess(bool) {
 
 export function postTravelLogFailure(bool) {
   return {
-    type: 'POST_TRAVELLOG_FAILURE',
+    type: POST_TRAVELLOG_FAILURE,
     hasErrored: bool,
   };
 }
@@ -182,16 +183,13 @@ export function postTravelLog(value) {
         Objective: value.cargoValue.Comment,
       } })
       .then((response) => {
-        console.log(response);
         dispatch(successAfterHalfSecond());
         return response.data;
       })
       .then(() => {
-        console.log('Success');
         dispatch(postTravelLogSuccess());
       })
       .catch((err) => {
-        console.log('Fail');
         console.log(err);
         dispatch(postTravelLogFailure(true));
       });
