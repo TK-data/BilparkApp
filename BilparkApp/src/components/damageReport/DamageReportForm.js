@@ -60,8 +60,7 @@ const styles = StyleSheet.create({
 class DamageReportForm extends Component {
   componentDidMount() {
     this.props.getValues();
-    console.log('onMount this.props.values');
-    console.log(this.props.values);
+    this.props.changeOptions(this.props.values);
   }
 
   onChange(values) {

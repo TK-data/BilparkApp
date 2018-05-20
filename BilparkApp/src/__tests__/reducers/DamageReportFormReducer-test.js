@@ -10,7 +10,6 @@ import {
 import { damageReportOptions, damageReportValues, damageReportForm, initalState } from '../../reducers/damageReportForm';
 
 const initialValue =
-{ initialValue:
   {
     KarosseriVenstre: false,
     KarosseriVenstreBeskrivelse: '',
@@ -26,7 +25,6 @@ const initialValue =
     GlassBeskrivelse: '',
     FelgHjul: false,
     FelgHjulBeskrivelse: '',
-  },
 };
 
 const fields = {
