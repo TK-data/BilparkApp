@@ -32,7 +32,7 @@ const Passenger = t.struct({
 
 const date = new Date();
 
-const init = {
+export const init = {
   positionFrom: '0',
   positionTo: '0',
   addressFrom: '',
@@ -55,7 +55,7 @@ const init = {
   },
 };
 
-export default function travelLog(state = init, action) {
+export function travelLog(state = init, action) {
   switch (action.type) {
   case TRAVELLOG_FROM:
     return {
@@ -127,5 +127,4 @@ export default function travelLog(state = init, action) {
   default:
     return state;
   }
-
 }

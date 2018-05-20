@@ -7,11 +7,15 @@ import SettingsButton from './SettingsButton';
 import { getFuelRefills } from '../../actions/fuelRefill';
 import FuelRefillForm from './FuelRefillForm';
 import FuelRefillList from './FuelRefillList';
+import FuelSetNotificationScreen from '../fuelDayModal/FuelSetNotificationScreen';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#002776',
+  },
+  modal: {
+    alignContent: 'center',
   },
   content: {
     flex: 2,
@@ -46,8 +50,23 @@ class FuelRefillScreen extends React.Component {
   }
 
   render() {
+
+    let modal = (<View style={styles.modal} />);
+
+    if (this.props.user) {
+      const user = JSON.parse(this.props.user);
+      if (!user.FuelNotification) {
+        modal = (
+          <View style={styles.modal}>
+            <FuelSetNotificationScreen />
+          </View>
+        );
+      }
+    }
+
     return (
       <View style={styles.container}>
+        {modal}
         <View style={styles.contentContainer}>
           <FuelRefillForm />
           <Content contentContainerStyle={styles.content}>
@@ -65,11 +84,10 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-const mapStateToProps = () => {
+const mapStateToProps = (state) => {
   return {
+    user: state.auth.user,
   };
 };
-
-// to be done. Dispatch to get items on component did mount
 
 export default connect(mapStateToProps, mapDispatchToProps)(FuelRefillScreen);

@@ -6,6 +6,7 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <FuelRefillScreen
     getItems={[Function]}
+    user="{\\"FuelNotification\\":true}"
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -19,105 +20,15 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "class",
     "props": Object {
-      "children": <View
-        style={
-          Object {
-            "flex": 1,
-          }
-        }
-      >
-        <Connect(FuelRefillForm) />
-        <Styled(Content)
-          contentContainerStyle={
+      "children": Array [
+        <View
+          style={
             Object {
-              "backgroundColor": "#002776",
-              "flex": 2,
-              "justifyContent": "flex-start",
+              "alignContent": "center",
             }
           }
-          virtual={undefined}
-        >
-          <Connect(FuelRefillList) />
-        </Styled(Content)>
-      </View>,
-      "style": Object {
-        "backgroundColor": "#002776",
-        "flex": 1,
-      },
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "children": Array [
-          <Connect(FuelRefillForm) />,
-          <Styled(Content)
-            contentContainerStyle={
-              Object {
-                "backgroundColor": "#002776",
-                "flex": 2,
-                "justifyContent": "flex-start",
-              }
-            }
-            virtual={undefined}
-          >
-            <Connect(FuelRefillList) />
-          </Styled(Content)>,
-        ],
-        "style": Object {
-          "flex": 1,
-        },
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {},
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "children": <Connect(FuelRefillList) />,
-            "contentContainerStyle": Object {
-              "backgroundColor": "#002776",
-              "flex": 2,
-              "justifyContent": "flex-start",
-            },
-            "virtual": undefined,
-          },
-          "ref": null,
-          "rendered": Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "class",
-            "props": Object {},
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-          "type": [Function],
-        },
-      ],
-      "type": [Function],
-    },
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "children": <View
+        />,
+        <View
           style={
             Object {
               "flex": 1,
@@ -138,13 +49,28 @@ ShallowWrapper {
             <Connect(FuelRefillList) />
           </Styled(Content)>
         </View>,
-        "style": Object {
-          "backgroundColor": "#002776",
-          "flex": 1,
-        },
+      ],
+      "style": Object {
+        "backgroundColor": "#002776",
+        "flex": 1,
       },
-      "ref": null,
-      "rendered": Object {
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "style": Object {
+            "alignContent": "center",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
         "instance": null,
         "key": undefined,
         "nodeType": "class",
@@ -207,6 +133,129 @@ ShallowWrapper {
         ],
         "type": [Function],
       },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <View
+            style={
+              Object {
+                "alignContent": "center",
+              }
+            }
+          />,
+          <View
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          >
+            <Connect(FuelRefillForm) />
+            <Styled(Content)
+              contentContainerStyle={
+                Object {
+                  "backgroundColor": "#002776",
+                  "flex": 2,
+                  "justifyContent": "flex-start",
+                }
+              }
+              virtual={undefined}
+            >
+              <Connect(FuelRefillList) />
+            </Styled(Content)>
+          </View>,
+        ],
+        "style": Object {
+          "backgroundColor": "#002776",
+          "flex": 1,
+        },
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "style": Object {
+              "alignContent": "center",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <Connect(FuelRefillForm) />,
+              <Styled(Content)
+                contentContainerStyle={
+                  Object {
+                    "backgroundColor": "#002776",
+                    "flex": 2,
+                    "justifyContent": "flex-start",
+                  }
+                }
+                virtual={undefined}
+              >
+                <Connect(FuelRefillList) />
+              </Styled(Content)>,
+            ],
+            "style": Object {
+              "flex": 1,
+            },
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": <Connect(FuelRefillList) />,
+                "contentContainerStyle": Object {
+                  "backgroundColor": "#002776",
+                  "flex": 2,
+                  "justifyContent": "flex-start",
+                },
+                "virtual": undefined,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
       "type": [Function],
     },
   ],

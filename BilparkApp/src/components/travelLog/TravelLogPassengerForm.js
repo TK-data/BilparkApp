@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { StyleSheet, View } from 'react-native';
 import { travelLogFormValue, travelLogFormType } from '../../actions/travelLog';
 
-function getType(value) {
+export function getType(value) {
 
   const Passengers = t.enums({
     0: '0',
