@@ -2,7 +2,6 @@ import { combineReducers } from 'redux';
 import nav from './navigation';
 import auth from './auth';
 import { loginMail, loginOptions } from './form';
-import form from './redux-form';
 import { carFetch, carForm } from './registerCar';
 import modals from './modals';
 import { fuelRefill } from './fuelRefill';
@@ -18,7 +17,6 @@ const RootReducer = combineReducers({
   auth,
   loginMail,
   loginOptions,
-  form,
   carFetch,
   carForm,
   registerUserModalVisible,
