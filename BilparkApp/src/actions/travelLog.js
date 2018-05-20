@@ -15,6 +15,8 @@ export const TRAVELLOG_FROM_ADDRESS = 'TRAVELLOG_FROM_ADDRESS';
 export const TRAVELLOG_TO_ADDRESS = 'TRAVELLOG_TO_ADDRESS';
 export const POST_TRAVELLOG_LOADING = 'POST_TRAVELLOG_LOADING';
 export const POST_TRAVELLOG_SUCCESS = 'POST_TRAVELLOG_SUCCESS';
+export const TRAVELLOG_RESET_STATE = 'TRAVELLOG_RESET_STATE';
+
 
 export function travelLogFrom(positionFrom) {
   return {
@@ -135,13 +137,19 @@ export function postTravelLogFailure(bool) {
   };
 }
 
+export function travelLogResetState() {
+  return {
+    type: TRAVELLOG_RESET_STATE,
+  };
+}
+
 export function successAfterHalfSecond() {
   return (dispatch) => {
     setTimeout(() => {
       dispatch(postTravelLogSuccess(true));
       setTimeout(() => {
         dispatch(postTravelLogSuccess(false));
-      }, 500);
+      }, 200);
     }, 200);
   };
 }
@@ -150,6 +158,7 @@ export function resetComponent() {
   return (dispatch) => {
     dispatch(postTravelLogLoading(true));
     setTimeout(() => {
+      dispatch(travelLogResetState());
       dispatch(postTravelLogLoading(false));
     }, 200);
   };
