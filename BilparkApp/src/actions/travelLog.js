@@ -189,8 +189,7 @@ export function postTravelLog(value) {
       .then(() => {
         dispatch(postTravelLogSuccess());
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
         dispatch(postTravelLogFailure(true));
       });
   };
