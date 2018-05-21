@@ -140,7 +140,22 @@ export function damageReportValues(state = initialValue, action) {
       FelgHjulBeskrivelse: itemArray.find(x => x.ItemType === 'Wheel').Description,
     };
   case NO_DAMAGE_REPORT_VALUES:
-    return { initialValue };
+    return {
+      KarosseriVenstre: false,
+      KarosseriVenstreBeskrivelse: '',
+      KarosseriHøyre: false,
+      KarosseriHøyreBeskrivelse: '',
+      StøtfangerFront: false,
+      StøtfangerFrontBeskrivelse: '',
+      StøtfangerBak: false,
+      StøtfangerBakBeskrivelse: '',
+      LysUtvendig: false,
+      LysUtvendigBeskrivelse: '',
+      Glass: false,
+      GlassBeskrivelse: '',
+      FelgHjul: false,
+      FelgHjulBeskrivelse: '',
+    };
   default:
     return state;
   }

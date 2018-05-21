@@ -131,10 +131,12 @@ export function getCurrentDamageReport() {
         dispatch(damageReportOptions(values));
       })
       .catch((err) => {
-        if (err.response.status === 404) {
-          dispatch(postDamageReportLoading(false));
-          dispatch(noDamageReportValues());
-          return;
+        if (err.response !== undefined) {
+          if (err.response.status === 404) {
+            dispatch(postDamageReportLoading(false));
+            dispatch(noDamageReportValues());
+            return;
+          }
         }
         dispatch(postDamageReportFailure(true));
       });
