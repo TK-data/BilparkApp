@@ -14,6 +14,7 @@ import {
   TRAVELLOG_FROM_ADDRESS,
   POST_TRAVELLOG_LOADING,
   POST_TRAVELLOG_SUCCESS,
+  TRAVELLOG_RESET_STATE,
 } from '../actions/travelLog';
 
 const Passengers = t.enums({
@@ -121,6 +122,8 @@ export function travelLog(state = init, action) {
       ...state,
       success: action.success,
     };
+  case TRAVELLOG_RESET_STATE:
+    return init;
   default:
     return state;
   }
