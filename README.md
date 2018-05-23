@@ -24,15 +24,20 @@ Steps to run our product package as a end-user.
 ## Development Setup
 Do the following steps to set up and run the application for development. To make the application work properly, the backend has to be up and running.
 ### Backend
+First you need to clone https://github.com/TK-data/BilparkBackend.
+```
+git clone https://github.com/TK-data/BilparkBackend.git
+```
 Install sails globally for the sails command to work:
 ```
 npm i -g sails
 ```
-To install the application, navigate to the backend folder and run:
+To install the application, navigate to the backend folder and install dependencies:
 ```
+cd Backend
 npm install
 ```
-To locally run the backend on your machine, navigate to the backend folder, and serve it with:
+To locally run the backend on your machine serve it with:
 ```
 sails lift
 ```
