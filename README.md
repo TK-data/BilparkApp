@@ -66,7 +66,7 @@ Open up ```app-env``` and edit the variables to the correct values for your DSM 
 To add these variables to the enviroment, open up console at the backend folder, and execute ```source app-env```
 
 ### React Native Application
-First you need to clone https://github.com/TK-data/BilparApp.
+First you need to clone https://github.com/TK-data/BilparkApp.
 ```
 git clone https://github.com/TK-data/BilparkApp.git
 ```
