@@ -18,7 +18,7 @@ NTNU Course IT2901 (Bachelorproject) repository for group 15 with the task TK_DA
 ## Overview
 The system will be a portal for businesses to manage their fleet of cars. Each company that wants to use the platform will get access to two main features. The person in charge from the company will have access to an administration dashboard, which will are a web application. The employees of the company that use company vehicles will use a mobile application to log any car related activities.
 
-##### The Application
+#### The Application
 The application will give the employees a range of functionality that will make it easier to use the car at work.
 
 Examples of functionalities:
@@ -27,12 +27,12 @@ Examples of functionalities:
 - Damage report: The employe can register any damage on the vehicle.
 - Fuel refill notification: The employe can choose when it want's to refill fuel and then get a notification every week on the same day and time.
 
-##### The Dashboard
+#### The Dashboard
 The dashboard will give an overview of all car related activities that the employees in the company registers. For now the only thing that is ready is the login page and a page that shows all the cars in the database.
 
 Future development will give the person in charge from the company an complete overview of everything about their fleet of cars. Ranging from when people refills and how long every car have driven to when the insurance of each car expires.
 
-##### The Backend
+#### The Backend
 The backend is made with Sails which is a MVC framework built on Node.js. It serves as an API endpoint on our backend and let users manipulate and fetch data from the database, by using our frontend applications.
 
 
