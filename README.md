@@ -16,10 +16,28 @@ NTNU Course IT2901 (Bachelorproject) repository for group 15 with the task TK_DA
 * [Deployment](#deployment)
 
 ## Overview
-Overall description of our task/project, what components are part of the solution and how they work together.
+The system will be a portal for businesses to manage their fleet of cars. Each company that wants to use the platform will get access to two main features. The person in charge from the company will have access to an administration dashboard, which will are a web application. The employees of the company that use company vehicles will use a mobile application to log any car related activities.
 
-## Run Application
-Steps to run our product package as a end-user.
+##### The Application
+The application will give the employees a range of functionality that will make it easier to use the car at work.
+
+Examples of functionalities:
+
+- Driving log: The employe can register work related car trips.
+- Damage report: The employe can register any damage on the vehicle.
+- Fuel refill notification: The employe can choose when it want's to refill fuel and then get a notification every week on the same day and time.
+
+##### The Dashboard
+The dashboard will give an overview of all car related activities that the employees in the company registers. For now the only thing that is ready is the login page and a page that shows all the cars in the database.
+
+Future development will give the person in charge from the company an complete overview of everything about their fleet of cars. Ranging from when people refills and how long every car have driven to when the insurance of each car expires.
+
+##### The Backend
+The backend is made with Sails which is a MVC framework built on Node.js. It serves as an API endpoint on our backend and let users manipulate and fetch data from the database, by using our frontend applications.
+
+
+
+The [Application](https://github.com/TK-data/BilparkApp) and the [Dashboard](https://github.com/TK-data/BilparkDashboard) are both connected to the same [backend](https://github.com/TK-data/BilparkBackend).
 
 ## Development Setup
 Do the following steps to set up and run the application for development. To make the application work properly, the backend has to be up and running.
@@ -48,11 +66,15 @@ Open up ```app-env``` and edit the variables to the correct values for your DSM 
 To add these variables to the enviroment, open up console at the backend folder, and execute ```source app-env```
 
 ### React Native Application
-First point to the address of the machine that is running the backend:
+First you need to clone https://github.com/TK-data/BilparApp.
+```
+git clone https://github.com/TK-data/BilparkApp.git
+```
+Then point to the address of the machine that is running the backend:
 ```
 goto BilparkApp\src\config
 duplicated connections.js.example and rename it connections.js
-edit the API_ADDRESS
+edit the API_ADDRESS to where the backend is running
 save
 ```
 
@@ -65,8 +87,28 @@ npm start
 Use the Expo app to scan the QR code shown in the terminal.
 
 ### Dashboard React Application
-Describe steps to setup and run the dashboard application.
+First you need to clone https://github.com/TK-data/BilparkDashboard.
+```
+git clone https://github.com/TK-data/BilparkDashboard.git
+```
+First point to the address of the machine that is running the backend:
+```
+go to bpdashboard\src\config
+duplicated connections.js.example and rename it connections.js
+edit the API_ADDRESS to where the backend is running
+save
+```
 
+Then run the Application from terminal
+
+```
+cd bpdashboard
+npm Install
+npm start
+```
+
+The Dashboard will automatically open in your preferred browser.
+(If not, go to http://localhost:3000/)
 
 
 ## React Native App Description
@@ -85,7 +127,7 @@ comp 2 description
 Components, containers, modules and other parts of the React "Dashboard" Application.
 
 ## Database
-We use [MySQL](https://www.mysql.com/) for the database. Set up your own MySQL database and use [TKdata_create-tables.sql](TKdata_create-tables.sql) to create all the tables you need for the project.
+We use [MySQL](https://www.mysql.com/) for the database, but you can set up your own MySQL database and Sailsjs will create all the tables for you. If you want to use a different database you can read more about adapters here: https://sailsjs.com/documentation/concepts/extending-sails/adapters
 
 ## Sailsjs Backend Description
 Our back-end is based on [Sails](https://sailsjs.com/), an MVC and API framework that builds upon Express.js for Node.js
