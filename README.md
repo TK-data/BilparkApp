@@ -72,18 +72,20 @@ git clone https://github.com/TK-data/BilparkApp.git
 ```
 Then point to the address of the machine that is running the backend:
 ```
-goto BilparkApp\src\config
-duplicated connections.js.example and rename it connections.js
+go to BilparkApp\src\config
+duplicate connections.js.example and rename it connections.js
 edit the API_ADDRESS to where the backend is running
 save
 ```
-
-You need the [Expo app](https://expo.io) to run the app on mobile devices.
+Then install the dependencies and run the application.
 ```
 cd BilparkApp
 npm install
 npm start
 ```
+You can now run the application on mobile devices\* or in an emulator.
+
+\* You need the [Expo app](https://expo.io) to run the app on mobile devices.
 Use the Expo app to scan the QR code shown in the terminal.
 
 ### Dashboard React Application
@@ -94,7 +96,7 @@ git clone https://github.com/TK-data/BilparkDashboard.git
 First point to the address of the machine that is running the backend:
 ```
 go to bpdashboard\src\config
-duplicated connections.js.example and rename it connections.js
+duplicate connections.js.example and rename it connections.js
 edit the API_ADDRESS to where the backend is running
 save
 ```
@@ -117,17 +119,46 @@ Components, containers, modules and other parts of the React Native "Mobile" App
 ### Containers/modules
 
 ### Components
+
+#### Login
+Is put together by LoginScreen and LoginForm\* which give the user the possibility to log into the application.
+#### UserRegister
+Is put together by UserRegisterScreen and UserRegisterForm\*  which give the user the possibility to register into the application.
+#### Menu
+Is put together by MenuScreen, MenuBox, ProfileButton, Slide1 and Slide2. Together they 
+#### DamageReport
+comp 2 description
+#### FuelDay
+Comp 1 description
+#### FuelDayModal
+comp 2 description
+#### FuelRefill
+Comp 1 description
+#### registerCompany
+comp 2 description
+#### RegisterVehicle
+Comp 1 description
+#### TravelLog
+comp 2 description
+
+\* All forms are using [tcomb-form-native ](https://github.com/gcanti/tcomb-form-native)
+
+### Service classes
+
+## React Dashboard Description
+Components, containers, modules and other parts of the React "Dashboard" Application.
+
+### Containers/modules
+
+### Components
 #### comp 1
 Comp 1 description
 #### comp 2
 comp 2 description
 ### Service classes
 
-## React Dashboard Description
-Components, containers, modules and other parts of the React "Dashboard" Application.
-
 ## Database
-We use [MySQL](https://www.mysql.com/) for the database, but you can set up your own MySQL database and Sailsjs will create all the tables for you. If you want to use a different database you can read more about adapters here: https://sailsjs.com/documentation/concepts/extending-sails/adapters
+We use [MySQL](https://www.mysql.com/) for the database, but you can set up your own MySQL database and Sails will create all the tables for you. If you want to use a different database you can read more about adapters here: https://sailsjs.com/documentation/concepts/extending-sails/adapters
 
 ## Sailsjs Backend Description
 Our back-end is based on [Sails](https://sailsjs.com/), an MVC and API framework that builds upon Express.js for Node.js
@@ -204,7 +235,7 @@ Example of car object:
 ```
 POST /api/fuelrefill/register
 ```
-registers a new fuelrefill entry.
+Registers a new fuelrefill entry.
 
 Required fields in body: `FuelTime, Price, Rate`
 
@@ -261,6 +292,38 @@ GET /api/damagereport/getcurrent
 ```
 
 Gets the latest damage report from a logged in user
+
+
+
+
+
+### DrivingLog
+```
+POST /api/drivinglog/save
+```
+Saves a driving log for the current user
+```
+GET /api/drivinglog/getall
+```
+Get all driving logs for current user
+```
+POST /api/drivinglog/remove
+```
+Deletes a driving log
+### Admin
+```
+POST /api/admin/login
+```
+Login as admin
+```
+GET /api/admin/logout
+```
+Logs out the current user
+### Company
+```
+POST /api/company/save
+```
+Saves the company on the current user.
 ### Blueprint APIs
 #### Models
 #### Controllers
@@ -290,24 +353,41 @@ When we use this, it automatically posts a link and QR code to the pull request,
 
 
 ## Deployment
+
+### React Native Application
 We use [Expo](https://expo.io) to deploy our application. Login with your Expo account using `exp login`
 
-### Android Deployment
+#### Android Deployment
 - Run `exp build:android`
 - Wait for build to finnish
 - Copy/paste link in browser to download APK.
 - Drag and drop .apk file into emulator, or download/transfer it to an Android Device.
 - (Upload .apk to Google Play Store)
 
-#### To run on your connected Android Device:
+##### To run on your connected Android Device:
 - `brew cask install android-platform-tools`
 - [Enable USB debugging on your device](https://developer.android.com/studio/run/device.html#device-developer-options)
 - Connect device
 - `adb install app-filename.apk`
 
-### iOS Deployment
+#### iOS Deployment
 - Need to have an Apple Developer Account
 - Run `exp build:ios`
+
+### React Dashboard
+
+Build the Dashboard
+
+```
+npm run build
+```
+The project is now built assuming it is hosted at the server root.
+If you want to read more about other methods for deployment, check out
+[React Deployment](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment).
+
+### Backend
+Info here
+
 
 ## Authors
 * **Christian Nyvoll** - [Git](https://github.com/Chr1stian) - [LinkedIn](https://www.linkedin.com/in/christiannyvoll/)
