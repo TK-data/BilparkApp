@@ -266,6 +266,6 @@ We use [Expo](https://expo.io) to deploy our application. Login with your Expo a
 * **Christian Nyvoll** - *Team Leader* - [Git](https://github.com/Chr1stian) - [LinkedIn](https://www.linkedin.com/in/christiannyvoll/)
 * **Emil Schrøder** - *Social Leader* - [Git](https://github.com/emilps) - [LinkedIn](https://www.linkedin.com/in/emil-schroder/)
 * **Erling Ihlen** - *Test Leader* - [Git](https://github.com/Shamzaa)
-* **Henrik Liodden** - *Team Member* - [Git](https://github.com/)
+* **Henrik Liodden** - *Team Member* - [Git](https://github.com/haattis) - [LinkedIn](https://www.linkedin.com/in/henrikliodden/)
 * **Kristiane Westgård** - *Agile Leader* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/kristianeaw/)
 * **Øystein Hammersland** - *Lead Designer* - [Git](https://github.com/) - [LinkedIn](https://www.linkedin.com/in/%C3%B8ystein-hammersland-a9698772/)
