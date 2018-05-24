@@ -118,8 +118,6 @@ Components, containers, modules and other parts of the React Native "Mobile" App
 
 ### Containers/modules
 
-### Components
-
 #### Login
 Is put together by LoginScreen and LoginForm\* which give the user the possibility to log into the application.
 #### UserRegister
@@ -131,7 +129,7 @@ Is put together by DamageReportScreen and DamageReportForm\*. The user can regis
 #### FuelDay
 Is put together by FuelDayScreen and FuelDayForm\*. The user can change when it wants notification about when to refill from this component.  
 #### FuelDayModal
-FuelSetNotificationScreen will tell the user how much he/she can save by refuelling on specific days.
+FuelSetNotificationScreen will tell the user how much he/she can save by refueling on specific days.
 #### FuelRefill
 Is put together by FuelRefillScreen, FuelRefillList, FuelRefillItem, FuelRefillForm and SettingsButton. This component gives the user the possibility to register when they did refill, how much the petrol cost and how much they paid.
 #### RegisterCompany
@@ -139,11 +137,76 @@ Is put together by RegisterCompanyScreen and CompanyPicker. This component lets 
 #### RegisterVehicle
 Is put together by GetCarScreen, GetCarForm and CarForm\* which together lets the user search for their car and then accept if it is theirs.
 #### TravelLog
-Is put together by TravelLogScreen, TravelLogInput, TravelLogPassengerForm\*, TravelLogCargoForm\*, GooglePlacesAutocompleteFrom and GooglePlacesAutocompleteTo. 
+Is put together by TravelLogScreen, TravelLogInput, TravelLogPassengerForm\*, TravelLogCargoForm\*, GooglePlacesAutocompleteFrom and GooglePlacesAutocompleteTo.
 
 \* This component are using [tcomb-form-native ](https://github.com/gcanti/tcomb-form-native)
 
+### Components
+
+#### LoginScreen
+Container for LoginForm
+#### LoginForm
+
+#### UserRegisterScreen
+
+#### UserRegisterForm
+
+#### MenuScreen
+
+#### MenuBox
+
+#### ProfileButton
+
+#### Slide1
+
+#### Slide2
+
+#### DamageReportScreen
+
+#### DamageReportForm
+
+#### FuelDayScreen
+
+#### FuelDayForm
+
+#### FuelSetNotificationScreen
+
+#### FuelRefillScreen
+
+#### FuelRefillList
+
+#### FuelRefillItem
+
+#### FuelRefillForm
+
+#### SettingsButton
+
+#### RegisterCompanyScreen
+
+#### CompanyPicker
+
+#### GetCarScreen
+
+#### GetCarForm
+
+#### CarForm
+
+#### TravelLogScreen
+
+#### TravelLogInput
+
+#### TravelLogPassengerForm
+
+#### TravelLogCargoForm
+
+#### GooglePlacesAutocompleteFrom
+
+#### GooglePlacesAutocompleteTo
+
+
 ### Service classes
+
+This project handles state with [redux](https://redux.js.org/).
 
 ## React Dashboard Description
 Components, containers, modules and other parts of the React "Dashboard" Application.
@@ -158,7 +221,7 @@ comp 2 description
 ### Service classes
 
 ## Database
-We use [MySQL](https://www.mysql.com/) for the database, but you can set up your own MySQL database and Sails will create all the tables for you. If you want to use a different database you can read more about adapters here: https://sailsjs.com/documentation/concepts/extending-sails/adapters
+We use [MySQL](https://www.mysql.com/) for the database. You can set up your own MySQL database and Sails will create all the tables for you. If you want to use a different database you can read more about adapters here: https://sailsjs.com/documentation/concepts/extending-sails/adapters
 
 ## Sailsjs Backend Description
 Our back-end is based on [Sails](https://sailsjs.com/), an MVC and API framework that builds upon Express.js for Node.js
