@@ -125,23 +125,23 @@ Is put together by LoginScreen and LoginForm\* which give the user the possibili
 #### UserRegister
 Is put together by UserRegisterScreen and UserRegisterForm\*  which give the user the possibility to register into the application.
 #### Menu
-Is put together by MenuScreen, MenuBox, ProfileButton, Slide1 and Slide2. Together they 
+Is put together by MenuScreen, MenuBox, ProfileButton, Slide1 and Slide2. You will be able to navigate to all functionality from the Menu.
 #### DamageReport
-comp 2 description
+Is put together by DamageReportScreen and DamageReportForm\*. The user can register damage on it's vehicle from this component.  
 #### FuelDay
-Comp 1 description
+Is put together by FuelDayScreen and FuelDayForm\*. The user can change when it wants notification about when to refill from this component.  
 #### FuelDayModal
-comp 2 description
+FuelSetNotificationScreen will tell the user how much he/she can save by refuelling on specific days.
 #### FuelRefill
-Comp 1 description
-#### registerCompany
-comp 2 description
+Is put together by FuelRefillScreen, FuelRefillList, FuelRefillItem, FuelRefillForm and SettingsButton. This component gives the user the possibility to register when they did refill, how much the petrol cost and how much they paid.
+#### RegisterCompany
+Is put together by RegisterCompanyScreen and CompanyPicker. This component lets the user choose which company they are connected to.
 #### RegisterVehicle
-Comp 1 description
+Is put together by GetCarScreen, GetCarForm and CarForm\* which together lets the user search for their car and then accept if it is theirs.
 #### TravelLog
-comp 2 description
+Is put together by TravelLogScreen, TravelLogInput, TravelLogPassengerForm\*, TravelLogCargoForm\*, GooglePlacesAutocompleteFrom and GooglePlacesAutocompleteTo. 
 
-\* All forms are using [tcomb-form-native ](https://github.com/gcanti/tcomb-form-native)
+\* This component are using [tcomb-form-native ](https://github.com/gcanti/tcomb-form-native)
 
 ### Service classes
 
