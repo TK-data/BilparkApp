@@ -144,15 +144,15 @@ Is put together by TravelLogScreen, TravelLogInput, TravelLogPassengerForm\*, Tr
 ### Components
 
 #### LoginScreen
-Container for LoginForm
+Container for LoginForm.
 #### LoginForm
 
 #### UserRegisterScreen
-
+Container for UserRegisterForm.
 #### UserRegisterForm
 
 #### MenuScreen
-
+Container for MenuBox, ProfileButton, Slide1 and Slide2.
 #### MenuBox
 
 #### ProfileButton
@@ -162,16 +162,19 @@ Container for LoginForm
 #### Slide2
 
 #### DamageReportScreen
+Container for DamageReportForm
 
 #### DamageReportForm
 
 #### FuelDayScreen
+Container for FuelDayForm and FuelDayForm.
 
 #### FuelDayForm
 
 #### FuelSetNotificationScreen
 
 #### FuelRefillScreen
+Container for FuelRefillList, FuelRefillItem, FuelRefillForm and SettingsButton.
 
 #### FuelRefillList
 
@@ -182,18 +185,23 @@ Container for LoginForm
 #### SettingsButton
 
 #### RegisterCompanyScreen
+Container for CompanyPicker
 
 #### CompanyPicker
 
 #### GetCarScreen
+Container for GetCarForm
 
 #### GetCarForm
+Includes CarForm
 
 #### CarForm
 
 #### TravelLogScreen
+Container for TravelLogInput
 
 #### TravelLogInput
+Includes TravelLogPassengerForm, TravelLogCargoForm, GooglePlacesAutocompleteFrom and GooglePlacesAutocompleteTo.
 
 #### TravelLogPassengerForm
 
