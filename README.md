@@ -457,7 +457,41 @@ If you want to read more about other methods for deployment, check out
 [React Deployment](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment).
 
 ### Backend
-Info here
+For our backend, we used Heroku to host it. Therefore this deployement method will be specific for that service.
+
+#### Install Heroku
+```
+npm install -g heroku
+```
+Verify that it is installed using
+```
+heroku --version
+```
+
+#### Login to Heroku
+Login using your heroku account.
+```
+heroku login
+```
+
+
+#### Create a Heroku app
+You can skip this step if you already have a Heroku app
+```
+heroku create insertAppName
+```
+This will create a Heroku app on your account, with the provided name for the app.
+If you don't provide a name, a random one will be generated for you
+
+#### Deploy sails app
+```
+cd root folder of git repo
+heroku git:remote -a yourAppName
+git subtree push --prefix Backend heroku master
+check if is up and running: https://yourAppName.herokuapp.com/
+```
+
+This will deploy the backend app to the heroku app directory you have setup during deployement.
 
 
 ## Authors
