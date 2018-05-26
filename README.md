@@ -119,15 +119,15 @@ Components, containers, modules and other parts of the React Native "Mobile" App
 ### Containers/modules
 
 #### Login
-Is put together by LoginScreen and LoginForm\* which give the user the possibility to log into the application.
+Is put together by LoginScreen and LoginForm which give the user the possibility to log into the application.
 #### UserRegister
-Is put together by UserRegisterScreen and UserRegisterForm\*  which give the user the possibility to register into the application.
+Is put together by UserRegisterScreen and UserRegisterForm  which give the user the possibility to register into the application.
 #### Menu
 Is put together by MenuScreen, MenuBox, ProfileButton, Slide1 and Slide2. You will be able to navigate to all functionality from the Menu.
 #### DamageReport
 Is put together by DamageReportScreen and DamageReportForm\*. The user can register damage on it's vehicle from this component.  
 #### FuelDay
-Is put together by FuelDayScreen and FuelDayForm\*. The user can change when it wants notification about when to refill from this component.  
+Is put together by FuelDayScreen and FuelDayForm. The user can change when it wants notification about when to refill from this component.  
 #### FuelDayModal
 FuelSetNotificationScreen will tell the user how much he/she can save by refueling on specific days.
 #### FuelRefill
@@ -135,41 +135,37 @@ Is put together by FuelRefillScreen, FuelRefillList, FuelRefillItem, FuelRefillF
 #### RegisterCompany
 Is put together by RegisterCompanyScreen and CompanyPicker. This component lets the user choose which company they are connected to.
 #### RegisterVehicle
-Is put together by GetCarScreen, GetCarForm and CarForm\* which together lets the user search for their car and then accept if it is theirs.
+Is put together by GetCarScreen, GetCarForm and CarForm which together lets the user search for their car and then accept if it is theirs.
 #### TravelLog
-Is put together by TravelLogScreen, TravelLogInput, TravelLogPassengerForm\*, TravelLogCargoForm\*, GooglePlacesAutocompleteFrom and GooglePlacesAutocompleteTo.
-
-\* This component are using [tcomb-form-native ](https://github.com/gcanti/tcomb-form-native)
+Is put together by TravelLogScreen, TravelLogInput, TravelLogPassengerForm, TravelLogCargoForm, GooglePlacesAutocompleteFrom and GooglePlacesAutocompleteTo.
 
 ### Components
 
 #### LoginScreen
 Container for LoginForm.
-#### LoginForm
-
+#### LoginForm \*
+A form with username and password fields.
 #### UserRegisterScreen
 Container for UserRegisterForm.
-#### UserRegisterForm
-
+#### UserRegisterForm \*
+A form with Email, First-name, Last-name, Address and Password fields.
 #### MenuScreen
 Container for MenuBox, ProfileButton, Slide1 and Slide2.
 #### MenuBox
-
+Main buttons for navigating to other modules in the application
 #### ProfileButton
-
+Button for navigating to the users profile.
 #### Slide1
-
+Slide with information about the users car, if he/she has registered one.
 #### Slide2
-
+Slide with information about the company the user are connected to.
 #### DamageReportScreen
 Container for DamageReportForm
-
-#### DamageReportForm
-
+#### DamageReportForm \*
+A form with several fields to register damage on the users vehicle. Do also let the user write a comment if there has been any damage on parts of the car.
 #### FuelDayScreen
 Container for FuelDayForm and FuelDayForm.
-
-#### FuelDayForm
+#### FuelDayForm \*
 
 #### FuelSetNotificationScreen
 
@@ -195,7 +191,7 @@ Container for GetCarForm
 #### GetCarForm
 Includes CarForm
 
-#### CarForm
+#### CarForm \*
 
 #### TravelLogScreen
 Container for TravelLogInput
@@ -203,18 +199,23 @@ Container for TravelLogInput
 #### TravelLogInput
 Includes TravelLogPassengerForm, TravelLogCargoForm, GooglePlacesAutocompleteFrom and GooglePlacesAutocompleteTo.
 
-#### TravelLogPassengerForm
+#### TravelLogPassengerForm \*
 
-#### TravelLogCargoForm
+#### TravelLogCargoForm \*
 
-#### GooglePlacesAutocompleteFrom
+#### GooglePlacesAutocompleteFrom \**
 
-#### GooglePlacesAutocompleteTo
+#### GooglePlacesAutocompleteTo \**
+
+
+\* This component are using [tcomb-form-native ](https://github.com/gcanti/tcomb-form-native)
+
+\** This component are using [Google places autocomplete](https://github.com/FaridSafi/react-native-google-places-autocomplete)
 
 
 ### Service classes
 
-This project handles state with [redux](https://redux.js.org/).
+This project handles state with [redux](https://redux.js.org/), you can therefore find all service classes are in BilparkApp/src/actions.
 
 ## React Dashboard Description
 Components, containers, modules and other parts of the React "Dashboard" Application.
