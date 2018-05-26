@@ -139,6 +139,7 @@ Is put together by GetCarScreen, GetCarForm and CarForm which together lets the 
 #### TravelLog
 Is put together by TravelLogScreen, TravelLogInput, TravelLogPassengerForm, TravelLogCargoForm, GooglePlacesAutocompleteFrom and GooglePlacesAutocompleteTo.
 
+---
 ### Components
 
 #### LoginScreen
@@ -206,6 +207,8 @@ Autocompletes input and gives the user alternatives for street names.
 
 \** _This component are using [Google places autocomplete](https://github.com/FaridSafi/react-native-google-places-autocomplete)_
 
+
+---
 
 ### Service classes
 
