@@ -166,47 +166,41 @@ A form with several fields to register damage on the users vehicle. Do also let 
 #### FuelDayScreen
 Container for FuelDayForm and FuelDayForm.
 #### FuelDayForm \*
-
+A form that lets the user set time, day and if it want's a notification.
 #### FuelSetNotificationScreen
-
+A modal to tell the user how much he/she can save by refueling on specific days. Shows over FuelRefillScreen if the user hasn't set notification.
 #### FuelRefillScreen
 Container for FuelRefillList, FuelRefillItem, FuelRefillForm and SettingsButton.
-
 #### FuelRefillList
-
+Maps the users registered refills to a list of FuelRefillItem
 #### FuelRefillItem
-
+A listitem for date, time, price and rate of the refill.
 #### FuelRefillForm
-
+Lets the user tell data, time, how much they payed in total and per liter.  
 #### SettingsButton
-
+Button that navigates to FuelDay.
 #### RegisterCompanyScreen
 Container for CompanyPicker
-
 #### CompanyPicker
-
+Dropdown menu with all the companies in the database. Lets the user choose which it belongs to.
 #### GetCarScreen
 Container for GetCarForm
-
 #### GetCarForm
 Includes CarForm
-
 #### CarForm \*
-
+A form with registration number as field, validates on submit.
 #### TravelLogScreen
 Container for TravelLogInput
-
 #### TravelLogInput
 Includes TravelLogPassengerForm, TravelLogCargoForm, GooglePlacesAutocompleteFrom and GooglePlacesAutocompleteTo.
-
 #### TravelLogPassengerForm \*
-
+A form with field that tells how many that were passengers. Will dynamically load text inputs for each passenger.
 #### TravelLogCargoForm \*
-
+A form with a checkbox for cargo and a comment field.
 #### GooglePlacesAutocompleteFrom \**
-
+Autocompletes input and gives the user alternatives for street names.
 #### GooglePlacesAutocompleteTo \**
-
+Autocompletes input and gives the user alternatives for street names.
 
 \* This component are using [tcomb-form-native ](https://github.com/gcanti/tcomb-form-native)
 
