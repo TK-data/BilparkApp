@@ -202,26 +202,29 @@ Autocompletes input and gives the user alternatives for street names.
 #### GooglePlacesAutocompleteTo \**
 Autocompletes input and gives the user alternatives for street names.
 
-\* This component are using [tcomb-form-native ](https://github.com/gcanti/tcomb-form-native)
+\* _This component are using [tcomb-form-native ](https://github.com/gcanti/tcomb-form-native)_
 
-\** This component are using [Google places autocomplete](https://github.com/FaridSafi/react-native-google-places-autocomplete)
+\** _This component are using [Google places autocomplete](https://github.com/FaridSafi/react-native-google-places-autocomplete)_
 
 
 ### Service classes
 
-This project handles state with [redux](https://redux.js.org/), you can therefore find all service classes are in BilparkApp/src/actions.
+This application handles state with [redux](https://redux.js.org/), you can therefore find all service classes are in BilparkApp/src/actions.
 
 ## React Dashboard Description
 Components, containers, modules and other parts of the React "Dashboard" Application.
 
-### Containers/modules
+### Containers/modules/Components
 
-### Components
-#### comp 1
-Comp 1 description
-#### comp 2
-comp 2 description
+#### Login
+A username and password field that lets the user login on the dashboard.
+
+#### Cars
+Gets all the cars from the database and shows them in a table view.
+
 ### Service classes
+
+This dashboard handles state with [redux](https://redux.js.org/), you can therefore find all service classes are in bpdashboard/src/actions.
 
 ## Database
 We use [MySQL](https://www.mysql.com/) for the database. You can set up your own MySQL database and Sails will create all the tables for you. If you want to use a different database you can read more about adapters here: https://sailsjs.com/documentation/concepts/extending-sails/adapters
