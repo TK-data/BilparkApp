@@ -396,13 +396,107 @@ Logs out the current user
 POST /api/company/save
 ```
 Saves the company on the current user.
-### Blueprint APIs
+### Backend content
 #### Models
-#### Controllers
-#### Policies
-#### Session
-#### Database
+To make logic for our controllers to get different data from specific tables in our database, we defined different models based on the attributes of the different data we would handle.
+* Car
+* Company
+* DamageReport
+* DamageReportItem
+* DrivingLog
+* FuelRefill
+* User
+* Admin
 
+#### Controllers
+* CarController
+  * Provides the save functionality to link a logged in user with a car
+* CompanyController
+  * Provides the save functionality to link a logged in user with a company
+* DamageReportController
+  * Provides saving and various getters for handling damage reports of a user and a car
+* DrivingLogController
+  * Provides saving and various getters for handling driving logs of a user and a car
+* FuelRefillController
+  * Provides saving and various getters for handling fuel refills of a user
+* DSMController
+  * Provides the API to act as a middle man of the frontend applications and the DSM for receiving details about a car.
+* UserController
+  * Provides all the APIs to register and authenticate users
+* AdminController
+    * Providing different API routes and functionality for admins. Authentication included.
+
+#### Policies
+To set restrictions on what API routes can be accessed by different people, we modified the policy configuration in our backend to suit our needs.
+```
+ UserController: {
+    '*': false,
+    create: true,
+    find: 'adminAuth',
+    findOne: 'adminAuth',
+    destroy: 'adminAuth',
+    populate: 'adminAuth',
+    login: true,
+    logout: true,
+    current: true,
+    notification: true,
+  },
+  DSMController: {
+    '*': false,
+    getCar: 'sessionAuth',
+  },
+  FuelRefillController: {
+    '*': false,
+    register: 'sessionAuth',
+    getAll: 'sessionAuth',
+    remove: 'sessionAuth',
+  },
+  CarController: {
+    '*': false,
+    save: 'sessionAuth',
+    find: 'adminAuth',
+    findOne: 'adminAuth',
+    destroy: 'adminAuth',
+    populate: 'adminAuth',
+  },
+  AdminController: {
+    '*': false,
+    create: 'adminAuth',
+    login: true,
+    logout: true,
+  },
+  DrivingLogController: {
+    '*': false,
+    find: 'adminAuth',
+    save: 'sessionAuth',
+    getAll: 'sessionAuth',
+    remove: 'sessionAuth',
+  },
+  DamageReport: {
+    '*': false,
+    register: 'sessionAuth',
+    getall: 'sessionAuth',
+    getCurrent: 'sessionAuth',
+  },
+  DamageReportItem: {
+    '*': false,
+  },
+  CompanyController: {
+    '*': false,
+    find: 'sessionAuth',
+    save: 'sessionAuth',
+  },
+```
+
+You can see how by default every route is set to blocked, then we further specify if an admin, logged in user or anyone can access other routes.
+
+#### Session
+We utilize the built in features of handling and storing sessions by SailsJS.
+
+Further details is documented at [their website](https://sailsjs.com/documentation/concepts/sessions)
+
+#### Database
+For our project we Utilized the [MySQL adapter](https://www.npmjs.com/package/sails-mysql) for translating SailsJS' high level [Waterline Orm](https://sailsjs.com/documentation/concepts/models-and-orm) into mysql queries that would fetch or manipulate data in our database.
 ## Linting
 <img
 src="https://es6.io/images/eslint.png"
