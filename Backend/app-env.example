@@ -1,0 +1,25 @@
+//
+// SET-UP
+// 1. Duplicate this file and remove .example
+// 2. Go to drive and copy the info in app-env and paste the info in the new document
+// 3. In console go to the Backend folder
+// 4. Write source app-env
+// 5. This has to be done every time you change anything in app-env
+//
+// How to add new keys
+// 1. Add new key in app-env by writing:
+// export EXAMPLE_KEY='Example';
+// 2. Follow 3 and 4 in SET-UP ^
+// 3. Go to the file you are working with
+// 4. Import the key by writing this:
+// const EXAMPLE_KEY = process.env.EXAMPLE_KEY;
+// 5. You can now use EXAMPLE_KEY wherever you want :D
+// 6. Remember to update app-env on the drive
+//
+
+export DSM_USER='USERNAME';
+export DSM_KEY='KEY';
+export DB_HOST='HOST_ADDRESS';
+export DB_USER='USER';
+export DB_PASS='PASSWORD';
+export DB_DATA='DB_NAME';
