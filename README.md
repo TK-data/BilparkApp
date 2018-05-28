@@ -61,7 +61,7 @@ sails lift
 ```
 You need to set up the environment variables for the DSM API and the database.
 Duplicate ```app-env.example``` and rename it ```app-env```
-Open up ```app-env``` and edit the variables to the correct values for your DSM account and database (values for database is not needed if you are using local disk adapter).
+Open up ```app-env``` and edit the variables to the correct values for your DSM account and database (variables for database is not needed if you are using local disk adapter).
 
 To add these variables to the enviroment, open up console at the backend folder, and execute ```source app-env```
 
