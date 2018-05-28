@@ -8,9 +8,9 @@ NTNU Course IT2901 (Bachelorproject) repository for group 15 with the task TK_DA
 * [Development Setup](#development-setup)
 * [React Native App Description](#react-native-app-description)
 * [React Dashboard Description](#react-dashboard-description)
-* [Database](#database)
-* [Sails.js Backend](#sailsjs-backend-description)
 * [API Reference](#api-reference)
+* [Sails.js Backend](#sailsjs-backend-description)
+* [Database](#database)
 * [Linting](#linting)
 * [Continous Integration](#continous-integration)
 * [Deployment](#deployment)
@@ -227,8 +227,6 @@ Gets all the cars from the database and shows them in a table view.
 
 This dashboard handles state with [Redux](https://redux.js.org/), you can therefore find all service classes in bpdashboard/src/actions.
 
-## Database
-We use [MySQL](https://www.mysql.com/) for the database. You can set up your own MySQL database and Sails will create all the tables for you. If you want to use a different database you can read more about adapters here: https://sailsjs.com/documentation/concepts/extending-sails/adapters
 
 ## Sailsjs Backend Description
 Our backend is based on [Sails](https://sailsjs.com/), an MVC and API framework that builds upon Express.js for Node.js
@@ -493,8 +491,12 @@ We utilize the built in features of handling and storing sessions by SailsJS.
 
 Further details is documented at [their website](https://sailsjs.com/documentation/concepts/sessions)
 
-#### Database
+
+## Database
 For our project we Utilized the [MySQL adapter](https://www.npmjs.com/package/sails-mysql) for translating SailsJS' high level [Waterline Orm](https://sailsjs.com/documentation/concepts/models-and-orm) into mysql queries that would fetch or manipulate data in our database.
+
+On the master branch it's a [local disk adapter](https://www.npmjs.com/package/sails-disk) that allows you to run the project locally without the need to set up a database.
+
 ## Linting
 <img
 src="https://es6.io/images/eslint.png"
