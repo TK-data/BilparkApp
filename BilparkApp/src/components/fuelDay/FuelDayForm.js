@@ -19,8 +19,11 @@ class FuelDayForm extends Component {
   }
   componentDidUpdate() {
     this.stopDelayedNotification();
-    if (this.props.user.FuelNotification === true) {
-      this.sendDelayedNotification();
+    if (this.props.user) {
+      const user = JSON.parse(this.props.user);
+      if (user.FuelNotification === true) {
+        this.sendDelayedNotification();
+      }
     }
   }
 
@@ -30,37 +33,41 @@ class FuelDayForm extends Component {
   };
 
   sendDelayedNotification = () => {
-    const localNotification = {
-      title: 'Fyll bensin!',
-      body: 'Det er billigst i dag - husk å fylle',
-      data: { type: 'delayed' },
-    };
-    const dayToSet = this.props.user.FuelDay;
-    const date = new Date();
-    const notificationHour = this.props.user.FuelTime.substring(0, this.props.user.FuelTime.indexOf('-'));
-    const notificationMinute = this.props.user.FuelTime.substring(this.props.user.FuelTime.indexOf('-') + 1, this.props.user.FuelTime.length);
+    if (this.props.user) {
+      const user = JSON.parse(this.props.user);
+
+      const localNotification = {
+        title: 'Fyll bensin!',
+        body: 'Det er billigst i dag - husk å fylle',
+        data: { type: 'delayed' },
+      };
+      const dayToSet = user.FuelDay;
+      const date = new Date();
+      const notificationHour = user.FuelTime.substring(0, user.FuelTime.indexOf('-'));
+      const notificationMinute = user.FuelTime.substring(user.FuelTime.indexOf('-') + 1, user.FuelTime.length);
 
 
-    let currentDay = date.getDay();
-    if (currentDay === 0) {
-      currentDay = 6;
-    } else {
-      currentDay -= 1;
-    }
-    let distance = ((dayToSet + 7) - currentDay) % 7;
-    if (currentDay === dayToSet) {
-      if (notificationHour + ':' + notificationMinute + ':00' < date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()) {
-        distance = 7;
+      let currentDay = date.getDay();
+      if (currentDay === 0) {
+        currentDay = 6;
+      } else {
+        currentDay -= 1;
       }
-    }
-    date.setDate(date.getDate() + distance);
-    date.setHours(parseInt(notificationHour, 10), parseInt(notificationMinute, 10), 0, 0);
-    const schedulingOptions = {
-      time: date,
-      repeat: 'week',
-    };
+      let distance = ((dayToSet + 7) - currentDay) % 7;
+      if (currentDay === dayToSet) {
+        if (notificationHour + ':' + notificationMinute + ':00' < date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()) {
+          distance = 7;
+        }
+      }
+      date.setDate(date.getDate() + distance);
+      date.setHours(parseInt(notificationHour, 10), parseInt(notificationMinute, 10), 0, 0);
+      const schedulingOptions = {
+        time: date,
+        repeat: 'week',
+      };
 
-    Notifications.scheduleLocalNotificationAsync(localNotification, schedulingOptions);
+      Notifications.scheduleLocalNotificationAsync(localNotification, schedulingOptions);
+    }
   };
 
   stopDelayedNotification = () => {
@@ -68,7 +75,13 @@ class FuelDayForm extends Component {
   };
 
   render() {
-    const { hideModal, showModal, isShowing, user } = this.props;
+    const { hideModal, showModal, isShowing } = this.props;
+    let user = {};
+    if (typeof this.props.user === 'string') {
+      user = JSON.parse(this.props.user);
+    } else {
+      user = this.props.user;
+    }
     const Days = t.enums({
       0: 'Mandag',
       1: 'Tirsdag',

@@ -1,0 +1,301 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing LoginStatusMessage Renders as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <LoginStatusMessage
+    dispatch={[Function]}
+    isLoggedIn={true}
+    user="{\\"UserID\\":111,\\"Email\\":\\"awkdnawpidn@aiwfaf.no\\",\\"CompanyID\\":7,\\"CarID\\":82,\\"Address\\":\\"Oiabfoaiwbf\\",\\"Fname\\":\\"Obafiobafiob\\",\\"Lname\\":\\"Oabfoaib\\",\\"FuelDay\\":0,\\"FuelTime\\":\\"12-00\\",\\"FuelNotification\\":false,\\"createdAt\\":\\"2018-05-20T11:30:10.000Z\\",\\"updatedAt\\":\\"2018-05-20T11:30:21.000Z\\"}"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "fontSize": 20,
+              "margin": 10,
+              "textAlign": "center",
+            }
+          }
+        >
+          Du er logget inn som!
+        </Text>,
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={undefined}
+        />,
+        <Button
+          onPress={[Function]}
+          title="Profil"
+        />,
+        <Button
+          onPress={[Function]}
+          title="Register bil"
+        />,
+        <Button
+          onPress={[Function]}
+          title="Planlegging av tanking"
+        />,
+        <Button
+          onPress={[Function]}
+          title="Meny"
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "accessible": true,
+          "allowFontScaling": true,
+          "children": "Du er logget inn som!",
+          "ellipsizeMode": "tail",
+          "style": Object {
+            "fontSize": 20,
+            "margin": 10,
+            "textAlign": "center",
+          },
+        },
+        "ref": null,
+        "rendered": "Du er logget inn som!",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "accessible": true,
+          "allowFontScaling": true,
+          "children": undefined,
+          "ellipsizeMode": "tail",
+          "style": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "onPress": [Function],
+          "title": "Profil",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "onPress": [Function],
+          "title": "Register bil",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "onPress": [Function],
+          "title": "Planlegging av tanking",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "onPress": [Function],
+          "title": "Meny",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontSize": 20,
+                "margin": 10,
+                "textAlign": "center",
+              }
+            }
+          >
+            Du er logget inn som!
+          </Text>,
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={undefined}
+          />,
+          <Button
+            onPress={[Function]}
+            title="Profil"
+          />,
+          <Button
+            onPress={[Function]}
+            title="Register bil"
+          />,
+          <Button
+            onPress={[Function]}
+            title="Planlegging av tanking"
+          />,
+          <Button
+            onPress={[Function]}
+            title="Meny"
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "accessible": true,
+            "allowFontScaling": true,
+            "children": "Du er logget inn som!",
+            "ellipsizeMode": "tail",
+            "style": Object {
+              "fontSize": 20,
+              "margin": 10,
+              "textAlign": "center",
+            },
+          },
+          "ref": null,
+          "rendered": "Du er logget inn som!",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "accessible": true,
+            "allowFontScaling": true,
+            "children": undefined,
+            "ellipsizeMode": "tail",
+            "style": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "onPress": [Function],
+            "title": "Profil",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "onPress": [Function],
+            "title": "Register bil",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "onPress": [Function],
+            "title": "Planlegging av tanking",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "onPress": [Function],
+            "title": "Meny",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+    "context": Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+    },
+  },
+}
+`;

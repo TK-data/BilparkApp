@@ -1,5 +1,6 @@
 import { GET_CAR_FAILURE, GET_CAR_REQUEST, GET_CAR_SUCCESS, GET_CAR_DECLINE,
   GET_CAR_ACCEPT, GET_CAR_SAVE_FAILURE, GET_CAR_FORM_VALUE } from '../actions/registerCar';
+import { RESET_GET_CAR } from '../actions/auth';
 
 export const initialState = {
   hasErrored: '',
@@ -48,6 +49,13 @@ export function carFetch(state = initialState, action) {
   case GET_CAR_SAVE_FAILURE:
     return {
       hasErrored: action.hasErrored,
+      isLoading: false,
+      car: '',
+      isAccepted: false,
+    };
+  case RESET_GET_CAR:
+    return {
+      hasErrored: '',
       isLoading: false,
       car: '',
       isAccepted: false,

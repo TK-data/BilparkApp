@@ -6,7 +6,11 @@ import thunk from 'redux-thunk';
 import FuelRefillScreen from '../../../components/fuelRefill/FuelRefillScreen';
 
 const initialState = {
+  auth: {
+    user: JSON.stringify({ FuelNotification: true }),
+  },
 };
+
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);

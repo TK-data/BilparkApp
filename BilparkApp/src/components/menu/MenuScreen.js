@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Dimensions, Text } from 'react-native';
+import { View, StyleSheet, Dimensions, Text, Image } from 'react-native';
 import Swiper from 'react-native-swiper';
 import { Body } from 'native-base';
 import ProfileButton from './ProfileButton';
 import MenuBox from './MenuBox';
+import Slide1 from './Slide1';
+import Slide2 from './Slide2';
 
 const images = [
   {
@@ -13,13 +15,13 @@ const images = [
   },
   {
     image: require('../../images/menuIcons/clipboard.png'),
-    routeName: 'Profile',
-    pageName: 'Placeholder',
+    routeName: 'TravelLog',
+    pageName: 'Kjørebok',
   },
   {
     image: require('../../images/menuIcons/car_repair.png'),
-    routeName: 'RegisterCar',
-    pageName: 'Din bil',
+    routeName: 'DamageReport',
+    pageName: 'Skade',
   },
   {
     image: require('../../images/menuIcons/trophy.png'),
@@ -28,7 +30,7 @@ const images = [
   },
   {
     image: require('../../images/menuIcons/team_people.png'),
-    routeName: 'Profile',
+    routeName: 'RegisterCompany',
     pageName: 'Placeholder',
 
   },
@@ -66,12 +68,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: window.height / 20,
   },
-  slide1: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgb(000, 039, 118)',
-  },
   slide2: {
     flex: 1,
     justifyContent: 'center',
@@ -83,6 +79,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgb(000, 039, 118)',
+  },
+  image: {
+    width: window.width / 1.7,
   },
 });
 
@@ -100,14 +99,10 @@ class MenuScreen extends Component {
       <View style={styles.menuContainer}>
         <View style={styles.infoGraphics}>
           <Swiper style={styles.wrapper} dotColor="lightgrey" activeDotColor="white">
-            <View style={styles.slide1}>
-              <Text style={styles.buzzWord}>Test 1</Text>
-            </View>
-            <View style={styles.slide2}>
-              <Text style={styles.buzzWord}>Test 2</Text>
-            </View>
+            <Slide1 />
+            <Slide2 />
             <View style={styles.slide3}>
-              <Text style={styles.buzzWord}>Test 3</Text>
+              <Image resizeMode="contain" style={styles.image} source={require('../../images/graph.png')} />
             </View>
           </Swiper>
         </View>

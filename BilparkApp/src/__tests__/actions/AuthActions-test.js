@@ -34,7 +34,7 @@ describe('actions', () => {
   });
 
   it('should create the correct action when calling postUserSuccess', () => {
-    const data = {
+    const userData = {
       Email: 'aaaa@a.com',
       Fname: 'er',
       Lname: 'ling',
@@ -43,11 +43,17 @@ describe('actions', () => {
       UserID: 4,
       FuelDay: 5,
     };
+    const carData = {
+      CarID: 123,
+    };
+
+    const data = { user: userData, car: carData };
 
     const expectedAction = {
-      type: 'POST_USER_SUCCESS',
       isLoggedIn: true,
-      user: data,
+      user: userData,
+      car: carData,
+      type: 'POST_USER_SUCCESS',
     };
 
     expect(postUserSuccess(data)).toEqual(expectedAction);
@@ -112,13 +118,22 @@ describe('async actions', () => {
     axiosMock = new MockAdapter(axios);
   });
   const mockResponseUser = {
-    Email: 'aaaa@a.com',
-    Fname: 'er',
-    Lname: 'ling',
-    Address: 'krok 80',
-    FuelNotification: true,
-    UserID: 4,
-    FuelDay: 5,
+    user: {
+      Email: 'aaaa@a.com',
+      Fname: 'er',
+      Lname: 'ling',
+      Address: 'krok 80',
+      FuelNotification: true,
+      UserID: 4,
+      FuelDay: 5,
+    },
+    car: {
+      CarID: 123,
+    },
+    company: {
+      CompanyID: 3,
+      CompanyName: 'Sparebank 1',
+    },
   };
   // first test, checks the actions added after running a successfull postUser
   it('should set the correct actions when calling the async login function', () => {
@@ -143,7 +158,9 @@ describe('async actions', () => {
       {
         type: 'POST_USER_SUCCESS',
         isLoggedIn: true,
-        user: mockResponseUser,
+        user: mockResponseUser.user,
+        car: mockResponseUser.car,
+        company: mockResponseUser.company,
       },
       {
         type: 'REGISTER_USER_VALUES',
@@ -155,7 +172,7 @@ describe('async actions', () => {
         type: 'LOGIN_RESET_FORM_OPTIONS',
       },
       {
-        type: 'LOGIN_SUCCESS',
+        type: 'ROUTE_COMPANY_SCREEN',
       },
     ];
 
@@ -191,10 +208,9 @@ describe('async actions', () => {
       {
         type: 'POST_USER_SUCCESS',
         isLoggedIn: true,
-        user: mockResponseUser,
-      },
-      {
-        type: 'LOGIN_SUCCESS',
+        user: mockResponseUser.user,
+        car: mockResponseUser.car,
+        company: mockResponseUser.company,
       },
     ];
 
@@ -222,13 +238,16 @@ describe('async actions', () => {
         isLoggedIn: false,
       },
       {
+        type: 'LOGOUT_SUCCESS',
+        isLoggedIn: !true,
+      },
+      {
         type: 'POST_USER_REQUEST',
         isLoading: false,
         isLoggedIn: false,
       },
       {
-        type: 'LOGOUT_SUCCESS',
-        isLoggedIn: !true,
+        type: 'USER_LOGOUT',
       },
     ];
 

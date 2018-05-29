@@ -40,7 +40,7 @@ export function postFuelDayLoading(bool) {
 }
 export function postFuelDaySuccess(user) {
   return {
-    type: 'POST_USER_SUCCESS',
+    type: 'UPDATE_USER',
     isLoggedIn: true,
     user,
   };

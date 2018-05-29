@@ -1,0 +1,191 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Slide2 Renders as expected 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Slide2
+    company={undefined}
+    localCompany=""
+    user="{\\"UserID\\":111,\\"Email\\":\\"awkdnawpidn@aiwfaf.no\\",\\"CompanyID\\":7,\\"CarID\\":82,\\"Address\\":\\"Oiabfoaiwbf\\",\\"Fname\\":\\"Obafiobafiob\\",\\"Lname\\":\\"Oabfoaib\\",\\"FuelDay\\":0,\\"FuelTime\\":\\"12-00\\",\\"FuelNotification\\":false,\\"createdAt\\":\\"2018-05-20T11:30:10.000Z\\",\\"updatedAt\\":\\"2018-05-20T11:30:21.000Z\\"}"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <Styled(Text)
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "marginBottom": "5%",
+            }
+          }
+          virtual={undefined}
+        >
+          Du tilhører
+        </Styled(Text)>,
+        <Styled(Text)
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 16,
+            }
+          }
+          virtual={undefined}
+        />,
+      ],
+      "style": Object {
+        "alignItems": "center",
+        "backgroundColor": "rgb(000, 039, 118)",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+      "virtual": undefined,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "Du tilhører",
+          "style": Object {
+            "color": "white",
+            "fontSize": 30,
+            "fontWeight": "bold",
+            "marginBottom": "5%",
+          },
+          "virtual": undefined,
+        },
+        "ref": null,
+        "rendered": "Du tilhører",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": undefined,
+          "style": Object {
+            "color": "white",
+            "fontSize": 16,
+          },
+          "virtual": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <Styled(Text)
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 30,
+                "fontWeight": "bold",
+                "marginBottom": "5%",
+              }
+            }
+            virtual={undefined}
+          >
+            Du tilhører
+          </Styled(Text)>,
+          <Styled(Text)
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 16,
+              }
+            }
+            virtual={undefined}
+          />,
+        ],
+        "style": Object {
+          "alignItems": "center",
+          "backgroundColor": "rgb(000, 039, 118)",
+          "flex": 1,
+          "justifyContent": "center",
+        },
+        "virtual": undefined,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Du tilhører",
+            "style": Object {
+              "color": "white",
+              "fontSize": 30,
+              "fontWeight": "bold",
+              "marginBottom": "5%",
+            },
+            "virtual": undefined,
+          },
+          "ref": null,
+          "rendered": "Du tilhører",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": undefined,
+            "style": Object {
+              "color": "white",
+              "fontSize": 16,
+            },
+            "virtual": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+    "context": Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+    },
+  },
+}
+`;

@@ -11,6 +11,8 @@ export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGIN_MAIL = 'LOGIN_MAIL';
 export const LOGIN_ERROR_FORM_OPTIONS = 'LOGIN_ERROR_FORM_OPTIONS';
 export const LOGIN_RESET_FORM_OPTIONS = 'LOGIN_RESET_FORM_OPTIONS';
+export const RESET_GET_CAR = 'RESET_GET_CAR';
+export const USER_LOGOUT = 'USER_LOGOUT';
 
 export function postUserFailure(bool) {
   return {
@@ -26,11 +28,13 @@ export function postUserLoading(bool) {
     isLoggedIn: false,
   };
 }
-export function postUserSuccess(user) {
+export function postUserSuccess(object) {
   return {
     type: 'POST_USER_SUCCESS',
     isLoggedIn: true,
-    user,
+    user: object.user,
+    car: object.car,
+    company: object.company,
   };
 }
 
@@ -66,6 +70,24 @@ export function loginResetFormOptions() {
   };
 }
 
+export function resetGetCar() {
+  return {
+    type: RESET_GET_CAR,
+  };
+}
+
+export function logoutLocal() {
+  return {
+    type: USER_LOGOUT,
+  };
+}
+
+export function routeToCompanyScreen() {
+  return {
+    type: 'ROUTE_COMPANY_SCREEN',
+  };
+}
+
 export function postUser(username, password) {
   return (dispatch) => {
     dispatch(postUserLoading(true));
@@ -77,12 +99,16 @@ export function postUser(username, password) {
         dispatch(postUserLoading(false));
         return response.data;
       })
-      .then((user) => {
-        dispatch(postUserSuccess(user));
+      .then((object) => {
+        dispatch(postUserSuccess(object));
         dispatch(registerUserValues({}));
         dispatch(loginMail({}));
         dispatch(loginResetFormOptions());
-        dispatch(loginSuccess());
+        if (object.user.CompanyID) {
+          dispatch(loginSuccess());
+        } else {
+          dispatch(routeToCompanyScreen());
+        }
       })
       .catch(() => {
         dispatch(postUserFailure(true));
@@ -107,9 +133,13 @@ export function postCurrent() {
         dispatch(postUserLoading(false));
         return response.data;
       })
-      .then((user) => {
-        dispatch(postUserSuccess(user));
-        dispatch(loginSuccess());
+      .then((object) => {
+        dispatch(postUserSuccess(object));
+        if (object.user.CompanyID) {
+          dispatch(loginSuccess());
+        } else {
+          // dispatch(routeToCompanyScreen());
+        }
       })
       .catch(() => {
         dispatch(postUserFailure(true));
@@ -122,8 +152,10 @@ export function logout() {
     dispatch(postUserLoading(true));
     return axios.get(API_ADDRESS + '/api/user/logout')
       .then(() => {
-        dispatch(postUserLoading(false));
         dispatch(logoutSuccess(true));
+        dispatch(postUserLoading(false));
+        //dispatch(resetGetCar());
+        dispatch(logoutLocal());
       })
       .catch(() => dispatch(logoutSuccess(false)));
   };

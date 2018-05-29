@@ -1,14 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, View } from 'react-native';
+import { View } from 'react-native';
+import { Button, Icon, Text } from 'native-base';
+
 import { logout } from '../actions/auth';
 
 const LogoutButton = ({ logoutUser }) => (
   <View>
     <Button
-      title="Logg ut"
+      iconRight
+      danger
       onPress={logoutUser}
-    />
+    >
+      <Text>Logg ut</Text>
+      <Icon name="log-out" />
+    </Button>
   </View>
 );
 
