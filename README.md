@@ -55,6 +55,17 @@ To install the application, navigate to the backend folder and install dependenc
 cd Backend
 npm install
 ```
+
+Populating your DB with example data.
+
+Example admin user is admin@admin.com, adminsen
+```
+sails console
+sails.services.userdataservice.createExampleCompanies()
+sails.services.userdataservice.createExampleAdmin()
+.exit
+```
+
 To locally run the backend on your machine serve it with:
 ```
 sails lift
